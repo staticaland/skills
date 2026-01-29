@@ -13,6 +13,12 @@
       "source": "./writing-tools",
       "description": "Tools for revising and improving written communication",
       "version": "0.1.0"
+    },
+    {
+      "name": "learning-tools",
+      "source": "./learning-tools",
+      "description": "Tools for creating study materials and enhancing learning",
+      "version": "0.1.0"
     }
   ]
 }
