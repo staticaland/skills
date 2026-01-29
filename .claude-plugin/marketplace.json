@@ -1,0 +1,18 @@
+{
+  "name": "staticaland-skills",
+  "owner": {
+    "name": "staticaland"
+  },
+  "metadata": {
+    "description": "A collection of skills and tools for Claude Code",
+    "pluginRoot": "./"
+  },
+  "plugins": [
+    {
+      "name": "writing-tools",
+      "source": "./writing-tools",
+      "description": "Tools for revising and improving written communication",
+      "version": "0.1.0"
+    }
+  ]
+}
