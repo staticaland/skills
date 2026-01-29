@@ -4,8 +4,8 @@ Skills for Claude Code.
 
 ## Install
 
-```bash
-claude mcp add-from-claude-plugin staticaland-skills https://github.com/staticaland/skills
+```
+/plugin marketplace add staticaland/skills
 ```
 
 ## Skills
