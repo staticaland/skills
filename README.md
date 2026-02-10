@@ -13,6 +13,7 @@ Skills for Claude Code.
 | Skill                | What it does                                             |
 | -------------------- | -------------------------------------------------------- |
 | **writing-revision** | Revises text to be clear, scannable, and action-oriented |
+| **pinact-hook**      | Pins GitHub Actions to commit SHAs via a PostToolUse hook |
 
 ## Development
 

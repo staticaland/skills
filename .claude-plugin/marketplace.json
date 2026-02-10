@@ -19,6 +19,12 @@
       "source": "./learning-tools",
       "description": "Tools for creating study materials and enhancing learning",
       "version": "0.1.0"
+    },
+    {
+      "name": "devops-tools",
+      "source": "./devops-tools",
+      "description": "Tools for securing and automating CI/CD workflows",
+      "version": "0.1.0"
     }
   ]
 }
