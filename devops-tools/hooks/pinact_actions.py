@@ -8,7 +8,8 @@ import sys
 
 
 def main():
-    tool_input = json.loads(os.environ.get("CLAUDE_TOOL_INPUT", "{}"))
+    hook_input = json.loads(sys.stdin.read())
+    tool_input = hook_input.get("tool_input", {})
     file_path = tool_input.get("file_path", "")
 
     if not file_path:
