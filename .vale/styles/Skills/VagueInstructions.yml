@@ -1,0 +1,18 @@
+extends: existence
+message: "Avoid vague instruction '%s'. Be specific about what to do."
+level: warning
+tokens:
+  - try to
+  - attempt to
+  - if possible
+  - when appropriate
+  - as needed
+  - where applicable
+  - do something
+  - handle it
+  - take care of
+  - deal with
+  - as you see fit
+  - use your judgment
+  - use your best judgment
+  - as appropriate

@@ -1,0 +1,23 @@
+extends: existence
+message: "Avoid filler word '%s'. Be direct and concise."
+level: warning
+tokens:
+  - just
+  - really
+  - very
+  - basically
+  - actually
+  - simply
+  - quite
+  - rather
+  - fairly
+  - pretty much
+  - a bit
+  - a little
+  - kind of
+  - sort of
+  - in order to
+  - as a matter of fact
+  - at the end of the day
+  - for what it's worth
+  - needless to say

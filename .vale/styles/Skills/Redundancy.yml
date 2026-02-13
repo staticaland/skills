@@ -1,0 +1,29 @@
+extends: substitution
+message: "Replace redundant phrase '%s' with '%s'."
+level: warning
+swap:
+  in the event that: if
+  due to the fact that: because
+  in spite of the fact that: although
+  for the purpose of: to
+  with the exception of: except
+  in the process of: while
+  on a daily basis: daily
+  at this point in time: now
+  prior to: before
+  subsequent to: after
+  in regard to: about
+  with respect to: about
+  in relation to: about
+  pertaining to: about
+  in close proximity to: near
+  has the ability to: can
+  is able to: can
+  whether or not: whether
+  completely eliminate: eliminate
+  end result: result
+  final outcome: outcome
+  future plans: plans
+  past history: history
+  each and every: each
+  first and foremost: first
