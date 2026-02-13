@@ -1,0 +1,16 @@
+extends: substitution
+message: "Consider replacing '%s' with a more specific verb like '%s'."
+level: suggestion
+swap:
+  make sure: verify
+  make changes: edit
+  do a check: verify
+  get the output: capture the output
+  put it in: insert into
+  get rid of: remove
+  go ahead and: ""
+  go through: review
+  come up with: generate
+  figure out: determine
+  look at: examine
+  look into: investigate

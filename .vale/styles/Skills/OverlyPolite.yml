@@ -1,0 +1,14 @@
+extends: existence
+message: "Avoid overly polite phrasing '%s' in instructions. Be direct."
+level: suggestion
+tokens:
+  - please note that
+  - please be aware
+  - kindly
+  - if you don't mind
+  - would you mind
+  - I would appreciate
+  - it would be great if
+  - it would be nice if
+  - I was wondering if
+  - feel free to

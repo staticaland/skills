@@ -1,0 +1,20 @@
+extends: existence
+message: "Avoid passive instruction '%s'. Use active, imperative voice."
+level: warning
+tokens:
+  - should be done
+  - should be made
+  - should be created
+  - should be used
+  - should be applied
+  - needs to be
+  - has to be
+  - ought to be
+  - is expected to
+  - is supposed to
+  - can be done
+  - could be done
+  - would be done
+  - it is recommended
+  - it is suggested
+  - it is advised

@@ -1,0 +1,21 @@
+extends: existence
+message: "Avoid weasel word '%s'. Use precise quantities or remove."
+level: suggestion
+tokens:
+  - some things
+  - various things
+  - a number of
+  - a lot of
+  - several things
+  - many things
+  - most things
+  - numerous
+  - countless
+  - a variety of
+  - a range of
+  - and so on
+  - and so forth
+  - etc\.
+  - and more
+  - and others
+  - stuff like that

@@ -1,0 +1,18 @@
+extends: existence
+message: "Avoid hedge word '%s'. State instructions with confidence."
+level: warning
+tokens:
+  - maybe
+  - perhaps
+  - might want to
+  - could potentially
+  - it seems like
+  - it appears that
+  - it would seem
+  - possibly
+  - conceivably
+  - if you want
+  - if you like
+  - you may want to
+  - you might consider
+  - it might be worth
