@@ -25,6 +25,12 @@
       "source": "./devops-tools",
       "description": "Tools for securing and automating CI/CD workflows",
       "version": "0.1.0"
+    },
+    {
+      "name": "plugin-dev",
+      "source": "./plugin-dev",
+      "description": "A comprehensive toolkit for developing Claude Code plugins with expert guidance on hooks, MCP integration, plugin structure, and marketplace publishing",
+      "version": "0.1.0"
     }
   ]
 }
