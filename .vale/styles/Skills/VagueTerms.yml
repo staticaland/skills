@@ -1,0 +1,21 @@
+extends: existence
+message: "Avoid vague term '%s'. Define what it means concretely."
+level: warning
+tokens:
+  - appropriate
+  - professional
+  - good
+  - bad
+  - nice
+  - proper
+  - suitable
+  - reasonable
+  - adequate
+  - acceptable
+  - correct
+  - optimal
+  - ideal
+  - meaningful
+  - significant
+  - efficient
+  - effective
