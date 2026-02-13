@@ -1,0 +1,25 @@
+extends: existence
+message: "Avoid positional reference '%s'. Content may shift in context; be explicit."
+level: warning
+tokens:
+  - mentioned above
+  - described above
+  - shown above
+  - listed above
+  - given above
+  - mentioned below
+  - described below
+  - shown below
+  - listed below
+  - given below
+  - mentioned earlier
+  - described earlier
+  - see above
+  - see below
+  - as mentioned
+  - as described
+  - as stated
+  - the above format
+  - the above example
+  - the below example
+  - the following format
