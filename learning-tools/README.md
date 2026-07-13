@@ -1,6 +1,6 @@
 # learning-tools
 
-Tools for creating study materials and enhancing learning.
+Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles.
 
 ## Skills
 

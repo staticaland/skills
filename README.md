@@ -17,20 +17,20 @@ Add the marketplace, then install individual plugins:
 
 ### [writing-tools](./writing-tools/README.md)
 
-Tools for revising and improving written communication.
+Revise prose for clarity and busy readers, with automatic Vale linting of Markdown files on every edit.
 
 - **[writing-revision](./writing-tools/skills/writing-revision/SKILL.md)** (skill) — Revises text to be clear, scannable, and action-oriented for busy readers.
 - **Vale lint** (hook) — Runs [Vale](https://vale.sh/) on Markdown files after Claude writes or edits them. Requires the `vale` CLI.
 
 ### [learning-tools](./learning-tools/README.md)
 
-Tools for creating study materials and enhancing learning.
+Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles.
 
 - **[anki-flashcards](./learning-tools/skills/anki-flashcards/SKILL.md)** (skill) — Creates effective Anki flashcards from text, documents, or images for spaced repetition learning.
 
 ### [devops-tools](./devops-tools/README.md)
 
-Tools for securing and automating CI/CD workflows.
+Pin GitHub Actions to commit SHAs automatically on workflow edits, and analyze skills to split scriptable work from judgment work.
 
 - **[skill-analyzer](./devops-tools/skills/skill-analyzer/SKILL.md)** (skill) — Splits a skill into scriptable and judgment work: classifies each step as deterministic or LLM, proposes a script interface and a simplified SKILL.md.
 - **pinact** (hook) — Pins GitHub Actions references to full commit SHAs with [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes or edits workflow files. Requires the `pinact` CLI.

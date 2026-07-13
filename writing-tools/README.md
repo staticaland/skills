@@ -1,6 +1,6 @@
 # writing-tools
 
-Tools for revising and improving written communication.
+Revise prose for clarity and busy readers, with automatic Vale linting of Markdown files on every edit.
 
 ## Skills
 

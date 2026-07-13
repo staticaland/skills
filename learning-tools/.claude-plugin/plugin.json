@@ -1,5 +1,5 @@
 {
   "name": "learning-tools",
-  "version": "0.2.0",
-  "description": "Tools for creating study materials and enhancing learning"
+  "version": "0.2.1",
+  "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles"
 }

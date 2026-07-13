@@ -1,6 +1,6 @@
 # devops-tools
 
-Tools for securing and automating CI/CD workflows.
+Pin GitHub Actions to commit SHAs automatically on workflow edits, and analyze skills to split scriptable work from judgment work.
 
 ## Skills
 
