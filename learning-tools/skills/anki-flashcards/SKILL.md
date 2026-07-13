@@ -28,7 +28,7 @@ Every card must pass all five. A card that fails one gets rewritten or dropped.
 
 2. **Classify each piece** as factual (facts, definitions, terminology — simple Q&A), conceptual (relationships, causes, mental models), or procedural (steps and processes — one card per step, plus "what comes next" prompts). For conceptual knowledge, generate cards through the four lenses: attributes & tendencies, similarities & differences, causes & effects, significance & implications.
 
-3. **Encode from multiple angles.** A load-bearing fact becomes several cards that approach it differently — forward, backward, and from its context (e.g., organelle→process, process→organelle, process→product). For lists, create fill-in-the-missing-element prompts with consistent order, and break large lists into meaningful subcategories.
+3. **Encode from multiple angles.** A load-bearing fact becomes several cards that approach it differently — forward, backward, and from its context (e.g., organelle→process, process→organelle, process→product). For lists, create fill-in-the-missing-element prompts with consistent order, and break large lists into named subcategories of 3–5 items.
 
 4. **Choose the card type.** Basic Q&A is the default and wins whenever understanding matters. Reversed pairs (two cards) for vocabulary and bidirectional facts. Cloze for definitions, sequences, and high-volume card creation.
 
