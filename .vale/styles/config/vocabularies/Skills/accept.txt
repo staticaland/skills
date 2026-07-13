@@ -1,0 +1,17 @@
+Anki
+anki-flashcards
+Cloze
+Matuschak
+Staticaland
+frontmatter
+formatters
+invocable
+LLM
+monospace
+pinact
+[Rr]epo
+scannability
+scriptable
+SHAs
+stdout
+synergize
