@@ -36,7 +36,7 @@ Done when every inventoried step has a category and a rationale.
 
 ### 3. Propose the script
 
-Collect the `SCRIPT` steps into one shell or Python script, full source in a fenced block with a usage comment header. The script takes explicit inputs (paths, flags), produces deterministic outputs (files, stdout, exit codes), fails loudly on bad input, and is invocable from a single SKILL.md instruction like "Run `./scripts/prepare.sh <input>`".
+Collect the `SCRIPT` steps into one shell or Python script, full source in a fenced block with a usage comment header. The script takes explicit inputs (paths, flags), produces deterministic outputs (files, stdout, exit codes), fails loudly on invalid input, and is invocable from a single SKILL.md instruction like "Run `./scripts/prepare.sh <input>`".
 
 ### 4. Propose the simplified SKILL.md
 

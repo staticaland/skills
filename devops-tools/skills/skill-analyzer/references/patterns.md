@@ -6,27 +6,27 @@ Given a skill that revises text for clarity and conciseness:
 
 ### Step 1: Inventory
 
-| # | Step |
-|---|------|
-| 1 | Read the original text completely |
-| 2 | Identify the core message and any asks |
-| 3 | Restructure to lead with the point |
-| 4 | Cut filler words and redundancy |
-| 5 | Format for scannability (bullets, bold, headers) |
-| 6 | Verify next steps are explicit (if applicable) |
-| 7 | Output the revised text directly |
+| #   | Step                                             |
+| --- | ------------------------------------------------ |
+| 1   | Read the original text completely                |
+| 2   | Identify the core message and any asks           |
+| 3   | Restructure to lead with the point               |
+| 4   | Cut filler words and redundancy                  |
+| 5   | Format for scannability (bullets, bold, headers) |
+| 6   | Verify next steps are explicit (if applicable)   |
+| 7   | Output the revised text directly                 |
 
 ### Step 2: Classification
 
-| # | Step | Category | Rationale |
-|---|------|----------|-----------|
-| 1 | Read the original text completely | SCRIPT | File I/O with a known path, no interpretation needed |
-| 2 | Identify the core message and any asks | LLM | Requires comprehension of meaning and intent |
-| 3 | Restructure to lead with the point | LLM | Deciding what "the point" is requires understanding |
-| 4 | Cut filler words and redundancy | LLM | While some filler words are mechanical (regex for "just", "basically"), deciding what is redundant requires judgment |
-| 5 | Format for scannability | LLM | Choosing where to break text into lists or add headers requires understanding the content structure |
-| 6 | Verify next steps are explicit | LLM | Judging whether next steps are clear enough requires understanding of the context |
-| 7 | Output the revised text directly | SCRIPT | Writing output to a file or stdout is mechanical |
+| #   | Step                                   | Category | Rationale                                                                                                            |
+| --- | -------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
+| 1   | Read the original text completely      | SCRIPT   | File I/O with a known path, no interpretation needed                                                                 |
+| 2   | Identify the core message and any asks | LLM      | Requires comprehension of meaning and intent                                                                         |
+| 3   | Restructure to lead with the point     | LLM      | Deciding what "the point" is requires understanding                                                                  |
+| 4   | Cut filler words and redundancy        | LLM      | While some filler words are mechanical (regex for "just", "basically"), deciding what is redundant requires judgment |
+| 5   | Format for scannability                | LLM      | Choosing where to break text into lists or add headers requires understanding the content structure                  |
+| 6   | Verify next steps are explicit         | LLM      | Judging whether next steps are clear enough requires understanding of the context                                    |
+| 7   | Output the revised text directly       | SCRIPT   | Writing output to a file or stdout is mechanical                                                                     |
 
 ### Step 3: Proposed Script
 
@@ -54,7 +54,7 @@ cat "$INPUT_FILE"
 - **Total steps:** 7
 - **SCRIPT:** 2 (29%)
 - **LLM:** 5 (71%)
-- **Verdict:** This skill is heavily LLM-dependent. The core value is in comprehension and rewriting, which cannot be scripted. The only scriptable parts are file I/O, which are trivial. Extracting scripts here adds complexity without meaningful benefit.
+- **Verdict:** This skill is heavily LLM-dependent. The core value is in comprehension and rewriting, which cannot be scripted. The only scriptable parts are file I/O, which are trivial. Extracting scripts here adds complexity without reducing the LLM's workload.
 
 ---
 
@@ -64,31 +64,31 @@ Given a skill that generates release notes from git history:
 
 ### Step 1: Inventory
 
-| # | Step |
-|---|------|
-| 1 | Determine the version range (previous tag to HEAD) |
-| 2 | Collect git log between the two versions |
-| 3 | Group commits by type (feat, fix, chore, etc.) based on conventional commits |
-| 4 | Filter out chore/ci commits that don't affect users |
-| 5 | Resolve PR numbers and link to the repository |
-| 6 | Write a human-readable summary of the release |
-| 7 | Highlight breaking changes with migration guidance |
-| 8 | Format the output as a markdown changelog entry |
-| 9 | Write the changelog to CHANGELOG.md |
+| #   | Step                                                                         |
+| --- | ---------------------------------------------------------------------------- |
+| 1   | Determine the version range (previous tag to HEAD)                           |
+| 2   | Collect git log between the two versions                                     |
+| 3   | Group commits by type (feat, fix, chore, etc.) based on conventional commits |
+| 4   | Filter out chore/ci commits that don't affect users                          |
+| 5   | Resolve PR numbers and link to the repository                                |
+| 6   | Write a human-readable summary of the release                                |
+| 7   | Highlight breaking changes with migration guidance                           |
+| 8   | Format the output as a markdown changelog entry                              |
+| 9   | Write the changelog to CHANGELOG.md                                          |
 
 ### Step 2: Classification
 
-| # | Step | Category | Rationale |
-|---|------|----------|-----------|
-| 1 | Determine the version range | SCRIPT | `git describe --tags --abbrev=0` gives the previous tag; HEAD is HEAD |
-| 2 | Collect git log | SCRIPT | `git log --oneline prev_tag..HEAD` is a fixed command |
-| 3 | Group commits by type | SCRIPT | Parse conventional commit prefixes with regex (`^feat:`, `^fix:`, etc.) |
-| 4 | Filter out internal commits | LLM | Deciding what "affects users" can be ambiguous; some chores (dependency bumps) may matter |
-| 5 | Resolve PR numbers and links | SCRIPT | Parse `(#123)` from commit messages, construct URL from known repo base |
-| 6 | Write a human-readable summary | LLM | Requires understanding what changed and why it matters to users |
-| 7 | Highlight breaking changes | LLM | Requires understanding the impact of changes and writing migration guidance |
-| 8 | Format as markdown changelog | SCRIPT | Template-based rendering with known structure |
-| 9 | Write changelog to file | SCRIPT | File write to a known path |
+| #   | Step                           | Category | Rationale                                                                                 |
+| --- | ------------------------------ | -------- | ----------------------------------------------------------------------------------------- |
+| 1   | Determine the version range    | SCRIPT   | `git describe --tags --abbrev=0` gives the previous tag; HEAD is HEAD                     |
+| 2   | Collect git log                | SCRIPT   | `git log --oneline prev_tag..HEAD` is a fixed command                                     |
+| 3   | Group commits by type          | SCRIPT   | Parse conventional commit prefixes with regex (`^feat:`, `^fix:`, etc.)                   |
+| 4   | Filter out internal commits    | LLM      | Deciding what "affects users" can be ambiguous; some chores (dependency bumps) may matter |
+| 5   | Resolve PR numbers and links   | SCRIPT   | Parse `(#123)` from commit messages, construct URL from known repo base                   |
+| 6   | Write a human-readable summary | LLM      | Requires understanding what changed and why it matters to users                           |
+| 7   | Highlight breaking changes     | LLM      | Requires understanding the impact of changes and writing migration guidance               |
+| 8   | Format as markdown changelog   | SCRIPT   | Template-based rendering with known structure                                             |
+| 9   | Write changelog to file        | SCRIPT   | File write to a known path                                                                |
 
 ### Step 3: Proposed Script
 
@@ -189,7 +189,7 @@ or summarize what changed between versions.
 - **Total steps:** 9
 - **SCRIPT:** 5 (56%)
 - **LLM:** 4 (44%)
-- **Verdict:** This skill benefits significantly from scripting. The git data collection, commit parsing, PR linking, and file formatting are all deterministic. The LLM focuses on the high-value work: deciding what matters to users, writing clear summaries, and explaining breaking changes. This is a good candidate for the split.
+- **Verdict:** This skill benefits significantly from scripting. The git data collection, commit parsing, PR linking, and file formatting are all deterministic. The LLM focuses on the high-value work: deciding what matters to users, writing clear summaries, and explaining breaking changes. This is a strong candidate for the split.
 
 ---
 
@@ -199,25 +199,25 @@ Given a skill that creates a branch from an issue description:
 
 ### Step 1: Inventory
 
-| # | Step |
-|---|------|
-| 1 | Read the issue title and body |
-| 2 | Determine the branch type (feature, fix, chore) from the issue labels |
-| 3 | Generate a slug from the issue title |
-| 4 | Assemble the branch name as `type/issue-number-slug` |
-| 5 | Check if the branch already exists |
-| 6 | Create and switch to the branch |
+| #   | Step                                                                  |
+| --- | --------------------------------------------------------------------- |
+| 1   | Read the issue title and body                                         |
+| 2   | Determine the branch type (feature, fix, chore) from the issue labels |
+| 3   | Generate a slug from the issue title                                  |
+| 4   | Assemble the branch name as `type/issue-number-slug`                  |
+| 5   | Check if the branch already exists                                    |
+| 6   | Create and switch to the branch                                       |
 
 ### Step 2: Classification
 
-| # | Step | Category | Rationale |
-|---|------|----------|-----------|
-| 1 | Read the issue title and body | SCRIPT | `gh issue view` with known issue number |
-| 2 | Determine branch type from labels | SCRIPT | Map label strings to type prefixes with a lookup table |
-| 3 | Generate a slug from the title | SCRIPT | Lowercase, replace spaces with hyphens, strip special chars, truncate |
-| 4 | Assemble the branch name | SCRIPT | String concatenation with known format |
-| 5 | Check if branch exists | SCRIPT | `git branch --list` or `git ls-remote` |
-| 6 | Create and switch to the branch | SCRIPT | `git checkout -b` with the computed name |
+| #   | Step                              | Category | Rationale                                                             |
+| --- | --------------------------------- | -------- | --------------------------------------------------------------------- |
+| 1   | Read the issue title and body     | SCRIPT   | `gh issue view` with known issue number                               |
+| 2   | Determine branch type from labels | SCRIPT   | Map label strings to type prefixes with a lookup table                |
+| 3   | Generate a slug from the title    | SCRIPT   | Lowercase, replace spaces with hyphens, strip special chars, truncate |
+| 4   | Assemble the branch name          | SCRIPT   | String concatenation with known format                                |
+| 5   | Check if branch exists            | SCRIPT   | `git branch --list` or `git ls-remote`                                |
+| 6   | Create and switch to the branch   | SCRIPT   | `git checkout -b` with the computed name                              |
 
 ### Summary
 
@@ -240,4 +240,4 @@ Rendering a template where all variables are known is `SCRIPT`. But if some sect
 
 ### Code Formatting
 
-Running a formatter like `prettier` or `black` is `SCRIPT`. Deciding whether to format, or choosing between conflicting style options, is `LLM`. Most skills should just run the formatter unconditionally, making the whole step `SCRIPT`.
+Running a formatter like `prettier` or `black` is `SCRIPT`. Deciding whether to format, or choosing between conflicting style options, is `LLM`. Most skills should run the formatter unconditionally, making the whole step `SCRIPT`.
