@@ -13,6 +13,7 @@
     ]
   },
   "enabledPlugins": {
-    "plugin-dev@claude-plugins-official": true
+    "plugin-dev@claude-plugins-official": true,
+    "mattpocock-skills@mattpocock": true
   }
 }
