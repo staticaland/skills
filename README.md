@@ -32,6 +32,7 @@ Tools for creating study materials and enhancing learning.
 
 Tools for securing and automating CI/CD workflows.
 
+- **[skill-analyzer](./devops-tools/skills/skill-analyzer/SKILL.md)** (skill) — Splits a skill into scriptable and judgment work: classifies each step as deterministic or LLM, proposes a script interface and a simplified SKILL.md.
 - **pinact** (hook) — Pins GitHub Actions references to full commit SHAs with [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes or edits workflow files. Requires the `pinact` CLI.
 
 ## Repo layout

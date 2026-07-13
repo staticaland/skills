@@ -24,7 +24,7 @@
       "name": "devops-tools",
       "source": "./devops-tools",
       "description": "Tools for securing and automating CI/CD workflows",
-      "version": "0.1.0"
+      "version": "0.2.0"
     }
   ]
 }
