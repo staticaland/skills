@@ -1,9 +1,10 @@
 # devops-tools
 
-Pin GitHub Actions to commit SHAs automatically on workflow edits, and analyze skills to split scriptable work from judgment work.
+Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, and analyze skills to split scriptable work from judgment work.
 
 ## Skills
 
+- **[parallel-steps](./skills/parallel-steps/SKILL.md)** — Makes GitHub Actions workflow steps run in parallel with the `background`, `wait`, `cancel`, and `parallel` keywords; written in ASD-STE100 Simplified Technical English.
 - **[skill-analyzer](./skills/skill-analyzer/SKILL.md)** — Splits a skill into scriptable and judgment work: classifies each step as deterministic or LLM, proposes a script interface and a simplified SKILL.md.
 
 ## Hooks
