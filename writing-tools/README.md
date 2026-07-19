@@ -7,6 +7,7 @@ Revise prose for clarity and busy readers, with automatic Vale linting of Markdo
 Model-invoked — Claude activates these automatically when the request matches.
 
 - **[writing-revision](./skills/writing-revision/SKILL.md)** — Revises text to be clear, scannable, and action-oriented for busy readers.
+- **[kontrollert-norsk](./skills/kontrollert-norsk/SKILL.md)** — Writes or revises documentation in controlled technical Norwegian (klarspråk per NS-ISO 24495-1 with ASD-STE100 principles).
 
 ## Hooks
 

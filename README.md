@@ -20,6 +20,7 @@ Add the marketplace, then install individual plugins:
 Revise prose for clarity and busy readers, with automatic Vale linting of Markdown files on every edit.
 
 - **[writing-revision](./writing-tools/skills/writing-revision/SKILL.md)** (skill) — Revises text to be clear, scannable, and action-oriented for busy readers.
+- **[kontrollert-norsk](./writing-tools/skills/kontrollert-norsk/SKILL.md)** (skill) — Writes or revises documentation in controlled technical Norwegian (klarspråk per NS-ISO 24495-1 with ASD-STE100 principles).
 - **Vale lint** (hook) — Runs [Vale](https://vale.sh/) on Markdown files after Claude writes or edits them. Requires the `vale` CLI.
 
 ### [learning-tools](./learning-tools/README.md)

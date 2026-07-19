@@ -49,7 +49,9 @@ fi
 cat "$INPUT_FILE"
 ```
 
-### Step 4: Summary
+### Step 5: Summary
+
+Step 4 is skipped: the verdict below rejects the split, so no simplified SKILL.md is proposed.
 
 - **Total steps:** 7
 - **SCRIPT:** 2 (29%)
@@ -90,7 +92,9 @@ Given a skill that generates release notes from git history:
 | 8   | Format as markdown changelog   | SCRIPT   | Template-based rendering with known structure                                             |
 | 9   | Write changelog to file        | SCRIPT   | File write to a known path                                                                |
 
-### Step 3: Proposed Script
+### Step 3: Proposed Scripts
+
+Two scripts cover the `SCRIPT` rows: `collect.sh` (steps 1–3, 5) shown below, and `format.sh` (steps 8–9), which renders the LLM's grouped summary into a changelog entry and appends it to CHANGELOG.md.
 
 ```bash
 #!/usr/bin/env bash
@@ -219,7 +223,9 @@ Given a skill that creates a branch from an issue description:
 | 5   | Check if branch exists            | SCRIPT   | `git branch --list` or `git ls-remote`                                |
 | 6   | Create and switch to the branch   | SCRIPT   | `git checkout -b` with the computed name                              |
 
-### Summary
+### Step 5: Summary
+
+Steps 3–4 are skipped: with every step blind, the deliverable is a standalone script, not a SKILL.md — see the verdict.
 
 - **Total steps:** 6
 - **SCRIPT:** 6 (100%)
@@ -232,11 +238,11 @@ Given a skill that creates a branch from an issue description:
 
 ### Filler Word Removal
 
-Removing known filler words ("just", "basically", "actually") from text can be done with regex. But deciding whether "actually" is filler or a meaningful contrast ("It's not X; it's actually Y") requires LLM judgment. **Classify as LLM** unless the skill explicitly treats all instances the same.
+Removing known filler words ("just", "basically", "actually") from text can be done with regex. But a regex can't tell blind whether "actually" is filler or a meaningful contrast ("It's not X; it's actually Y"). **Classify as LLM** unless the skill explicitly treats all instances the same.
 
 ### Template Rendering with Optional Sections
 
-Rendering a template where all variables are known is `SCRIPT`. But if some sections are conditional based on judgment ("include the breaking changes section only if there are breaking changes worth mentioning"), the decision of what to include is `LLM` even though the rendering is `SCRIPT`. **Split the step:** LLM decides which sections to include, script renders the template.
+Rendering a template where all variables are known is `SCRIPT`. But if some sections are conditional based on judgment ("include the breaking changes section only if there are breaking changes worth mentioning"), the decision of what to include is not blind — it is `LLM` even though the rendering is `SCRIPT`. **Split the step:** LLM decides which sections to include, script renders the template.
 
 ### Code Formatting
 

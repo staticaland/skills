@@ -11,8 +11,8 @@
     {
       "name": "writing-tools",
       "source": "./writing-tools",
-      "description": "Revise prose for clarity and busy readers, with automatic Vale linting of Markdown files on every edit",
-      "version": "0.1.1"
+      "description": "Revise prose for clarity and busy readers, write controlled technical Norwegian, with automatic Vale linting of Markdown files on every edit",
+      "version": "0.2.0"
     },
     {
       "name": "learning-tools",
@@ -24,7 +24,7 @@
       "name": "devops-tools",
       "source": "./devops-tools",
       "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, and analyze skills to split scriptable work from judgment work",
-      "version": "0.3.0"
+      "version": "0.3.1"
     }
   ]
 }
