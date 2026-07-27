@@ -1,7 +1,7 @@
 ---
 name: parallel-steps
 description: Make GitHub Actions steps run in parallel with the background, wait, wait-all, cancel, and parallel keywords. Use when the user wants a faster job, starts a service in a job, or asks for background or parallel steps.
-version: 0.1.0
+version: 0.2.0
 ---
 
 # Parallel Steps
@@ -27,9 +27,9 @@ Change the steps by their role:
 
 Done when each background step satisfies one of these conditions: a `wait` refers to it, a `cancel` refers to it, or it is a side task with no reader.
 
-### 3. Make sure the workflow is correct
+### 3. Verify the workflow
 
-Run `actionlint` on the file if the tool is installed. Read the changed workflow again. Make sure that no step reads data from a background step without a `wait` between them. Report the steps that stay in sequence and the reason for each.
+Run `actionlint` on the file if the tool is installed. `actionlint` does not support these keywords yet ([rhysd/actionlint#693](https://github.com/rhysd/actionlint/issues/693)), so it can report an error or a warning on a `background`, `wait`, `wait-all`, `cancel`, or `parallel` step that agrees with the reference. Ignore those messages. Read the changed workflow again. Make sure that no step reads data from a background step without a `wait` between them. Report the steps that stay in sequence and the reason for each.
 
 ## Keywords
 
@@ -40,6 +40,8 @@ Run `actionlint` on the file if the tool is installed. Read the changed workflow
 | `wait-all:`        | Stops until all the background steps before this point complete.                  |
 | `cancel: <id>`     | Stops the named background step without an error.                                 |
 | `parallel:`        | Runs a group of steps as background steps, then waits for all of them.            |
+
+For the full behavior of each keyword — concurrency limits, output availability, failure rules, and composite-action restrictions — see [references/keywords.md](references/keywords.md).
 
 ## Example: service
 
