@@ -1,5 +1,5 @@
 {
   "name": "devops-tools",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, and analyze skills to split scriptable work from judgment work"
 }
