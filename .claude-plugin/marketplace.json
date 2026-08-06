@@ -23,8 +23,8 @@
     {
       "name": "devops-tools",
       "source": "./devops-tools",
-      "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, and analyze skills to split scriptable work from judgment work",
-      "version": "0.3.2"
+      "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, and analyze skills to split scriptable work from judgment work",
+      "version": "0.4.0"
     }
   ]
 }
