@@ -131,19 +131,19 @@ A tool that installs but never runs its consumer proves nothing. Run one command
 
 Done when `mise ls --current` shows a version for every tool in `mise.toml` and each tool's consumer ran under `mise x`.
 
-### 7. Retire what mise replaces
+### 7. Report, then offer to retire what mise replaces
 
-Skipping this step leaves the project with one more place versions live instead of one fewer. For each discovery site from step 1:
+Report the managed tools with their backends, the platforms in the lockfile, and what stayed outside mise.
 
-- Replace `setup-*` steps in CI with `jdx/mise-action@v3`.
+The setup is finished at that point: `mise.toml` works with every discovery site from step 1 still in place. Retiring those sites is a second change, with its own blast radius — a CI workflow that stops installing a tool the way the team knows, a version file another tool still reads. So offer it as a list the user picks from, and change only what they pick:
+
+- Replace the `setup-*` steps in CI with `jdx/mise-action`, pinned to a release commit SHA. A `setup-node` left beside a `node` entry means two versions and one of them wins silently.
 - Delete a per-language version file, or keep it as the owner and read it with `idiomatic_version_file_enable_tools`. mise reads `.tool-versions` with no setting.
 - Point README install instructions at `mise install`.
 
 [ci-and-migration.md](references/ci-and-migration.md) covers the CI wiring, Docker, and migration from `asdf`, `nvm`, `pyenv`, `tfenv`, and Homebrew.
 
-Done when every discovery site is the named upstream of a mirror, deleted, or left in place with a recorded reason.
-
-Report the managed tools with their backends, the platforms in the lockfile, and what stayed outside mise.
+Done when the report names every managed tool, and each retirement the user picked leaves its discovery site deleted or named as the upstream of a mirror.
 
 ## Tasks
 
