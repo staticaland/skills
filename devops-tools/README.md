@@ -1,6 +1,6 @@
 # devops-tools
 
-Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns and mise toolchains, freeze install commands to their lockfiles, and analyze skills to split scriptable work from judgment work.
+Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns and mise toolchains, freeze install commands to their lockfiles, deny install-time script execution, and analyze skills to split scriptable work from judgment work.
 
 ## Skills
 
