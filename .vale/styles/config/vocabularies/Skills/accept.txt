@@ -1,3 +1,7 @@
+$^ RULE: a tool, command, flag, or setting name belongs in backticks in the prose, not in this list.
+$^ Vale skips inline code, so `uv`, `nvm`, and `minimum_release_age` need no entry. Add a word here
+$^ only when it reads as plain prose: a product name (Renovate), or an English word Vale lacks (lockfile).
+$^ Vale accept files have no comment syntax. A line starting with $^ can never match, so it acts as one.
 Anki
 anki-flashcards
 Cloze
