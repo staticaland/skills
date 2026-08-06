@@ -52,12 +52,12 @@ The commands contributors type reveal the tools those commands need:
 
 | Marker | Manager it belongs to |
 | --- | --- |
-| `.tool-versions` | asdf — mise reads this file with no setting |
-| `.nvmrc`, `.node-version` | nvm, fnm, nodenv |
-| `.python-version` | pyenv, uv |
-| `.ruby-version` | rbenv, rvm |
-| `.terraform-version` | tfenv |
-| `.java-version`, `.sdkmanrc` | jenv, SDKMAN |
+| `.tool-versions` | `asdf` — mise reads this file with no setting |
+| `.nvmrc`, `.node-version` | `nvm`, `fnm`, `nodenv` |
+| `.python-version` | `pyenv`, `uv` |
+| `.ruby-version` | `rbenv`, `rvm` |
+| `.terraform-version` | `tfenv` |
+| `.java-version`, `.sdkmanrc` | `jenv`, SDKMAN |
 | `.tfswitchrc`, `.crenv-version`, `.exenv-version` | the matching `*env` manager |
 | `volta` in `package.json` | Volta |
 

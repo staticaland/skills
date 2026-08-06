@@ -16,7 +16,7 @@ Write `mise.toml` and commit it. Add `mise.local.toml` to `.gitignore` and tell 
 
 `mise cfg` lists the config files in play; `mise fmt` normalizes them.
 
-## [tools]
+## `[tools]`
 
 ```toml
 [tools]
@@ -56,7 +56,7 @@ minimum_release_age = "0"
 
 Ignore a tool the config declares without editing the file with `disable_tools = ["node"]`.
 
-## [settings]
+## `[settings]`
 
 The ones that change a project's behavior:
 
@@ -78,7 +78,7 @@ The ones that change a project's behavior:
 
 Language-specific settings sit in their own tables: `python.uv_venv_auto`, `python.default_packages_file`, `node.corepack`, `node.npm_shim`, `go.set_goroot`, `java.shorthand_vendor`, `cargo.binstall`, `ruby.ruby_install`.
 
-## [env]
+## `[env]`
 
 `[env]` is how a tool gets the environment it needs, so it belongs to the toolchain instead of beside it:
 
@@ -100,7 +100,7 @@ _.python.venv = { path = ".venv", create = true }
 UV_PYTHON = { value = "{{ tools.python.path }}", tools = true }
 ```
 
-For a project with a `uv.lock`, `python.uv_venv_auto = "source"` under `[settings]` activates the environment uv manages instead — a separate mechanism from `_.python.venv`, so pick one. Details: <https://mise.jdx.dev/lang/python.html>
+For a project with a `uv.lock`, `python.uv_venv_auto = "source"` under `[settings]` activates the environment `uv` manages instead — a separate mechanism from `_.python.venv`, so pick one. Details: <https://mise.jdx.dev/lang/python.html>
 
 Mark secrets with `redactions = ["*_TOKEN"]` at the top level to keep them out of mise's output.
 

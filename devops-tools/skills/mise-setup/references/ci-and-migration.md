@@ -70,12 +70,12 @@ Run `mise reshim` after installing a tool that adds binaries outside mise's know
 
 | From | Move |
 | --- | --- |
-| asdf | mise reads `.tool-versions` already. Translate it to `mise.toml` with `mise use`, replacing each `asdf:` plugin with an `aqua:` or `core:` backend, then delete `.tool-versions` |
-| nvm, nodenv | `mise sync node --nvm` or `--nodenv` symlinks the existing installs into mise, so nothing re-downloads. Then write `node` into `mise.toml` |
-| pyenv | `mise sync python --pyenv` |
-| uv | `mise sync python --uv` keeps the two in sync both ways |
+| `asdf` | mise reads `.tool-versions` already. Translate it to `mise.toml` with `mise use`, replacing each `asdf:` plugin with an `aqua:` or `core:` backend, then delete `.tool-versions` |
+| `nvm`, `nodenv` | `mise sync node --nvm` or `--nodenv` symlinks the existing installs into mise, so nothing re-downloads. Then write `node` into `mise.toml` |
+| `pyenv` | `mise sync python --pyenv` |
+| `uv` | `mise sync python --uv` keeps the two in sync both ways |
 | Homebrew runtimes | `mise sync node --brew`, `mise sync ruby --brew` |
-| tfenv, jenv, SDKMAN, Volta | No sync path. Read the version out of `.terraform-version`, `.java-version`, `.sdkmanrc`, or the `volta` block, write it into `mise.toml`, and delete the file |
+| `tfenv`, `jenv`, SDKMAN, Volta | No sync path. Read the version out of `.terraform-version`, `.java-version`, `.sdkmanrc`, or the `volta` block, write it into `mise.toml`, and delete the file |
 
 `mise sync` symlinks versions into mise without overwriting installs. It imports what is on the machine — it does not write `mise.toml`, so the project config still has to state the version.
 

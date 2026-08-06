@@ -10,9 +10,9 @@ A backend is the source mise downloads a tool from. `mise backends ls` prints th
 | `aqua:` | The [aqua registry](https://github.com/aquaproj/aqua-registry) | Release binaries with verification metadata. The first choice for a CLI |
 | `github:`, `gitlab:`, `forgejo:` | Release assets on a forge | For a tool no aqua package covers |
 | `http:` | A URL you supply | Pair with `mise generate tool-stub` for an internal binary |
-| `ubi:` | [ubi](https://github.com/houseabsolute/ubi) | Guesses the asset for the platform; no registry entry needed |
+| `ubi:` | [`ubi`](https://github.com/houseabsolute/ubi) | Guesses the asset for the platform; no registry entry needed |
 | `npm:`, `pipx:`, `cargo:`, `go:`, `gem:`, `spm:`, `dotnet:` | Language package managers | Resolution pulls transitive dependencies from that ecosystem |
-| `conda:`, `s3:`, `pkgx:` | Conda, an S3 bucket, pkgx | `pkgx` is experimental |
+| `conda:`, `s3:`, `pkgx:` | `conda`, an S3 bucket, `pkgx` | `pkgx` is experimental |
 | `asdf:`, `vfox:` | A plugin repository | mise runs the plugin's shell or Lua script on the machine |
 
 ## Which one to take
