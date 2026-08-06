@@ -2,22 +2,31 @@
 
 ## GitHub Actions
 
-`jdx/mise-action@v3` installs mise, installs the tools, and caches both:
+`jdx/mise-action` installs mise, installs the tools, and caches both. Look up its latest release instead of writing a major tag from memory — the version below was current when this was written and the major has moved before:
+
+```bash
+gh api repos/jdx/mise-action/releases/latest --jq .tag_name   # v4.2.4
+gh api repos/jdx/mise-action/commits/v4.2.4 --jq .sha
+```
+
+Pin the action to that release's commit SHA and put the tag in a trailing comment, because a tag can be moved to other code and a SHA cannot:
 
 ```yaml
-- uses: jdx/mise-action@v3
+- uses: jdx/mise-action@7e36c90d9ab29c415a2384db3006f3ec8a8cc654 # v4.2.4
   with:
     version: 2026.8.2   # pin mise itself; defaults to latest
     install: true       # runs mise install (default)
     cache: true         # caches mise using GitHub's cache (default)
 ```
 
+The comment is what Dependabot, Renovate, and `pinact` read to bump the pin, and what tells a reviewer which release the SHA is.
+
 Then delete every `actions/setup-*` step whose tool now lives in `mise.toml`. A `setup-node` left beside a `node` entry means two versions and one of them wins silently.
 
 With `mise.lock` committed, add `--locked` so a missing lockfile entry fails the job instead of resolving over the network:
 
 ```yaml
-- uses: jdx/mise-action@v3
+- uses: jdx/mise-action@7e36c90d9ab29c415a2384db3006f3ec8a8cc654 # v4.2.4
   with:
     install_args: --locked
 ```
