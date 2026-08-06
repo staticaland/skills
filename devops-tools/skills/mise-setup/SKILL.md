@@ -1,6 +1,6 @@
 ---
 name: mise-setup
-description: Set up or extend a project's mise.toml by inventorying the tools the project already uses and pinning each one to a backend and a version. Use when the user wants to adopt mise, add tools to an existing mise.toml, or migrate off asdf, nvm, pyenv, or tfenv.
+description: Set up or extend a project's mise.toml by inventorying the tools the project already uses and pinning each one to a backend and a version. Use when the user wants to adopt mise, add tools to an existing mise.toml, or migrate off `asdf`, `nvm`, `pyenv`, or `tfenv`.
 version: 0.1.0
 ---
 
@@ -139,7 +139,7 @@ Skipping this step leaves the project with one more place versions live instead 
 - Delete a per-language version file, or keep it as the owner and read it with `idiomatic_version_file_enable_tools`. mise reads `.tool-versions` with no setting.
 - Point README install instructions at `mise install`.
 
-[ci-and-migration.md](references/ci-and-migration.md) covers the CI wiring, Docker, and migration from asdf, nvm, pyenv, tfenv, and Homebrew.
+[ci-and-migration.md](references/ci-and-migration.md) covers the CI wiring, Docker, and migration from `asdf`, `nvm`, `pyenv`, `tfenv`, and Homebrew.
 
 Done when every discovery site is the named upstream of a mirror, deleted, or left in place with a recorded reason.
 
