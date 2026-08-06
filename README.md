@@ -31,9 +31,10 @@ Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's
 
 ### [devops-tools](./devops-tools/README.md)
 
-Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, and analyze skills to split scriptable work from judgment work.
+Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns and mise toolchains, and analyze skills to split scriptable work from judgment work.
 
 - **[dependency-cooldown](./devops-tools/skills/dependency-cooldown/SKILL.md)** (skill) — Sets up a minimum release age across a project's package managers and update bots, so a compromised release is caught before it resolves; per-ecosystem references from [cooldowns.dev](https://cooldowns.dev/).
+- **[mise-setup](./devops-tools/skills/mise-setup/SKILL.md)** (skill) — Inventories the tools a project already uses across CI, containers, task runners, and per-language version files, then pins each one to a [mise](https://mise.jdx.dev/) backend and version in a committed `mise.toml` with a lockfile.
 - **[parallel-steps](./devops-tools/skills/parallel-steps/SKILL.md)** (skill) — Makes GitHub Actions workflow steps run in parallel with the `background`, `wait`, `cancel`, and `parallel` keywords; written in ASD-STE100 Simplified Technical English.
 - **[skill-analyzer](./devops-tools/skills/skill-analyzer/SKILL.md)** (skill) — Splits a skill into scriptable and judgment work: classifies each step as deterministic or LLM, proposes a script interface and a simplified SKILL.md.
 - **pinact** (hook) — Pins GitHub Actions references to full commit SHAs with [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes or edits workflow files. Requires the `pinact` CLI.
