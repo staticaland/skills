@@ -31,7 +31,7 @@ Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's
 
 ### [devops-tools](./devops-tools/README.md)
 
-Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns and mise toolchains, freeze install commands to their lockfiles, and analyze skills to split scriptable work from judgment work.
+Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns and mise toolchains, freeze install commands to their lockfiles, deny install-time script execution, and analyze skills to split scriptable work from judgment work.
 
 - **[dependency-cooldown](./devops-tools/skills/dependency-cooldown/SKILL.md)** (skill) — Sets up a minimum release age across a project's package managers and update bots, so a compromised release is caught before it resolves; per-ecosystem references from [cooldowns.dev](https://cooldowns.dev/).
 - **[frozen-install](./devops-tools/skills/frozen-install/SKILL.md)** (skill) — Rewrites resolving install commands as frozen ones (`npm ci`, `uv sync --locked`) at every site meant to reproduce a lockfile — CI, image builds, task runners, docs — and proves the lockfile check fires.
