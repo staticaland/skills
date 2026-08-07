@@ -24,6 +24,8 @@ git ls-files | grep -Ei '(^|/)(package\.json|pnpm-workspace\.yaml|\.npmrc|\.yarn
 
 Then find the resolvers among the hits: update bot configs, CI workflows and Dockerfiles that install without a committed lockfile or run an update command, and tool-version managers.
 
+Single-file scripts declare dependencies inline rather than in a manifest, so no filename matches them. Add `git grep -ln '/// script'` for [PEP 723](https://peps.python.org/pep-0723/) Python scripts.
+
 Done when every manager in the repo appears in a list with its resolution sites, and each site is marked covered by a cooldown or not.
 
 ### 2. Load the references for what you found
