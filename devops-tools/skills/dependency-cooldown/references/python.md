@@ -37,7 +37,9 @@ A [PEP 723](https://peps.python.org/pep-0723/) script resolves its own dependenc
 # ///
 ```
 
-The duration does not fight `--locked`. `uv lock --script s.py` writes the window itself to `s.py.lock` as `exclude-newer-span = "P3D"`, not the timestamp it resolved to, so the lockfile keeps verifying as the window slides forward.
+Create the lockfile with `uv lock --script s.py`, which writes `s.py.lock` beside the script — commit it. Re-run the same command to refresh it after editing the dependencies or the cooldown.
+
+The duration does not fight `--locked`. The lockfile records the window itself as `exclude-newer-span = "P3D"`, not the timestamp it resolved to, so it keeps verifying as the window slides forward.
 
 Scripts carry no `pyproject.toml`, so the repo-wide inventory misses them — grep for `/// script` to find them.
 
