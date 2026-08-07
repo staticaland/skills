@@ -21,6 +21,26 @@ exclude-newer-package = { setuptools = false }  # bypass: exempt one package, re
 
 `exclude-newer-package` has no CLI flag or environment variable — config file only.
 
+### Single-file scripts
+
+A [PEP 723](https://peps.python.org/pep-0723/) script resolves its own dependencies, so it needs its own cooldown in a `[tool.uv]` table inside the inline metadata block:
+
+```python
+#!/usr/bin/env -S uv run --locked --script
+# /// script
+# requires-python = ">=3.12"
+# dependencies = ["click"]
+#
+# [tool.uv]
+# exclude-newer = "3 days"
+# exclude-newer-package = { click = false }  # bypass: exempt one package, revert after
+# ///
+```
+
+The duration does not fight `--locked`. `uv lock --script s.py` writes the window itself to `s.py.lock` as `exclude-newer-span = "P3D"`, not the timestamp it resolved to, so the lockfile keeps verifying as the window slides forward.
+
+Scripts carry no `pyproject.toml`, so the repo-wide inventory misses them — grep for `/// script` to find them.
+
 ## `pip`
 
 **26.1+** accepts ISO 8601 durations for `--uploaded-prior-to`.
