@@ -56,7 +56,9 @@ Read only the files for the managers present:
 | `renovate.json`, `renovate.json5` | [bot_renovate.md](references/bot_renovate.md) — Renovate |
 | `dependabot.yml` | [bot_github.md](references/bot_github.md) — GitHub Dependabot |
 | `go.mod`, `*.csproj`, `composer.json`, `pubspec.yaml`, `Package.swift` | [ecosystems_no_native.md](references/ecosystems_no_native.md) — no native cooldown; bot gate only |
-| `Dockerfile`, `Containerfile`, a registry proxy | [containers-and-proxies.md](references/containers-and-proxies.md) — images, Artifactory/Nexus/Verdaccio, `cooldowns.sh` |
+| `Dockerfile`, `Containerfile` | [containers.md](references/containers.md) — baking a cooldown into an image |
+| A registry URL that is not the public one | [registry_proxies.md](references/registry_proxies.md) — Artifactory, Nexus, Verdaccio |
+| The user asks for a user-wide or machine-wide gate | [cooldowns_sh.md](references/cooldowns_sh.md) — the `cooldowns.sh` helper |
 
 Done when every manager from step 1 maps to a reference or to a recorded "no cooldown available".
 
