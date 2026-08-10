@@ -1,7 +1,7 @@
 ---
 name: dependency-cooldown
 description: Set up dependency cooldowns — a minimum release age that holds back freshly published package versions — across a project's package managers and update bots. Use when the user wants protection from compromised releases, or mentions cooldown, minimum release age, or exclude-newer.
-version: 0.1.1
+version: 0.2.0
 ---
 
 # Dependency Cooldown
@@ -19,7 +19,7 @@ A cooldown binds at **resolution** — the moment a version range becomes a conc
 List the candidate files:
 
 ```bash
-git ls-files | grep -Ei '(^|/)(package\.json|pnpm-workspace\.yaml|\.npmrc|\.yarnrc\.yml|bunfig\.toml|deno\.jsonc?|pyproject\.toml|requirements.*\.txt|Pipfile|uv\.toml|pixi\.toml|environment\.ya?ml|Gemfile|mix\.exs|Cargo\.toml|pom\.xml|build\.(sbt|gradle|gradle\.kts|mill)|go\.mod|composer\.json|pubspec\.yaml|Package\.swift|.*\.csproj|mise\.toml|\.tool-versions|renovate\.json5?|dependabot\.yml|\.scala-steward\.conf|Dockerfile[^/]*|Containerfile)$|\.github/workflows/'
+git ls-files | grep -Ei '(^|/)(package\.json|package-lock\.json|pnpm-workspace\.yaml|pnpm-lock\.yaml|\.npmrc|\.yarnrc\.yml|yarn\.lock|bunfig\.toml|bun\.lockb?|deno\.jsonc?|deno\.lock|pyproject\.toml|uv\.lock|uv\.toml|requirements.*\.txt|Pipfile|poetry\.lock|pdm\.lock|pixi\.toml|pixi\.lock|environment\.ya?ml|Gemfile|mix\.exs|Cargo\.toml|pom\.xml|build\.(sbt|gradle|gradle\.kts|mill)|go\.mod|composer\.json|pubspec\.yaml|Package\.swift|.*\.csproj|mise\.toml|\.tool-versions|renovate\.json5?|dependabot\.yml|\.scala-steward\.conf|Dockerfile[^/]*|Containerfile)$|\.github/workflows/|\.vscode/'
 ```
 
 Then find the resolvers among the hits: update bot configs, CI workflows and Dockerfiles that install without a committed lockfile or run an update command, and tool-version managers.
@@ -42,21 +42,28 @@ Read only the files for the managers present:
 | `pixi.toml`, `pixi.lock` | [python_pixi.md](references/python_pixi.md) — `pixi` |
 | `environment.yml`, `environment.yaml` | [python_conda.md](references/python_conda.md) — `conda` |
 | Private PyPI index | [python_private_registries.md](references/python_private_registries.md) — missing upload-time behavior |
-| `package.json`, `pnpm-workspace.yaml`, `.npmrc`, `.yarnrc.yml`, `bunfig.toml`, `deno.json` | [javascript.md](references/javascript.md) — `npm`, `pnpm`, Yarn, Bun, Deno |
+| `package-lock.json`, `min-release-age` in `.npmrc`, `npm install`/`npm ci` | [javascript_npm.md](references/javascript_npm.md) — `npm` |
+| `pnpm-lock.yaml`, `pnpm-workspace.yaml`, `packageManager: pnpm@` | [javascript_pnpm.md](references/javascript_pnpm.md) — `pnpm` |
+| `yarn.lock`, `.yarnrc.yml` | [javascript_yarn.md](references/javascript_yarn.md) — Yarn |
+| `bun.lock`, `bunfig.toml` | [javascript_bun.md](references/javascript_bun.md) — Bun |
+| `deno.json`, `deno.jsonc`, `deno.lock` | [javascript_deno.md](references/javascript_deno.md) — Deno |
 | `Cargo.toml` | [rust.md](references/rust.md) — Cargo, cargo-cooldown |
 | `Gemfile` | [ruby.md](references/ruby.md) — Bundler |
 | `mix.exs` | [elixir.md](references/elixir.md) — Hex |
-| `pom.xml`, `build.sbt`, `build.gradle`, `build.mill` | [jvm.md](references/jvm.md) — Scala Steward |
-| `mise.toml`, `.tool-versions`, `.vscode/` | [tool-managers.md](references/tool-managers.md) — mise, VS Code |
+| `.scala-steward.conf`, `pom.xml`, `build.sbt`, `build.mill` | [jvm_scala_steward.md](references/jvm_scala_steward.md) — Scala Steward |
+| `mise.toml`, `.tool-versions` | [mise.md](references/mise.md) — mise |
+| `.vscode/extensions.json`, `.vscode/settings.json` | [vscode.md](references/vscode.md) — VS Code extensions |
 | `.github/workflows/` | [github-actions.md](references/github-actions.md) — actions-up, SHA pinning |
 | `renovate.json`, `renovate.json5` | [bot_renovate.md](references/bot_renovate.md) — Renovate |
 | `dependabot.yml` | [bot_github.md](references/bot_github.md) — GitHub Dependabot |
-| `go.mod`, `*.csproj`, `composer.json`, `pubspec.yaml`, `Package.swift` | [ecosystems_no_native.md](references/ecosystems_no_native.md) — no native cooldown; bot gate only |
-| `Dockerfile`, `Containerfile`, a registry proxy | [containers-and-proxies.md](references/containers-and-proxies.md) — images, Artifactory/Nexus/Verdaccio, `cooldowns.sh` |
+| `go.mod`, `*.csproj`, `composer.json`, `pubspec.yaml`, `Package.swift`, `build.gradle` | [ecosystems_no_native.md](references/ecosystems_no_native.md) — no native cooldown; bot gate only |
+| `Dockerfile`, `Containerfile` | [containers.md](references/containers.md) — baking a cooldown into an image |
+| A registry URL that is not the public one | [registry_proxies.md](references/registry_proxies.md) — Artifactory, Nexus, Verdaccio |
+| The user asks for a user-wide or machine-wide gate | [cooldowns_sh.md](references/cooldowns_sh.md) — the `cooldowns.sh` helper |
 
 Done when every manager from step 1 maps to a reference or to a recorded "no cooldown available".
 
-A `pyproject.toml` can configure `uv`, Poetry, or PDM. Inspect its tool tables and load only the matching rows above.
+Two filenames name no tool on their own. A `pyproject.toml` can configure `uv`, Poetry, or PDM: inspect its tool tables and load only the matching rows. A `package.json` with no lockfile and no `packageManager` field identifies no JavaScript manager either — read the CI workflow's install command first, and load nothing until one names a manager.
 
 ### 3. Check the version gate
 
@@ -72,7 +79,7 @@ Default to 3 days unless the user gives a constraint.
 - **3 days** — matches the new defaults of Dependabot and Renovate's `npm` best-practices preset.
 - **7 days** — catches nearly every historical incident; expect friction on fast-moving dependencies.
 
-Use one duration everywhere. Each tool takes it in its own unit — days, minutes, seconds, or ISO 8601 — and each reference gives the form per tool.
+Use one duration everywhere. Each tool takes it in its own unit — days, minutes, seconds, or ISO 8601 — and each reference gives the form per tool. Sibling managers in one ecosystem disagree: `npm` counts days where `pnpm` counts minutes and Bun counts seconds. Convert the duration into each tool's own unit; do not copy the number across.
 
 ### 5. Write the config
 
