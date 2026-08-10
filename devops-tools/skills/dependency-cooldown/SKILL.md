@@ -1,7 +1,7 @@
 ---
 name: dependency-cooldown
 description: Set up dependency cooldowns — a minimum release age that holds back freshly published package versions — across a project's package managers and update bots. Use when the user wants protection from compromised releases, or mentions cooldown, minimum release age, or exclude-newer.
-version: 0.1.1
+version: 0.2.0
 ---
 
 # Dependency Cooldown
