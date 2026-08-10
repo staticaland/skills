@@ -1,15 +1,15 @@
 ---
 name: progressive-disclosure
-description: Refactor a Claude Code skill so it loads only relevant guidance, splitting broad references by concrete project marker and repairing links. Use when a skill has large mixed-topic references, loads irrelevant context, or needs progressive disclosure.
+description: Refactor a Claude Code skill so its conditional detail loads only when an observable project marker says it applies.
 disable-model-invocation: true
-version: 0.1.0
+version: 0.2.0
 ---
 
 # Progressive Disclosure
 
-Refactor one target skill so its core workflow stays in `SKILL.md` and conditional detail loads only when it applies. Preserve the skill's behavior and guidance; reduce only irrelevant context.
+Refactor one target skill so its core workflow stays in `SKILL.md` and conditional detail loads only when it applies. Every fact, example, and caveat in the old files survives the move; only the irrelevant loading goes away.
 
-Apply the refactor unless the user asks for analysis only.
+Apply the refactor. When the user asks for analysis only, stop after step 2 and report the proposed layout.
 
 ## Process
 
@@ -17,21 +17,21 @@ Apply the refactor unless the user asks for analysis only.
 
 Read the target `SKILL.md` and every file it links. Find inbound links to those files across the plugin.
 
-Inventory each distinct topic, where it lives, and what makes it relevant. Include concrete project markers such as filenames, config keys, commands, tool names, and user-selected modes.
+Inventory each distinct topic, where it lives, and what makes it relevant. State each topic's relevance as a **marker** — something observable in the project: a filename, a config key, a command, a tool name, or a mode the user picks. A topic earns its own file by having a marker, so a long file with one marker stays whole and a short file with three markers splits.
 
-Do not use file length alone as the reason to split. Done when every topic is marked either always needed or conditional, and every conditional topic has an observable relevance condition.
+Done when every topic is marked always-needed or conditional, and every conditional topic names its marker.
 
 ### 2. Choose the disclosure boundaries
 
-Keep the core procedure, safety constraints, and guidance needed on every invocation in `SKILL.md`. Put conditional implementation detail in references.
+Keep in `SKILL.md` the core procedure, the safety constraints, and the guidance every invocation needs. Push conditional implementation detail into references.
 
-Create one reference for each topic that can apply independently. Keep topics together when they always apply together or separating them would force readers through chains of references. Name split files for their narrow scope, using a shared prefix when it makes the grouping clear, such as `python_uv.md` and `python_pip.md`.
+Create one reference per topic that can apply on its own. Keep topics together when they always fire together, or when separating them would send the reader through a chain of references to assemble one answer. Name each file for its narrow scope, sharing a prefix where that shows the grouping: `python_uv.md`, `python_pip.md`.
 
-Done when loading any proposed reference does not also load substantial guidance for an inapplicable topic.
+Done when every line of a proposed reference applies whenever that reference's marker fires.
 
-### 3. Build the reference dispatch
+### 3. Build the marker dispatch
 
-Place discovery before reference loading. Map each relevance condition directly to the narrowest reference:
+Put discovery before reference loading, then map each marker straight to its narrowest reference:
 
 ```markdown
 Read only the files for the markers present:
@@ -41,31 +41,35 @@ Read only the files for the markers present:
 | `tool.lock`, `[tool.example]` | [tool_example.md](references/tool_example.md) — Example Tool |
 ```
 
-Use precise markers. If a filename can represent several tools, instruct the reader to inspect the distinguishing config key and load only the matching row. For topics with no filesystem marker, use an explicit user choice or a condition discovered by the core procedure.
+Make each marker precise. When one filename can belong to several tools, name the config key that distinguishes them and load only the matching row. When a topic has no filesystem marker, its marker is an explicit user choice or a condition the core procedure discovers.
 
-Do not retain a catch-all link that loads the split references as a group. Done when every conditional topic maps to a reference and each reference has a specific loading condition.
+Every link into the references is a single dispatch row — a surviving catch-all link ("see the references for details") pulls in the whole group and undoes the split.
+
+Done when every conditional topic maps to a reference and every reference has one loading condition.
 
 ### 4. Split without losing guidance
 
-Move each topic into its focused reference. Preserve its facts, examples, caveats, attribution, and source links. Keep small prerequisites with the guidance that needs them when doing so avoids an extra load.
+Move each topic into its focused reference, carrying its facts, examples, caveats, attribution, and source links intact. Co-locate a small prerequisite with the guidance that needs it, so reading one part brings its neighbours along instead of triggering a second load.
 
-Update all links that pointed to the old file, including links between references. Delete the old file only after all of its content and inbound links are accounted for.
+Repoint every link that named the old file, including links between references. Delete the old file once its content and its inbound links are all accounted for.
 
-Done when the new files collectively preserve the old guidance and no link still names a removed file.
+Done when the new files preserve the old guidance between them and no link names a removed file.
 
 ### 5. Update versions and catalogs
 
-Bump the target skill's version. If the repository versions its enclosing plugin or marketplace entry, bump every synchronized version declaration and update catalogs when the skill list or plugin description changed.
+Bump the target skill's version. Where the repository keeps synchronized version declarations for the enclosing plugin or its marketplace entry, bump each one, and update the catalogs when the skill list or the plugin description changed.
+
+Done when every declaration naming this skill's version or contents agrees.
 
 ### 6. Verify the disclosure
 
-Check every Markdown link and search the repository for removed filenames. Run the repository's existing skill or plugin validator.
+Check every Markdown link and search the repository for the removed filenames. Run the repository's existing skill or plugin validator.
 
-Walk through at least these loading cases:
+Walk these loading cases:
 
 1. One marker loads one focused reference.
-2. Multiple markers load only the union of their references.
-3. An ambiguous filename loads nothing until its contents identify the matching topic.
-4. No marker leaves the core workflow usable without loading conditional guidance.
+2. Several markers load the union of their references and nothing more.
+3. An ambiguous filename loads nothing until its contents identify the topic.
+4. Zero markers leave the core workflow usable on its own.
 
 Report the old and new reference layout, the marker-to-reference mapping, the versions changed, and the validation result.
