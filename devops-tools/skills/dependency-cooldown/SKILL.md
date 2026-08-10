@@ -42,7 +42,11 @@ Read only the files for the managers present:
 | `pixi.toml`, `pixi.lock` | [python_pixi.md](references/python_pixi.md) — `pixi` |
 | `environment.yml`, `environment.yaml` | [python_conda.md](references/python_conda.md) — `conda` |
 | Private PyPI index | [python_private_registries.md](references/python_private_registries.md) — missing upload-time behavior |
-| `package.json`, `pnpm-workspace.yaml`, `.npmrc`, `.yarnrc.yml`, `bunfig.toml`, `deno.json` | [javascript.md](references/javascript.md) — `npm`, `pnpm`, Yarn, Bun, Deno |
+| `package-lock.json`, `min-release-age` in `.npmrc`, `npm install`/`npm ci` | [javascript_npm.md](references/javascript_npm.md) — `npm` |
+| `pnpm-lock.yaml`, `pnpm-workspace.yaml`, `packageManager: pnpm@` | [javascript_pnpm.md](references/javascript_pnpm.md) — `pnpm` |
+| `yarn.lock`, `.yarnrc.yml` | [javascript_yarn.md](references/javascript_yarn.md) — Yarn |
+| `bun.lock`, `bunfig.toml` | [javascript_bun.md](references/javascript_bun.md) — Bun |
+| `deno.json`, `deno.jsonc`, `deno.lock` | [javascript_deno.md](references/javascript_deno.md) — Deno |
 | `Cargo.toml` | [rust.md](references/rust.md) — Cargo, cargo-cooldown |
 | `Gemfile` | [ruby.md](references/ruby.md) — Bundler |
 | `mix.exs` | [elixir.md](references/elixir.md) — Hex |
