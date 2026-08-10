@@ -51,7 +51,8 @@ Read only the files for the managers present:
 | `Gemfile` | [ruby.md](references/ruby.md) — Bundler |
 | `mix.exs` | [elixir.md](references/elixir.md) — Hex |
 | `pom.xml`, `build.sbt`, `build.gradle`, `build.mill` | [jvm.md](references/jvm.md) — Scala Steward |
-| `mise.toml`, `.tool-versions`, `.vscode/` | [tool-managers.md](references/tool-managers.md) — mise, VS Code |
+| `mise.toml`, `.tool-versions` | [mise.md](references/mise.md) — mise |
+| `.vscode/extensions.json`, `.vscode/settings.json` | [vscode.md](references/vscode.md) — VS Code extensions |
 | `.github/workflows/` | [github-actions.md](references/github-actions.md) — actions-up, SHA pinning |
 | `renovate.json`, `renovate.json5` | [bot_renovate.md](references/bot_renovate.md) — Renovate |
 | `dependabot.yml` | [bot_github.md](references/bot_github.md) — GitHub Dependabot |
