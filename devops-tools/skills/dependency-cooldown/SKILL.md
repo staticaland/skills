@@ -19,7 +19,7 @@ A cooldown binds at **resolution** — the moment a version range becomes a conc
 List the candidate files:
 
 ```bash
-git ls-files | grep -Ei '(^|/)(package\.json|pnpm-workspace\.yaml|\.npmrc|\.yarnrc\.yml|bunfig\.toml|deno\.jsonc?|pyproject\.toml|requirements.*\.txt|Pipfile|uv\.toml|pixi\.toml|environment\.ya?ml|Gemfile|mix\.exs|Cargo\.toml|pom\.xml|build\.(sbt|gradle|gradle\.kts|mill)|go\.mod|composer\.json|pubspec\.yaml|Package\.swift|.*\.csproj|mise\.toml|\.tool-versions|renovate\.json5?|dependabot\.yml|\.scala-steward\.conf|Dockerfile[^/]*|Containerfile)$|\.github/workflows/'
+git ls-files | grep -Ei '(^|/)(package\.json|package-lock\.json|pnpm-workspace\.yaml|pnpm-lock\.yaml|\.npmrc|\.yarnrc\.yml|yarn\.lock|bunfig\.toml|bun\.lockb?|deno\.jsonc?|deno\.lock|pyproject\.toml|uv\.lock|uv\.toml|requirements.*\.txt|Pipfile|poetry\.lock|pdm\.lock|pixi\.toml|pixi\.lock|environment\.ya?ml|Gemfile|mix\.exs|Cargo\.toml|pom\.xml|build\.(sbt|gradle|gradle\.kts|mill)|go\.mod|composer\.json|pubspec\.yaml|Package\.swift|.*\.csproj|mise\.toml|\.tool-versions|renovate\.json5?|dependabot\.yml|\.scala-steward\.conf|Dockerfile[^/]*|Containerfile)$|\.github/workflows/|\.vscode/'
 ```
 
 Then find the resolvers among the hits: update bot configs, CI workflows and Dockerfiles that install without a committed lockfile or run an update command, and tool-version managers.
@@ -63,7 +63,7 @@ Read only the files for the managers present:
 
 Done when every manager from step 1 maps to a reference or to a recorded "no cooldown available".
 
-A `pyproject.toml` can configure `uv`, Poetry, or PDM. Inspect its tool tables and load only the matching rows above.
+Two filenames name no tool on their own. A `pyproject.toml` can configure `uv`, Poetry, or PDM: inspect its tool tables and load only the matching rows. A `package.json` with no lockfile and no `packageManager` field identifies no JavaScript manager either — read the CI workflow's install command first, and load nothing until one names a manager.
 
 ### 3. Check the version gate
 
@@ -79,7 +79,7 @@ Default to 3 days unless the user gives a constraint.
 - **3 days** — matches the new defaults of Dependabot and Renovate's `npm` best-practices preset.
 - **7 days** — catches nearly every historical incident; expect friction on fast-moving dependencies.
 
-Use one duration everywhere. Each tool takes it in its own unit — days, minutes, seconds, or ISO 8601 — and each reference gives the form per tool.
+Use one duration everywhere. Each tool takes it in its own unit — days, minutes, seconds, or ISO 8601 — and each reference gives the form per tool. Sibling managers in one ecosystem disagree: `npm` counts days where `pnpm` counts minutes and Bun counts seconds. Convert the duration into each tool's own unit; do not copy the number across.
 
 ### 5. Write the config
 
