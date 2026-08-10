@@ -1,4 +1,4 @@
-# JVM cooldowns
+# Scala Steward cooldowns (Maven, Mill, `sbt`, Scala CLI)
 
 Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) / [cooldowns.dev](https://cooldowns.dev/), the source of truth. All examples use a three-day cooldown.
 

@@ -50,13 +50,13 @@ Read only the files for the managers present:
 | `Cargo.toml` | [rust.md](references/rust.md) — Cargo, cargo-cooldown |
 | `Gemfile` | [ruby.md](references/ruby.md) — Bundler |
 | `mix.exs` | [elixir.md](references/elixir.md) — Hex |
-| `pom.xml`, `build.sbt`, `build.gradle`, `build.mill` | [jvm.md](references/jvm.md) — Scala Steward |
+| `.scala-steward.conf`, `pom.xml`, `build.sbt`, `build.mill` | [jvm_scala_steward.md](references/jvm_scala_steward.md) — Scala Steward |
 | `mise.toml`, `.tool-versions` | [mise.md](references/mise.md) — mise |
 | `.vscode/extensions.json`, `.vscode/settings.json` | [vscode.md](references/vscode.md) — VS Code extensions |
 | `.github/workflows/` | [github-actions.md](references/github-actions.md) — actions-up, SHA pinning |
 | `renovate.json`, `renovate.json5` | [bot_renovate.md](references/bot_renovate.md) — Renovate |
 | `dependabot.yml` | [bot_github.md](references/bot_github.md) — GitHub Dependabot |
-| `go.mod`, `*.csproj`, `composer.json`, `pubspec.yaml`, `Package.swift` | [ecosystems_no_native.md](references/ecosystems_no_native.md) — no native cooldown; bot gate only |
+| `go.mod`, `*.csproj`, `composer.json`, `pubspec.yaml`, `Package.swift`, `build.gradle` | [ecosystems_no_native.md](references/ecosystems_no_native.md) — no native cooldown; bot gate only |
 | `Dockerfile`, `Containerfile` | [containers.md](references/containers.md) — baking a cooldown into an image |
 | A registry URL that is not the public one | [registry_proxies.md](references/registry_proxies.md) — Artifactory, Nexus, Verdaccio |
 | The user asks for a user-wide or machine-wide gate | [cooldowns_sh.md](references/cooldowns_sh.md) — the `cooldowns.sh` helper |
