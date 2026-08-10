@@ -35,7 +35,7 @@ RUN PIP_UPLOADED_PRIOR_TO=$(date -u -d '3 days ago' '+%Y-%m-%dT%H:%M:%SZ') \
     pip install -r requirements.txt
 ```
 
-In a development container where developers also run `pip install` interactively, drop the wrapper function from [python.md](python.md) into `/etc/profile.d/` so it is sourced for interactive shells:
+In a development container where developers also run `pip install` interactively, drop the wrapper function from [python_pip.md](python_pip.md) into `/etc/profile.d/` so it is sourced for interactive shells:
 
 ```dockerfile
 COPY pip-cooldown.sh /etc/profile.d/pip-cooldown.sh

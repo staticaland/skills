@@ -1,7 +1,7 @@
 ---
 name: dependency-cooldown
 description: Set up dependency cooldowns — a minimum release age that holds back freshly published package versions — across a project's package managers and update bots. Use when the user wants protection from compromised releases, or mentions cooldown, minimum release age, or exclude-newer.
-version: 0.1.0
+version: 0.1.1
 ---
 
 # Dependency Cooldown
@@ -34,7 +34,14 @@ Read only the files for the managers present:
 
 | Marker | Reference |
 | --- | --- |
-| `pyproject.toml`, `requirements*.txt`, `Pipfile`, `uv.lock`, `poetry.lock`, `pdm.lock`, `pixi.toml`, `environment.yml` | [python.md](references/python.md) — `uv`, `pip`, `pipenv`, `poetry`, PDM, `pixi`, `conda` |
+| `uv.lock`, `uv.toml`, `[tool.uv]`, `/// script` | [python_uv.md](references/python_uv.md) — `uv` |
+| `requirements*.txt`, `pip.conf`, `pip install` | [python_pip.md](references/python_pip.md) — `pip`, pip-tools |
+| `Pipfile` | [python_pipenv.md](references/python_pipenv.md) — `pipenv` |
+| `poetry.lock`, `[tool.poetry]` | [python_poetry.md](references/python_poetry.md) — Poetry |
+| `pdm.lock`, `[tool.pdm]` | [python_pdm.md](references/python_pdm.md) — PDM |
+| `pixi.toml`, `pixi.lock` | [python_pixi.md](references/python_pixi.md) — `pixi` |
+| `environment.yml`, `environment.yaml` | [python_conda.md](references/python_conda.md) — `conda` |
+| Private PyPI index | [python_private_registries.md](references/python_private_registries.md) — missing upload-time behavior |
 | `package.json`, `pnpm-workspace.yaml`, `.npmrc`, `.yarnrc.yml`, `bunfig.toml`, `deno.json` | [javascript.md](references/javascript.md) — `npm`, `pnpm`, Yarn, Bun, Deno |
 | `Cargo.toml` | [rust.md](references/rust.md) — Cargo, cargo-cooldown |
 | `Gemfile` | [ruby.md](references/ruby.md) — Bundler |
@@ -42,11 +49,14 @@ Read only the files for the managers present:
 | `pom.xml`, `build.sbt`, `build.gradle`, `build.mill` | [jvm.md](references/jvm.md) — Scala Steward |
 | `mise.toml`, `.tool-versions`, `.vscode/` | [tool-managers.md](references/tool-managers.md) — mise, VS Code |
 | `.github/workflows/` | [github-actions.md](references/github-actions.md) — actions-up, SHA pinning |
-| `renovate.json`, `dependabot.yml` | [update-bots.md](references/update-bots.md) — Renovate, Dependabot |
-| `go.mod`, `*.csproj`, `composer.json`, `pubspec.yaml`, `Package.swift` | [update-bots.md](references/update-bots.md) — no native cooldown; bot gate only |
+| `renovate.json`, `renovate.json5` | [bot_renovate.md](references/bot_renovate.md) — Renovate |
+| `dependabot.yml` | [bot_github.md](references/bot_github.md) — GitHub Dependabot |
+| `go.mod`, `*.csproj`, `composer.json`, `pubspec.yaml`, `Package.swift` | [ecosystems_no_native.md](references/ecosystems_no_native.md) — no native cooldown; bot gate only |
 | `Dockerfile`, `Containerfile`, a registry proxy | [containers-and-proxies.md](references/containers-and-proxies.md) — images, Artifactory/Nexus/Verdaccio, `cooldowns.sh` |
 
 Done when every manager from step 1 maps to a reference or to a recorded "no cooldown available".
+
+A `pyproject.toml` can configure `uv`, Poetry, or PDM. Inspect its tool tables and load only the matching rows above.
 
 ### 3. Check the version gate
 
