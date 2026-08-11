@@ -62,7 +62,10 @@ discoverability
 lookups
 pretrained
 pretraining
+Isocolon
+reframe
 validator
+Zinsser's
 $^ Norwegian words used in kontrollert-norsk/SKILL.md
 adjektiver
 aktiv
