@@ -11,6 +11,11 @@ repos:
         entry: markdownlint-cli2
         language: system
         files: \.md$
+      - id: claude-plugin-validate
+        name: claude plugin validate
+        entry: claude plugin validate .
+        language: system
+        pass_filenames: false
 
   - repo: https://github.com/vale-cli/vale
     rev: d32b532e2f5ba703ba06a5a6829f9db1fc78a92c # frozen: v3.15.2
