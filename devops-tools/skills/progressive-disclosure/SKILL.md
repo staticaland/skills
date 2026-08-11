@@ -17,13 +17,13 @@ Apply the refactor. When the user asks for analysis only, stop after step 2 and 
 
 Read the target `SKILL.md` and every file it links. Find inbound links to those files across the plugin.
 
-Inventory each distinct topic, where it lives, and what makes it relevant. State each topic's relevance as a **marker** - something observable in the project: a filename, a config key, a command, a tool name, or a mode the user picks. A topic earns its own file by having a marker, so a long file with one marker stays whole and a short file with three markers splits.
+Inventory each distinct topic, where it lives, and what makes it relevant. State each topic's relevance as a **marker** - something observable in the project: a filename, a config key, a command, a tool name, or a mode the user picks. Create a separate file only when the topic has its own marker, so a long file with one marker stays whole and a short file with three markers splits.
 
 Done when every topic is marked always-needed or conditional, and every conditional topic names its marker.
 
 ### 2. Choose the disclosure boundaries
 
-Keep in `SKILL.md` the core procedure, the safety constraints, and the guidance every invocation needs. Push conditional implementation detail into references.
+Keep in `SKILL.md` the core procedure, the safety constraints, and the guidance every invocation needs. Push conditional details into references.
 
 Create one reference per topic that can apply on its own. Keep topics together when they always fire together, or when separating them would send the reader through a chain of references to assemble one answer. Name each file for its narrow scope, sharing a prefix where that shows the grouping: `python_uv.md`, `python_pip.md`.
 
@@ -41,7 +41,7 @@ Read only the files for the markers present:
 | `tool.lock`, `[tool.example]` | [tool_example.md](references/tool_example.md) - Example Tool |
 ```
 
-Make each marker precise. When one filename can belong to several tools, name the config key that distinguishes them and load only the matching row. When a topic has no filesystem marker, its marker is an explicit user choice or a condition the core procedure discovers.
+Make each marker precise. When one filename can belong to more than one tool, name the config key that distinguishes them and load only the matching row. When a topic has no filesystem marker, its marker is an explicit user choice or a condition the core procedure discovers.
 
 Every link into the references is a single dispatch row - a surviving catch-all link ("see the references for details") pulls in the whole group and undoes the split.
 

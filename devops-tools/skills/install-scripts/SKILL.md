@@ -8,7 +8,7 @@ version: 0.1.0
 
 Installing a package should copy files. A `preinstall`, `install`, or `postinstall` script makes it run code instead - with your shell, your environment, your CI token, and your `~/.ssh`, before anyone has read a line of the package. That is how the Shai-Hulud worm propagated, and it fires from a transitive dependency nobody chose.
 
-Almost no package needs it. In one 437-package tree, two do: `esbuild` and `fsevents`, both shipping native binaries. That ratio is what makes the fix cheap - **deny** every script by default, then **allowlist** the handful that build something, each with its reason beside it.
+Almost no package needs it. In one 437-package tree, two do: `esbuild` and `fsevents`, both distributing native binaries. That ratio is what makes the fix cheap - **deny** every script by default, then **allowlist** the handful that build something, each with its reason beside it.
 
 Read the flags off the installed tool: `npm help config`, `uv sync --help`.
 
@@ -46,15 +46,15 @@ For `uv`, put it on the install command - `UV_NO_BUILD=1` covers a whole job:
 uv sync --locked --no-build --no-install-project
 ```
 
-`--no-build` refuses to build any source distribution, and that includes the project itself, which is why `--no-install-project` sits beside it. Install the project in a second step without the flag: its build backend is code you wrote.
+`--no-build` refuses to build any source distribution, including the project itself. Put `--no-install-project` beside it, then install the project in a second step without the flag: its build backend is code you wrote.
 
-Cover every install site - CI, image builds, task runners, deploy scripts - which the `frozen-install` skill's step 1 grep finds. In a `Dockerfile`, copy `.npmrc` in before the install layer, or the deny quietly does not apply.
+Cover every install site - CI, image builds, task runners, deploy scripts - which the `frozen-install` skill's step 1 grep finds. In a `Dockerfile`, copy `.npmrc` in before the install layer, or the deny does not apply.
 
 For a manager this skill omits, the vocabulary is `onlyBuiltDependencies` with `pnpm approve-builds` (`pnpm` 10 denies by default), `trustedDependencies` (`bun`), and `enableScripts: false` with `dependenciesMeta.<pkg>.built` (Yarn 2+).
 
 Done when every install site denies scripts through committed config or an explicit flag, and the deny reaches the image build.
 
-### 3. Allowlist what actually builds
+### 3. Allowlist what builds
 
 Rebuild the needed packages by name, right after the install that skipped them:
 
@@ -63,7 +63,7 @@ npm ci
 npm rebuild --ignore-scripts=false --foreground-scripts esbuild fsevents
 ```
 
-A project-wide `ignore-scripts=true` applies to `npm rebuild` as well, so without `--ignore-scripts=false` the rebuild reports success and runs nothing at all. `--foreground-scripts` prints what each script did, which is the only way to watch it happen.
+A project-wide `ignore-scripts=true` applies to `npm rebuild` as well, so without `--ignore-scripts=false` the rebuild reports success and runs nothing at all. `--foreground-scripts` prints what each script did so you can confirm it ran.
 
 uv has no per-package allowlist: `--no-build-package` denies more, and nothing permits less. A dependency with no wheel leaves three choices - replace it, build and host a wheel yourself, or drop `--no-build` for the whole tree and record which package forced that.
 
@@ -97,4 +97,4 @@ For uv, `uv sync --no-build --no-install-project --dry-run` exiting zero is the 
 
 Done when a fresh install at each site from step 2 produces script output from the allowlist only.
 
-Report the denied sites, the allowlist with reasons, and the hooks moved in step 4. Two gaps stay open. A package still runs its code once the project imports it, and a deny says nothing about which version arrived - pair this with `dependency-cooldown` so a fresh release ages first, and `frozen-install` so every site installs the same tree. Check the update bot as well: it installs on its own infrastructure with its own token when it refreshes the lockfile.
+Report the denied sites, the allowlist with reasons, and the hooks moved in step 4. A package can still run its code once the project imports it. A deny also says nothing about which version arrived. Pair this with `dependency-cooldown` so a fresh release ages first, and `frozen-install` so every site installs the same tree. Check the update bot as well: it installs on its own infrastructure with its own token when it refreshes the lockfile.

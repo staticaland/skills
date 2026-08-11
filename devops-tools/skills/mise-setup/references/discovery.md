@@ -36,7 +36,7 @@ The commands contributors type reveal the tools those commands need:
 
 - `Makefile`, `magefile.go`, `justfile`, `Taskfile.yml`, `package.json` scripts, `noxfile.py`, `tox.ini`.
 - `.pre-commit-config.yaml`, `lefthook.yml`, `.husky/` - each hook's binary is a tool a contributor needs.
-- The shipped program's own runtime dependencies: `exec.Command`, `subprocess.run`, and backtick calls name binaries that must exist at run time, not build time. `grep -rE "exec\.(Command|LookPath)\(" .` finds them in Go.
+- The distributed program's own runtime dependencies: `exec.Command`, `subprocess.run`, and backtick calls name binaries that must exist at run time, not build time. `grep -rE "exec\.(Command|LookPath)\(" .` finds them in Go.
 
 ## Containers, editors, and packaging
 

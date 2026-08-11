@@ -2,7 +2,7 @@
 
 ## GitHub Actions
 
-`jdx/mise-action` installs mise, installs the tools, and caches both. Look up its latest release instead of writing a major tag from memory - the version below was current when this was written and the major has moved before:
+`jdx/mise-action` installs mise and the configured tools. It caches both. Look up its latest release instead of writing a major tag from memory - the version below was current when this was written and the major has moved before:
 
 ```bash
 gh api repos/jdx/mise-action/releases/latest --jq .tag_name   # v4.2.4

@@ -24,7 +24,7 @@ git ls-files | grep -Ei '(^|/)(package\.json|package-lock\.json|pnpm-workspace\.
 
 Then find the resolvers among the hits: update bot configs, CI workflows and Dockerfiles that install without a committed lockfile or run an update command, and tool-version managers.
 
-Single-file scripts declare dependencies inline rather than in a manifest, so no filename matches them. Add `git grep -ln '/// script'` for [PEP 723](https://peps.python.org/pep-0723/) Python scripts.
+Single-file scripts declare dependencies inline instead of in a manifest, so no filename matches them. Add `git grep -ln '/// script'` for [PEP 723](https://peps.python.org/pep-0723/) Python scripts.
 
 Done when every manager in the repo appears in a list with its resolution sites, and each site is marked covered by a cooldown or not.
 
@@ -63,7 +63,7 @@ Read only the files for the managers present:
 
 Done when every manager from step 1 maps to a reference or to a recorded "no cooldown available".
 
-Two filenames name no tool on their own. A `pyproject.toml` can configure `uv`, Poetry, or PDM: inspect its tool tables and load only the matching rows. A `package.json` with no lockfile and no `packageManager` field identifies no JavaScript manager either - read the CI workflow's install command first, and load nothing until one names a manager.
+A `pyproject.toml` names no tool on its own. It can configure `uv`, Poetry, or PDM, so inspect its tool tables and load only the matching rows. A `package.json` with no lockfile and no `packageManager` field identifies no JavaScript manager either - read the CI workflow's install command first, and load nothing until one names a manager.
 
 ### 3. Check the version gate
 

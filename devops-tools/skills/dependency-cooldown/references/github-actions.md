@@ -4,7 +4,7 @@ Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) / [co
 
 GitHub Actions has no native cooldown, but the actions a workflow references are dependencies like any other. In the March 2025 [tj-actions/changed-files compromise](https://www.stepsecurity.io/blog/harden-runner-detection-tj-actions-changed-files-action-is-compromised), attackers re-pointed existing version tags at a malicious commit and leaked CI secrets from more than 20,000 repositories.
 
-Two moves, together: **pin actions to full commit SHAs** so a moved tag cannot change what the workflow runs, and apply a cooldown when updating those pins.
+**Pin actions to full commit SHAs** so a moved tag cannot change what the workflow runs. Apply a cooldown when updating those pins.
 
 ## actions-up
 
