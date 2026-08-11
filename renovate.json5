@@ -1,0 +1,25 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "config:recommended",
+    "docker:pinDigests",
+    "helpers:pinGitHubActionDigests",
+    ":maintainLockFilesWeekly",
+    ":enablePreCommit",
+  ],
+  minimumReleaseAge: "7 days",
+  customManagers: [
+    {
+      customType: "regex",
+      managerFilePatterns: ["/^\\.vale\\.ini$/"],
+      matchStrings: [
+        "https://github\\.com/tbhb/vale-ai-tells/releases/download/v(?<currentValue>\\d+\\.\\d+\\.\\d+)/",
+      ],
+      depNameTemplate: "tbhb/vale-ai-tells",
+      datasourceTemplate: "github-releases",
+      versioningTemplate: "semver",
+    },
+  ],
+  // Vale package URLs have no checksum or digest field, so Renovate can update
+  // their versions but cannot make the downloaded archives immutable.
+}
