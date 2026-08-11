@@ -6,7 +6,7 @@ version: 0.1.0
 
 # Writing Revision
 
-Revise text to be clear, scannable, and action-oriented for busy readers.
+Revise text for clarity, scannability, and direct action by busy readers.
 
 ## When to Use
 
@@ -16,13 +16,13 @@ Activate this skill when revising:
 - Documentation
 - Proposals and reports
 - Slack/Teams messages
-- Any professional communication
+- Workplace communication
 
 ## Output Behavior
 
-**Inline text:** Output the revised text directly with no wrapper, labels, or explanation.
+**Inline text:** output the revised text directly with no wrapper, labels, or explanation.
 
-**File input:** Use the Edit tool to modify the file in place.
+**File input:** use the Edit tool to modify the file in place.
 
 ## Revision Principles
 
@@ -40,15 +40,15 @@ First sentence states the key message or request. Details follow.
 
 Spell out exactly what's needed and by when. One main ask per message.
 
-**Before:** "It would be great if someone could take a look at this when they get a chance."
+**Before:** "It would be great if someone could review this when they get a chance."
 
 **After:** "Please review the attached PR by Thursday EOD. I need your sign-off before merging."
 
 ### 3. Be Aggressively Concise
 
-Cut filler words: "just", "really", "I think maybe", "kind of", "actually", "basically", "in order to".
+Cut filler words: `just`, `really`, `I think maybe`, `kind of`, `actually`, `basically`, `in order to`.
 
-**Before:** "I just wanted to quickly check in to see if you've had a chance to basically review the document I sent over."
+**Before:** `I just wanted to quickly check in to see if you've had a chance to basically review the document I sent over.`
 
 **After:** "Have you reviewed the document?"
 
@@ -64,13 +64,13 @@ Use bullets, numbered lists, bold for key terms. Break up walls of text.
 
 Default to everyday words. Define jargon briefly if unavoidable.
 
-| Instead of | Use           |
-| ---------- | ------------- |
-| utilize    | use           |
-| facilitate | help          |
-| leverage   | use           |
-| synergize  | work together |
-| actionable | practical     |
+| Instead of   | Use           |
+| ------------ | ------------- |
+| `utilize`    | use           |
+| `facilitate` | help          |
+| leverage     | use           |
+| synergize    | work together |
+| `actionable` | practical     |
 
 ### 7. Limit Scope
 
@@ -80,9 +80,9 @@ One topic per message. If multiple topics, use clear sub-headings.
 
 State recommendation and alternatives explicitly.
 
-**Before:** "There are several options we could consider..."
+**Before:** `There are several options we could consider...`
 
-**After:** "**Recommendation:** Option A (fastest). **Alternatives:** Option B (cheapest), Option C (most flexible)."
+**After:** "**Recommendation:** option A (fastest). **Alternatives:** option B (cheapest), option C (most flexible)."
 
 ### 9. End with Next Steps
 

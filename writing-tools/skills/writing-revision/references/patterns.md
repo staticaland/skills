@@ -128,20 +128,20 @@ This document describes the process for deploying new versions of the applicatio
 
 | Filler                       | Replacement                     |
 | ---------------------------- | ------------------------------- |
-| "I just wanted to..."        | [Delete, start with the point]  |
-| "I think maybe we should..." | "We should..." or "Consider..." |
-| "It would be great if..."    | [State the ask directly]        |
-| "I was wondering if..."      | [Ask the question directly]     |
-| "Just a quick..."            | [Delete]                        |
-| "Basically..."               | [Delete]                        |
-| "Actually..."                | [Delete unless contrasting]     |
-| "In order to..."             | "To..."                         |
-| "At this point in time"      | "Now"                           |
-| "Due to the fact that"       | "Because"                       |
-| "In the event that"          | "If"                            |
-| "Prior to"                   | "Before"                        |
-| "Subsequent to"              | "After"                         |
-| "With regard to"             | "About" or "On"                 |
+| `I just wanted to...`        | Delete; start with the point    |
+| `I think maybe we should...` | `We should...` or `Consider...` |
+| `It would be great if...`    | State the ask directly          |
+| `I was wondering if...`      | Ask the question directly       |
+| `Just a quick...`            | Delete                          |
+| `Basically...`               | Delete                          |
+| `Actually...`                | Delete unless contrasting       |
+| `In order to...`             | `To...`                         |
+| `At this point in time`      | `Now`                           |
+| `Due to the fact that`       | `Because`                       |
+| `In the event that`          | `If`                            |
+| `Prior to`                   | `Before`                        |
+| `Subsequent to`              | `After`                         |
+| `With regard to`             | `About` or `On`                 |
 
 ## Restructuring Long Messages
 

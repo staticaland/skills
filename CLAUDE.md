@@ -4,7 +4,7 @@ This repo is a multi-plugin Claude Code marketplace. Each top-level plugin direc
 
 ## Structure rules
 
-- Every shipped plugin directory must have an entry in `.claude-plugin/marketplace.json` and a section in the top-level `README.md` catalog.
+- Every available plugin directory must have an entry in `.claude-plugin/marketplace.json` and a section in the top-level `README.md` catalog.
 - Every plugin has its own `README.md` listing each of its skills and hooks with a one-line description. Skill names link to their `SKILL.md`, both in the plugin README and in the top-level catalog.
 - Directories under `in-progress/` (drafts) and `deprecated/` (retired) must NOT appear in `marketplace.json` or the top-level README catalog.
 - When a plugin's contents change, bump its `version` in both its `plugin.json` and its entry in `marketplace.json` - installed users only see updates when the version changes.
