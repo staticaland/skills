@@ -15,7 +15,11 @@ Follow Zinsser's four principles of quality writing:
 3. Clarity
 4. Humanity
 
-Read .github/forbidden-patterns.md. Revise each matching pattern.
+Avoid these patterns:
+- Staccato pairs
+- Antithesis reframes and negative parallelism
+- Isocolon metaphor-pairs
+- Backward references
 -->
 
 ## Summary
