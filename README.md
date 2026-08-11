@@ -116,7 +116,7 @@ repository tools from the locked configuration:
 
 ```bash
 mise trust
-mise install
+mise install --locked
 ```
 
 Use mise shell activation or prefix repository-tool commands with

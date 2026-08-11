@@ -1,15 +1,32 @@
-# Use `mise trust` and `mise install` to install the required tools.
+# Install mise itself before running these hooks.
 repos:
   - repo: local
     hooks:
+      - id: mise-install
+        name: mise trust and install locked tools
+        entry: |
+          export MISE_GLOBAL_CONFIG_FILE=/dev/null
+          export MISE_SYSTEM_CONFIG_FILE=/dev/null
+          export MISE_OVERRIDE_TOOL_VERSIONS_FILENAMES=none
+          export MISE_CEILING_PATHS="$(dirname "$(git rev-parse --show-toplevel)")"
+          mise trust mise.toml
+          mise install --locked
+        language: system
+        shell: sh
+        pass_filenames: false
+        always_run: true
+        fail_fast: true
+        verbose: true
+        priority: 0
+        stages: [pre-commit, commit-msg]
       - id: prettier
         name: prettier
-        entry: prettier --check
+        entry: mise exec -- prettier --check
         language: system
         files: \.(json|md|ya?ml)$
       - id: markdownlint-cli2
         name: markdownlint-cli2
-        entry: markdownlint-cli2
+        entry: mise exec -- markdownlint-cli2
         language: system
         files: \.md$
       - id: claude-plugin-validate
