@@ -1,0 +1,27 @@
+# Pull request
+
+<!--
+Always write the pull request title and description in ASD-STE100 Simplified
+Technical English.
+
+Use short sentences.
+Use a controlled and consistent vocabulary.
+Make direct statements.
+Remove hedging and information that reviewers do not need.
+
+Follow Zinsser's four principles of quality writing:
+1. Simplicity
+2. Brevity
+3. Clarity
+4. Humanity
+
+Read .github/forbidden-patterns.md. Revise each matching pattern.
+-->
+
+## Summary
+
+<!-- State what changed and why. -->
+
+## Validation
+
+<!-- List each command that you ran and its result. -->
