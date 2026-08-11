@@ -1,4 +1,4 @@
-# Staticaland Skills
+# Skills
 
 Skills and hooks for Claude Code, distributed as a marketplace of small,
 single-purpose plugins. Install only the plugins you want - each one is an
