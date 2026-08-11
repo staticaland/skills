@@ -22,14 +22,17 @@ Add the marketplace, then install individual plugins:
 
 #### [writing](./writing/README.md)
 
-Revise prose for clarity and busy readers, with automatic Vale linting of
-Markdown files on every edit.
+Add sourced footnotes, revise prose for clarity and busy readers, write
+controlled technical Norwegian, and lint Markdown with Vale.
 
 - **[writing-revision](./writing/skills/writing-revision/SKILL.md)**
   (skill) - Makes text clear, scannable, and action-oriented for busy readers.
 - **[Kontrollert norsk](./writing/skills/kontrollert-norsk/SKILL.md)**
   (skill) - Writes or revises documentation in controlled technical Norwegian
   (klarspråk per NS-ISO 24495-1 with ASD-STE100 principles).
+- **[Auto-cite Factual Claims](./writing/skills/auto-cite-factual-claims/SKILL.md)**
+  (skill) - Finds web sources for factual claims and adds them as Markdown
+  footnotes.
 - **Vale lint** (hook) - Runs [Vale](https://vale.sh/) on Markdown files after
   Claude writes or edits them. Requires the `vale` CLI.
 

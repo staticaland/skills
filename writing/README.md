@@ -1,7 +1,7 @@
 # writing
 
-Revise prose for clarity and busy readers, with automatic Vale linting of
-Markdown files on every edit.
+Add sourced footnotes, revise prose for clarity and busy readers, write
+controlled technical Norwegian, and lint Markdown with Vale.
 
 Category: `writing`
 
@@ -14,6 +14,8 @@ Model-invoked - Claude activates these automatically when the request matches.
 - **[kontrollert-norsk](./skills/kontrollert-norsk/SKILL.md)** - Writes or
   revises documentation in controlled technical Norwegian (klarspråk per NS-ISO
   24495-1 with ASD-STE100 principles).
+- **[auto-cite-factual-claims](./skills/auto-cite-factual-claims/SKILL.md)** -
+  Finds web sources for factual claims and adds them as Markdown footnotes.
 
 ## Hooks
 
