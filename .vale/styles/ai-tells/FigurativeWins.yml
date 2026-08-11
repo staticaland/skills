@@ -1,0 +1,40 @@
+---
+extends: existence
+message: "AI overused verb: '%s'. State the benefit or the outcome directly. Disable this rule for sports or gaming prose."
+level: error
+nonword: true
+ignorecase: true
+# "Wins" is an AI fingerprint for framing a choice as a contest: an approach
+# "wins the day," a refactor is "a quick win," a tradeoff "wins out." Literal
+# winning is common (a team, a game, a prize), so the complement after the
+# verb is the discriminator, in the FigurativeSits mold. The precedence sense
+# ("last write wins," "the more specific rule wins") is established
+# engineering jargon, not a tell, so the bare "X wins" is left alone; only
+# the curated idioms fire.
+tokens:
+  # --- Victory idioms: the choice triumphs ("wins the day," "wins out,"
+  # "wins hands down," "comes out on top," "takes the crown").
+  - "\\bwin(?:s|ning)? the day\\b"
+  - "\\bwon the day\\b"
+  - "\\bwin(?:s|ning)? out\\b"
+  - "\\bwon out\\b"
+  - "\\bwin(?:s|ning)? hands down\\b"
+  - "\\bcom(?:es|ing)? out on top\\b"
+  - "\\bcame out on top\\b"
+  - "\\bwin(?:s|ning)? hearts and minds\\b"
+
+  # --- Scored-point framing: progress tallied like a scoreboard ("a quick
+  # win," "an easy win," "chalks up a win," "notch a win," "rack up wins,"
+  # "for the win"). "Quick win" is the strongest tell here.
+  - "\\ban? (?:quick|easy|clear|big|huge|major|real|cheap|early|guaranteed|obvious) win\\b"
+  - "\\b(?:quick|easy|cheap|early) wins\\b"
+  - "\\b(?:chalk|notch|score|rack|bank|log)(?:s|ed|ing)? up (?:a|another|some|several)? ?wins?\\b"
+  - "\\bfor the win\\b"
+
+  # --- Superlative framing: the choice branded a champion ("a winning
+  # formula," "the winning combination," "a winning strategy," "a winning
+  # streak," "a win-win").
+  - "\\ba winning (?:formula|combination|combo|strategy|streak|hand|recipe|play|move)\\b"
+  - "\\bthe winning (?:formula|combination|combo|strategy|hand|recipe|play|move)\\b"
+  - "\\bwin-win\\b"
+  - "\\bwin/win\\b"

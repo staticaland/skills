@@ -6,3 +6,4 @@ minimum_release_age = "7d"
 
 [tools]
 "aqua:errata-ai/vale" = "latest"
+prek = "latest"
