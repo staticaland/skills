@@ -1,7 +1,7 @@
 # Skills Marketplace
 
-This repo is a multi-plugin Claude Code marketplace. Each top-level plugin
-directory (`writing-tools/`, `learning-tools/`, `devops-tools/`, ...) is an
+This repo is a multi-plugin Claude Code marketplace. Each category directory
+(`writing/`, `dev/`, `ai/`, or `other/`) is an
 independently installable plugin with its own `.claude-plugin/plugin.json`.
 
 ## Structure rules

@@ -1,4 +1,4 @@
-# writing-tools
+# writing
 
 Revise prose for clarity and busy readers, with automatic Vale linting of
 Markdown files on every edit.

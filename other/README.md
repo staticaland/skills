@@ -1,4 +1,4 @@
-# learning-tools
+# other
 
 Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's
 prompt-writing principles.

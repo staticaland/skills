@@ -1,4 +1,4 @@
-# devops-tools
+# dev
 
 Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps,
 set up dependency cooldowns and mise toolchains, freeze install commands to

@@ -1,4 +1,4 @@
-# ai-tools
+# ai
 
 Analyze skills to split scriptable work from judgment work and refactor skill
 references for progressive disclosure.

@@ -39,6 +39,7 @@ lockfile
 subcommand
 typosquatting
 Corepack
+dev
 devcontainer
 Homebrew
 launchd
