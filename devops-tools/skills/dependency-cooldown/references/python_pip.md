@@ -51,4 +51,4 @@ pip() {
 }
 ```
 
-(Call `command pip` to bypass the wrapper.) Or write an absolute date into `pip.conf` and refresh it on a `cron` job — see Seth Larson's [post](https://sethmlarson.dev/pip-relative-dependency-cooling-with-crontab).
+(Call `command pip` to bypass the wrapper.) Or write an absolute date into `pip.conf` and refresh it on a `cron` job - see Seth Larson's [post](https://sethmlarson.dev/pip-relative-dependency-cooling-with-crontab).

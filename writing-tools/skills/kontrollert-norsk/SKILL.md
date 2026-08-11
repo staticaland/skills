@@ -1,6 +1,6 @@
 ---
 name: Kontrollert norsk
-description: Kontrollert norsk — teknisk norsk etter klarspråksprinsippene i NS-ISO 24495-1 og skriveregler fra ASD-STE100. Use when the user asks for documentation in Norwegian, mentions "klarspråk", "kontrollert norsk", or one of the standards, or wants Norwegian text rewritten to plain technical language.
+description: Kontrollert norsk - teknisk norsk etter klarspråksprinsippene i NS-ISO 24495-1 og skriveregler fra ASD-STE100. Use when the user asks for documentation in Norwegian, mentions "klarspråk", "kontrollert norsk", or one of the standards, or wants Norwegian text rewritten to plain technical language.
 version: 0.1.0
 ---
 
@@ -11,7 +11,7 @@ Kontrollert norsk er teknisk norsk med et fast begrepsapparat og faste skrivereg
 ## Bruk
 
 - **Ny tekst:** Skriv teksten etter reglene nedenfor fra første utkast.
-- **Eksisterende tekst eller fil:** Les hele teksten først. Rett deretter hver setning som bryter en regel. Bruk Edit-verktøyet på filer; skriv revidert løpende tekst direkte uten forklaring eller merkelapper.
+- **Eksisterende tekst eller fil:** Les hele teksten først. Rett deretter hver setning som bryter en regel. Bruk Edit-verktøyet på filer. Skriv revidert løpende tekst direkte uten forklaring eller merkelapper.
 
 Teksten er ferdig når hver setning følger alle reglene.
 
@@ -47,6 +47,6 @@ Teksten er ferdig når hver setning følger alle reglene.
 
 Skill tydelig mellom krav, anbefalinger, muligheter og eksempler:
 
-- **skal** — krav
-- **bør** — anbefaling
-- **kan** — mulighet
+- **skal** - krav
+- **bør** - anbefaling
+- **kan** - mulighet

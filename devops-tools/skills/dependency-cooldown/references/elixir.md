@@ -22,7 +22,7 @@ def project do
 end
 ```
 
-Bypass per repository — the useful case when an organization publishes hotfixes to its own repo:
+Bypass per repository - the useful case when an organization publishes hotfixes to its own repo:
 
 ```bash
 mix hex.config cooldown_exclude_repos '["hexpm:myorg"]'

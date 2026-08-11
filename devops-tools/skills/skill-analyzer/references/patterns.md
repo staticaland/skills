@@ -94,7 +94,7 @@ Given a skill that generates release notes from git history:
 
 ### Step 3: Proposed Scripts
 
-Two scripts cover the `SCRIPT` rows: `collect.sh` (steps 1–3, 5) shown below, and `format.sh` (steps 8–9), which renders the LLM's grouped summary into a changelog entry and appends it to CHANGELOG.md.
+Two scripts cover the `SCRIPT` rows: `collect.sh` (steps 1-3, 5) shown below, and `format.sh` (steps 8-9), which renders the LLM's grouped summary into a changelog entry and appends it to CHANGELOG.md.
 
 ```bash
 #!/usr/bin/env bash
@@ -225,12 +225,12 @@ Given a skill that creates a branch from an issue description:
 
 ### Step 5: Summary
 
-Steps 3–4 are skipped: with every step blind, the deliverable is a standalone script, not a SKILL.md — see the verdict.
+Steps 3-4 are skipped: with every step blind, the deliverable is a standalone script, not a SKILL.md - see the verdict.
 
 - **Total steps:** 6
 - **SCRIPT:** 6 (100%)
 - **LLM:** 0 (0%)
-- **Verdict:** This skill is entirely deterministic. It should be replaced with a shell script entirely. No SKILL.md is needed; a simple CLI tool covers the full workflow.
+- **Verdict:** This skill is entirely deterministic. It should be replaced with a shell script entirely. No SKILL.md is needed. A simple CLI tool covers the full workflow.
 
 ---
 
@@ -242,7 +242,7 @@ Removing known filler words ("just", "basically", "actually") from text can be d
 
 ### Template Rendering with Optional Sections
 
-Rendering a template where all variables are known is `SCRIPT`. But if some sections are conditional based on judgment ("include the breaking changes section only if there are breaking changes worth mentioning"), the decision of what to include is not blind — it is `LLM` even though the rendering is `SCRIPT`. **Split the step:** LLM decides which sections to include, script renders the template.
+Rendering a template where all variables are known is `SCRIPT`. But if some sections are conditional based on judgment ("include the breaking changes section only if there are breaking changes worth mentioning"), the decision of what to include is not blind - it is `LLM` even though the rendering is `SCRIPT`. **Split the step:** LLM decides which sections to include, script renders the template.
 
 ### Code Formatting
 

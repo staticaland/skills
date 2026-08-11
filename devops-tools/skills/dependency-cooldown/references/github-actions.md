@@ -16,4 +16,4 @@ npx actions-up --min-age 3
 
 No per-action exemption. To bypass for an urgent fix, run `--min-age 0` and select only the action needed.
 
-Dependabot and Renovate also update GitHub Actions and carry their own cooldown settings — see [bot_github.md](bot_github.md) and [bot_renovate.md](bot_renovate.md).
+Dependabot and Renovate also update GitHub Actions and carry their own cooldown settings - see [bot_github.md](bot_github.md) and [bot_renovate.md](bot_renovate.md).

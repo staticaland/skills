@@ -2,7 +2,7 @@
 
 ## GitHub Actions
 
-`jdx/mise-action` installs mise, installs the tools, and caches both. Look up its latest release instead of writing a major tag from memory — the version below was current when this was written and the major has moved before:
+`jdx/mise-action` installs mise, installs the tools, and caches both. Look up its latest release instead of writing a major tag from memory - the version below was current when this was written and the major has moved before:
 
 ```bash
 gh api repos/jdx/mise-action/releases/latest --jq .tag_name   # v4.2.4
@@ -86,7 +86,7 @@ Run `mise reshim` after installing a tool that adds binaries outside mise's know
 | Homebrew runtimes | `mise sync node --brew`, `mise sync ruby --brew` |
 | `tfenv`, `jenv`, SDKMAN, Volta | No sync path. Read the version out of `.terraform-version`, `.java-version`, `.sdkmanrc`, or the `volta` block, write it into `mise.toml`, and delete the file |
 
-`mise sync` symlinks versions into mise without overwriting installs. It imports what is on the machine — it does not write `mise.toml`, so the project config still has to state the version.
+`mise sync` symlinks versions into mise without overwriting installs. It imports what is on the machine - it does not write `mise.toml`, so the project config still has to state the version.
 
 To keep a per-language version file as the owner instead of deleting it, list its tool:
 

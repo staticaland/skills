@@ -2,7 +2,7 @@
 
 Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) / [cooldowns.dev](https://cooldowns.dev/), the source of truth. All examples use a three-day cooldown.
 
-Maven and Gradle have no native cooldown. The gate here sits at the update bot, so it holds back pull requests, not resolution — see [bot_renovate.md](bot_renovate.md) and [bot_github.md](bot_github.md), and lock dependencies to exact versions alongside it.
+Maven and Gradle have no native cooldown. The gate here sits at the update bot, so it holds back pull requests, not resolution - see [bot_renovate.md](bot_renovate.md) and [bot_github.md](bot_github.md), and lock dependencies to exact versions alongside it.
 
 ## Scala Steward
 

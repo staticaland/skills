@@ -6,7 +6,7 @@ Developer-machine config does not carry into an image. Where a team maintains sh
 
 ## Relative durations
 
-`uv`, `pip` (26.1+), `npm`, `pnpm`, Bun, Deno, and Yarn all accept relative durations, which never go stale — set environment variables or copy config files in at build time:
+`uv`, `pip` (26.1+), `npm`, `pnpm`, Bun, Deno, and Yarn all accept relative durations, which never go stale - set environment variables or copy config files in at build time:
 
 ```dockerfile
 FROM quay.io/fedora/fedora
