@@ -1,3 +1,4 @@
+# Use `mise trust` and `mise install` to install the required tools.
 repos:
   - repo: local
     hooks:
