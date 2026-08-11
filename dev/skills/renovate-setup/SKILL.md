@@ -5,7 +5,7 @@ description: >-
   updates: lock files and integrity hashes, GitHub Action SHAs, and container
   digests. Use when adopting Renovate, replacing another update bot, covering
   missing manifests, or updating tools, images, actions, or custom files.
-version: 0.1.0
+version: 0.2.0
 ---
 
 # Renovate Setup
@@ -299,26 +299,11 @@ updates.
 Done when strict validation passes, every in-scope row appears with the intended
 manager, `datasource`, current version, cooldown verdict, and immutable/artifact
 result, and each unavailable check has an owner and exact follow-up action.
-
-### 7. Activate and report
-
-Confirm the hosted Renovate app has repository access or that the self-hosted
-runner selects the repository. Trigger one run and check its Dependency
-Dashboard or logs. Keep the previous bot active until this proof succeeds.
-
-Report:
-
-- managers and custom managers enabled after all config layers merge;
-- the `minimumReleaseAge` that wins after merging for every row, including each
-  preserved minimum longer than seven days;
-- covered manifests, tool files, lock files, integrity hashes/checksums, action
-  SHAs, and image digests, including Mise;
-- each row's immutable/lockfile strategy or explicit unsupported reason;
-- intentional exclusions and mirrors that remain manual;
-- validation and extraction commands with outcomes;
-- activation status and any administrator-only action.
-
-Done when Renovate has completed a repository run and every row proves both its
-seven-day cooldown result and immutable/artifact result, or the report names
-each external activation or unsupported capability with an owner and exact
-follow-up action.
+Report managers and custom managers enabled after all config layers merge; the
+`minimumReleaseAge` that wins after merging for every row, including each
+preserved minimum longer than seven days; covered manifests, tool files, lock
+files, integrity hashes/checksums, action SHAs, and image digests, including
+Mise; each row's immutable/lockfile strategy or explicit unsupported reason;
+intentional exclusions and mirrors that remain manual; and validation and
+extraction commands with outcomes. Note any administrator-only activation step
+with an owner and exact follow-up action.
