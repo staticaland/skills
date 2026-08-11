@@ -10,8 +10,8 @@ Kontrollert norsk er teknisk norsk med et fast begrepsapparat og faste skrivereg
 
 ## Bruk
 
-- **Ny tekst:** Skriv teksten etter reglene nedenfor fra første utkast.
-- **Eksisterende tekst eller fil:** Les hele teksten først. Rett deretter hver setning som bryter en regel. Bruk Edit-verktøyet på filer. Skriv revidert løpende tekst direkte uten forklaring eller merkelapper.
+- **Ny tekst:** skriv teksten etter reglene nedenfor fra første utkast.
+- **Eksisterende tekst eller fil:** les hele teksten først. Rett deretter hver setning som bryter en regel. Bruk Edit-verktøyet på filer. Skriv revidert løpende tekst direkte uten forklaring eller merkelapper.
 
 Teksten er ferdig når hver setning følger alle reglene.
 
@@ -28,7 +28,7 @@ Teksten er ferdig når hver setning følger alle reglene.
 - Bruk aktiv form, ikke passiv. Angi hvem eller hva som utfører handlingen.
 - Hvis du kan stryke et ord uten å endre meningen, stryk det.
 - Ikke skjul handlinger i substantiver. Skriv «systemet validerer konfigurasjonen», ikke «validering av konfigurasjonen utføres».
-- Unngå vage ord som «enkelt», «sømløst», «robust», «typisk», «vanligvis», «på en effektiv måte» og «etter behov», med mindre teksten definerer hva de betyr.
+- Unngå vage ord som `enkelt`, `sømløst`, `robust`, `typisk`, `vanligvis`, `på en effektiv måte` og `etter behov`, med mindre teksten definerer hva de betyr.
 - Bruk korte avsnitt, men ikke fjern nødvendig årsak, virkning eller kontekst.
 
 ### Prosedyrer

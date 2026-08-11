@@ -113,8 +113,7 @@ hva
 hvem
 hver
 hvert
-ikke
-Ikke
+[Ii]kke
 imperativ
 innhold
 innledninger
@@ -124,9 +123,10 @@ konfigurasjonen
 konkrete
 konsept
 kontekst
-Kontrollert
+[Kk]ontrollert
 korte
 krav
+les
 mellom
 meningen
 merkelapper
@@ -157,8 +157,7 @@ Setninger
 setning
 skal
 skjul
-Skriv
-skriv
+[Ss]kriv
 skriveregler
 stopp
 stryk
@@ -167,8 +166,7 @@ substantiver
 synonymer
 teknisk
 tekst
-teksten
-Teksten
+[Tt]eksten
 temaet
 Terminologi
 testen
