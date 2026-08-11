@@ -22,20 +22,20 @@ Avoid these patterns:
 - Backward references
 -->
 
-**What is this feature?**
+## What is this feature?
 
 <!-- State what changed and why. -->
 
 [Add a brief description of what the feature or update does.]
 
-**Why do we need this feature?**
+## Why do we need this feature?
 
 [Add a description of the problem the feature is trying to solve.]
 
-**Who is this feature for?**
+## Who is this feature for?
 
 [Add information about the users that the feature is for.]
 
-**Which issue(s) does this PR fix?**:
+## Which issue(s) does this PR fix?
 
 <!-- List each command that you ran and its result. -->
