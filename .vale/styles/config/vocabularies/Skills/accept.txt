@@ -29,6 +29,7 @@ Dockerfiles?
 Gradle
 JFrog
 Renovate
+renovate-setup
 Sonatype
 Verdaccio
 backend

@@ -1,8 +1,8 @@
 # dev
 
 Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps,
-set up dependency cooldowns and mise toolchains, freeze install commands to
-their lock files, and deny install-time script execution.
+set up dependency cooldowns, Renovate, and mise toolchains, freeze install
+commands to their lock files, and deny install-time script execution.
 
 Category: `dev`
 
@@ -27,6 +27,9 @@ Category: `dev`
 - **[parallel-steps](./skills/parallel-steps/SKILL.md)** - Makes GitHub Actions
   workflow steps run in parallel with the `background`, `wait`, `cancel`, and
   `parallel` keywords, written in ASD-STE100 Simplified Technical English.
+- **[Renovate setup](./skills/renovate-setup/SKILL.md)** - Configures Renovate
+  with a seven-day minimum release age and immutable updates through lock files,
+  integrity hashes, action SHAs, and image digests.
 
 ## Hooks
 

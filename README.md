@@ -49,8 +49,8 @@ controlled technical Norwegian, and lint Markdown with Vale.
 #### [dev](./dev/README.md)
 
 Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps,
-set up dependency cooldowns and mise toolchains, freeze install commands to
-their lock files, and deny install-time script execution.
+set up dependency cooldowns, Renovate, and mise toolchains, freeze install
+commands to their lock files, and deny install-time script execution.
 
 - **[dependency-cooldown](./dev/skills/dependency-cooldown/SKILL.md)**
   (skill) - Sets up a minimum release age across a project's package managers
@@ -73,6 +73,9 @@ their lock files, and deny install-time script execution.
   Makes GitHub Actions workflow steps run in parallel with the `background`,
   `wait`, `cancel`, and `parallel` keywords, written in ASD-STE100 Simplified
   Technical English.
+- **[Renovate setup](./dev/skills/renovate-setup/SKILL.md)** (skill) -
+  Configures Renovate with a seven-day minimum release age and immutable updates
+  through lock files, integrity hashes, action SHAs, and image digests.
 - **pinact** (hook) - Pins GitHub Actions references to full commit SHAs with
   [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes or
   edits workflow files. Requires the `pinact` CLI.
