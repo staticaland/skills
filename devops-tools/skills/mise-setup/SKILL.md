@@ -8,8 +8,6 @@ version: 0.1.0
 
 [mise](https://mise.jdx.dev/) declares a project's whole toolchain in one committed `mise.toml`, so a laptop, a container, and CI run the same versions. Writing the TOML takes minutes. The work is the **inventory**: the toolchain already exists, spread across CI workflows, Dockerfiles, task runners, READMEs, and one version file per language.
 
-Two ideas carry the rest of this skill:
-
 - A **backend** is the source mise downloads a tool from. The registry maps a bare name like `yq` to a backend for you, and that mapping changes between mise releases. Write the backend-qualified name so the tool cannot move under the project.
 - A version in `mise.toml` either **owns** its constraint or **mirrors** one that lives in another file. A mirror drifts unless the comment beside it names its upstream.
 
@@ -32,11 +30,11 @@ grep -rhoE 'uses: [^ ]*setup-[^@]+@[^ ]+|(brew install|apt-get install|go instal
   .github .gitlab-ci.yml Makefile GNUmakefile justfile Taskfile.yml 2>/dev/null | sort -u
 ```
 
-Give each tool a row: the tool, what needs it (a build command, a CI job, a runtime dependency of the shipped binary), and the file that already states a version. [discovery.md](references/discovery.md) maps each marker to the tools it implies and to where its version already lives.
+Give each tool a row. Record the tool, what needs it, and the file that already states a version. A consumer can be a build command, a CI job, or a runtime dependency of the distributed binary. [discovery.md](references/discovery.md) maps each marker to the tools it implies and to where its version already lives.
 
-Two gaps hide here and both belong in the inventory: a tool CI installs that the README never mentions, and a runtime dependency the project shells out to.
+Inventory tools that CI installs but the README omits. Include runtime dependencies that the project invokes through the shell.
 
-Done when every tool a contributor needs to run the project's own commands has a row with its consumer named, including tools only CI installs today, and each row states the version source or `none`.
+Done when every tool a contributor needs to run the project's own commands has a row. Each row names its consumer and version source or states `none`. Include tools only CI installs today.
 
 ### 2. Pick a backend for each tool
 
@@ -52,14 +50,14 @@ Take the leftmost backend that fits, and read the `Security` line from `mise too
 | Prefix | Use for | Verification |
 | --- | --- | --- |
 | `core:` | Language runtimes mise builds in (`node`, `python`, `go`, `java`, `ruby`, `deno`, `bun`, `rust`) | Checksums, plus GPG for Node.js and Swift |
-| `aqua:` | Any CLI shipped as a release binary - the default choice | Checksums, and Cosign/Minisign signatures, SLSA provenance, and GitHub attestations where upstream publishes them |
+| `aqua:` | Any CLI published as a release binary - the default choice | Checksums, and Cosign/Minisign signatures, SLSA provenance, and GitHub attestations where upstream publishes them |
 | `github:`, `gitlab:`, `http:` | Release assets no aqua package covers | Checksums when upstream publishes them |
-| `npm:`, `pipx:`, `cargo:`, `go:`, `gem:` | Tools that ship no standalone binary | Whatever that ecosystem gives; resolution pulls transitive dependencies |
+| `npm:`, `pipx:`, `cargo:`, `go:`, `gem:` | Tools without a standalone binary | Whatever that ecosystem gives; resolution pulls transitive dependencies |
 | `asdf:`, `vfox:` | The last resort | A plugin is a shell or Lua script mise runs on your machine |
 
 [backends.md](references/backends.md) covers the full prefix list, forcing a backend for a bare name, and testing an unfamiliar package with `mise test-tool`.
 
-Done when every inventory row holds a backend-qualified name, or a recorded reason mise will not manage it - it needs root, it ships with the OS, or no backend carries it.
+Done when every inventory row holds a backend-qualified name, or a recorded reason mise will not manage it - it needs root, it comes with the OS, or no backend carries it.
 
 ### 3. Decide owner or mirror for each version
 
@@ -80,7 +78,7 @@ Done when every version has an owner-or-mirror verdict, every mirror's comment n
 
 ### 4. Write mise.toml
 
-Add tools with `mise use --pin aqua:mikefarah/yq@4.53.3` so mise resolves and installs as it writes, then edit the file to group the tools and add the comments from step 3. Group by the reason the tool exists - the build, the docs pipeline, the shipped binary's runtime dependencies - because the grouping is what tells the next reader whether a tool is still needed.
+Add tools with `mise use --pin aqua:mikefarah/yq@4.53.3` so mise resolves and installs as it writes, then edit the file to group the tools and add the comments from step 3. Group by the reason the tool exists - the build, the docs pipeline, the distributed binary's runtime dependencies - because the grouping is what tells the next reader whether a tool is still needed.
 
 Consult [config.md](references/config.md) for the `[settings]` worth committing, the accepted version syntax, tool options, and `[env]`. Set at least these three:
 
@@ -102,7 +100,7 @@ Run `mise fmt` to normalize the file.
 
 Keep personal preferences out: `mise.toml` is committed, `mise.local.toml` is git-ignored.
 
-Done when `mise.toml` covers every managed row from step 1, `mise fmt` leaves it unchanged, and each tool sits in a named group.
+Done when `mise.toml` covers every managed row from step 1, `mise fmt` leaves it unchanged, and each tool sits in a group.
 
 ### 5. Lock the resolution
 
@@ -131,11 +129,11 @@ A tool that installs but never runs its consumer proves nothing. Run one command
 
 Done when `mise ls --current` shows a version for every tool in `mise.toml` and each tool's consumer ran under `mise x`.
 
-### 7. Report, then offer to retire what mise replaces
+### 7. Report and offer optional cleanup
 
 Report the managed tools with their backends, the platforms in the lockfile, and what stayed outside mise.
 
-The setup is finished at that point: `mise.toml` works with every discovery site from step 1 still in place. Retiring those sites is a second change, with its own blast radius - a CI workflow that stops installing a tool the way the team knows, a version file another tool still reads. So offer it as a list the user picks from, and change only what they pick:
+The setup is finished at that point: `mise.toml` works with every discovery site from step 1 still in place. Retiring those sites is a second change with separate risks - a CI workflow that stops installing a tool the way the team knows, or a version file another tool still reads. Offer a list for the user to choose from, and change only their choices:
 
 - Replace the `setup-*` steps in CI with `jdx/mise-action`, pinned to a release commit SHA. A `setup-node` left beside a `node` entry means two versions and one of them wins silently.
 - Delete a per-language version file, or keep it as the owner and read it with `idiomatic_version_file_enable_tools`. mise reads `.tool-versions` with no setting.
@@ -147,7 +145,7 @@ Done when the report names every managed tool, and each retirement the user pick
 
 ## Tasks
 
-`[tasks]` earns its place where a command is already written down elsewhere - a Makefile target, a CI step, a README code block - because moving it there gives the command one home and the tools it needs. Keep the name contributors already type:
+Use `[tasks]` where a command is already written down elsewhere - a Makefile target, a CI step, a README code block - because moving it there gives the command one home and the tools it needs. Keep the name contributors already type:
 
 ```toml
 [tasks.build]

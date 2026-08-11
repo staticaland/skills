@@ -23,7 +23,7 @@ Given a skill that revises text for clarity and conciseness:
 | 1   | Read the original text completely      | SCRIPT   | File I/O with a known path, no interpretation needed                                                                 |
 | 2   | Identify the core message and any asks | LLM      | Requires comprehension of meaning and intent                                                                         |
 | 3   | Restructure to lead with the point     | LLM      | Deciding what "the point" is requires understanding                                                                  |
-| 4   | Cut filler words and redundancy        | LLM      | While some filler words are mechanical (regex for "just", "basically"), deciding what is redundant requires judgment |
+| 4   | Cut filler words and redundancy        | LLM      | A regex can match known filler terms, but deciding what is redundant requires judgment                              |
 | 5   | Format for scannability                | LLM      | Choosing where to break text into lists or add headers requires understanding the content structure                  |
 | 6   | Verify next steps are explicit         | LLM      | Judging whether next steps are clear enough requires understanding of the context                                    |
 | 7   | Output the revised text directly       | SCRIPT   | Writing output to a file or stdout is mechanical                                                                     |
@@ -56,7 +56,7 @@ Step 4 is skipped: the verdict below rejects the split, so no simplified SKILL.m
 - **Total steps:** 7
 - **SCRIPT:** 2 (29%)
 - **LLM:** 5 (71%)
-- **Verdict:** This skill is heavily LLM-dependent. The core value is in comprehension and rewriting, which cannot be scripted. The only scriptable parts are file I/O, which are trivial. Extracting scripts here adds complexity without reducing the LLM's workload.
+- **Verdict:** this skill is heavily LLM-dependent. The core value is in comprehension and rewriting, which cannot be scripted. The only scriptable parts are file I/O, which are trivial. Extracting scripts here adds complexity without reducing the LLM's workload.
 
 ---
 
@@ -85,7 +85,7 @@ Given a skill that generates release notes from git history:
 | 1   | Determine the version range    | SCRIPT   | `git describe --tags --abbrev=0` gives the previous tag; HEAD is HEAD                     |
 | 2   | Collect git log                | SCRIPT   | `git log --oneline prev_tag..HEAD` is a fixed command                                     |
 | 3   | Group commits by type          | SCRIPT   | Parse conventional commit prefixes with regex (`^feat:`, `^fix:`, etc.)                   |
-| 4   | Filter out internal commits    | LLM      | Deciding what "affects users" can be ambiguous; some chores (dependency bumps) may matter |
+| 4   | Filter out internal commits    | LLM      | Deciding what "affects users" can be ambiguous; dependency-update chores may matter       |
 | 5   | Resolve PR numbers and links   | SCRIPT   | Parse `(#123)` from commit messages, construct URL from known repo base                   |
 | 6   | Write a human-readable summary | LLM      | Requires understanding what changed and why it matters to users                           |
 | 7   | Highlight breaking changes     | LLM      | Requires understanding the impact of changes and writing migration guidance               |
@@ -94,7 +94,7 @@ Given a skill that generates release notes from git history:
 
 ### Step 3: Proposed Scripts
 
-Two scripts cover the `SCRIPT` rows: `collect.sh` (steps 1-3, 5) shown below, and `format.sh` (steps 8-9), which renders the LLM's grouped summary into a changelog entry and appends it to CHANGELOG.md.
+Two scripts cover the `SCRIPT` rows: `collect.sh` (steps 1-3, 5) in this section, and `format.sh` (steps 8-9), which renders the LLM's grouped summary into a changelog entry and appends it to CHANGELOG.md.
 
 ```bash
 #!/usr/bin/env bash
@@ -193,7 +193,7 @@ or summarize what changed between versions.
 - **Total steps:** 9
 - **SCRIPT:** 5 (56%)
 - **LLM:** 4 (44%)
-- **Verdict:** This skill benefits significantly from scripting. The git data collection, commit parsing, PR linking, and file formatting are all deterministic. The LLM focuses on the high-value work: deciding what matters to users, writing clear summaries, and explaining breaking changes. This is a strong candidate for the split.
+- **Verdict:** this skill benefits from scripting. The git data collection, commit parsing, PR linking, and file formatting are all deterministic. The LLM handles the high-value judgment and prose. It decides what matters to users and writes clear summaries with breaking-change explanations. This is a strong candidate for the split.
 
 ---
 
@@ -225,12 +225,12 @@ Given a skill that creates a branch from an issue description:
 
 ### Step 5: Summary
 
-Steps 3-4 are skipped: with every step blind, the deliverable is a standalone script, not a SKILL.md - see the verdict.
+Steps 3-4 are skipped because every step is blind. The deliverable is a standalone script. A SKILL.md would add no judgment work.
 
 - **Total steps:** 6
 - **SCRIPT:** 6 (100%)
 - **LLM:** 0 (0%)
-- **Verdict:** This skill is entirely deterministic. It should be replaced with a shell script entirely. No SKILL.md is needed. A simple CLI tool covers the full workflow.
+- **Verdict:** this skill is entirely deterministic and should be replaced with a shell script. A simple CLI tool covers the full workflow without a SKILL.md.
 
 ---
 
@@ -238,11 +238,11 @@ Steps 3-4 are skipped: with every step blind, the deliverable is a standalone sc
 
 ### Filler Word Removal
 
-Removing known filler words ("just", "basically", "actually") from text can be done with regex. But a regex can't tell blind whether "actually" is filler or a meaningful contrast ("It's not X; it's actually Y"). **Classify as LLM** unless the skill explicitly treats all instances the same.
+A regex can remove known filler words (`just`, `basically`, `actually`) from text. But a regex can't tell blind whether `actually` is filler or marks a contrast (`It's not X; it's actually Y`). **Classify as LLM** unless the skill explicitly treats all instances the same.
 
 ### Template Rendering with Optional Sections
 
-Rendering a template where all variables are known is `SCRIPT`. But if some sections are conditional based on judgment ("include the breaking changes section only if there are breaking changes worth mentioning"), the decision of what to include is not blind - it is `LLM` even though the rendering is `SCRIPT`. **Split the step:** LLM decides which sections to include, script renders the template.
+Rendering a template where all variables are known is `SCRIPT`. But if sections are conditional based on judgment ("include the breaking changes section only if there are breaking changes worth mentioning"), the decision of what to include is not blind - it is `LLM` even though the rendering is `SCRIPT`. **Split the step:** LLM decides which sections to include, script renders the template.
 
 ### Code Formatting
 

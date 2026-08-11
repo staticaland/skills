@@ -6,11 +6,11 @@ The [workflow syntax reference](https://docs.github.com/en/actions/reference/wor
 
 ## `background`
 
-`background: true` runs a step asynchronously. The job continues to the next step and does not wait for the step to finish. Use it for a long-running process, for example a database, a server, or a monitoring task, that must run at the same time as other steps.
+`background: true` runs a step asynchronously. The job continues to the next step and does not wait for the step to finish. Use it for a long-running process that must run concurrently with other steps, such as a database server.
 
 You can use `background` on a step that uses `run` or a step that uses `uses`. To refer to a background step from `wait` or `cancel`, give the step an `id`.
 
-A maximum of 10 background steps run at the same time in one job. The runner queues the other background steps until a slot is free.
+A maximum of 10 background steps run concurrently in one job. The runner queues the other background steps until a slot is free.
 
 The outputs and the environment changes of a background step become available only after a `wait` step or a `wait-all` step that includes it. If a background step fails, the job fails at the next `wait` or `wait-all` that includes it, unless `continue-on-error` is set on that step. An implicit `wait-all` runs before the post-job cleanup.
 
@@ -32,9 +32,9 @@ steps:
 
 ## `wait`
 
-`wait` stops the job until one or more background steps complete. A `wait` step does no work. It only blocks until the named background steps finish. Give one step `id` as a string, or more than one step `id` as an array.
+`wait` stops the job until one or more background steps complete. A `wait` step does no work. It only blocks until the specified background steps finish. Give one step `id` as a string, or more than one step `id` as an array.
 
-After a `wait` step completes, the outputs of the named background steps become available to the steps that come after. If a named background step failed, the `wait` step also fails.
+After a `wait` step completes, the outputs of the specified background steps become available to the steps that come after. If a specified background step failed, the `wait` step also fails.
 
 A `wait` step always runs. It does not support the `if` conditional.
 
@@ -109,9 +109,11 @@ steps:
 
 ## `parallel`
 
-`parallel` runs a group of steps at the same time, then waits for all of them to finish before the job continues. The `parallel` keyword is shorthand: every step in the group runs as a background step, with an implicit `wait` at the end of the group. Use it when you have an independent group of steps that can run at the same time and you do not need to refer to them one at a time.
+`parallel` runs a group of steps concurrently, then waits for all of them to finish before the job continues. The `parallel` keyword is shorthand: every step in the group runs as a background step, with an implicit `wait` at the end of the group. Use it when you have an independent group of steps that can run concurrently and you do not need to refer to them one at a time.
 
-Use `parallel` for a self-contained group of steps that must all finish before the job continues, for example a build of the frontend, the backend, and the docs at the same time. Use `background` when you need finer control: a long-running process that stays up while later steps run, a reference to one specific step with `wait` or `cancel`, or background work between other steps. In short, `parallel` is more limited but more convenient for the "run this group at once" case. `background` is the general-purpose primitive.
+Use `parallel` for a self-contained group of steps that must all finish before the job continues. A concurrent build of the frontend, backend, and docs is one case.
+
+Use `background` when you need finer control. It can keep a long-running process active while later steps run. It can also expose a specific step to `wait` or `cancel`, or put background work between other steps. In short, `parallel` is more limited but more convenient for the "run this group at once" case. `background` is the general-purpose primitive.
 
 Each step in the group has the same 10-step concurrency limit as the other background steps.
 
