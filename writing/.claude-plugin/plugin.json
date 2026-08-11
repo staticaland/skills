@@ -1,8 +1,8 @@
 {
   "name": "writing",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "author": {
     "name": "staticaland"
   },
-  "description": "Revise prose for clarity and busy readers, write controlled technical Norwegian, with automatic Vale linting of Markdown files on every edit"
+  "description": "Add sourced footnotes, revise prose for clarity and busy readers, write controlled technical Norwegian, and lint Markdown with Vale"
 }
