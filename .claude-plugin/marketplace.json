@@ -18,8 +18,8 @@
     {
       "name": "dev",
       "source": "./dev",
-      "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns and mise toolchains, freeze install commands to their lock files, and deny install-time script execution",
-      "version": "0.8.3",
+      "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, and deny install-time script execution",
+      "version": "0.9.0",
       "category": "dev"
     },
     {
