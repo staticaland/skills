@@ -108,9 +108,6 @@ prompt-writing principles.
 ## Repo layout
 
 - Each top-level plugin directory is one marketplace entry.
-- [`in-progress/`](./in-progress/README.md) holds drafts still in development.
-- [`deprecated/`](./deprecated/README.md) holds retired plugins kept for
-  reference.
 
 ## Development
 

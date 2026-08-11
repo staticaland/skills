@@ -15,8 +15,8 @@ independently installable plugin with its own `.claude-plugin/plugin.json`.
 - Every marketplace entry has one lowercase category: `writing`, `dev`, `ai`, or
   `other`. Every published skill and hook in a plugin must belong to that
   category.
-- Directories under `in-progress/` (drafts) and `deprecated/` (retired) must NOT
-  appear in `marketplace.json` or the top-level README catalog.
+- Draft and retired plugins must NOT appear in `marketplace.json` or the
+  top-level README catalog.
 - When a plugin's contents change, bump its `version` in both its `plugin.json`
   and its entry in `marketplace.json` - installed users only see updates when
   the version changes.
