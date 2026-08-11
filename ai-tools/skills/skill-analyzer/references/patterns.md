@@ -51,12 +51,16 @@ cat "$INPUT_FILE"
 
 ### Step 5: Summary
 
-Step 4 is skipped: the verdict below rejects the split, so no simplified SKILL.md is proposed.
+Step 4 is skipped: the verdict below rejects the split, so no simplified
+SKILL.md is proposed.
 
 - **Total steps:** 7
 - **SCRIPT:** 2 (29%)
 - **LLM:** 5 (71%)
-- **Verdict:** this skill is heavily LLM-dependent. The core value is in comprehension and rewriting, which cannot be scripted. The only scriptable parts are file I/O, which are trivial. Extracting scripts here adds complexity without reducing the LLM's workload.
+- **Verdict:** this skill is heavily LLM-dependent. The core value is in
+  comprehension and rewriting, which cannot be scripted. The only scriptable
+  parts are file I/O, which are trivial. Extracting scripts here adds complexity
+  without reducing the LLM's workload.
 
 ---
 
@@ -94,7 +98,9 @@ Given a skill that generates release notes from git history:
 
 ### Step 3: Proposed Scripts
 
-Two scripts cover the `SCRIPT` rows: `collect.sh` (steps 1-3, 5) in this section, and `format.sh` (steps 8-9), which renders the LLM's grouped summary into a changelog entry and appends it to CHANGELOG.md.
+Two scripts cover the `SCRIPT` rows: `collect.sh` (steps 1-3, 5) in this
+section, and `format.sh` (steps 8-9), which renders the LLM's grouped summary
+into a changelog entry and appends it to CHANGELOG.md.
 
 ```bash
 #!/usr/bin/env bash
@@ -165,27 +171,26 @@ Generate user-facing release notes from git commit history.
 
 ## When to Use
 
-Activate when the user asks to generate release notes, write a changelog,
-or summarize what changed between versions.
+Activate when the user asks to generate release notes, write a changelog, or
+summarize what changed between versions.
 
 ## Process
 
-1. Run `./scripts/collect.sh [previous-tag]` to gather commit data.
-   The script outputs JSON with commits grouped by type and PR links resolved.
+1. Run `./scripts/collect.sh [previous-tag]` to gather commit data. The script
+   outputs JSON with commits grouped by type and PR links resolved.
 
 2. Review the JSON output. Filter out commits that don't affect end users
-   (internal refactors, CI changes, test-only changes). Use judgment:
-   dependency bumps may matter if they fix vulnerabilities.
+   (internal refactors, CI changes, test-only changes). Use judgment: dependency
+   bumps may matter if they fix vulnerabilities.
 
-3. Write a human-readable summary of the release. Lead with the most
-   impactful changes. Group by: Breaking Changes, New Features, Bug Fixes,
-   Other.
+3. Write a human-readable summary of the release. Lead with the most impactful
+   changes. Group by: Breaking Changes, New Features, Bug Fixes, Other.
 
-4. For any breaking changes, write specific migration guidance explaining
-   what users need to change and why.
+4. For any breaking changes, write specific migration guidance explaining what
+   users need to change and why.
 
-5. Run `./scripts/format.sh` to render the final markdown and append it
-   to CHANGELOG.md.
+5. Run `./scripts/format.sh` to render the final markdown and append it to
+   CHANGELOG.md.
 ```
 
 ### Step 5: Summary
@@ -193,7 +198,11 @@ or summarize what changed between versions.
 - **Total steps:** 9
 - **SCRIPT:** 5 (56%)
 - **LLM:** 4 (44%)
-- **Verdict:** this skill benefits from scripting. The git data collection, commit parsing, PR linking, and file formatting are all deterministic. The LLM handles the high-value judgment and prose. It decides what matters to users and writes clear summaries with breaking-change explanations. This is a strong candidate for the split.
+- **Verdict:** this skill benefits from scripting. The git data collection,
+  commit parsing, PR linking, and file formatting are all deterministic. The LLM
+  handles the high-value judgment and prose. It decides what matters to users
+  and writes clear summaries with breaking-change explanations. This is a strong
+  candidate for the split.
 
 ---
 
@@ -225,12 +234,14 @@ Given a skill that creates a branch from an issue description:
 
 ### Step 5: Summary
 
-Steps 3-4 are skipped because every step is blind. The deliverable is a standalone script. A SKILL.md would add no judgment work.
+Steps 3-4 are skipped because every step is blind. The deliverable is a
+standalone script. A SKILL.md would add no judgment work.
 
 - **Total steps:** 6
 - **SCRIPT:** 6 (100%)
 - **LLM:** 0 (0%)
-- **Verdict:** this skill is entirely deterministic and should be replaced with a shell script. A simple CLI tool covers the full workflow without a SKILL.md.
+- **Verdict:** this skill is entirely deterministic and should be replaced with
+  a shell script. A simple CLI tool covers the full workflow without a SKILL.md.
 
 ---
 
@@ -238,12 +249,21 @@ Steps 3-4 are skipped because every step is blind. The deliverable is a standalo
 
 ### Filler Word Removal
 
-A regex can remove known filler words (`just`, `basically`, `actually`) from text. But a regex can't tell blind whether `actually` is filler or marks a contrast (`It's not X; it's actually Y`). **Classify as LLM** unless the skill explicitly treats all instances the same.
+A regex can remove known filler words (`just`, `basically`, `actually`) from
+text. But a regex can't tell blind whether `actually` is filler or marks a
+contrast (`It's not X; it's actually Y`). **Classify as LLM** unless the skill
+explicitly treats all instances the same.
 
 ### Template Rendering with Optional Sections
 
-Rendering a template where all variables are known is `SCRIPT`. But if sections are conditional based on judgment ("include the breaking changes section only if there are breaking changes worth mentioning"), the decision of what to include is not blind - it is `LLM` even though the rendering is `SCRIPT`. **Split the step:** LLM decides which sections to include, script renders the template.
+Rendering a template where all variables are known is `SCRIPT`. But if sections
+are conditional based on judgment ("include the breaking changes section only if
+there are breaking changes worth mentioning"), the decision of what to include
+is not blind - it is `LLM` even though the rendering is `SCRIPT`. **Split the
+step:** LLM decides which sections to include, script renders the template.
 
 ### Code Formatting
 
-Running a formatter like `prettier` or `black` is `SCRIPT`. Deciding whether to format, or choosing between conflicting style options, is `LLM`. Most skills should run the formatter unconditionally, making the whole step `SCRIPT`.
+Running a formatter like `prettier` or `black` is `SCRIPT`. Deciding whether to
+format, or choosing between conflicting style options, is `LLM`. Most skills
+should run the formatter unconditionally, making the whole step `SCRIPT`.

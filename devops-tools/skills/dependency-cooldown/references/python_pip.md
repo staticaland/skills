@@ -1,6 +1,8 @@
 # `pip` cooldowns
 
-Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) / [cooldowns.dev](https://cooldowns.dev/), the source of truth. All examples use a three-day cooldown.
+Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) /
+[cooldowns.dev](https://cooldowns.dev/), the source of truth. All examples use a
+three-day cooldown.
 
 **26.1+** accepts ISO 8601 durations for `--uploaded-prior-to`.
 
@@ -22,11 +24,13 @@ No per-package exemption. Bypass one install with the variable unset:
 env -u PIP_UPLOADED_PRIOR_TO pip install setuptools==78.1.1
 ```
 
-`pip-compile` (pip-tools) passes `--uploaded-prior-to` through and honours `PIP_UPLOADED_PRIOR_TO` (needs `pip` >= 26.0).
+`pip-compile` (pip-tools) passes `--uploaded-prior-to` through and honours
+`PIP_UPLOADED_PRIOR_TO` (needs `pip` >= 26.0).
 
 ## `pip` < 26.1
 
-Only absolute timestamps, which go stale. Either wrap `pip` in a shell function that computes the cutoff:
+Only absolute timestamps, which go stale. Either wrap `pip` in a shell function
+that computes the cutoff:
 
 ```bash
 pip() {
@@ -51,4 +55,6 @@ pip() {
 }
 ```
 
-(Call `command pip` to bypass the wrapper.) Or write an absolute date into `pip.conf` and refresh it on a `cron` job - see Seth Larson's [post](https://sethmlarson.dev/pip-relative-dependency-cooling-with-crontab).
+(Call `command pip` to bypass the wrapper.) Or write an absolute date into
+`pip.conf` and refresh it on a `cron` job - see Seth Larson's
+[post](https://sethmlarson.dev/pip-relative-dependency-cooling-with-crontab).

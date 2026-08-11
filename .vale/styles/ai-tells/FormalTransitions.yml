@@ -31,13 +31,13 @@ tokens:
   # Pure degree/manner adverbs flag only as sentence-initial transitions with a
   # trailing comma; mid-sentence senses ("runs significantly faster",
   # "specifically designed for") are not the transition tell.
-  - '^Specifically(?=,)'
+  - "^Specifically(?=,)"
   - Notably
   - Importantly
-  - '^Significantly(?=,)'
+  - "^Significantly(?=,)"
   - Crucially
-  - '^Essentially(?=,)'
-  - '^Fundamentally(?=,)'
+  - "^Essentially(?=,)"
+  - "^Fundamentally(?=,)"
   - With that in mind
   - With this in mind
   - To that end
@@ -60,8 +60,8 @@ tokens:
   # Anchored sentence-initial: bare openers are the tell, but mid-sentence "a
   # point of note" and the "It's worth noting" span (owned by HedgingPhrases)
   # are not.
-  - '^Of note'
-  - '^Worth noting'
+  - "^Of note"
+  - "^Worth noting"
   - Along the same lines
   - In the same vein
   - By extension
