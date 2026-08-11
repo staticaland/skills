@@ -4,5 +4,5 @@ message: "AI punctuation: em-dash detected. Use a comma, period, or parentheses 
 level: error
 nonword: true
 tokens:
-  - '—'
-  - '–'
+  - "—"
+  - "–"

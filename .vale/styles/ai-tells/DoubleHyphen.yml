@@ -9,4 +9,4 @@ nonword: true
 # its own message: backtick CLI flags or literal double hyphens, or promote
 # genuine punctuation to a real em dash character.
 tokens:
-  - '--'
+  - "--"

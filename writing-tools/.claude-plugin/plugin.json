@@ -1,5 +1,8 @@
 {
   "name": "writing-tools",
-  "version": "0.2.3",
+  "version": "0.2.4",
+  "author": {
+    "name": "staticaland"
+  },
   "description": "Revise prose for clarity and busy readers, write controlled technical Norwegian, with automatic Vale linting of Markdown files on every edit"
 }

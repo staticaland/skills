@@ -1,6 +1,10 @@
 ---
 name: Writing Revision
-description: This skill should be used when the user asks to "revise text", "make writing clearer", "improve readability", "edit for busy readers", "make text scannable", "tighten up writing", "cut filler words", "lead with the point", or wants text revised for clarity and conciseness.
+description:
+  This skill should be used when the user asks to "revise text", "make writing
+  clearer", "improve readability", "edit for busy readers", "make text
+  scannable", "tighten up writing", "cut filler words", "lead with the point",
+  or wants text revised for clarity and conciseness.
 version: 0.1.0
 ---
 
@@ -20,7 +24,8 @@ Activate this skill when revising:
 
 ## Output Behavior
 
-**Inline text:** output the revised text directly with no wrapper, labels, or explanation.
+**Inline text:** output the revised text directly with no wrapper, labels, or
+explanation.
 
 **File input:** use the Edit tool to modify the file in place.
 
@@ -32,23 +37,32 @@ Apply these principles in priority order:
 
 First sentence states the key message or request. Details follow.
 
-**Before:** "I wanted to reach out because I've been thinking about the project timeline and after reviewing the dependencies, I believe we need to push back the launch date."
+**Before:** "I wanted to reach out because I've been thinking about the project
+timeline and after reviewing the dependencies, I believe we need to push back
+the launch date."
 
-**After:** "We need to push the launch date back two weeks. The authentication integration has dependencies we didn't anticipate."
+**After:** "We need to push the launch date back two weeks. The authentication
+integration has dependencies we didn't anticipate."
 
 ### 2. Make Asks Explicit
 
 Spell out exactly what's needed and by when. One main ask per message.
 
-**Before:** "It would be great if someone could review this when they get a chance."
+**Before:** "It would be great if someone could review this when they get a
+chance."
 
-**After:** "Please review the attached PR by Thursday EOD. I need your sign-off before merging."
+**After:** "Please review the attached PR by Thursday EOD. I need your sign-off
+before merging."
 
 ### 3. Be Aggressively Concise
 
-Cut filler words: `just`, `really`, `I think maybe`, `kind of`, `actually`, `basically`, `in order to`.
+Cut filler words: `just`, `really`, `I think maybe`, `kind of`, `actually`,
+`basically`, `in order to`.
 
-**Before:** `I just wanted to quickly check in to see if you've had a chance to basically review the document I sent over.`
+**Before:**
+
+> I wanted to quickly check in to see whether you've had a chance to review the
+> document I sent over.
 
 **After:** "Have you reviewed the document?"
 
@@ -82,7 +96,8 @@ State recommendation and alternatives explicitly.
 
 **Before:** `There are several options we could consider...`
 
-**After:** "**Recommendation:** option A (fastest). **Alternatives:** option B (cheapest), option C (most flexible)."
+**After:** "**Recommendation:** option A (fastest). **Alternatives:** option B
+(cheapest), option C (most flexible)."
 
 ### 9. End with Next Steps
 
@@ -90,8 +105,9 @@ Who does what, by when. Keep it to a short block.
 
 **Format:**
 
-```
+```markdown
 **Next steps:**
+
 - [Person]: [Action] by [Date]
 - [Person]: [Action] by [Date]
 ```

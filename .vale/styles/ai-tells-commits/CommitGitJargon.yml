@@ -28,7 +28,7 @@ tokens:
   - '\bin-tree\b'
   - '\b(?:an?|the)\s+empty\s+tree\b'
 exceptions:
-  - '(?i)the working tree'
-  - '(?i)the source tree'
-  - '(?i)the git index'
-  - '(?i)the staging index'
+  - "(?i)the working tree"
+  - "(?i)the source tree"
+  - "(?i)the git index"
+  - "(?i)the staging index"

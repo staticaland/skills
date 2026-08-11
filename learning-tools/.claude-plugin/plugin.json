@@ -1,5 +1,8 @@
 {
   "name": "learning-tools",
-  "version": "0.2.4",
+  "version": "0.2.5",
+  "author": {
+    "name": "staticaland"
+  },
   "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles"
 }

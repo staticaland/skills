@@ -1,8 +1,12 @@
 # The `cooldowns.sh` helper
 
-Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) / [cooldowns.dev](https://cooldowns.dev/), the source of truth. All examples use a three-day cooldown.
+Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) /
+[cooldowns.dev](https://cooldowns.dev/), the source of truth. All examples use a
+three-day cooldown.
 
-[`cooldowns.sh`](https://github.com/mprpic/cooldowns/blob/main/cooldowns.sh) configures cooldowns across `pip`, `uv`, `poetry`, `pdm`, `npm`, `pnpm`, Yarn, Bun, Deno, Cargo, and Bundler in one command, and verifies them.
+[`cooldowns.sh`](https://github.com/mprpic/cooldowns/blob/main/cooldowns.sh)
+configures cooldowns across `pip`, `uv`, `poetry`, `pdm`, `npm`, `pnpm`, Yarn,
+Bun, Deno, Cargo, and Bundler in one command, and verifies them.
 
 ```bash
 cooldowns.sh set pip 3d
@@ -10,27 +14,32 @@ cooldowns.sh set uv "3 days"
 cooldowns.sh set npm 7d
 ```
 
-Each `set` writes **user-wide** configuration and leaves project configs untouched:
+Each `set` writes **user-wide** configuration and leaves project configs
+untouched:
 
-| Tool    | Method                                           | Location                                       |
-|---------|--------------------------------------------------|------------------------------------------------|
+| Tool      | Method                                                        | Location                                       |
+| --------- | ------------------------------------------------------------- | ---------------------------------------------- |
 | `pip`     | Environment variable export (26.1+) or shell wrapper (older)  | `/etc/profile.d/cooldowns.sh` (or `~/.bashrc`) |
 | `uv`      | Environment variable export                                   | `/etc/profile.d/cooldowns.sh` (or `~/.bashrc`) |
-| `poetry` | `poetry config` setting                          | `~/.config/pypoetry/config.toml`               |
-| `pdm`     | `pdm config` setting (requires PDM >= 2.27.0)    | `~/.config/pdm/config.toml`                    |
-| `npm`     | `.npmrc` key                                     | `~/.npmrc`                                     |
-| `pnpm`    | `.npmrc` key                                     | `~/.npmrc`                                     |
-| `yarn`  | Environment variable export                                   | `/etc/profile.d/cooldowns.sh` (or `~/.bashrc`) |
-| `bun`   | `bunfig.toml` key                                | `~/.bunfig.toml`                               |
-| `deno`    | Shell aliases                                    | `/etc/profile.d/cooldowns.sh` (or `~/.bashrc`) |
-| `cargo` | Environment variable export (requires `cargo-cooldown` crate) | `/etc/profile.d/cooldowns.sh` (or `~/.bashrc`) |
+| `poetry`  | `poetry config` setting                                       | `~/.config/pypoetry/config.toml`               |
+| `pdm`     | `pdm config` setting (requires PDM >= 2.27.0)                 | `~/.config/pdm/config.toml`                    |
+| `npm`     | `.npmrc` key                                                  | `~/.npmrc`                                     |
+| `pnpm`    | `.npmrc` key                                                  | `~/.npmrc`                                     |
+| `yarn`    | Environment variable export                                   | `/etc/profile.d/cooldowns.sh` (or `~/.bashrc`) |
+| `bun`     | `bunfig.toml` key                                             | `~/.bunfig.toml`                               |
+| `deno`    | Shell aliases                                                 | `/etc/profile.d/cooldowns.sh` (or `~/.bashrc`) |
+| `cargo`   | Environment variable export (requires `cargo-cooldown` crate) | `/etc/profile.d/cooldowns.sh` (or `~/.bashrc`) |
 | `bundler` | Environment variable export (requires Bundler >= 4.0.13)      | `/etc/profile.d/cooldowns.sh` (or `~/.bashrc`) |
 
-Profile-script tools write to `/etc/profile.d/cooldowns.sh` when that directory exists and is writable, otherwise `~/.bashrc`.
+Profile-script tools write to `/etc/profile.d/cooldowns.sh` when that directory
+exists and is writable, otherwise `~/.bashrc`.
 
-Project-only tools are **not covered**: `pipenv`, `pixi`, mise, and Scala Steward. (`pipenv` does inherit `PIP_UPLOADED_PRIOR_TO` from `cooldowns.sh set pip`, since it runs on `pip`.)
+Project-only tools are **not covered**: `pipenv`, `pixi`, mise, and Scala
+Steward. (`pipenv` does inherit `PIP_UPLOADED_PRIOR_TO` from
+`cooldowns.sh set pip`, since it runs on `pip`.)
 
-`cooldowns.sh check` scans installed managers and exits non-zero on any missing or stale cooldown, which makes it usable as a CI gate:
+`cooldowns.sh check` scans installed managers and exits non-zero on any missing
+or stale cooldown, which makes it usable as a CI gate:
 
 ```text
 Checking dependency cooldown configurations...
