@@ -1,5 +1,4 @@
-# Pull request
-
+<!-- markdownlint-disable MD041 -->
 <!--
 Always write the pull request title and description in ASD-STE100 Simplified
 Technical English.
