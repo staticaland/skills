@@ -2,6 +2,8 @@
 
 Revise prose for clarity and busy readers, with automatic Vale linting of Markdown files on every edit.
 
+Category: `writing`
+
 ## Skills
 
 Model-invoked - Claude activates these automatically when the request matches.

@@ -2,6 +2,8 @@
 
 Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles.
 
+Category: `other`
+
 ## Skills
 
 Model-invoked - Claude activates these automatically when the request matches.
