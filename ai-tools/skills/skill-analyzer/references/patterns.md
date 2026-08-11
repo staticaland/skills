@@ -18,15 +18,15 @@ Given a skill that revises text for clarity and conciseness:
 
 ### Step 2: Classification
 
-| #   | Step                                   | Category | Rationale                                                                                                            |
-| --- | -------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
-| 1   | Read the original text completely      | SCRIPT   | File I/O with a known path, no interpretation needed                                                                 |
-| 2   | Identify the core message and any asks | LLM      | Requires comprehension of meaning and intent                                                                         |
-| 3   | Restructure to lead with the point     | LLM      | Deciding what "the point" is requires understanding                                                                  |
-| 4   | Cut filler words and redundancy        | LLM      | A regex can match known filler terms, but deciding what is redundant requires judgment                              |
-| 5   | Format for scannability                | LLM      | Choosing where to break text into lists or add headers requires understanding the content structure                  |
-| 6   | Verify next steps are explicit         | LLM      | Judging whether next steps are clear enough requires understanding of the context                                    |
-| 7   | Output the revised text directly       | SCRIPT   | Writing output to a file or stdout is mechanical                                                                     |
+| #   | Step                                   | Category | Rationale                                                                                           |
+| --- | -------------------------------------- | -------- | --------------------------------------------------------------------------------------------------- |
+| 1   | Read the original text completely      | SCRIPT   | File I/O with a known path, no interpretation needed                                                |
+| 2   | Identify the core message and any asks | LLM      | Requires comprehension of meaning and intent                                                        |
+| 3   | Restructure to lead with the point     | LLM      | Deciding what "the point" is requires understanding                                                 |
+| 4   | Cut filler words and redundancy        | LLM      | A regex can match known filler terms, but deciding what is redundant requires judgment              |
+| 5   | Format for scannability                | LLM      | Choosing where to break text into lists or add headers requires understanding the content structure |
+| 6   | Verify next steps are explicit         | LLM      | Judging whether next steps are clear enough requires understanding of the context                   |
+| 7   | Output the revised text directly       | SCRIPT   | Writing output to a file or stdout is mechanical                                                    |
 
 ### Step 3: Proposed Script
 
@@ -80,17 +80,17 @@ Given a skill that generates release notes from git history:
 
 ### Step 2: Classification
 
-| #   | Step                           | Category | Rationale                                                                                 |
-| --- | ------------------------------ | -------- | ----------------------------------------------------------------------------------------- |
-| 1   | Determine the version range    | SCRIPT   | `git describe --tags --abbrev=0` gives the previous tag; HEAD is HEAD                     |
-| 2   | Collect git log                | SCRIPT   | `git log --oneline prev_tag..HEAD` is a fixed command                                     |
-| 3   | Group commits by type          | SCRIPT   | Parse conventional commit prefixes with regex (`^feat:`, `^fix:`, etc.)                   |
-| 4   | Filter out internal commits    | LLM      | Deciding what "affects users" can be ambiguous; dependency-update chores may matter       |
-| 5   | Resolve PR numbers and links   | SCRIPT   | Parse `(#123)` from commit messages, construct URL from known repo base                   |
-| 6   | Write a human-readable summary | LLM      | Requires understanding what changed and why it matters to users                           |
-| 7   | Highlight breaking changes     | LLM      | Requires understanding the impact of changes and writing migration guidance               |
-| 8   | Format as markdown changelog   | SCRIPT   | Template-based rendering with known structure                                             |
-| 9   | Write changelog to file        | SCRIPT   | File write to a known path                                                                |
+| #   | Step                           | Category | Rationale                                                                           |
+| --- | ------------------------------ | -------- | ----------------------------------------------------------------------------------- |
+| 1   | Determine the version range    | SCRIPT   | `git describe --tags --abbrev=0` gives the previous tag; HEAD is HEAD               |
+| 2   | Collect git log                | SCRIPT   | `git log --oneline prev_tag..HEAD` is a fixed command                               |
+| 3   | Group commits by type          | SCRIPT   | Parse conventional commit prefixes with regex (`^feat:`, `^fix:`, etc.)             |
+| 4   | Filter out internal commits    | LLM      | Deciding what "affects users" can be ambiguous; dependency-update chores may matter |
+| 5   | Resolve PR numbers and links   | SCRIPT   | Parse `(#123)` from commit messages, construct URL from known repo base             |
+| 6   | Write a human-readable summary | LLM      | Requires understanding what changed and why it matters to users                     |
+| 7   | Highlight breaking changes     | LLM      | Requires understanding the impact of changes and writing migration guidance         |
+| 8   | Format as markdown changelog   | SCRIPT   | Template-based rendering with known structure                                       |
+| 9   | Write changelog to file        | SCRIPT   | File write to a known path                                                          |
 
 ### Step 3: Proposed Scripts
 

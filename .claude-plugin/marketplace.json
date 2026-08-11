@@ -12,19 +12,29 @@
       "name": "writing-tools",
       "source": "./writing-tools",
       "description": "Revise prose for clarity and busy readers, write controlled technical Norwegian, with automatic Vale linting of Markdown files on every edit",
-      "version": "0.2.2"
+      "version": "0.2.3",
+      "category": "writing"
+    },
+    {
+      "name": "devops-tools",
+      "source": "./devops-tools",
+      "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns and mise toolchains, freeze install commands to their lockfiles, and deny install-time script execution",
+      "version": "0.8.0",
+      "category": "dev"
+    },
+    {
+      "name": "ai-tools",
+      "source": "./ai-tools",
+      "description": "Analyze skills to split scriptable work from judgment work and refactor skill references for progressive disclosure",
+      "version": "0.1.0",
+      "category": "ai"
     },
     {
       "name": "learning-tools",
       "source": "./learning-tools",
       "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles",
-      "version": "0.2.3"
-    },
-    {
-      "name": "devops-tools",
-      "source": "./devops-tools",
-      "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns and mise toolchains, freeze install commands to their lockfiles, deny install-time script execution, analyze skills to split scriptable work from judgment work, and refactor skill references for progressive disclosure",
-      "version": "0.7.8"
+      "version": "0.2.4",
+      "category": "other"
     }
   ]
 }

@@ -1,6 +1,8 @@
 # devops-tools
 
-Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns and mise toolchains, freeze install commands to their lockfiles, deny install-time script execution, analyze skills to split scriptable work from judgment work, and refactor skill references for progressive disclosure.
+Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns and mise toolchains, freeze install commands to their lockfiles, and deny install-time script execution.
+
+Category: `dev`
 
 ## Skills
 
@@ -9,8 +11,6 @@ Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps,
 - **[install-scripts](./skills/install-scripts/SKILL.md)** - Denies dependency install scripts by default (`ignore-scripts`, `uv sync --no-build`), then allowlists by name the packages that require a build step, and proves a fresh install runs nothing else.
 - **[mise-setup](./skills/mise-setup/SKILL.md)** - Inventories the tools a project already uses across CI, containers, task runners, and per-language version files, then pins each one to a [mise](https://mise.jdx.dev/) backend and version in a committed `mise.toml` with a lockfile.
 - **[parallel-steps](./skills/parallel-steps/SKILL.md)** - Makes GitHub Actions workflow steps run in parallel with the `background`, `wait`, `cancel`, and `parallel` keywords, written in ASD-STE100 Simplified Technical English.
-- **[progressive-disclosure](./skills/progressive-disclosure/SKILL.md)** - Refactors a skill to load only relevant guidance by splitting broad references and mapping concrete project markers to focused files.
-- **[skill-analyzer](./skills/skill-analyzer/SKILL.md)** - Splits a skill into scriptable and judgment work: classifies each step as deterministic or LLM, proposes a script interface and a simplified SKILL.md.
 
 ## Hooks
 

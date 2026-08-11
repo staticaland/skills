@@ -36,8 +36,8 @@ Put discovery before reference loading, then map each marker straight to its nar
 ```markdown
 Read only the files for the markers present:
 
-| Marker | Reference |
-| --- | --- |
+| Marker                        | Reference                                                    |
+| ----------------------------- | ------------------------------------------------------------ |
 | `tool.lock`, `[tool.example]` | [tool_example.md](references/tool_example.md) - Example Tool |
 ```
 

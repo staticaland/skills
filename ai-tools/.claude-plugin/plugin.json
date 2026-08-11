@@ -1,0 +1,5 @@
+{
+  "name": "ai-tools",
+  "version": "0.1.0",
+  "description": "Analyze skills to split scriptable work from judgment work and refactor skill references for progressive disclosure"
+}
