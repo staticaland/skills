@@ -1,6 +1,6 @@
 ---
 name: frozen-install
-description: Replace resolving install commands with frozen ones — `npm ci`, `uv sync --locked` — at every site meant to reproduce a lockfile: CI workflows, image builds, task runners, deploy scripts, and docs. Use when the user wants reproducible installs, or mentions `npm install` in CI, `npm ci`, clean-install, `--frozen-lockfile`, or lockfile drift. Covers `npm` and `uv`.
+description: "Replace resolving install commands with frozen ones — `npm ci`, `uv sync --locked` — at every site meant to reproduce a lockfile: CI workflows, image builds, task runners, deploy scripts, and docs. Use when the user wants reproducible installs, or mentions `npm install` in CI, `npm ci`, clean-install, `--frozen-lockfile`, or lockfile drift. Covers `npm` and `uv`."
 version: 0.1.0
 ---
 
