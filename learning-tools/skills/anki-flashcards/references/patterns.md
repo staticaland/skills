@@ -22,7 +22,7 @@ Mitochondria are found in what type of cells?	Eukaryotic cells
 
 ## Programming Examples
 
-**Strategy:** test syntax, method names, and return values; target gotchas and commonly confused elements; use "what does this output?" prompts; keep code snippets in monospace.
+**Strategy:** test syntax, method names, and return values; target gotchas and commonly confused elements. Use "what does this output?" prompts. Keep code snippets in monospace.
 
 ### Original Text
 
@@ -59,7 +59,7 @@ The storming of the {{c1::Bastille}} in {{c2::1789}} marked the start of the Fre
 
 ## Language Learning Examples
 
-**Strategy:** always create bidirectional cards; include example sentences for context; test grammar patterns with fill-in-blank; group decks by theme or difficulty level.
+**Strategy:** always create bidirectional cards; include example sentences for context; test grammar patterns with fill-in-blank. Group decks by theme or difficulty level.
 
 ### Spanish Vocabulary
 
@@ -109,7 +109,7 @@ If the discriminant equals zero, how many real solutions does the quadratic have
 
 ## Image-Based Card Examples
 
-**Strategy:** create identification prompts ("What structure is at position X?") and function prompts ("What does the highlighted structure do?"); name spatial relationships explicitly so the card stands alone without the image in view.
+**Strategy:** create identification prompts ("What structure is at position X?") and function prompts ("What does the highlighted structure do?"). Name spatial relationships explicitly so the card stands alone without the image in view.
 
 ### Anatomy Diagram
 

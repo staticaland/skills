@@ -52,21 +52,21 @@ Take the leftmost backend that fits, and read the `Security` line from `mise too
 | Prefix | Use for | Verification |
 | --- | --- | --- |
 | `core:` | Language runtimes mise builds in (`node`, `python`, `go`, `java`, `ruby`, `deno`, `bun`, `rust`) | Checksums, plus GPG for Node.js and Swift |
-| `aqua:` | Any CLI shipped as a release binary — the default choice | Checksums, and Cosign/Minisign signatures, SLSA provenance, and GitHub attestations where upstream publishes them |
+| `aqua:` | Any CLI shipped as a release binary - the default choice | Checksums, and Cosign/Minisign signatures, SLSA provenance, and GitHub attestations where upstream publishes them |
 | `github:`, `gitlab:`, `http:` | Release assets no aqua package covers | Checksums when upstream publishes them |
 | `npm:`, `pipx:`, `cargo:`, `go:`, `gem:` | Tools that ship no standalone binary | Whatever that ecosystem gives; resolution pulls transitive dependencies |
 | `asdf:`, `vfox:` | The last resort | A plugin is a shell or Lua script mise runs on your machine |
 
 [backends.md](references/backends.md) covers the full prefix list, forcing a backend for a bare name, and testing an unfamiliar package with `mise test-tool`.
 
-Done when every inventory row holds a backend-qualified name, or a recorded reason mise will not manage it — it needs root, it ships with the OS, or no backend carries it.
+Done when every inventory row holds a backend-qualified name, or a recorded reason mise will not manage it - it needs root, it ships with the OS, or no backend carries it.
 
 ### 3. Decide owner or mirror for each version
 
 Sort every version into one of two kinds:
 
-- **Owner** — `mise.toml` is the only place the version appears. Pin an exact version.
-- **Mirror** — the constraint already lives in `go.mod`'s `go` directive, `engines.node`, `requires-python`, `.terraform-version`, a Homebrew formula, or a Dockerfile base image. mise repeats it, so the comment beside it names that file.
+- **Owner** - `mise.toml` is the only place the version appears. Pin an exact version.
+- **Mirror** - the constraint already lives in `go.mod`'s `go` directive, `engines.node`, `requires-python`, `.terraform-version`, a Homebrew formula, or a Dockerfile base image. mise repeats it, so the comment beside it names that file.
 
 ```toml
 [tools]
@@ -80,7 +80,7 @@ Done when every version has an owner-or-mirror verdict, every mirror's comment n
 
 ### 4. Write mise.toml
 
-Add tools with `mise use --pin aqua:mikefarah/yq@4.53.3` so mise resolves and installs as it writes, then edit the file to group the tools and add the comments from step 3. Group by the reason the tool exists — the build, the docs pipeline, the shipped binary's runtime dependencies — because the grouping is what tells the next reader whether a tool is still needed.
+Add tools with `mise use --pin aqua:mikefarah/yq@4.53.3` so mise resolves and installs as it writes, then edit the file to group the tools and add the comments from step 3. Group by the reason the tool exists - the build, the docs pipeline, the shipped binary's runtime dependencies - because the grouping is what tells the next reader whether a tool is still needed.
 
 Consult [config.md](references/config.md) for the `[settings]` worth committing, the accepted version syntax, tool options, and `[env]`. Set at least these three:
 
@@ -135,7 +135,7 @@ Done when `mise ls --current` shows a version for every tool in `mise.toml` and 
 
 Report the managed tools with their backends, the platforms in the lockfile, and what stayed outside mise.
 
-The setup is finished at that point: `mise.toml` works with every discovery site from step 1 still in place. Retiring those sites is a second change, with its own blast radius — a CI workflow that stops installing a tool the way the team knows, a version file another tool still reads. So offer it as a list the user picks from, and change only what they pick:
+The setup is finished at that point: `mise.toml` works with every discovery site from step 1 still in place. Retiring those sites is a second change, with its own blast radius - a CI workflow that stops installing a tool the way the team knows, a version file another tool still reads. So offer it as a list the user picks from, and change only what they pick:
 
 - Replace the `setup-*` steps in CI with `jdx/mise-action`, pinned to a release commit SHA. A `setup-node` left beside a `node` entry means two versions and one of them wins silently.
 - Delete a per-language version file, or keep it as the owner and read it with `idiomatic_version_file_enable_tools`. mise reads `.tool-versions` with no setting.
@@ -147,7 +147,7 @@ Done when the report names every managed tool, and each retirement the user pick
 
 ## Tasks
 
-`[tasks]` earns its place where a command is already written down elsewhere — a Makefile target, a CI step, a README code block — because moving it there gives the command one home and the tools it needs. Keep the name contributors already type:
+`[tasks]` earns its place where a command is already written down elsewhere - a Makefile target, a CI step, a README code block - because moving it there gives the command one home and the tools it needs. Keep the name contributors already type:
 
 ```toml
 [tasks.build]

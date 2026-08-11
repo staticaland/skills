@@ -9,4 +9,4 @@ Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) / [co
 cool-down-period = "3d"
 ```
 
-Passes the value to `pip`'s `--uploaded-prior-to` during resolution, so it only filters against indexes that expose upload times. No environment variable, no per-package bypass — remove the setting or install through `pip` directly.
+Passes the value to `pip`'s `--uploaded-prior-to` during resolution, so it only filters against indexes that expose upload times. No environment variable, no per-package bypass - remove the setting or install through `pip` directly.

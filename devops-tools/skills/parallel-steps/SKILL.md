@@ -41,19 +41,19 @@ Run `actionlint` on the file if the tool is installed. `actionlint` does not sup
 | `cancel: <id>`     | Stops the named background step without an error.                                 |
 | `parallel:`        | Runs a group of steps as background steps, then waits for all of them.            |
 
-For the full behavior of each keyword — concurrency limits, output availability, failure rules, and composite-action restrictions — see [references/keywords.md](references/keywords.md).
+For the full behavior of each keyword - concurrency limits, output availability, failure rules, and composite-action restrictions - see [references/keywords.md](references/keywords.md).
 
 ## Example: service
 
 ```yaml
 steps:
-  - name: Start test server
+ - name: Start test server
     id: server
     run: npm run start
     background: true
-  - name: Run E2E tests
+ - name: Run E2E tests
     run: npm run e2e
-  - name: Stop server
+ - name: Stop server
     cancel: server
 ```
 
@@ -61,12 +61,12 @@ steps:
 
 ```yaml
 steps:
-  - parallel:
-      - name: Build the app
+ - parallel:
+     - name: Build the app
         run: npm run build
-      - name: Build the docs
+     - name: Build the docs
         run: npm run docs
-  - name: Package
+ - name: Package
     run: npm run package
 ```
 

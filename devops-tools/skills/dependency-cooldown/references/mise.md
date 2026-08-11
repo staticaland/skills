@@ -28,4 +28,4 @@ minimum_release_age_excludes = ["trivy", "npm:*"]
 node = "22.5.0"
 ```
 
-**Not every mise backend supports minimum release age** — see the [security docs](https://mise.jdx.dev/security.html#minimum-release-age). List a backend's packages with `mise registry | grep '  npm:'`, and packages that fall back to it with `mise registry | grep -v '  npm:' | grep ' npm:'`.
+**Not every mise backend supports minimum release age** - see the [security docs](https://mise.jdx.dev/security.html#minimum-release-age). List a backend's packages with `mise registry | grep '  npm:'`, and packages that fall back to it with `mise registry | grep -v '  npm:' | grep ' npm:'`.

@@ -6,22 +6,22 @@ Verify any setting against the installed mise before writing it: `mise settings 
 
 Precedence, highest first:
 
-1. `mise.local.toml` — personal overrides, git-ignored
-2. `mise.toml` — the committed project config
+1. `mise.local.toml` - personal overrides, git-ignored
+2. `mise.toml` - the committed project config
 3. `mise/config.toml`, `.mise/config.toml`, `.config/mise.toml`, `.config/mise/config.toml`, `.config/mise/conf.d/*.toml`
 
-`mise.<env>.toml` and `mise.<env>.local.toml` load when `MISE_ENV` is set — one file per environment, layered on `mise.toml`. The global `~/.config/mise/config.toml` and system `/etc/mise/config.toml` sit below all of them.
+`mise.<env>.toml` and `mise.<env>.local.toml` load when `MISE_ENV` is set - one file per environment, layered on `mise.toml`. The global `~/.config/mise/config.toml` and system `/etc/mise/config.toml` sit below all of them.
 
 Write `mise.toml` and commit it. Add `mise.local.toml` to `.gitignore` and tell contributors it is theirs.
 
-`mise cfg` lists the config files in play; `mise fmt` normalizes them.
+`mise cfg` lists the config files in play. `mise fmt` normalizes them.
 
 ## `[tools]`
 
 ```toml
 [tools]
 node = "24.19.0"                  # exact
-python = "3.13"                   # prefix — newest 3.13.x
+python = "3.13"                   # prefix - newest 3.13.x
 go = "latest"                     # newest release
 java = "lts"                      # newest long-term-support release
 "aqua:mikefarah/yq" = "4.53.3"    # backend-qualified
@@ -68,7 +68,7 @@ The ones that change a project's behavior:
 | `minimum_release_age = "7d"` | Ignore versions published inside the window. Defaults to `24h`. Takes a duration or an absolute date |
 | `minimum_release_age_excludes = ["trivy", "npm:*"]` | Exempt a tool or a whole backend from the window |
 | `pipx.uvx = true` | Install `pipx:` tools with `uvx` when `uv` is on PATH. Already the default; write it to survive an older mise |
-| `idiomatic_version_file_enable_tools = ["python"]` | Read `.python-version`, `.node-version`, `.nvmrc`, `.ruby-version`, and `go.mod`. Disabled by default — list only the tools whose version file owns the constraint |
+| `idiomatic_version_file_enable_tools = ["python"]` | Read `.python-version`, `.node-version`, `.nvmrc`, `.ruby-version`, and `go.mod`. Disabled by default - list only the tools whose version file owns the constraint |
 | `idiomatic_version_file_disable_files = ["node:package.json"]` | Stop reading one file for one tool |
 | `disable_backends = ["asdf", "vfox"]` | Block a backend for new installs |
 | `jobs = 8` | Parallel installs |
@@ -100,7 +100,7 @@ _.python.venv = { path = ".venv", create = true }
 UV_PYTHON = { value = "{{ tools.python.path }}", tools = true }
 ```
 
-For a project with a `uv.lock`, `python.uv_venv_auto = "source"` under `[settings]` activates the environment `uv` manages instead — a separate mechanism from `_.python.venv`, so pick one. Details: <https://mise.jdx.dev/lang/python.html>
+For a project with a `uv.lock`, `python.uv_venv_auto = "source"` under `[settings]` activates the environment `uv` manages instead - a separate mechanism from `_.python.venv`, so pick one. Details: <https://mise.jdx.dev/lang/python.html>
 
 Mark secrets with `redactions = ["*_TOKEN"]` at the top level to keep them out of mise's output.
 

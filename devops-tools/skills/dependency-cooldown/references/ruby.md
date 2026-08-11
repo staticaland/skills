@@ -4,7 +4,7 @@ Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) / [co
 
 ## Bundler
 
-Native cooldown since **4.0.13**. The value is always a non-negative integer number of days — a string, float, negative number, or array is rejected.
+Native cooldown since **4.0.13**. The value is always a non-negative integer number of days - a string, float, negative number, or array is rejected.
 
 ```bash
 bundle install --cooldown 3        # also on update, add, outdated

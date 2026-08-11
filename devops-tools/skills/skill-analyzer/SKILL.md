@@ -15,16 +15,16 @@ Deliver the analysis in the response. Write the script and simplified SKILL.md t
 
 ### 1. Inventory the steps
 
-Read the target skill and list every discrete action, instruction, or decision point as a numbered step — including implicit steps the skill assumes (e.g. "read the file" before "edit the file"). Done when no instruction in the skill is left unaccounted for.
+Read the target skill and list every discrete action, instruction, or decision point as a numbered step - including implicit steps the skill assumes (e.g. "read the file" before "edit the file"). Done when no instruction in the skill is left unaccounted for.
 
 ### 2. Classify each step
 
-One test: could a script perform this step **blind** — producing the correct result for all valid inputs without reading or understanding anything?
+One test: could a script perform this step **blind** - producing the correct result for all valid inputs without reading or understanding anything?
 
 - Blind → `SCRIPT`: CLI commands with known arguments, file I/O on known paths, regex and template transforms, git operations with known names.
 - Not blind → `LLM`: interpreting intent, choosing between valid outputs, evaluating quality, generating prose, resolving ambiguous references.
 
-When in doubt, classify `LLM` — judgment kept in the SKILL.md beats a brittle script. For borderline patterns (filler-word removal, conditional templates, formatters) and worked end-to-end examples, see [references/patterns.md](references/patterns.md).
+When in doubt, classify `LLM` - judgment kept in the SKILL.md beats a brittle script. For borderline patterns (filler-word removal, conditional templates, formatters) and worked end-to-end examples, see [references/patterns.md](references/patterns.md).
 
 Output one row per step:
 

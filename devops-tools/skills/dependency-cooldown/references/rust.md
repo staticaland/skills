@@ -8,7 +8,7 @@ No native cooldown on stable. Cargo 1.94 added `pubtime` fields to the crate ind
 
 ## cargo-cooldown
 
-Until then, use the third-party [`cargo-cooldown`](https://crates.io/crates/cargo-cooldown) crate. It is a **subcommand, not a transparent wrapper** — `COOLDOWN_MINUTES` alone does nothing, and every command must be run through `cargo cooldown`.
+Until then, use the third-party [`cargo-cooldown`](https://crates.io/crates/cargo-cooldown) crate. It is a **subcommand, not a transparent wrapper** - `COOLDOWN_MINUTES` alone does nothing, and every command must be run through `cargo cooldown`.
 
 ```bash
 cargo install cargo-cooldown

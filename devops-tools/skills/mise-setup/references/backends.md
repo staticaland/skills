@@ -27,7 +27,7 @@ mise tool aqua:mikefarah/yq
 
 Three reasons to move right in the list:
 
-- The tool is a library-plus-CLI in one ecosystem (`npm:prettier`, `pipx:cogapp`) — a language backend is the only honest source.
+- The tool is a library-plus-CLI in one ecosystem (`npm:prettier`, `pipx:cogapp`) - a language backend is the only honest source.
 - The aqua package lags the release you need. Compare `mise ls-remote aqua:owner/repo` against the upstream releases.
 - Nothing carries it. Fall back to `ubi:owner/repo`, or write an `http:` tool stub.
 
@@ -71,4 +71,4 @@ mise where aqua:BurntSushi/ripgrep     # where it landed
 mise which rg                          # which install PATH resolves to
 ```
 
-`mise test-tool` installs and executes the tool, which answers whether the package's binary name matches the tool name — the failure that `mise install` alone hides.
+`mise test-tool` installs and executes the tool, which answers whether the package's binary name matches the tool name - the failure that `mise install` alone hides.
