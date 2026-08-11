@@ -111,10 +111,28 @@ prompt-writing principles.
 
 ## Development
 
-Validate before committing:
+Install [mise](https://mise.jdx.dev/) and the Claude Code CLI, then install the
+repository tools from the locked configuration:
 
 ```bash
-claude plugin validate .
+mise trust
+mise install
+```
+
+Use mise shell activation or prefix repository-tool commands with
+`mise exec --`.
+
+The repository's [Git hook manager](https://prek.j178.dev/) reads
+`.pre-commit-config.yaml`. Install the pre-commit and commit-message hooks:
+
+```bash
+mise exec -- prek install --hook-type pre-commit --hook-type commit-msg
+```
+
+Run all pre-commit checks against tracked files:
+
+```bash
+mise exec -- prek run --all-files
 ```
 
 ## License
