@@ -1,0 +1,8 @@
+[settings]
+# Record exact versions and checksums in mise.lock.
+lockfile = true
+# Hold back releases published in the last 7 days.
+minimum_release_age = "7d"
+
+[tools]
+"aqua:errata-ai/vale" = "latest"
