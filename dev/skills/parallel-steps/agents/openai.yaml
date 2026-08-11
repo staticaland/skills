@@ -1,0 +1,5 @@
+interface:
+  display_name: "Parallel Steps"
+  short_description: "Parallelize GitHub Actions workflow steps"
+policy:
+  allow_implicit_invocation: true

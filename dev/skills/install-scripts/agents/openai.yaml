@@ -1,0 +1,5 @@
+interface:
+  display_name: "Install Scripts"
+  short_description: "Block unapproved dependency install scripts"
+policy:
+  allow_implicit_invocation: true

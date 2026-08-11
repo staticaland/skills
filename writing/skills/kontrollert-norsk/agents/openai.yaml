@@ -1,0 +1,5 @@
+interface:
+  display_name: "Kontrollert norsk"
+  short_description: "Skriv klar og kontrollert teknisk norsk"
+policy:
+  allow_implicit_invocation: true
