@@ -1,0 +1,9 @@
+repos:
+  - repo: https://github.com/vale-cli/vale
+    rev: d32b532e2f5ba703ba06a5a6829f9db1fc78a92c # frozen: v3.15.2
+    hooks:
+      - id: vale
+      - id: vale
+        name: vale (commit message)
+        entry: scripts/vale-commit-message.sh
+        stages: [commit-msg]

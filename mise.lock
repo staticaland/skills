@@ -11,3 +11,17 @@ url = "https://github.com/vale-cli/vale/releases/download/v3.17.0/vale_3.17.0_Li
 [tools."aqua:errata-ai/vale"."platforms.macos-arm64"]
 checksum = "sha256:43c3707c17c92c8daf9afff0febf85db803b4a403f3b3ceb66a6e82d39fe5b52"
 url = "https://github.com/vale-cli/vale/releases/download/v3.17.0/vale_3.17.0_macOS_arm64.tar.gz"
+
+[[tools.prek]]
+version = "0.4.12"
+backend = "aqua:j178/prek"
+
+[tools.prek."platforms.linux-x64"]
+checksum = "sha256:3321ec6e4d873fbf41bef55d11b3f269fa91cbb87b19f18211df7c1bd061ac8a"
+url = "https://github.com/j178/prek/releases/download/v0.4.12/prek-x86_64-unknown-linux-musl.tar.gz"
+provenance = "github-attestations"
+
+[tools.prek."platforms.macos-arm64"]
+checksum = "sha256:cef66b9641a1c9ac61518edb13c2a7b440f3f1748e4bd60f2514a82bc1f2bd30"
+url = "https://github.com/j178/prek/releases/download/v0.4.12/prek-aarch64-apple-darwin.tar.gz"
+provenance = "github-attestations"
