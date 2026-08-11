@@ -34,7 +34,7 @@ Avoid these patterns:
 
 **Who is this feature for?**
 
-[Add information on what kind of user the feature is for.]
+[Add information about the users that the feature is for.]
 
 **Which issue(s) does this PR fix?**:
 
