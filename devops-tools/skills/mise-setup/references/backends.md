@@ -17,7 +17,7 @@ A backend is the source mise downloads a tool from. `mise backends ls` prints th
 
 ## Which one to take
 
-The registry's own tiers, from <https://mise.jdx.dev/registry.html>: `aqua` and `github` are preferred, `conda` comes next, and the language-specific backends (`pipx`, `npm`, `gem`, `go`, `cargo`, `dotnet`) are accepted only for tools that cannot ship as a single binary. Confirm what a candidate buys before taking it:
+The registry's own tiers, from <https://mise.jdx.dev/registry.html>: `aqua` and `github` are preferred, `conda` comes next, and the language-specific backends (`pipx`, `npm`, `gem`, `go`, `cargo`, `dotnet`) are accepted only for tools that cannot be distributed as a single binary. Confirm what a candidate buys before taking it:
 
 ```bash
 mise tool aqua:mikefarah/yq
@@ -25,7 +25,7 @@ mise tool aqua:mikefarah/yq
 # Security:     checksum (sha256), cosign
 ```
 
-Three reasons to move right in the list:
+Move right in the list when:
 
 - The tool is a library-plus-CLI in one ecosystem (`npm:prettier`, `pipx:cogapp`) - a language backend is the only honest source.
 - The aqua package lags the release you need. Compare `mise ls-remote aqua:owner/repo` against the upstream releases.

@@ -4,7 +4,7 @@ Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) / [co
 
 `minimumReleaseAge` since **10.16.0**, in **minutes**.
 
-**v11+** ships a 1440-minute (one day) default, and all non-authentication settings belong in `pnpm-workspace.yaml` (`.npmrc` is for authentication only):
+**v11+** defaults to 1440 minutes (one day), and all non-authentication settings belong in `pnpm-workspace.yaml` (`.npmrc` is for authentication only):
 
 ```yaml
 minimumReleaseAge: 4320 # 3 days

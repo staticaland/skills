@@ -10,7 +10,7 @@ An install command either **resolves** - reads the ranges in the manifest, picks
 
 Sort every install site by intent. A site that reproduces an environment - CI, an image build, a deploy, a contributor's first setup - belongs on the frozen side. A site that moves the lockfile forward is a **resolving site**, and a person running it deliberately is the point of it.
 
-The fix is a pair, not a flag: a frozen command needs a committed lockfile, and a committed lockfile needs a frozen command. Either half alone gives a broken build or silent drift.
+A complete fix pairs a frozen command with a committed lockfile. Either half alone gives a broken build or silent drift.
 
 **Loud is the point.** A frozen install that fails because the lockfile disagrees with the manifest has done its job. Regenerate the lockfile and commit it. Unfreezing the command deletes the only check that the two ever agree.
 
@@ -24,9 +24,9 @@ Read the flags off the installed tool, not from memory: `npm help ci`, `uv sync 
 git grep -nE '\b(npm (i|install|add|ci|clean-install|update)|uv (sync|add|run|export|lock|pip [a-z]+))\b'
 ```
 
-The hits land in more kinds of file than CI: `Dockerfile` and `Containerfile`, `Makefile`, `justfile`, `Taskfile.yml`, `mise.toml` tasks, shell scripts, `package.json` scripts such as `postinstall` and `prepare`, `devcontainer.json`, platform config such as `netlify.toml`, `vercel.json`, and `Procfile`, and the code blocks in `README.md` and the docs.
+The hits appear in more files than CI. Check `Dockerfile` and `Containerfile`, `Makefile`, `justfile`, `Taskfile.yml`, `mise.toml` tasks, shell scripts, `package.json` scripts such as `postinstall` and `prepare`, `devcontainer.json`, platform config such as `netlify.toml`, `vercel.json`, and `Procfile`, plus code blocks in `README.md` and the docs.
 
-Give each hit a row: file and line, the command, the kind of site, and a reproducing-or-resolving verdict.
+Give each hit a row with its file, line, and command. Add the site's purpose and a reproducing-or-resolving verdict.
 
 Done when every hit has a row with a verdict, docs and image builds included, and each row names the lockfile it depends on.
 
@@ -41,7 +41,7 @@ uv lock --check                                  # current with pyproject.toml?
 npm install --package-lock-only && git diff --exit-code package-lock.json
 ```
 
-A missing or stale lockfile turns step 3 into a build failure. Regenerate and commit it first, in its own commit, so the rewrite lands on a green build. Read `.dockerignore` too: a lockfile that never reaches the build context is the same problem one layer down.
+A missing or stale lockfile turns step 3 into a build failure. Regenerate and commit it first, in its own commit, so the rewrite starts from a passing build. Read `.dockerignore` too: a lockfile that never reaches the build context is the same problem one layer down.
 
 Done when each manager has a committed lockfile its own tool reports as current, or a recorded plan to commit one first.
 
@@ -87,4 +87,4 @@ uv sync --locked; echo $?
 
 Done when each rewritten command has been observed failing on a manufactured mismatch and passing on the committed state, or carries a stated reason it could not run here.
 
-Report the rewritten sites, the resolving sites left deliberate, and the one named way the lockfile now moves forward - a person running `npm update` or `uv lock --upgrade`, or an update bot's pull requests. Pair a bot with the `dependency-cooldown` skill so the versions it resolves have aged first.
+Report the rewritten sites, the resolving sites left deliberate, and the documented way the lockfile now moves forward - a person running `npm update` or `uv lock --upgrade`, or an update bot's pull requests. Pair a bot with the `dependency-cooldown` skill so the versions it resolves have aged first.

@@ -22,7 +22,7 @@ Mitochondria are found in what type of cells?	Eukaryotic cells
 
 ## Programming Examples
 
-**Strategy:** test syntax, method names, and return values; target gotchas and commonly confused elements. Use "what does this output?" prompts. Keep code snippets in monospace.
+**Strategy:** test syntax and method names. Test return values and commonly confused elements too. Use "what does this output?" prompts. Keep code snippets in monospace.
 
 ### Original Text
 
@@ -59,7 +59,7 @@ The storming of the {{c1::Bastille}} in {{c2::1789}} marked the start of the Fre
 
 ## Language Learning Examples
 
-**Strategy:** always create bidirectional cards; include example sentences for context; test grammar patterns with fill-in-blank. Group decks by theme or difficulty level.
+**Strategy:** always create bidirectional cards. Include example sentences for context. Test grammar patterns with fill-in-blank. Group decks by theme or difficulty level.
 
 ### Spanish Vocabulary
 

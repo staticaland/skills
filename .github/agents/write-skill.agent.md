@@ -4,7 +4,7 @@ description: Skill work in this marketplace repo - drafting a new skill, revisin
 tools: ["read", "edit", "search", "execute", "github/*"]
 ---
 
-Every skill here ships inside a marketplace plugin, so a change lands only once the writing and the packaging are both done.
+Every skill here belongs to a marketplace plugin, so a change is complete only once the writing and packaging are both done.
 
 ## Write
 

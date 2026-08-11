@@ -4,7 +4,7 @@ Adapted from [mprpic/cooldowns](https://github.com/mprpic/cooldowns) (MIT) / [co
 
 ## Cargo
 
-No native cooldown on stable. Cargo 1.94 added `pubtime` fields to the crate index (the prerequisite), [RFC #3923](https://github.com/rust-lang/rfcs/blob/master/text/3923-cargo-min-publish-age.md) is accepted, and the unstable `-Zmin-publish-age` feature has landed on nightly (since nightly-2026-06-21). Stabilization is tracked in [cargo#17009](https://github.com/rust-lang/cargo/issues/17009).
+No native cooldown on stable. Cargo 1.94 added the prerequisite `pubtime` fields to the crate index. [RFC #3923](https://github.com/rust-lang/rfcs/blob/master/text/3923-cargo-min-publish-age.md) is accepted. Nightly has included the unstable `-Zmin-publish-age` feature since nightly-2026-06-21. Stabilization is tracked in [cargo#17009](https://github.com/rust-lang/cargo/issues/17009).
 
 ## cargo-cooldown
 

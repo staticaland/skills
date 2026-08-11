@@ -20,12 +20,12 @@ Read the workflow file. For each step, find the steps that must complete before 
 
 Change the steps by their role:
 
-- **Independent group.** Two or more steps with no dependencies between them: put them in one `parallel` block.
+- **Independent group.** Put steps with no dependencies between them in one `parallel` block.
 - **Service.** A server, a database, or an emulator: give the step an `id` and set `background: true`. Add a `cancel: <id>` step after the last step that uses the service.
-- **Side task.** A step that no different step reads, for example a telemetry upload: set `background: true`. Do not add `wait`.
+- **Side task.** A step that no different step reads, such as a telemetry upload: set `background: true`. Do not add `wait`.
 - **Reader.** A step that reads the result of a background step: add a `wait: <id>` step before it. To wait for all the background steps that came before, use `wait-all` in place of `wait`.
 
-Done when each background step satisfies one of these conditions: a `wait` refers to it, a `cancel` refers to it, or it is a side task with no reader.
+Done when each background step has a `wait` or `cancel` reference. A side task with no reader needs neither.
 
 ### 3. Verify the workflow
 

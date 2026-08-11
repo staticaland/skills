@@ -19,10 +19,10 @@ Read the target skill and list every discrete action, instruction, or decision p
 
 ### 2. Classify each step
 
-One test: could a script perform this step **blind** - producing the correct result for all valid inputs without reading or understanding anything?
+A step is **blind** when a script can perform it for every valid input without reading or understanding anything.
 
-- Blind → `SCRIPT`: CLI commands with known arguments, file I/O on known paths, regex and template transforms, git operations with known names.
-- Not blind → `LLM`: interpreting intent, choosing between valid outputs, evaluating quality, generating prose, resolving ambiguous references.
+- Blind → `SCRIPT`: CLI commands with known arguments and file I/O on known paths. Regex or template transforms and git operations with known names also qualify.
+- Not blind → `LLM`: interpretation of intent and choices between valid outputs. Quality judgments, prose generation, and ambiguous-reference resolution also require the LLM.
 
 When in doubt, classify `LLM` - judgment kept in the SKILL.md beats a brittle script. For borderline patterns (filler-word removal, conditional templates, formatters) and worked end-to-end examples, see [references/patterns.md](references/patterns.md).
 
@@ -36,7 +36,7 @@ Done when every inventoried step has a category and a rationale.
 
 ### 3. Propose the script
 
-Collect the `SCRIPT` steps into one shell or Python script, full source in a fenced block with a usage comment header. The script takes explicit inputs (paths, flags), produces deterministic outputs (files, stdout, exit codes), fails loudly on invalid input, and is invocable from a single SKILL.md instruction like "Run `./scripts/prepare.sh <input>`". Done when every `SCRIPT` row in the classification table is covered by the script.
+Collect the `SCRIPT` steps into one shell or Python script, full source in a fenced block with a usage comment header. The script takes explicit inputs (paths, flags), produces deterministic outputs (files, stdout, exit codes), reports invalid input and exits nonzero, and is invocable from a single SKILL.md instruction like "Run `./scripts/prepare.sh <input>`". Done when every `SCRIPT` row in the classification table is covered by the script.
 
 ### 4. Propose the simplified SKILL.md
 

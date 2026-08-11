@@ -16,4 +16,4 @@ min-release-age-exclude[] = @myorg/*      # bypass, npm 11.19.0+ / 12; minimatch
 min-release-age-exclude[] = my-internal-pkg
 ```
 
-An exemption covers only the named package - its transitive dependencies still obey the gate unless they match a pattern too. `--min-release-age=0` disables the gate for one command.
+An exemption covers only the package - its transitive dependencies still obey the gate unless they match a pattern too. `--min-release-age=0` disables the gate for one command.
