@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 writing-tools/hooks/vale_lint.py"
+            "command": "python3 writing/hooks/vale_lint.py"
           }
         ]
       }
