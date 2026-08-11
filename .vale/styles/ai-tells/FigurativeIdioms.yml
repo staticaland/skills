@@ -12,9 +12,9 @@ ignorecase: true
 # That difference is why they belong in the prose style rather than the
 # commit style. A subject-plus-verb shape floods ordinary technical writing,
 # because a table really does hold values. A fixed idiom carries no such
-# literal reading, and every token below measured at one or zero matches
-# across the Go and Python standard libraries and the Markdown shipped in
-# the Go source tree.
+# literal reading. The original token patterns produced at most one match in
+# the Go and Python standard libraries and the Markdown shipped in the Go
+# source tree.
 #
 # The first group comes from commit messages a maintainer rejected. The
 # second comes from a skill reference that recorded four phrases clearing
@@ -53,6 +53,11 @@ tokens:
   - '\bsailed through\b'
   - '\bmov(?:e|es|ed|ing) the goalposts?\b'
   - '\bblast radius\b'
+
+  # --- Fixed evidence, process, and redundancy idioms.
+  - '\bsmoking(?:\s+|-)gun\b'
+  - '\byak(?:\s+|-)shaving\b'
+  - '\bbelt(?:\s+and\s+|-and-)braces\b'
 
   # Candidate not yet implemented: the substitution frame, where one thing
   # is named as another wearing its clothes. Recorded here rather than
