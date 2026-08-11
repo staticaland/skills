@@ -6,4 +6,7 @@ minimum_release_age = "7d"
 
 [tools]
 "aqua:errata-ai/vale" = "latest"
+"npm:markdownlint-cli2" = "latest"
+"npm:prettier" = "latest"
+node = "24"
 prek = "latest"
