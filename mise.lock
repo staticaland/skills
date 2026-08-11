@@ -12,6 +12,26 @@ url = "https://github.com/vale-cli/vale/releases/download/v3.17.0/vale_3.17.0_Li
 checksum = "sha256:43c3707c17c92c8daf9afff0febf85db803b4a403f3b3ceb66a6e82d39fe5b52"
 url = "https://github.com/vale-cli/vale/releases/download/v3.17.0/vale_3.17.0_macOS_arm64.tar.gz"
 
+[[tools.node]]
+version = "24.19.0"
+backend = "core:node"
+
+[tools.node."platforms.linux-x64"]
+checksum = "sha256:f625d97cd707df4ff96254916fbc5ff014f09c09effe5a1e0ca8f6d41a8789d4"
+url = "https://nodejs.org/dist/v24.19.0/node-v24.19.0-linux-x64.tar.gz"
+
+[tools.node."platforms.macos-arm64"]
+checksum = "sha256:8294b7aa9b03997481c06babf1e8b270c859358f27da57a11509afe537ac381d"
+url = "https://nodejs.org/dist/v24.19.0/node-v24.19.0-darwin-arm64.tar.gz"
+
+[[tools."npm:markdownlint-cli2"]]
+version = "0.23.2"
+backend = "npm:markdownlint-cli2"
+
+[[tools."npm:prettier"]]
+version = "3.9.6"
+backend = "npm:prettier"
+
 [[tools.prek]]
 version = "0.4.12"
 backend = "aqua:j178/prek"

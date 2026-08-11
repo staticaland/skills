@@ -1,4 +1,17 @@
 repos:
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: prettier --check
+        language: system
+        files: \.(json|md|ya?ml)$
+      - id: markdownlint-cli2
+        name: markdownlint-cli2
+        entry: markdownlint-cli2
+        language: system
+        files: \.md$
+
   - repo: https://github.com/vale-cli/vale
     rev: d32b532e2f5ba703ba06a5a6829f9db1fc78a92c # frozen: v3.15.2
     hooks:
