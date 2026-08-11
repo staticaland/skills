@@ -1,0 +1,5 @@
+interface:
+  display_name: "Dependency Cooldown"
+  short_description: "Delay newly released dependency versions"
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "mise Setup"
+  short_description: "Pin a project's toolchain with mise"
+policy:
+  allow_implicit_invocation: true

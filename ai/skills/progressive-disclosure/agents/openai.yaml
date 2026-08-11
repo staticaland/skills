@@ -1,0 +1,5 @@
+interface:
+  display_name: "Progressive Disclosure"
+  short_description: "Refactor skill references for focused loading"
+policy:
+  allow_implicit_invocation: false

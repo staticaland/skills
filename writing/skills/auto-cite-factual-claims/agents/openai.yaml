@@ -1,0 +1,5 @@
+interface:
+  display_name: "Auto-cite Factual Claims"
+  short_description: "Cite factual claims with sourced footnotes"
+policy:
+  allow_implicit_invocation: true

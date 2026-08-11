@@ -1,0 +1,5 @@
+interface:
+  display_name: "Skill Analyzer"
+  short_description: "Split skill workflows into script and LLM work"
+policy:
+  allow_implicit_invocation: false

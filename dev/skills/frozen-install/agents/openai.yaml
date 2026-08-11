@@ -1,0 +1,5 @@
+interface:
+  display_name: "Frozen Install"
+  short_description: "Make lockfile-based installs reproducible"
+policy:
+  allow_implicit_invocation: true

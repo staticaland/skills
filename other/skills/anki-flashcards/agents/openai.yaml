@@ -1,0 +1,5 @@
+interface:
+  display_name: "Anki Flashcards"
+  short_description: "Create focused Anki cards from source material"
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Writing Revision"
+  short_description: "Revise prose for clarity and scannability"
+policy:
+  allow_implicit_invocation: true
