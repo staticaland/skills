@@ -104,6 +104,8 @@ prompt-writing principles.
 - **[anki-flashcards](./other/skills/anki-flashcards/SKILL.md)**
   (skill) - Creates concise Anki flashcards from text, documents, or images for
   spaced repetition learning.
+- **[bro](./other/skills/bro/SKILL.md)**
+  (skill) - Restates the last message in plain human language, with no jargon.
 
 ## Repo layout
 
