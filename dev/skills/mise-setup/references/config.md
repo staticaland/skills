@@ -38,8 +38,9 @@ erlang = "sub-1:latest"           # one minor behind latest
 ```
 
 Prefer exact versions with `lockfile = true`, and write them with
-`mise use --pin`. `latest` and a bare prefix re-resolve on a new machine, which
-is the drift the lockfile exists to prevent.
+`mise use --pin`. **Never write `"latest"` or a bare prefix** - they
+re-resolve on a new machine or CI run, which is the drift the lockfile exists
+to prevent. Always pin an exact version number.
 
 Long-form syntax carries tool options:
 

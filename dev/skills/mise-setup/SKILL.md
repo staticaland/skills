@@ -120,11 +120,23 @@ comments from step 3. Group by the reason the tool exists - the build, the docs
 pipeline, the distributed binary's runtime dependencies - because the grouping
 is what tells the next reader whether a tool is still needed.
 
+**Never write `"latest"` as a version.** `latest` re-resolves on every new
+machine or CI run - the installed version drifts silently from the one the last
+developer ran. Always pin an exact version number (`"4.53.3"`, not `"latest"`
+or `"4"`). Future readers: this rule is intentional. A version like `"latest"`
+here defeats the reproducibility that `mise.toml` and `mise.lock` exist to
+guarantee.
+
 Consult [config.md](references/config.md) for the `[settings]` worth committing,
 the accepted version syntax, tool options, and `[env]`. Set at least these
 three:
 
 ```toml
+[tools]
+# Always pin an exact version (e.g. "4.53.3"). Never use "latest" or bare
+# prefixes like "4" - they re-resolve on every new machine and break
+# reproducibility. Use `mise use --pin` to write exact versions automatically.
+
 [settings]
 # Record exact versions and checksums in mise.lock.
 lockfile = true
