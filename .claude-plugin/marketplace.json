@@ -33,7 +33,7 @@
       "name": "other",
       "source": "./other",
       "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles",
-      "version": "0.2.7",
+      "version": "0.2.8",
       "category": "other"
     }
   ]
