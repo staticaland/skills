@@ -1,0 +1,11 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: LockConfig
+directories:
+- path: other/skills/bro
+  contents:
+  - path: .
+    git:
+      sha: cdba491f1f9c952979af37f15e4c3efb26f625df
+      commitTitle: updates
+      tags: []
+    type: git

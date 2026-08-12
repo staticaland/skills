@@ -5,6 +5,7 @@ lockfile = true
 minimum_release_age = "7d"
 
 [tools]
+"aqua:carvel-dev/vendir" = "0.46.0"
 "aqua:errata-ai/vale" = "latest"
 "npm:markdownlint-cli2" = "latest"
 "npm:prettier" = "latest"
