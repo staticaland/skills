@@ -1,0 +1,10 @@
+apiVersion: vendir.k14s.io/v1alpha1
+kind: Config
+directories:
+- path: other/skills/bro
+  contents:
+  - path: .
+    git:
+      url: https://github.com/dmmulroy/.dotfiles
+      ref: cdba491f1f9c952979af37f15e4c3efb26f625df
+      subPath: home/.agents/skills/bro
