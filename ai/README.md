@@ -1,7 +1,6 @@
 # ai
 
-Analyze skills to split scriptable work from judgment work and refactor skill
-references for progressive disclosure.
+Analyze skills, refactor references, and write documents for agents.
 
 Category: `ai`
 
@@ -13,3 +12,5 @@ Category: `ai`
 - **[skill-analyzer](./skills/skill-analyzer/SKILL.md)** - Splits a skill into
   scriptable and judgment work: classifies each step as deterministic or LLM,
   proposes a script interface and a simplified SKILL.md.
+- **[writing-for-agents](./skills/writing-for-agents/SKILL.md)** - Guides writing
+  skills, agent instructions, and documents reached through context pointers.
