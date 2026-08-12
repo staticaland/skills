@@ -14,3 +14,11 @@ Category: `ai`
   proposes a script interface and a simplified SKILL.md.
 - **[writing-for-agents](./skills/writing-for-agents/SKILL.md)** - Guides writing
   skills, agent instructions, and documents reached through context pointers.
+
+### Install individual skills
+
+```bash
+npx skills add staticaland/skills --skill progressive-disclosure
+npx skills add staticaland/skills --skill skill-analyzer
+npx skills add staticaland/skills --skill writing-for-agents
+```

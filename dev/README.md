@@ -31,6 +31,17 @@ Category: `dev`
   with a seven-day minimum release age and immutable updates through lock files,
   integrity hashes, action SHAs, and image digests.
 
+### Install individual skills
+
+```bash
+npx skills add staticaland/skills --skill dependency-cooldown
+npx skills add staticaland/skills --skill frozen-install
+npx skills add staticaland/skills --skill install-scripts
+npx skills add staticaland/skills --skill mise-setup
+npx skills add staticaland/skills --skill parallel-steps
+npx skills add staticaland/skills --skill renovate-setup
+```
+
 ## Hooks
 
 - **pinact** (`hooks/pinact_actions.py`, PostToolUse on Write|Edit) - Runs
