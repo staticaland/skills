@@ -17,3 +17,10 @@ User-invoked - run these by name.
 
 - **[bro](./skills/bro/SKILL.md)** - Restates the last message in plain human
   language, with no jargon.
+
+### Install individual skills
+
+```bash
+npx skills add staticaland/skills --skill anki-flashcards
+npx skills add staticaland/skills --skill bro
+```

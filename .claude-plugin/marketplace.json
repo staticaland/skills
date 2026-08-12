@@ -12,28 +12,28 @@
       "name": "writing",
       "source": "./writing",
       "description": "Add sourced footnotes, revise prose for clarity and busy readers, write controlled technical Norwegian, and lint Markdown with Vale",
-      "version": "0.2.7",
+      "version": "0.2.8",
       "category": "writing"
     },
     {
       "name": "dev",
       "source": "./dev",
       "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, and deny install-time script execution",
-      "version": "0.10.0",
+      "version": "0.10.1",
       "category": "dev"
     },
     {
       "name": "ai",
       "source": "./ai",
       "description": "Analyze skills to split scriptable work from judgment work and refactor skill references for progressive disclosure",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "category": "ai"
     },
     {
       "name": "other",
       "source": "./other",
       "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles",
-      "version": "0.2.8",
+      "version": "0.2.9",
       "category": "other"
     }
   ]
