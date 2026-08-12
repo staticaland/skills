@@ -6,7 +6,7 @@ minimum_release_age = "7d"
 
 [tools]
 "aqua:carvel-dev/vendir" = "0.46.0"
-"aqua:errata-ai/vale" = "3.17.0"
+"aqua:errata-ai/vale" = "3.17.1"
 "npm:markdownlint-cli2" = "0.23.2"
 "npm:prettier" = "3.9.6"
 node = "24.19.0"
