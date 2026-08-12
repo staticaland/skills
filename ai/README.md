@@ -13,3 +13,10 @@ Category: `ai`
 - **[skill-analyzer](./skills/skill-analyzer/SKILL.md)** - Splits a skill into
   scriptable and judgment work: classifies each step as deterministic or LLM,
   proposes a script interface and a simplified SKILL.md.
+
+### Install individual skills
+
+```bash
+npx skills add staticaland/skills --skill progressive-disclosure
+npx skills add staticaland/skills --skill skill-analyzer
+```

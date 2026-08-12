@@ -17,6 +17,14 @@ Model-invoked - Claude activates these automatically when the request matches.
 - **[auto-cite-factual-claims](./skills/auto-cite-factual-claims/SKILL.md)** -
   Finds web sources for factual claims and adds them as Markdown footnotes.
 
+### Install individual skills
+
+```bash
+npx skills add staticaland/skills --skill writing-revision
+npx skills add staticaland/skills --skill kontrollert-norsk
+npx skills add staticaland/skills --skill auto-cite-factual-claims
+```
+
 ## Hooks
 
 - **Vale lint** (`hooks/vale_lint.py`, PostToolUse on Write|Edit) - Runs

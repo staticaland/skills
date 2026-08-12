@@ -16,13 +16,15 @@ Add the marketplace, then install individual plugins:
 /plugin install other@staticaland-skills
 ```
 
-To install individual skills in other supported agents, use the skills CLI:
+To install an individual skill in another supported agent, use its name with
+the skills CLI:
 
 ```bash
-npx skills add staticaland/skills
+npx skills add staticaland/skills --skill writing-revision
 ```
 
-The skills CLI does not install plugin hooks.
+Each plugin README lists the command for every available skill. The skills CLI
+does not install plugin hooks.
 
 ## Plugins
 
