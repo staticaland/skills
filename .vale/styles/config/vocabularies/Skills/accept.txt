@@ -57,6 +57,7 @@ toolchains?
 virtualenv
 Volta
 $^ English technical terms not in Vale's dictionary
+ADRs
 [Aa]llowlists?
 [Aa]llowlisted
 discoverability
@@ -64,6 +65,7 @@ lookups
 pretrained
 pretraining
 validator
+[Vv]endored
 $^ Norwegian words used in kontrollert-norsk/SKILL.md
 adjektiver
 aktiv
