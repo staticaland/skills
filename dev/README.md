@@ -2,20 +2,30 @@
 
 Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps,
 set up dependency cooldowns, Renovate, and mise toolchains, freeze install
-commands to their lock files, and deny install-time script execution.
+commands to their lock files, deny install-time script execution, grill a plan
+until its design tree holds, and pin down a project's domain terms and
+decisions.
 
 Category: `dev`
 
 ## Skills
 
+Model-invoked - Claude activates these automatically when the request matches.
+
 - **[dependency-cooldown](./skills/dependency-cooldown/SKILL.md)** - Sets up a
   minimum release age across a project's package managers and update bots, so a
   compromised release is caught before it resolves. Per-ecosystem references
   from [cooldowns.dev](https://cooldowns.dev/).
+- **[domain-modeling](./skills/domain-modeling/SKILL.md)** - Pins down the words
+  a project uses for its domain in a `CONTEXT.md`, and records the decisions
+  behind them as ADRs.
 - **[frozen-install](./skills/frozen-install/SKILL.md)** - Rewrites resolving
   install commands as frozen ones (`npm ci`, `uv sync --locked`) at every site
   meant to reproduce a lockfile - CI, image builds, task runners, docs - and
   proves the lockfile check fires.
+- **[grilling](./skills/grilling/SKILL.md)** - Interviews you about a plan,
+  decision, or idea, mapping it as a design tree and attacking each branch until
+  the thinking holds.
 - **[install-scripts](./skills/install-scripts/SKILL.md)** - Denies dependency
   install scripts by default (`ignore-scripts`, `uv sync --no-build`), then
   allowlists by name the packages that require a build step, and proves a fresh
@@ -31,11 +41,22 @@ Category: `dev`
   with a seven-day minimum release age and immutable updates through lock files,
   integrity hashes, action SHAs, and image digests.
 
+User-invoked - run these by name.
+
+- **[grill-me](./skills/grill-me/SKILL.md)** - Starts a grilling session on the
+  plan or design at hand.
+- **[grill-with-docs](./skills/grill-with-docs/SKILL.md)** - Starts a grilling
+  session that writes the outcome up as ADRs and domain terms while it runs.
+
 ### Install individual skills
 
 ```bash
 npx skills add staticaland/skills --skill dependency-cooldown
+npx skills add staticaland/skills --skill domain-modeling
 npx skills add staticaland/skills --skill frozen-install
+npx skills add staticaland/skills --skill grill-me
+npx skills add staticaland/skills --skill grill-with-docs
+npx skills add staticaland/skills --skill grilling
 npx skills add staticaland/skills --skill install-scripts
 npx skills add staticaland/skills --skill mise-setup
 npx skills add staticaland/skills --skill parallel-steps

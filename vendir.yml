@@ -20,3 +20,63 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/productivity/writing-for-agents
+  - path: dev/skills/domain-modeling
+    contents:
+      - path: .
+        git:
+          url: https://github.com/mattpocock/skills
+          ref: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+        includePaths:
+          - skills/engineering/domain-modeling/**/*
+        ignorePaths:
+          - LICENSE
+          - UPSTREAM.md
+        newRootPath: skills/engineering/domain-modeling
+  - path: dev/skills/grill-with-docs
+    contents:
+      - path: .
+        git:
+          url: https://github.com/mattpocock/skills
+          ref: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+        includePaths:
+          - skills/engineering/grill-with-docs/**/*
+        ignorePaths:
+          - LICENSE
+          - UPSTREAM.md
+        newRootPath: skills/engineering/grill-with-docs
+  - path: dev/skills/grill-me
+    contents:
+      - path: .
+        git:
+          url: https://github.com/mattpocock/skills
+          ref: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+        includePaths:
+          - skills/productivity/grill-me/**/*
+        ignorePaths:
+          - LICENSE
+          - UPSTREAM.md
+        newRootPath: skills/productivity/grill-me
+  - path: dev/skills/grilling
+    contents:
+      - path: .
+        git:
+          url: https://github.com/mattpocock/skills
+          ref: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+        includePaths:
+          - skills/productivity/grilling/**/*
+        ignorePaths:
+          - LICENSE
+          - UPSTREAM.md
+        newRootPath: skills/productivity/grilling
+  - path: other/skills/wait-what
+    contents:
+      - path: .
+        git:
+          url: https://github.com/mattpocock/skills
+          ref: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+        includePaths:
+          - skills/productivity/wait-what/**/*
+        ignorePaths:
+          - LICENSE
+          - UPSTREAM.md
+        newRootPath: skills/productivity/wait-what

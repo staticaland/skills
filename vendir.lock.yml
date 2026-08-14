@@ -14,4 +14,44 @@ directories:
             - v1.2.3-2-g84fdeff
         path: .
     path: ai/skills/writing-for-agents
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: dev/skills/domain-modeling
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: dev/skills/grill-with-docs
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: dev/skills/grill-me
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: dev/skills/grilling
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: other/skills/wait-what
 kind: LockConfig
