@@ -86,8 +86,7 @@ commands to their lock files, and deny install-time script execution.
 
 #### [ai](./ai/README.md)
 
-Analyze skills to split scriptable work from judgment work and refactor skill
-references for progressive disclosure.
+Analyze skills, refactor references, and write documents for agents.
 
 - **[progressive-disclosure](./ai/skills/progressive-disclosure/SKILL.md)**
   (skill) - Refactors a skill to load only relevant guidance by splitting broad
@@ -95,6 +94,9 @@ references for progressive disclosure.
 - **[skill-analyzer](./ai/skills/skill-analyzer/SKILL.md)** (skill) -
   Splits a skill into scriptable and judgment work: classifies each step as
   deterministic or LLM, proposes a script interface and a simplified SKILL.md.
+- **[writing-for-agents](./ai/skills/writing-for-agents/SKILL.md)** (skill) -
+  Guides writing skills, agent instructions, and documents reached through
+  context pointers.
 
 ### `other`
 
