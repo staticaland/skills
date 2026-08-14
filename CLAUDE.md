@@ -21,6 +21,17 @@ independently installable plugin with its own `.claude-plugin/plugin.json`.
   and its entry in `marketplace.json` - installed users only see updates when
   the version changes.
 
+## Vendored skills
+
+Some skills come from another repository. [`vendir.yml`](vendir.yml) lists them,
+and each one keeps an `UPSTREAM.md` naming its source commit.
+
+- Never hand-edit a vendored skill. `vendir sync` overwrites every path
+  `vendir.yml` lists, except the `ignorePaths` that hold `UPSTREAM.md`.
+- To update one, change its `ref` to a new upstream commit and sync that
+  directory: `vendir sync -d dev/skills/grilling`.
+- Commit `vendir.lock.yml` with the synced files.
+
 ## Validation
 
 Validate the marketplace structure before committing:
