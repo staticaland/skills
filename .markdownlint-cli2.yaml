@@ -2,6 +2,7 @@
 # reason.
 ignores:
   - "ai/skills/writing-for-agents/**"
+  - "dev/skills/agent-browser/**"
   - "dev/skills/domain-modeling/**"
   - "dev/skills/grill-me/**"
   - "dev/skills/grill-with-docs/**"
