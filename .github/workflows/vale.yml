@@ -22,3 +22,5 @@ jobs:
         with:
           files: .
           reporter: github-pr-check
+          # Skills vendored by vendir - see .prettierignore for the reason.
+          glob: "!{ai/skills/writing-for-agents,dev/skills/domain-modeling,dev/skills/grill-me,dev/skills/grill-with-docs,dev/skills/grilling,other/skills/bro,other/skills/wait-what}/**"

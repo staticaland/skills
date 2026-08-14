@@ -1,6 +1,7 @@
 # Install mise itself before running these hooks.
-# The excludes hold the skills vendir vendors: upstream writes them, so this
-# repository does not reformat or lint them.
+# prettier and markdownlint-cli2 skip the vendored skills through their own
+# configuration. Vale has no path exclusion in `.vale.ini`, so its list sits
+# here and in `.github/workflows/vale.yml`.
 repos:
   - repo: local
     hooks:
@@ -26,13 +27,11 @@ repos:
         entry: mise exec -- prettier --check
         language: system
         files: \.(json|md|ya?ml)$
-        exclude: ^(ai/skills/writing-for-agents|dev/skills/(domain-modeling|grill-me|grill-with-docs|grilling)|other/skills/(bro|wait-what))/
       - id: markdownlint-cli2
         name: markdownlint-cli2
         entry: mise exec -- markdownlint-cli2
         language: system
         files: \.md$
-        exclude: ^(ai/skills/writing-for-agents|dev/skills/(domain-modeling|grill-me|grill-with-docs|grilling)|other/skills/(bro|wait-what))/
       - id: claude-plugin-validate
         name: claude plugin validate
         entry: claude plugin validate .
