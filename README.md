@@ -52,16 +52,29 @@ controlled technical Norwegian, and lint Markdown with Vale.
 
 Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps,
 set up dependency cooldowns, Renovate, and mise toolchains, freeze install
-commands to their lock files, and deny install-time script execution.
+commands to their lock files, deny install-time script execution, grill a plan
+until its design tree holds, and pin down a project's domain terms and
+decisions.
 
 - **[dependency-cooldown](./dev/skills/dependency-cooldown/SKILL.md)**
   (skill) - Sets up a minimum release age across a project's package managers
   and update bots, so a compromised release is caught before it resolves.
   Per-ecosystem references from [cooldowns.dev](https://cooldowns.dev/).
+- **[domain-modeling](./dev/skills/domain-modeling/SKILL.md)** (skill) - Pins
+  down the words a project uses for its domain in a `CONTEXT.md`, and records
+  the decisions behind them as ADRs.
 - **[frozen-install](./dev/skills/frozen-install/SKILL.md)** (skill) -
   Rewrites resolving install commands as frozen ones (`npm ci`,
   `uv sync --locked`) at every site meant to reproduce a lockfile - CI, image
   builds, task runners, docs - and proves the lockfile check fires.
+- **[grill-me](./dev/skills/grill-me/SKILL.md)** (skill) - Starts a grilling
+  session on the plan or design at hand.
+- **[grill-with-docs](./dev/skills/grill-with-docs/SKILL.md)** (skill) -
+  Starts a grilling session that writes the outcome up as ADRs and domain terms
+  while it runs.
+- **[grilling](./dev/skills/grilling/SKILL.md)** (skill) - Interviews you about
+  a plan, decision, or idea, mapping it as a design tree and attacking each
+  branch until the thinking holds.
 - **[install-scripts](./dev/skills/install-scripts/SKILL.md)**
   (skill) - Denies dependency install scripts by default (`ignore-scripts`,
   `uv sync --no-build`), then allowlists by name the packages that build
@@ -103,13 +116,17 @@ Analyze skills, refactor references, and write documents for agents.
 #### [other](./other/README.md)
 
 Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's
-prompt-writing principles.
+prompt-writing principles, and ask for a message again in plain language when it
+does not land.
 
 - **[anki-flashcards](./other/skills/anki-flashcards/SKILL.md)**
   (skill) - Creates concise Anki flashcards from text, documents, or images for
   spaced repetition learning.
 - **[bro](./other/skills/bro/SKILL.md)**
   (skill) - Restates the last message in plain human language, with no jargon.
+- **[wait-what](./other/skills/wait-what/SKILL.md)**
+  (skill) - Asks for a re-pitch of the last message, in Simplified Technical
+  English and the project's own domain terms.
 
 ## Repo layout
 

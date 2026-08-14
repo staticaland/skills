@@ -18,8 +18,8 @@
     {
       "name": "dev",
       "source": "./dev",
-      "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, and deny install-time script execution",
-      "version": "0.10.1",
+      "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, deny install-time script execution, grill a plan until its design tree holds, and pin down a project's domain terms and decisions",
+      "version": "0.11.0",
       "category": "dev"
     },
     {
@@ -32,8 +32,8 @@
     {
       "name": "other",
       "source": "./other",
-      "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles",
-      "version": "0.2.9",
+      "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles, and ask for a message again in plain language when it does not land",
+      "version": "0.3.0",
       "category": "other"
     }
   ]

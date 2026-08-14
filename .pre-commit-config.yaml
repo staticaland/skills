@@ -1,4 +1,6 @@
 # Install mise itself before running these hooks.
+# The excludes hold the skills vendir vendors: upstream writes them, so this
+# repository does not reformat or lint them.
 repos:
   - repo: local
     hooks:
@@ -24,13 +26,13 @@ repos:
         entry: mise exec -- prettier --check
         language: system
         files: \.(json|md|ya?ml)$
-        exclude: ^ai/skills/writing-for-agents/
+        exclude: ^(ai/skills/writing-for-agents|dev/skills/(domain-modeling|grill-me|grill-with-docs|grilling)|other/skills/wait-what)/
       - id: markdownlint-cli2
         name: markdownlint-cli2
         entry: mise exec -- markdownlint-cli2
         language: system
         files: \.md$
-        exclude: ^ai/skills/writing-for-agents/
+        exclude: ^(ai/skills/writing-for-agents|dev/skills/(domain-modeling|grill-me|grill-with-docs|grilling)|other/skills/wait-what)/
       - id: claude-plugin-validate
         name: claude plugin validate
         entry: claude plugin validate .
@@ -41,7 +43,7 @@ repos:
     rev: bc78bf3a639f29eef5c6bc3f0680105a82ef46f7 # frozen: v3.17.1
     hooks:
       - id: vale
-        exclude: ^ai/skills/writing-for-agents/
+        exclude: ^(ai/skills/writing-for-agents|dev/skills/(domain-modeling|grill-me|grill-with-docs|grilling)|other/skills/wait-what)/
       - id: vale
         name: vale (commit message)
         entry: scripts/vale-commit-message.sh
