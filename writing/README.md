@@ -1,7 +1,8 @@
 # writing
 
-Add sourced footnotes, revise prose for clarity and busy readers, write
-controlled technical Norwegian, and lint Markdown with Vale.
+Add sourced footnotes, revise prose for clarity and busy readers, strip
+references the reader cannot see, write controlled technical Norwegian, and
+lint Markdown with Vale.
 
 Category: `writing`
 
@@ -17,12 +18,19 @@ Model-invoked - Claude activates these automatically when the request matches.
 - **[auto-cite-factual-claims](./skills/auto-cite-factual-claims/SKILL.md)** -
   Finds web sources for factual claims and adds them as Markdown footnotes.
 
+User-invoked - run these by name.
+
+- **[standalone](./skills/standalone/SKILL.md)** - Strips references the reader
+  cannot see - "as discussed", "the old handler" - from prose and code
+  comments.
+
 ### Install individual skills
 
 ```bash
 npx skills add staticaland/skills --skill writing-revision
 npx skills add staticaland/skills --skill kontrollert-norsk
 npx skills add staticaland/skills --skill auto-cite-factual-claims
+npx skills add staticaland/skills --skill standalone
 ```
 
 ## Hooks
