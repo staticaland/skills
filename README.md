@@ -32,8 +32,9 @@ does not install plugin hooks.
 
 #### [writing](./writing/README.md)
 
-Add sourced footnotes, revise prose for clarity and busy readers, write
-controlled technical Norwegian, and lint Markdown with Vale.
+Add sourced footnotes, revise prose for clarity and busy readers, strip
+references the reader cannot see, write controlled technical Norwegian, and
+lint Markdown with Vale.
 
 - **[writing-revision](./writing/skills/writing-revision/SKILL.md)**
   (skill) - Makes text clear, scannable, and action-oriented for busy readers.
@@ -43,6 +44,9 @@ controlled technical Norwegian, and lint Markdown with Vale.
 - **[Auto-cite Factual Claims](./writing/skills/auto-cite-factual-claims/SKILL.md)**
   (skill) - Finds web sources for factual claims and adds them as Markdown
   footnotes.
+- **[standalone](./writing/skills/standalone/SKILL.md)** (skill) - Strips
+  references the reader cannot see - "as discussed", "the old handler" - from
+  prose and code comments.
 - **Vale lint** (hook) - Runs [Vale](https://vale.sh/) on Markdown files after
   Claude writes or edits them. Requires the `vale` CLI.
 
