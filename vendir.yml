@@ -1,3 +1,23 @@
+# Adding a skill here takes four more edits. Every check in the repository
+# reads one of these lists, and a check that still sees a vendored path
+# reformats files that the next `vendir sync` overwrites:
+#
+#   1. `.prettierignore`
+#   2. `ignores` in `.markdownlint-cli2.yaml`
+#   3. the vale `exclude` in `.pre-commit-config.yaml`
+#   4. the vale `glob` in `.github/workflows/vale.yml`
+#
+# Vale takes two of the four because `.vale.ini` has no path exclusion.
+#
+# Two more rules for a new entry:
+#
+# - `ignorePaths` keeps `UPSTREAM.md` (and `LICENSE`, where upstream ships one)
+#   through a sync. Without it, the sync deletes the attribution.
+# - Name the upstream commit here and nowhere else. A SHA repeated in an
+#   `UPSTREAM.md` goes stale the next time a `ref` moves.
+#
+# A sync rewrites `vendir.lock.yml` unformatted, so run
+# `mise exec -- prettier --write vendir.lock.yml` before you commit it.
 apiVersion: vendir.k14s.io/v1alpha1
 kind: Config
 directories:
