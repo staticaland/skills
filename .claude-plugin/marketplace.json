@@ -11,8 +11,8 @@
     {
       "name": "writing",
       "source": "./writing",
-      "description": "Add sourced footnotes, revise prose for clarity and busy readers, write controlled technical Norwegian, and lint Markdown with Vale",
-      "version": "0.2.8",
+      "description": "Add sourced footnotes, revise prose for clarity and busy readers, strip references the reader cannot see, write controlled technical Norwegian, and lint Markdown with Vale",
+      "version": "0.3.0",
       "category": "writing"
     },
     {
