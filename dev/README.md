@@ -1,10 +1,10 @@
 # dev
 
-Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps,
-set up dependency cooldowns, Renovate, and mise toolchains, freeze install
-commands to their lock files, deny install-time script execution, grill a plan
-until its design tree holds, and pin down a project's domain terms and
-decisions.
+Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
+Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
+dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
+their lock files, deny install-time script execution, grill a plan until its
+design tree holds, and pin down a project's domain terms and decisions.
 
 Category: `dev`
 
@@ -12,6 +12,10 @@ Category: `dev`
 
 Model-invoked - Claude activates these automatically when the request matches.
 
+- **[agent-browser](./skills/agent-browser/SKILL.md)** - Drives Chrome,
+  web apps, and Electron apps from the command line with
+  [agent-browser](https://github.com/vercel-labs/agent-browser) - navigating,
+  filling forms, clicking, taking screenshots, and extracting data.
 - **[dependency-cooldown](./skills/dependency-cooldown/SKILL.md)** - Sets up a
   minimum release age across a project's package managers and update bots, so a
   compromised release is caught before it resolves. Per-ecosystem references
@@ -51,6 +55,7 @@ User-invoked - run these by name.
 ### Install individual skills
 
 ```bash
+npx skills add staticaland/skills --skill agent-browser
 npx skills add staticaland/skills --skill dependency-cooldown
 npx skills add staticaland/skills --skill domain-modeling
 npx skills add staticaland/skills --skill frozen-install
