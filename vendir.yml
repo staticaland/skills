@@ -40,6 +40,17 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/productivity/writing-for-agents
+  - path: dev/skills/agent-browser
+    contents:
+      - path: .
+        git:
+          url: https://github.com/vercel-labs/agent-browser
+          ref: 548b159b30eef119ccf6846c8bc807d0eaa3f6f8
+        includePaths:
+          - skills/agent-browser/**/*
+        ignorePaths:
+          - UPSTREAM.md
+        newRootPath: skills/agent-browser
   - path: dev/skills/domain-modeling
     contents:
       - path: .
