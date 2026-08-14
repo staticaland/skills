@@ -54,4 +54,12 @@ directories:
             - v1.2.3-2-g84fdeff
         path: .
     path: other/skills/wait-what
+  - contents:
+      - git:
+          commitTitle: Prepare v0.34.0 release (#1678)
+          sha: 548b159b30eef119ccf6846c8bc807d0eaa3f6f8
+          tags:
+            - v0.34.0
+        path: .
+    path: dev/skills/agent-browser
 kind: LockConfig
