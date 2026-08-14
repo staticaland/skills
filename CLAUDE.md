@@ -24,13 +24,19 @@ independently installable plugin with its own `.claude-plugin/plugin.json`.
 ## Vendored skills
 
 Some skills come from another repository. [`vendir.yml`](vendir.yml) lists them,
-and each one keeps an `UPSTREAM.md` naming its source commit.
+and each one keeps an `UPSTREAM.md` naming its source and license.
 
 - Never hand-edit a vendored skill. `vendir sync` overwrites every path
   `vendir.yml` lists, except the `ignorePaths` that hold `UPSTREAM.md`.
 - To update one, change its `ref` to a new upstream commit and sync that
-  directory: `vendir sync -d dev/skills/grilling`.
-- Commit `vendir.lock.yml` with the synced files.
+  directory: `vendir sync -d dev/skills/grilling`. Commit `vendir.lock.yml`
+  with the synced files.
+- Name no upstream commit outside `vendir.yml` and `vendir.lock.yml`. A version
+  repeated in an `UPSTREAM.md` goes stale the next time a `ref` moves.
+- A new vendored path goes in four lists, or a check will fight the next sync:
+  `.prettierignore`, `ignores` in `.markdownlint-cli2.yaml`, the vale `exclude`
+  in `.pre-commit-config.yaml`, and the vale `glob` in
+  `.github/workflows/vale.yml`.
 
 ## Validation
 
