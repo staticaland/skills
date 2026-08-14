@@ -1,3 +1,14 @@
+# Skills vendored by vendir - see `.prettierignore` for the full list and the
+# reason.
+ignores:
+  - "ai/skills/writing-for-agents/**"
+  - "dev/skills/domain-modeling/**"
+  - "dev/skills/grill-me/**"
+  - "dev/skills/grill-with-docs/**"
+  - "dev/skills/grilling/**"
+  - "other/skills/bro/**"
+  - "other/skills/wait-what/**"
+
 config:
   MD010:
     code_blocks: false
