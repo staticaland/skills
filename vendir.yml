@@ -64,6 +64,18 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/engineering/grill-with-docs
+  - path: dev/skills/gh-stack
+    contents:
+      - path: .
+        git:
+          url: https://github.com/github/gh-stack
+          ref: 14fc42ed9b6c376a53b2f999f138d3bd26dac546
+        includePaths:
+          - skills/gh-stack/**/*
+        ignorePaths:
+          - LICENSE
+          - UPSTREAM.md
+        newRootPath: skills/gh-stack
   - path: dev/skills/grill-me
     contents:
       - path: .
