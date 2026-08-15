@@ -1,8 +1,8 @@
 {
   "name": "dev",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "author": {
     "name": "staticaland"
   },
-  "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, deny install-time script execution, grill a plan until its design tree holds, and pin down a project's domain terms and decisions"
+  "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, deny install-time script execution, manage stacked pull requests, grill a plan until its design tree holds, and pin down a project's domain terms and decisions"
 }
