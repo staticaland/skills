@@ -5,6 +5,7 @@
 # `.github/workflows/vale.yml`.
 ai/skills/writing-for-agents/
 dev/skills/domain-modeling/
+dev/skills/gh-stack/
 dev/skills/grill-me/
 dev/skills/grill-with-docs/
 dev/skills/grilling/
