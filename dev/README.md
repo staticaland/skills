@@ -3,8 +3,9 @@
 Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
 Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
-their lock files, deny install-time script execution, grill a plan until its
-design tree holds, and pin down a project's domain terms and decisions.
+their lock files, deny install-time script execution, manage stacked pull
+requests, grill a plan until its design tree holds, and pin down a project's
+domain terms and decisions.
 
 Category: `dev`
 
@@ -27,6 +28,10 @@ Model-invoked - Claude activates these automatically when the request matches.
   install commands as frozen ones (`npm ci`, `uv sync --locked`) at every site
   meant to reproduce a lockfile - CI, image builds, task runners, docs - and
   proves the lockfile check fires.
+- **[gh-stack](./skills/gh-stack/SKILL.md)** - Manages stacked branches and pull
+  requests with the [gh-stack](https://github.com/github/gh-stack) GitHub CLI
+  extension: create, view, push, submit, sync, rebase, merge, and check out a
+  stack.
 - **[grilling](./skills/grilling/SKILL.md)** - Interviews you about a plan,
   decision, or idea, mapping it as a design tree and attacking each branch until
   the thinking holds.
@@ -59,6 +64,7 @@ npx skills add staticaland/skills --skill agent-browser
 npx skills add staticaland/skills --skill dependency-cooldown
 npx skills add staticaland/skills --skill domain-modeling
 npx skills add staticaland/skills --skill frozen-install
+npx skills add staticaland/skills --skill gh-stack
 npx skills add staticaland/skills --skill grill-me
 npx skills add staticaland/skills --skill grill-with-docs
 npx skills add staticaland/skills --skill grilling

@@ -57,8 +57,9 @@ lint Markdown with Vale.
 Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
 Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
-their lock files, deny install-time script execution, grill a plan until its
-design tree holds, and pin down a project's domain terms and decisions.
+their lock files, deny install-time script execution, manage stacked pull
+requests, grill a plan until its design tree holds, and pin down a project's
+domain terms and decisions.
 
 - **[agent-browser](./dev/skills/agent-browser/SKILL.md)** (skill) - Drives
   Chrome, web apps, and Electron apps from the command line with
@@ -75,6 +76,10 @@ design tree holds, and pin down a project's domain terms and decisions.
   Rewrites resolving install commands as frozen ones (`npm ci`,
   `uv sync --locked`) at every site meant to reproduce a lockfile - CI, image
   builds, task runners, docs - and proves the lockfile check fires.
+- **[gh-stack](./dev/skills/gh-stack/SKILL.md)** (skill) - Manages stacked
+  branches and pull requests with the
+  [gh-stack](https://github.com/github/gh-stack) GitHub CLI extension: create,
+  view, push, submit, sync, rebase, merge, and check out a stack.
 - **[grill-me](./dev/skills/grill-me/SKILL.md)** (skill) - Starts a grilling
   session on the plan or design at hand.
 - **[grill-with-docs](./dev/skills/grill-with-docs/SKILL.md)** (skill) -
