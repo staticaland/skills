@@ -11,14 +11,14 @@
     {
       "name": "writing",
       "source": "./writing",
-      "description": "Add sourced footnotes, revise prose for clarity and busy readers, write controlled technical Norwegian, and lint Markdown with Vale",
-      "version": "0.2.8",
+      "description": "Add sourced footnotes, revise prose for clarity and busy readers, strip references the reader cannot see, write controlled technical Norwegian, and lint Markdown with Vale",
+      "version": "0.3.1",
       "category": "writing"
     },
     {
       "name": "dev",
       "source": "./dev",
-      "description": "Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, deny install-time script execution, manage stacked pull requests, grill a plan until its design tree holds, and pin down a project's domain terms and decisions",
+      "description": "Automate browsers and Electron apps with the agent-browser CLI, pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, deny install-time script execution, manage stacked pull requests, grill a plan until its design tree holds, and pin down a project's domain terms and decisions",
       "version": "0.12.0",
       "category": "dev"
     },

@@ -32,8 +32,9 @@ does not install plugin hooks.
 
 #### [writing](./writing/README.md)
 
-Add sourced footnotes, revise prose for clarity and busy readers, write
-controlled technical Norwegian, and lint Markdown with Vale.
+Add sourced footnotes, revise prose for clarity and busy readers, strip
+references the reader cannot see, write controlled technical Norwegian, and
+lint Markdown with Vale.
 
 - **[writing-revision](./writing/skills/writing-revision/SKILL.md)**
   (skill) - Makes text clear, scannable, and action-oriented for busy readers.
@@ -43,6 +44,9 @@ controlled technical Norwegian, and lint Markdown with Vale.
 - **[Auto-cite Factual Claims](./writing/skills/auto-cite-factual-claims/SKILL.md)**
   (skill) - Finds web sources for factual claims and adds them as Markdown
   footnotes.
+- **[standalone](./writing/skills/standalone/SKILL.md)** (skill) - Strips
+  references the reader cannot see - "as discussed", "the old handler" - from
+  prose and code comments.
 - **Vale lint** (hook) - Runs [Vale](https://vale.sh/) on Markdown files after
   Claude writes or edits them. Requires the `vale` CLI.
 
@@ -50,12 +54,17 @@ controlled technical Norwegian, and lint Markdown with Vale.
 
 #### [dev](./dev/README.md)
 
-Pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps,
-set up dependency cooldowns, Renovate, and mise toolchains, freeze install
-commands to their lock files, deny install-time script execution, manage stacked
-pull requests, grill a plan until its design tree holds, and pin down a
-project's domain terms and decisions.
+Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
+Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
+dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
+their lock files, deny install-time script execution, manage stacked pull
+requests, grill a plan until its design tree holds, and pin down a project's
+domain terms and decisions.
 
+- **[agent-browser](./dev/skills/agent-browser/SKILL.md)** (skill) - Drives
+  Chrome, web apps, and Electron apps from the command line with
+  [agent-browser](https://github.com/vercel-labs/agent-browser) - navigating,
+  filling forms, clicking, taking screenshots, and extracting data.
 - **[dependency-cooldown](./dev/skills/dependency-cooldown/SKILL.md)**
   (skill) - Sets up a minimum release age across a project's package managers
   and update bots, so a compromised release is caught before it resolves.

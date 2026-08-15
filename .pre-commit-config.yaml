@@ -42,7 +42,7 @@ repos:
     rev: bc78bf3a639f29eef5c6bc3f0680105a82ef46f7 # frozen: v3.17.1
     hooks:
       - id: vale
-        exclude: ^(ai/skills/writing-for-agents|dev/skills/(domain-modeling|gh-stack|grill-me|grill-with-docs|grilling)|other/skills/(bro|wait-what))/
+        exclude: ^(ai/skills/writing-for-agents|dev/skills/(agent-browser|domain-modeling|gh-stack|grill-me|grill-with-docs|grilling)|other/skills/(bro|wait-what))/
       - id: vale
         name: vale (commit message)
         entry: scripts/vale-commit-message.sh

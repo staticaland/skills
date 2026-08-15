@@ -4,6 +4,7 @@
 # exclude in `.pre-commit-config.yaml`, and in the glob in
 # `.github/workflows/vale.yml`.
 ai/skills/writing-for-agents/
+dev/skills/agent-browser/
 dev/skills/domain-modeling/
 dev/skills/gh-stack/
 dev/skills/grill-me/
