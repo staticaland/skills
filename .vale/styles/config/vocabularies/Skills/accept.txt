@@ -13,6 +13,7 @@ invocable
 LLM
 monospace
 pinact
+prek
 [Rr]epo
 scannability
 scriptable

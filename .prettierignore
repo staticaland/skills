@@ -10,5 +10,14 @@ dev/skills/gh-stack/
 dev/skills/grill-me/
 dev/skills/grill-with-docs/
 dev/skills/grilling/
+dev/skills/prek/
 other/skills/bro/
 other/skills/wait-what/
+
+# Pull request templates. Their prose is one paragraph per line, because GitHub
+# reflows the markdown and a hard wrap only makes the description awkward to
+# edit. Prettier leaves prose alone at its default `proseWrap`, so this entry
+# guards against a later config change. The templates disable `MD013`
+# themselves.
+.github/PULL_REQUEST_TEMPLATE.md
+dev/skills/create-pr/references/pr-template.md

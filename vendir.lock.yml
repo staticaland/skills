@@ -1,73 +1,81 @@
 apiVersion: vendir.k14s.io/v1alpha1
 directories:
-- contents:
-  - git:
-      commitTitle: updates
-      sha: cdba491f1f9c952979af37f15e4c3efb26f625df
-    path: .
-  path: other/skills/bro
-- contents:
-  - git:
-      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
-      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-      tags:
-      - v1.2.3-2-g84fdeff
-    path: .
-  path: ai/skills/writing-for-agents
-- contents:
-  - git:
-      commitTitle: Prepare v0.34.0 release (#1678)
-      sha: 548b159b30eef119ccf6846c8bc807d0eaa3f6f8
-      tags:
-      - v0.34.0
-    path: .
-  path: dev/skills/agent-browser
-- contents:
-  - git:
-      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
-      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-      tags:
-      - v1.2.3-2-g84fdeff
-    path: .
-  path: dev/skills/domain-modeling
-- contents:
-  - git:
-      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
-      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-      tags:
-      - v1.2.3-2-g84fdeff
-    path: .
-  path: dev/skills/grill-with-docs
-- contents:
-  - git:
-      commitTitle: Improve skill efficiency and performance (#388)...
-      sha: 14fc42ed9b6c376a53b2f999f138d3bd26dac546
-      tags:
-      - v0.1.0-2-g14fc42e
-    path: .
-  path: dev/skills/gh-stack
-- contents:
-  - git:
-      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
-      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-      tags:
-      - v1.2.3-2-g84fdeff
-    path: .
-  path: dev/skills/grill-me
-- contents:
-  - git:
-      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
-      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-      tags:
-      - v1.2.3-2-g84fdeff
-    path: .
-  path: dev/skills/grilling
-- contents:
-  - git:
-      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
-      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-      tags:
-      - v1.2.3-2-g84fdeff
-    path: .
-  path: other/skills/wait-what
+  - contents:
+      - git:
+          commitTitle: updates
+          sha: cdba491f1f9c952979af37f15e4c3efb26f625df
+        path: .
+    path: other/skills/bro
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: ai/skills/writing-for-agents
+  - contents:
+      - git:
+          commitTitle: Prepare v0.34.0 release (#1678)
+          sha: 548b159b30eef119ccf6846c8bc807d0eaa3f6f8
+          tags:
+            - v0.34.0
+        path: .
+    path: dev/skills/agent-browser
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: dev/skills/domain-modeling
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: dev/skills/grill-with-docs
+  - contents:
+      - git:
+          commitTitle: Improve skill efficiency and performance (#388)...
+          sha: 14fc42ed9b6c376a53b2f999f138d3bd26dac546
+          tags:
+            - v0.1.0-2-g14fc42e
+        path: .
+    path: dev/skills/gh-stack
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: dev/skills/grill-me
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: dev/skills/grilling
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
+          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+          tags:
+            - v1.2.3-2-g84fdeff
+        path: .
+    path: other/skills/wait-what
+  - contents:
+      - git:
+          commitTitle: Simplify hook construction (#2572)...
+          sha: 8f3ff02f567130737685589f039074ca023900e9
+          tags:
+            - v0.4.14-2-g8f3ff02f
+        path: .
+    path: dev/skills/prek
 kind: LockConfig
