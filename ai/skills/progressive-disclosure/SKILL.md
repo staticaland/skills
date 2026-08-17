@@ -4,14 +4,14 @@ description:
   Refactor a Claude Code skill so its conditional detail loads only when an
   observable project marker says it applies.
 disable-model-invocation: true
-version: 0.2.0
+version: 0.2.1
 ---
 
 # Progressive Disclosure
 
 Refactor one target skill so its core workflow stays in `SKILL.md` and
 conditional detail loads only when it applies. Every fact, example, and caveat
-in the old files survives the move. Only the irrelevant loading goes away.
+in the old files survives the move.
 
 Apply the refactor. When the user asks for analysis only, stop after step 2 and
 report the proposed layout.
