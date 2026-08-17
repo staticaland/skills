@@ -5,7 +5,6 @@
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests",
     ":maintainLockFilesWeekly",
-    ":enablePreCommit",
   ],
   minimumReleaseAge: "7 days",
   automerge: true,
