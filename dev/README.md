@@ -5,7 +5,9 @@ Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
 their lock files, deny install-time script execution, manage stacked pull
 requests, open pull requests, run Git hooks with prek, grill a plan until its
-design tree holds, and pin down a project's domain terms and decisions.
+design tree holds, look at a module with fresh eyes and keep the simplest
+redesigns that survive its constraints, and pin down a project's domain terms
+and decisions.
 
 Category: `dev`
 
@@ -26,6 +28,10 @@ Model-invoked - Claude activates these automatically when the request matches.
 - **[domain-modeling](./skills/domain-modeling/SKILL.md)** - Pins down the words
   a project uses for its domain in a `CONTEXT.md`, and records the decisions
   behind them as ADRs.
+- **[fresh-eyes](./skills/fresh-eyes/SKILL.md)** - Ignores how a module, config,
+  workflow, or design currently works, proposes the simplest design that could
+  serve the same purpose, and keeps the proposals that survive the constraints
+  that shaped the current one.
 - **[frozen-install](./skills/frozen-install/SKILL.md)** - Rewrites resolving
   install commands as frozen ones (`npm ci`, `uv sync --locked`) at every site
   meant to reproduce a lockfile - CI, image builds, task runners, docs - and
@@ -69,6 +75,7 @@ npx skills add staticaland/skills --skill agent-browser
 npx skills add staticaland/skills --skill create-pr
 npx skills add staticaland/skills --skill dependency-cooldown
 npx skills add staticaland/skills --skill domain-modeling
+npx skills add staticaland/skills --skill fresh-eyes
 npx skills add staticaland/skills --skill frozen-install
 npx skills add staticaland/skills --skill gh-stack
 npx skills add staticaland/skills --skill grill-me
