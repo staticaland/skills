@@ -64,6 +64,7 @@ discoverability
 lookups
 pretrained
 pretraining
+[Rr]ebases?
 validator
 [Vv]endored
 $^ Norwegian words used in kontrollert-norsk/SKILL.md
