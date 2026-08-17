@@ -4,9 +4,8 @@ Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
 Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
 their lock files, deny install-time script execution, manage stacked pull
-requests, open pull requests with a description built from the whole session,
-grill a plan until its design tree holds, and pin down a project's domain terms
-and decisions.
+requests, open pull requests, grill a plan until its design tree holds, and pin
+down a project's domain terms and decisions.
 
 Category: `dev`
 
@@ -19,9 +18,7 @@ Model-invoked - Claude activates these automatically when the request matches.
   [agent-browser](https://github.com/vercel-labs/agent-browser) - navigating,
   filling forms, clicking, taking screenshots, and extracting data.
 - **[create-pr](./skills/create-pr/SKILL.md)** - Opens a GitHub pull request
-  with a description built from the whole session - the original request,
-  decisions, tradeoffs, and tests - filled into the repo's PR template or the
-  skill's own.
+  with `gh`, filling the repo's PR template or the skill's bundled one.
 - **[dependency-cooldown](./skills/dependency-cooldown/SKILL.md)** - Sets up a
   minimum release age across a project's package managers and update bots, so a
   compromised release is caught before it resolves. Per-ecosystem references
