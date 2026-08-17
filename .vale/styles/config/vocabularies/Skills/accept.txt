@@ -59,9 +59,13 @@ SLSA
 toolchains?
 virtualenv
 Volta
-$^ Official lowercase names: these projects style their own names lowercase in prose
+$^ Official lowercase names: these projects style their own names lowercase in prose.
+$^ Every entry carries a link above it that confirms the casing at the source.
+$^ https://github.com/suzuki-shunsuke/pinact
 pinact
+$^ https://prek.j178.dev/
 prek
+$^ https://docs.astral.sh/uv/
 uv
 $^ English technical terms not in Vale's dictionary
 ADRs
