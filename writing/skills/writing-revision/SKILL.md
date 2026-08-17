@@ -5,22 +5,12 @@ description:
   clearer", "improve readability", "edit for busy readers", "make text
   scannable", "tighten up writing", "cut filler words", "lead with the point",
   or wants text revised for clarity and conciseness.
-version: 0.1.0
+version: 0.1.1
 ---
 
 # Writing Revision
 
 Revise text for clarity, scannability, and direct action by busy readers.
-
-## When to Use
-
-Activate this skill when revising:
-
-- Emails and messages
-- Documentation
-- Proposals and reports
-- Slack/Teams messages
-- Workplace communication
 
 ## Output Behavior
 
@@ -114,13 +104,11 @@ Who does what, by when. Keep it to a short block.
 
 ## Revision Process
 
-1. **Read** the original text completely
-2. **Identify** the core message and any asks
-3. **Restructure** to lead with the point
-4. **Cut** filler words and redundancy
-5. **Format** for scannability (bullets, bold, headers)
-6. **Verify** next steps are explicit (if applicable)
-7. **Output** the revised text directly (no labels or explanation)
+1. **Identify** the core message and any asks
+2. **Restructure** to lead with the point
+3. **Cut** filler words and redundancy
+4. **Format** for scannability (bullets, bold, headers)
+5. **Verify** next steps are explicit (if applicable)
 
 ## Additional Resources
 
