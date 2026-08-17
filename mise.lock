@@ -7,10 +7,12 @@ backend = "aqua:carvel-dev/vendir"
 [tools."aqua:carvel-dev/vendir"."platforms.linux-x64"]
 checksum = "sha256:878f3c77cae21b9b63d0ea6c11454c0008d41652d2eb3d1844fdcf69cca6ae9e"
 url = "https://github.com/carvel-dev/vendir/releases/download/v0.46.0/vendir-linux-amd64"
+url_api = "https://api.github.com/repos/carvel-dev/vendir/releases/assets/441967030"
 
 [tools."aqua:carvel-dev/vendir"."platforms.macos-arm64"]
 checksum = "sha256:e136160aa642231c6eb1df25cbe3e57e5f3848ac0a7e7de57bbc3249fdbd800f"
 url = "https://github.com/carvel-dev/vendir/releases/download/v0.46.0/vendir-darwin-arm64"
+url_api = "https://api.github.com/repos/carvel-dev/vendir/releases/assets/441967028"
 
 [[tools."aqua:errata-ai/vale"]]
 version = "3.17.1"
@@ -53,9 +55,11 @@ backend = "aqua:j178/prek"
 [tools.prek."platforms.linux-x64"]
 checksum = "sha256:3321ec6e4d873fbf41bef55d11b3f269fa91cbb87b19f18211df7c1bd061ac8a"
 url = "https://github.com/j178/prek/releases/download/v0.4.12/prek-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/499978791"
 provenance = "github-attestations"
 
 [tools.prek."platforms.macos-arm64"]
 checksum = "sha256:cef66b9641a1c9ac61518edb13c2a7b440f3f1748e4bd60f2514a82bc1f2bd30"
 url = "https://github.com/j178/prek/releases/download/v0.4.12/prek-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/499978720"
 provenance = "github-attestations"
