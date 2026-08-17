@@ -45,7 +45,6 @@ Corepack
 dev
 devcontainer
 Homebrew
-launchd
 Lua
 [Mm]akefiles?
 Minisign
