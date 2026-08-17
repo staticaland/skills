@@ -49,17 +49,17 @@ version = "3.9.6"
 backend = "npm:prettier"
 
 [[tools.prek]]
-version = "0.4.12"
+version = "0.4.13"
 backend = "aqua:j178/prek"
 
 [tools.prek."platforms.linux-x64"]
-checksum = "sha256:3321ec6e4d873fbf41bef55d11b3f269fa91cbb87b19f18211df7c1bd061ac8a"
-url = "https://github.com/j178/prek/releases/download/v0.4.12/prek-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/j178/prek/releases/assets/499978791"
+checksum = "sha256:15dbf93535fc956a09e0e13e0529f364aff94c9d048f36a41571bb802e096ec0"
+url = "https://github.com/j178/prek/releases/download/v0.4.13/prek-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/508529829"
 provenance = "github-attestations"
 
 [tools.prek."platforms.macos-arm64"]
-checksum = "sha256:cef66b9641a1c9ac61518edb13c2a7b440f3f1748e4bd60f2514a82bc1f2bd30"
-url = "https://github.com/j178/prek/releases/download/v0.4.12/prek-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/j178/prek/releases/assets/499978720"
+checksum = "sha256:776da7aa143b3cb11125f9c6f44ab5af157c176c992b7bfbafc1b155a44ac769"
+url = "https://github.com/j178/prek/releases/download/v0.4.13/prek-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/j178/prek/releases/assets/508529745"
 provenance = "github-attestations"
