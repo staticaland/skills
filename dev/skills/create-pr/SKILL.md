@@ -13,7 +13,7 @@ been in the session.
 
 ## Steps
 
-1. Run `<skill-dir>/scripts/pr.sh prepare`, where `<skill-dir>` is this
+1. Run `<skill-dir>/scripts/pr.py prepare`, where `<skill-dir>` is this
    skill's base directory. It pushes the branch and prints the template to
    fill.
 2. Fill every template section from the whole session, not the diff alone: the
@@ -23,7 +23,7 @@ been in the session.
 3. Write the filled template to a file and run:
 
    ```bash
-   <skill-dir>/scripts/pr.sh submit "<title>" <body-file>
+   <skill-dir>/scripts/pr.py submit "<title>" <body-file>
    ```
 
 The submit command strips the comments and creates the PR through `gh`; the
