@@ -21,7 +21,6 @@ scannability
 scriptable
 SHAs
 stdout
-synergize
 Artifactory
 Bundler
 [Cc]ooldown
