@@ -48,7 +48,6 @@ Homebrew
 Lua
 [Mm]akefiles?
 Minisign
-mise's
 READMEs
 runtimes?
 SDKMAN
@@ -58,6 +57,9 @@ toolchains?
 Volta
 $^ Official lowercase names: these projects style their own names lowercase in prose.
 $^ Every entry carries a link above it that confirms the casing at the source.
+$^ https://mise.jdx.dev/
+mise
+mise's
 $^ https://github.com/suzuki-shunsuke/pinact
 pinact
 $^ https://prek.j178.dev/

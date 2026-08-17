@@ -38,7 +38,7 @@ Use Renovate's current
 [manager index](https://docs.renovatebot.com/modules/manager/) and the linked
 manager pages as the source of truth. Manager names, default
 `managerFilePatterns`, and capabilities change. Renovate has a built-in
-[mise manager](https://docs.renovatebot.com/modules/manager/mise/), so Mise does
+[mise manager](https://docs.renovatebot.com/modules/manager/mise/), so mise does
 not need a custom manager.
 
 ## Procedure
@@ -100,14 +100,14 @@ Give every declaration a row:
 An **owner** is the source Renovate should update. A **mirror** repeats a version
 owned elsewhere and needs either synchronized updates or an explicit reason to
 stay manual. Include lock files beside their manifests. Mark fixtures, examples,
-third-party source copies, generated files, and local-only Mise configs as in
+third-party source copies, generated files, and local-only mise configs as in
 scope or intentionally excluded. Presets can ignore these directories silently.
 
 Pair each manifest with its committed lockfile, checksum file, or generated
 artifact. For actions, include the full SHA and trailing version comment. For
 images, include both the readable tag and digest.
 
-Done when every tracked dependency declaration has a row, including every Mise
+Done when every tracked dependency declaration has a row, including every mise
 tool in top-level `[tools]` and `tasks.*.tools`, and each row has an explicit
 scope verdict and immutable target or candidate unsupported reason.
 
@@ -134,7 +134,7 @@ future manifests. If the existing config intentionally uses it, either remove
 the restriction with the user's agreement or add every discovered built-in and
 `custom.*` manager. Preserve intentional manager disables.
 
-For Mise, verify each backend and version syntax against the Mise manager page.
+For mise, verify each backend and version syntax against the mise manager page.
 Its built-in manager recognizes standard and environment-specific config,
 top-level and task tools, and `mise.lock`. Some backend forms have documented
 limitations. A lockfile refresh executes `mise lock`. A self-hosted administrator
@@ -303,7 +303,7 @@ Report managers and custom managers enabled after all config layers merge; the
 `minimumReleaseAge` that wins after merging for every row, including each
 preserved minimum longer than seven days; covered manifests, tool files, lock
 files, integrity hashes/checksums, action SHAs, and image digests, including
-Mise; each row's immutable/lockfile strategy or explicit unsupported reason;
+mise; each row's immutable/lockfile strategy or explicit unsupported reason;
 intentional exclusions and mirrors that remain manual; and validation and
 extraction commands with outcomes. Note any administrator-only activation step
 with an owner and exact follow-up action.
