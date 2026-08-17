@@ -53,7 +53,9 @@ A lowercase official name is the exception. When prose names the project
 (prek, uv), the bare form is what the project itself writes, and the entry
 belongs in the list. Write the entry in the project's exact casing: the
 built-in `Vale.Terms` rule then flags every other casing, so a stray `Prek`
-gets "use `prek` instead". An entry meant to accept two casings uses a
+gets "use `prek` instead". Place such an entry under the "Official lowercase
+names" comment in `accept.txt`, so the lowercase form reads as deliberate and
+not as a typo in the list itself. An entry meant to accept two casings uses a
 character class, as `[Rr]epo` does.
 
 Genuine allowlist material is what legitimately appears bare and Vale would
