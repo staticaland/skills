@@ -29,6 +29,8 @@ directories:
           ref: cdba491f1f9c952979af37f15e4c3efb26f625df
         includePaths:
           - home/.agents/skills/bro/**/*
+        ignorePaths:
+          - UPSTREAM.md
         newRootPath: home/.agents/skills/bro
   - path: ai/skills/writing-for-agents
     contents:
