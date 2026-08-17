@@ -35,10 +35,9 @@ and each one keeps an `UPSTREAM.md` naming its source and license.
   with the synced files.
 - Name no upstream commit outside `vendir.yml` and `vendir.lock.yml`. A version
   repeated in an `UPSTREAM.md` goes stale the next time a `ref` moves.
-- A new vendored path goes in four lists, or a check will fight the next sync:
-  `.prettierignore`, `ignores` in `.markdownlint-cli2.yaml`, the vale `exclude`
-  in `.pre-commit-config.yaml`, and the vale `glob` in
-  `.github/workflows/vale.yml`.
+- A new vendored path goes in three lists, or a check will fight the next
+  sync: `.prettierignore`, `ignores` in `.markdownlint-cli2.yaml`, and the
+  empty-styles section in `.vale.ini`.
 
 ## Validation
 

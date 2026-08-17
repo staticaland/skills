@@ -1,8 +1,7 @@
 # Skills vendored by vendir. Upstream writes these files, so this repository
 # does not format or lint them, and a reformat would be undone by the next
-# `vendir sync`. The same list lives in `.markdownlint-cli2.yaml`, in the vale
-# exclude in `.pre-commit-config.yaml`, and in the glob in
-# `.github/workflows/vale.yml`.
+# `vendir sync`. The same list lives in `.markdownlint-cli2.yaml` and in the
+# empty-styles section in `.vale.ini`.
 ai/skills/writing-for-agents/
 dev/skills/agent-browser/
 dev/skills/domain-modeling/
