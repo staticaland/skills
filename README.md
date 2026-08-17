@@ -178,7 +178,7 @@ Use mise shell activation or prefix repository-tool commands with
 `mise exec --`.
 
 The repository's [Git hook manager](https://prek.j178.dev/) reads
-`.pre-commit-config.yaml`. Install the pre-commit and commit-message hooks:
+`prek.toml`. Install the pre-commit and commit-message hooks:
 
 ```bash
 mise exec -- prek install --hook-type pre-commit --hook-type commit-msg
