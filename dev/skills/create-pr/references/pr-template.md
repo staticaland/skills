@@ -1,7 +1,8 @@
-<!-- markdownlint-disable MD041 -->
+<!-- markdownlint-disable MD013 MD041 -->
 <!--
-Always write the pull request title and description in ASD-STE100 Simplified
-Technical English.
+Always write the pull request title and description in ASD-STE100 Simplified Technical English.
+
+Write each paragraph on one line. GitHub reflows the markdown when it renders, so a hard wrap at 80 columns buys nothing and makes the description awkward to edit.
 
 Use short sentences.
 Use a controlled and consistent vocabulary.
