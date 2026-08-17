@@ -19,7 +19,7 @@ independently installable plugin with its own `.claude-plugin/plugin.json`.
   top-level README catalog.
 - When a plugin's contents change, bump its `version` in both its `plugin.json`
   and its entry in `marketplace.json` - installed users only see updates when
-  the version changes. A plugin that also ships a `.codex-plugin/plugin.json`
+  the version changes. A plugin that also has a `.codex-plugin/plugin.json`
   (the manifest Codex requires) keeps it in lockstep with `plugin.json`: same
   version, same description.
 
