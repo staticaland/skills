@@ -6,11 +6,16 @@ import re
 import sys
 
 
+def strip_quoted(command):
+    """Drop quoted segments so a mention of the command is not a match."""
+    return re.sub(r"'[^']*'|\"[^\"]*\"", "", command)
+
+
 def main():
     hook_input = json.loads(sys.stdin.read())
     command = hook_input.get("tool_input", {}).get("command", "")
 
-    if not re.search(r"\bgh\s+pr\s+create\b", command):
+    if not re.search(r"\bgh\s+pr\s+create\b", strip_quoted(command)):
         return
 
     if "SKILL_CREATE_PR=1" in command:
