@@ -27,7 +27,9 @@ directories:
         git:
           url: https://github.com/dmmulroy/.dotfiles
           ref: cdba491f1f9c952979af37f15e4c3efb26f625df
-          subPath: home/.agents/skills/bro
+        includePaths:
+          - home/.agents/skills/bro/**/*
+        newRootPath: home/.agents/skills/bro
   - path: ai/skills/writing-for-agents
     contents:
       - path: .
