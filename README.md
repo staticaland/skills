@@ -121,11 +121,15 @@ design tree holds, and pin down a project's domain terms and decisions.
 
 #### [ai](./ai/README.md)
 
-Analyze skills, refactor references, and write documents for agents.
+Analyze skills, prune no-op prose, refactor references, and write documents for
+agents.
 
 - **[progressive-disclosure](./ai/skills/progressive-disclosure/SKILL.md)**
   (skill) - Refactors a skill to load only relevant guidance by splitting broad
   references and mapping concrete project markers to focused files.
+- **[prune-no-ops](./ai/skills/prune-no-ops/SKILL.md)** (skill) - Deletes the
+  sentences in a skill that change no behavior: asides, justification,
+  emphasis, and restated defaults.
 - **[skill-analyzer](./ai/skills/skill-analyzer/SKILL.md)** (skill) -
   Splits a skill into scriptable and judgment work: classifies each step as
   deterministic or LLM, proposes a script interface and a simplified SKILL.md.
