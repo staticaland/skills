@@ -28,35 +28,36 @@ has never seen the target could design from the paragraph alone.
 
 Put the target aside and design from the purpose paragraph: the simplest thing
 that could serve it. Ask the naive question of each moving part the purpose
-seems to demand - "why don't we just <one obvious move>?" Produce one to three
+seems to demand - "why don't we just [one obvious move]?" Produce one to three
 proposals, each a short sketch: the one move it is built around, and what from
 the current shape it deletes. Done when each proposal is simpler than the
-current shape by a measure you name - fewer parts, fewer steps, one source of
-truth - and any sketch that fails that measure is dropped here.
+current shape by a measure you name, such as fewer parts or a single source of
+truth, and any sketch that fails that measure is dropped here.
 
 ### 3. Walk the fences
 
 Every difference between a proposal and the current shape is a fence: someone
-built that complexity, possibly for a reason. For each difference, hunt for the
-reason - git log and blame on the paths it touches, comments, linked issues and
-PRs, tests that only make sense against a hidden constraint such as scale,
-compatibility, ordering, failure modes, or policy. Classify each fence:
+built that complexity for a reason, live or dead. For each difference, hunt
+for the reason - git log and blame on the paths it touches, comments, linked
+issues and PRs, tests that only make sense against a hidden constraint such as
+scale, compatibility, ordering, failure modes, or policy. Classify each fence:
 
 - **Live** - the constraint still holds and the proposal breaks it. The
   proposal dies, or absorbs the constraint and states the cost of carrying it.
 - **Dead** - the constraint no longer holds. Name the evidence: the dependency
   is gone, the scale never came, the API changed.
-- **Unknown** - no reason found after the hunt. Say so; an unfound reason is
-  not a dead fence.
+- **Unknown** - no reason found after the hunt. Say so; only evidence makes a
+  fence dead.
 
 Done when every difference is classified and no proposal carries an unexamined
 fence.
 
 ### 4. Report the survivors
 
-Deliver the proposals that survived, best first. For each: the design in a few
-sentences, what it deletes, and its fence list with verdicts - live fences it
-absorbs and their cost, dead fences with evidence, unknown fences flagged as
-the risk. When nothing survives, that is the report: the current shape is
+Deliver the proposals that survived, best first. Give each one a short sketch
+of the design and what it deletes, then its fence list with verdicts. State
+the cost of each live fence the proposal absorbs and the evidence for each
+dead fence, and flag each unknown fence as the open risk. When nothing
+survives, that is the report: the current shape is
 earned, held up by the fences you list. The deliverable is this report; leave
 the target untouched.
