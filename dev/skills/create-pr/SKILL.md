@@ -13,8 +13,9 @@ been in the session.
 
 ## Steps
 
-1. Run this skill's `scripts/pr.sh prepare`. It pushes the branch if the
-   remote lacks its commits and prints the template to fill.
+1. Run `<skill-dir>/scripts/pr.sh prepare`, where `<skill-dir>` is this
+   skill's base directory. It pushes the branch if the remote lacks its
+   commits and prints the template to fill.
 2. Fill every template section from the whole session, not the diff alone: the
    original request, the decisions made and their tradeoffs, and what was
    tested and how. Follow the writing instructions in the template's comments,
@@ -22,7 +23,7 @@ been in the session.
 3. Write the filled template to a file and run:
 
    ```bash
-   scripts/pr.sh submit "<title>" <body-file>
+   <skill-dir>/scripts/pr.sh submit "<title>" <body-file>
    ```
 
 The submit command strips the comments and adds the `SKILL_CREATE_PR=1` marker
