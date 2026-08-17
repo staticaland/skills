@@ -55,7 +55,6 @@ SDKMAN
 shims
 SLSA
 toolchains?
-virtualenv
 Volta
 $^ Official lowercase names: these projects style their own names lowercase in prose.
 $^ Every entry carries a link above it that confirms the casing at the source.
