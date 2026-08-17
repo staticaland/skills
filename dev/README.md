@@ -4,8 +4,9 @@ Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
 Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
 their lock files, deny install-time script execution, manage stacked pull
-requests, grill a plan until its design tree holds, and pin down a project's
-domain terms and decisions.
+requests, open pull requests with a description built from the whole session,
+grill a plan until its design tree holds, and pin down a project's domain terms
+and decisions.
 
 Category: `dev`
 
@@ -17,6 +18,10 @@ Model-invoked - Claude activates these automatically when the request matches.
   web apps, and Electron apps from the command line with
   [agent-browser](https://github.com/vercel-labs/agent-browser) - navigating,
   filling forms, clicking, taking screenshots, and extracting data.
+- **[create-pr](./skills/create-pr/SKILL.md)** - Opens a GitHub pull request
+  with a description built from the whole session - the original request,
+  decisions, tradeoffs, and tests - filled into the repo's PR template or the
+  skill's own.
 - **[dependency-cooldown](./skills/dependency-cooldown/SKILL.md)** - Sets up a
   minimum release age across a project's package managers and update bots, so a
   compromised release is caught before it resolves. Per-ecosystem references
@@ -61,6 +66,7 @@ User-invoked - run these by name.
 
 ```bash
 npx skills add staticaland/skills --skill agent-browser
+npx skills add staticaland/skills --skill create-pr
 npx skills add staticaland/skills --skill dependency-cooldown
 npx skills add staticaland/skills --skill domain-modeling
 npx skills add staticaland/skills --skill frozen-install
@@ -81,3 +87,7 @@ npx skills add staticaland/skills --skill renovate-setup
   files (`.github/workflows/`, `.github/actions/`) after Claude writes or edits
   them, pinning action references to full commit SHAs. Requires the `pinact` CLI
   on your PATH.
+- **pr-create guard** (`hooks/pr_create_guard.py`, PreToolUse on Bash) - Blocks
+  a direct `gh pr create` and tells Claude to invoke the create-pr skill
+  instead. Commands the skill produces carry a `SKILL_CREATE_PR=1` marker and
+  pass. All other `git` and `gh` commands are untouched.
