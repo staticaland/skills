@@ -2,6 +2,9 @@ $^ RULE: a tool, command, flag, or setting name belongs in backticks in the pros
 $^ Vale skips inline code, so `uv`, `nvm`, and `minimum_release_age` need no entry. Add a word here
 $^ only when it reads as plain prose: a product name (Renovate), or an English word Vale lacks (lockfile).
 $^ Vale accept files have no comment syntax. A line starting with $^ can never match, so it acts as one.
+$^ Exception: a project's official lowercase name (prek, uv) is a real entry when prose names the
+$^ project. Write the entry in the project's exact casing - Vale.Terms then flags every other casing,
+$^ so a stray Prek gets "use prek instead". See .vale/README.md for the full reasoning.
 Anki
 anki-flashcards
 Cloze
