@@ -15,7 +15,7 @@ def main():
     hook_input = json.loads(sys.stdin.read())
     command = hook_input.get("tool_input", {}).get("command", "")
 
-    if not re.search(r"\bgh\s+pr\s+create\b", strip_quoted(command)):
+    if not re.search(r"\bgh\s+pr\s+(?:create|new)\b", strip_quoted(command)):
         return
 
     if "SKILL_CREATE_PR=1" in command:
