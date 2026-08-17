@@ -27,6 +27,12 @@ the literal string itself? English marks mention with typography:
 Rule of thumb: if a reader would copy-paste or type it, use code font. If it
 is a name they would say out loud, leave it plain. Quotes almost never.
 
+A tool can carry two names. The prose name takes the project's official
+orthography (Git, Prettier, Vale), and the command form takes backticks
+(`git`, `prettier`, `vale`). A project can also declare a lowercase prose name
+(prek, uv). That casing is part of the name: follow the project's styling, and
+recast a sentence that would capitalize such a name at its start.
+
 ### Backticks hide text from Vale
 
 Vale's default [`IgnoredScopes`](https://docs.vale.sh/keys/ignoredscopes)
@@ -42,6 +48,13 @@ reach the linter. Link text such as `[prek](https://prek.j178.dev/)` in the
 plugin READMEs is the usual source. Bare prose that wants backticks is the
 other. Before adding or trusting such an entry, check the source and prefer
 fixing the prose over enshrining a bare usage.
+
+A lowercase official name is the exception. When prose names the project
+(prek, uv), the bare form is what the project itself writes, and the entry
+belongs in the list. Write the entry in the project's exact casing: the
+built-in `Vale.Terms` rule then flags every other casing, so a stray `Prek`
+gets "use `prek` instead". An entry meant to accept two casings uses a
+character class, as `[Rr]epo` does.
 
 Genuine allowlist material is what legitimately appears bare and Vale would
 not otherwise know: product names (Renovate, Anki, Staticaland), English
