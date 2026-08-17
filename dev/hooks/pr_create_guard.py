@@ -17,10 +17,11 @@ def main():
     if isinstance(command, list):  # Codex may pass argv as a list
         command = " ".join(str(part) for part in command)
 
-    if not re.search(r"\bgh\s+pr\s+(?:create|new)\b", strip_quoted(command)):
+    stripped = strip_quoted(command)
+    if not re.search(r"\bgh\s+pr\s+(?:create|new)\b", stripped):
         return
 
-    if "SKILL_CREATE_PR=1" in command:
+    if "SKILL_CREATE_PR=1" in stripped:
         return
 
     print(json.dumps({
