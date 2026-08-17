@@ -14,6 +14,8 @@ def strip_quoted(command):
 def main():
     hook_input = json.loads(sys.stdin.read())
     command = hook_input.get("tool_input", {}).get("command", "")
+    if isinstance(command, list):  # Codex may pass argv as a list
+        command = " ".join(str(part) for part in command)
 
     if not re.search(r"\bgh\s+pr\s+(?:create|new)\b", strip_quoted(command)):
         return
