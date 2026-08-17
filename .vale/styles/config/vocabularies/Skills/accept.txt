@@ -21,6 +21,7 @@ scannability
 scriptable
 SHAs
 stdout
+Vale
 Artifactory
 Bundler
 [Cc]ooldown

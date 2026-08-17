@@ -3,7 +3,7 @@
 #:schema https://www.schemastore.org/prek.json
 
 # Install mise itself before running these hooks.
-# prettier, markdownlint-cli2, and vale all skip the vendored skills through
+# prettier, markdownlint-cli2, and Vale all skip the vendored skills through
 # their own configuration.
 
 [[repos]]
