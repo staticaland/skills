@@ -82,8 +82,8 @@ Default to everyday words. Define jargon briefly if unavoidable.
 | ------------ | ------------- |
 | `utilize`    | use           |
 | `facilitate` | help          |
-| leverage     | use           |
-| synergize    | work together |
+| `leverage`   | use           |
+| `synergize`  | work together |
 | `actionable` | practical     |
 
 ### 7. Limit Scope
