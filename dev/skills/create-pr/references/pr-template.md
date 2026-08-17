@@ -37,4 +37,4 @@ Avoid these patterns:
 
 ## Which issue(s) does this PR fix?
 
-<!-- List each command that you ran and its result. -->
+<!-- Link the issues this PR closes, or state that there are none. -->

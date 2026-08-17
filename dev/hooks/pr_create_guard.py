@@ -12,15 +12,20 @@ def strip_quoted(command):
 
 
 def main():
-    hook_input = json.loads(sys.stdin.read())
+    raw = sys.stdin.read()
+    if "gh" not in raw:  # runs on every Bash call - skip the parse work early
+        return
+
+    hook_input = json.loads(raw)
     command = hook_input.get("tool_input", {}).get("command", "")
     if isinstance(command, list):  # Codex may pass argv as a list
         command = " ".join(str(part) for part in command)
 
-    if not re.search(r"\bgh\s+pr\s+(?:create|new)\b", strip_quoted(command)):
+    stripped = strip_quoted(command)
+    if not re.search(r"\bgh\s+pr\s+create\b", stripped):
         return
 
-    if "SKILL_CREATE_PR=1" in command:
+    if "SKILL_CREATE_PR=1" in stripped:
         return
 
     print(json.dumps({

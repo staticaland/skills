@@ -86,5 +86,6 @@ npx skills add staticaland/skills --skill renovate-setup
   on your PATH.
 - **pr-create guard** (`hooks/pr_create_guard.py`, PreToolUse on Bash) - Blocks
   a direct `gh pr create` and tells Claude to invoke the create-pr skill
-  instead. Commands the skill produces carry a `SKILL_CREATE_PR=1` marker and
-  pass. All other `git` and `gh` commands are untouched.
+  instead. The guard permits a command that carries a `SKILL_CREATE_PR=1`
+  marker, the escape hatch the skill's script uses. All other `git` and `gh`
+  commands are untouched.

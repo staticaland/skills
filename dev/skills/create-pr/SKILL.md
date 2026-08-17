@@ -13,18 +13,18 @@ been in the session.
 
 ## Steps
 
-1. Push the branch if the remote lacks its commits: `git push -u origin HEAD`.
-2. Pick the template: the repo's `.github/PULL_REQUEST_TEMPLATE.md` if it
-   exists, otherwise `references/pr-template.md` in this skill.
-3. Fill every template section from the whole session, not the diff alone: the
+1. Run `<skill-dir>/scripts/pr.sh prepare`, where `<skill-dir>` is this
+   skill's base directory. It pushes the branch and prints the template to
+   fill.
+2. Fill every template section from the whole session, not the diff alone: the
    original request, the decisions made and their tradeoffs, and what was
-   tested and how. Follow any writing instructions in the template's comments,
-   then drop the comments from the body.
-4. Write the body to a file and create the PR with the marker:
+   tested and how. Follow the writing instructions in the template's comments,
+   and leave the comments in place - the submit step removes them.
+3. Write the filled template to a file and run:
 
    ```bash
-   SKILL_CREATE_PR=1 gh pr create --title "<title>" --body-file <file>
+   <skill-dir>/scripts/pr.sh submit "<title>" <body-file>
    ```
 
-The `SKILL_CREATE_PR=1` marker tells the guard hook this description came
-through the skill; a bare `gh pr create` is blocked.
+The submit command strips the comments and creates the PR through `gh`; the
+guard hook blocks a bare `gh pr create`.

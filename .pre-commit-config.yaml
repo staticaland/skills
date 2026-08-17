@@ -37,6 +37,17 @@ repos:
         entry: claude plugin validate .
         language: system
         pass_filenames: false
+      - id: codex-manifest-lockstep
+        name: codex manifest matches plugin.json
+        entry: |
+          set -e
+          for codex in */.codex-plugin/plugin.json; do
+            [ -e "$codex" ] || continue
+            diff -u "${codex%.codex-plugin/plugin.json}.claude-plugin/plugin.json" "$codex"
+          done
+        language: system
+        shell: sh
+        pass_filenames: false
 
   - repo: https://github.com/vale-cli/vale
     rev: bc78bf3a639f29eef5c6bc3f0680105a82ef46f7 # frozen: v3.17.1
