@@ -48,13 +48,14 @@ repos:
         language: system
         shell: sh
         pass_filenames: false
-
-  - repo: https://github.com/vale-cli/vale
-    rev: bc78bf3a639f29eef5c6bc3f0680105a82ef46f7 # frozen: v3.17.1
-    hooks:
       - id: vale
+        name: vale
+        entry: mise exec -- vale
+        language: system
+        files: \.md$
         exclude: ^(ai/skills/writing-for-agents|dev/skills/(agent-browser|domain-modeling|gh-stack|grill-me|grill-with-docs|grilling|prek)|other/skills/(bro|wait-what))/
-      - id: vale
+      - id: vale-commit-message
         name: vale (commit message)
-        entry: scripts/vale-commit-message.sh
+        entry: mise exec -- scripts/vale-commit-message.sh
+        language: system
         stages: [commit-msg]
