@@ -73,3 +73,25 @@ alerts from the `ai-tells` and `Skills` styles. Adding `synergy` to
 everywhere in the repository. A rule that polices or renames a term only works
 while that term stays out of the vocabulary, so keep entries scoped to real
 spelling needs.
+
+## When a rule flags text that needs no fix
+
+A rule can flag text that needs no fix. Prose about a valley would trip the
+`Vale` casing term, which expects the product name. Do not widen `accept.txt`
+for such a case, since the section above shows an entry mutes the term
+everywhere. Turn the one rule off around the one passage instead, with Vale's
+[comment markers](https://vale.sh/docs/keys/commentdelimiters):
+
+```markdown
+<!-- vale Vale.Terms = NO -->
+<!-- The paragraph below names the valley, not the linter. -->
+
+The vale lay under morning fog.
+
+<!-- vale Vale.Terms = YES -->
+```
+
+Scope the marker to the single rule and turn it back on right after the
+passage. A bare `<!-- vale off -->` mutes every rule and is almost always too
+broad. Pair each marker with a comment that states why the rule is off there,
+so the next editor can tell a deliberate exception from a leftover.
