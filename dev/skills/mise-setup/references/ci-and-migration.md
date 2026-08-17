@@ -85,7 +85,7 @@ builds a container image from `mise.toml` and is experimental.
 ## Editors and other non-interactive contexts
 
 `mise activate` modifies PATH per directory and needs a shell. An editor, a
-launchd job, or a Makefile invoked from outside the shell gets the tools from
+`launchd` job, or a Makefile invoked from outside the shell gets the tools from
 the shims directory instead:
 
 ```text
