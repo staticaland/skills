@@ -58,8 +58,8 @@ Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
 Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
 their lock files, deny install-time script execution, manage stacked pull
-requests, open pull requests, grill a plan until its design tree holds, and pin
-down a project's domain terms and decisions.
+requests, open pull requests, run Git hooks with prek, grill a plan until its
+design tree holds, and pin down a project's domain terms and decisions.
 
 - **[agent-browser](./dev/skills/agent-browser/SKILL.md)** (skill) - Drives
   Chrome, web apps, and Electron apps from the command line with
@@ -104,6 +104,9 @@ down a project's domain terms and decisions.
   Makes GitHub Actions workflow steps run in parallel with the `background`,
   `wait`, `cancel`, and `parallel` keywords, written in ASD-STE100 Simplified
   Technical English.
+- **[prek](./dev/skills/prek/SKILL.md)** (skill) - Sets up and runs Git hooks
+  with [prek](https://prek.j178.dev/), the Rust drop-in alternative to
+  pre-commit: workspace mode, built-in hooks, and shared toolchains.
 - **[Renovate setup](./dev/skills/renovate-setup/SKILL.md)** (skill) -
   Configures Renovate with a seven-day minimum release age and immutable updates
   through lock files, integrity hashes, action SHAs, and image digests.

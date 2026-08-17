@@ -115,6 +115,17 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/productivity/grilling
+  - path: dev/skills/prek
+    contents:
+      - path: .
+        git:
+          url: https://github.com/j178/prek
+          ref: 8f3ff02f567130737685589f039074ca023900e9
+        includePaths:
+          - skills/prek/**/*
+        ignorePaths:
+          - UPSTREAM.md
+        newRootPath: skills/prek
   - path: other/skills/wait-what
     contents:
       - path: .

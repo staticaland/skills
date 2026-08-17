@@ -4,8 +4,8 @@ Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
 Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
 their lock files, deny install-time script execution, manage stacked pull
-requests, open pull requests, grill a plan until its design tree holds, and pin
-down a project's domain terms and decisions.
+requests, open pull requests, run Git hooks with prek, grill a plan until its
+design tree holds, and pin down a project's domain terms and decisions.
 
 Category: `dev`
 
@@ -48,6 +48,9 @@ Model-invoked - Claude activates these automatically when the request matches.
 - **[parallel-steps](./skills/parallel-steps/SKILL.md)** - Makes GitHub Actions
   workflow steps run in parallel with the `background`, `wait`, `cancel`, and
   `parallel` keywords, written in ASD-STE100 Simplified Technical English.
+- **[prek](./skills/prek/SKILL.md)** - Sets up and runs Git hooks with
+  [prek](https://prek.j178.dev/), the Rust drop-in alternative to pre-commit:
+  workspace mode, built-in hooks, and shared toolchains.
 - **[Renovate setup](./skills/renovate-setup/SKILL.md)** - Configures Renovate
   with a seven-day minimum release age and immutable updates through lock files,
   integrity hashes, action SHAs, and image digests.
@@ -74,6 +77,7 @@ npx skills add staticaland/skills --skill grilling
 npx skills add staticaland/skills --skill install-scripts
 npx skills add staticaland/skills --skill mise-setup
 npx skills add staticaland/skills --skill parallel-steps
+npx skills add staticaland/skills --skill prek
 npx skills add staticaland/skills --skill renovate-setup
 ```
 
