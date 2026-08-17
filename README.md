@@ -58,13 +58,18 @@ Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
 Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
 their lock files, deny install-time script execution, manage stacked pull
-requests, grill a plan until its design tree holds, and pin down a project's
-domain terms and decisions.
+requests, open pull requests with a description built from the whole session,
+grill a plan until its design tree holds, and pin down a project's domain terms
+and decisions.
 
 - **[agent-browser](./dev/skills/agent-browser/SKILL.md)** (skill) - Drives
   Chrome, web apps, and Electron apps from the command line with
   [agent-browser](https://github.com/vercel-labs/agent-browser) - navigating,
   filling forms, clicking, taking screenshots, and extracting data.
+- **[create-pr](./dev/skills/create-pr/SKILL.md)** (skill) - Opens a GitHub
+  pull request with a description built from the whole session - the original
+  request, decisions, tradeoffs, and tests - filled into the repo's PR template
+  or the skill's own.
 - **[dependency-cooldown](./dev/skills/dependency-cooldown/SKILL.md)**
   (skill) - Sets up a minimum release age across a project's package managers
   and update bots, so a compromised release is caught before it resolves.
@@ -107,6 +112,9 @@ domain terms and decisions.
 - **pinact** (hook) - Pins GitHub Actions references to full commit SHAs with
   [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes or
   edits workflow files. Requires the `pinact` CLI.
+- **pr-create guard** (hook) - Blocks a direct `gh pr create` and tells Claude
+  to invoke the create-pr skill instead. Other `git` and `gh` commands are
+  untouched.
 
 ### `ai`
 
