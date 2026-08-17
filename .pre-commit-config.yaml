@@ -1,7 +1,6 @@
 # Install mise itself before running these hooks.
-# prettier and markdownlint-cli2 skip the vendored skills through their own
-# configuration. Vale has no path exclusion in `.vale.ini`, so its list sits
-# here and in `.github/workflows/vale.yml`.
+# prettier, markdownlint-cli2, and vale all skip the vendored skills through
+# their own configuration.
 repos:
   - repo: local
     hooks:
@@ -53,7 +52,6 @@ repos:
         entry: mise exec -- vale
         language: system
         files: \.md$
-        exclude: ^(ai/skills/writing-for-agents|dev/skills/(agent-browser|domain-modeling|gh-stack|grill-me|grill-with-docs|grilling|prek)|other/skills/(bro|wait-what))/
       - id: vale-commit-message
         name: vale (commit message)
         entry: mise exec -- scripts/vale-commit-message.sh
