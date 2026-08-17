@@ -14,13 +14,15 @@ been in the session.
 ## Steps
 
 1. Run `<skill-dir>/scripts/pr.py prepare`, where `<skill-dir>` is this
-   skill's base directory. It pushes the branch and prints the template to
-   fill.
+   skill's base directory. It pushes the branch, prints the template to fill,
+   and prints the `BODY FILE:` path it created for this run.
 2. Fill every template section from the whole session, not the diff alone: the
    original request, the decisions made and their tradeoffs, and what was
    tested and how. Follow the writing instructions in the template's comments,
    and leave the comments in place - the submit step removes them.
-3. Write the filled template to a file and run:
+3. Write the filled template to the `BODY FILE:` path `prepare` printed - never
+   a path of your own choosing, which risks reusing a stale body from an
+   earlier session. Then run:
 
    ```bash
    <skill-dir>/scripts/pr.py submit "<title>" <body-file>
