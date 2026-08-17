@@ -1,9 +1,9 @@
 ---
 name: create-pr
 description: >
-  Create a GitHub pull request with a description built from the whole session.
-  Use when the user asks to open, create, or submit a PR, when work is ready
-  for review, or whenever gh pr create would otherwise be run.
+  Create a GitHub pull request. Use when the user asks to open, create, or
+  submit a PR, when work is ready for review, or whenever gh pr create would
+  otherwise be run.
 ---
 
 # create-pr
