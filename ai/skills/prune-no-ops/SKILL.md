@@ -4,16 +4,16 @@ description:
   Delete the sentences in a skill that change no behavior - asides,
   justification, emphasis, and restated defaults.
 disable-model-invocation: true
-version: 0.1.0
+version: 0.1.1
 ---
 
 # Prune No-ops
 
 Delete every sentence in a target skill that changes no behavior. The verdict
-for each sentence is the **eval test**: an agent running the skill on its
-trigger cases behaves identically with the sentence and without it. A sentence
-whose deletion changes nothing is a **no-op** - delete it whole. A sentence
-that survives keeps every word.
+for each sentence is the **deletion test**: would an agent running the skill
+on its trigger cases behave identically with the sentence and without it? A
+sentence whose deletion changes nothing is a **no-op** - delete it whole. A
+sentence that survives keeps every word.
 
 Apply the cuts. When the user asks for analysis only, stop after step 2 and
 report the verdicts.
@@ -24,11 +24,11 @@ report the verdicts.
 
 Read the target `SKILL.md` and every file it references. The body prose is the
 scope; leave frontmatter untouched - the description's wording does invocation
-work the eval test cannot grade. Done when every in-scope file is read.
+work the deletion test cannot grade. Done when every in-scope file is read.
 
 ### 2. Classify every sentence
 
-Run the eval test on each sentence and record a verdict: _survives_, or one
+Run the deletion test on each sentence and record a verdict: _survives_, or one
 no-op class:
 
 - **Aside** - "by the way", "note that", "keep in mind" framing around an
@@ -43,8 +43,8 @@ no-op class:
 - **Duplicate** - a meaning another sentence in the file already carries. The
   clearer statement survives; the other is the no-op.
 
-Deletion demands certainty: mark a sentence no-op only when the eval verdict
-is identical either way. A maybe survives. Done when every sentence in scope
+Deletion demands certainty: mark a sentence no-op only when the behavior is
+certainly identical either way. A maybe survives. Done when every sentence in scope
 carries a verdict.
 
 ### 3. Apply the cuts
