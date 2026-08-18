@@ -1,7 +1,6 @@
 ---
 name: prune-no-ops
-description:
-  Delete the sentences in a skill that change no behavior - asides,
+description: Delete the sentences in a skill that change no behavior - asides,
   justification, emphasis, and restated defaults.
 disable-model-invocation: true
 version: 0.1.1
@@ -41,17 +40,17 @@ no-op class:
   ("be careful", "make sure to read the file first").
 - **Emphasis** - "this is important", "always remember", "critically".
 - **Duplicate** - a meaning another sentence in the file already carries. The
-  clearer statement survives; the other is the no-op.
+  clearer statement survives. The other is the no-op.
 
 Deletion demands certainty: mark a sentence no-op only when the behavior is
-certainly identical either way. A maybe survives. Done when every sentence in scope
+identical either way. A maybe survives. Done when every sentence in scope
 carries a verdict.
 
 ### 3. Apply the cuts
 
 Delete each no-op sentence whole. Then reread the pruned file: every surviving
 sentence must still bind - repair any reference a cut orphaned ("this",
-"therefore", a dangling "instead"). Done when the file holds only surviving
+"it", a dangling "instead"). Done when the file holds only surviving
 sentences and each one reads standalone.
 
 ### 4. Report
