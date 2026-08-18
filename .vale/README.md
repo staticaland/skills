@@ -5,6 +5,44 @@ This directory backs [`.vale.ini`](../.vale.ini). The `Skills` style and the
 styles are synced from the packages `.vale.ini` names and are committed so CI
 runs without a download.
 
+## Reading a report
+
+An alert is advice from a style guide. The goal is prose that serves the
+reader; a change that silences an alert while weakening the sentence is a
+regression, even though the report goes green. Work through a report like an
+editor: give every alert a verdict - rewrite, suppress, or fix the rule.
+
+**Rewrite.** Each rule detects a smell: vagueness, hedging, filler, padding.
+The flagged span is where the smell surfaced, which is seldom where the
+problem lives. Reread the whole sentence and ask what it is trying to say.
+Restructure over substitute: when `a number of` is flagged, name the things;
+when a hedge is flagged, make the call and state it plainly. Keep the
+meaning true: replace `several` with `5` when you counted five, and when
+nobody counted, keep only the precision you possess. Then reread the result.
+A sentence that satisfies the rule but reads worse than before means the
+verdict was wrong; suppress instead.
+
+**Suppress.** Quoted material, terms of art, deliberate emphasis, honest
+vagueness: keep the prose and mute the one rule around the one passage, as
+[When a rule flags text that needs no fix](#when-a-rule-flags-text-that-needs-no-fix)
+shows. Suppression with a stated reason is an editor's outcome, a deliberate
+judgment that the prose wins.
+
+<!-- vale Skills.VagueTerms = NO -->
+<!-- "Bad rule" is the plain phrase for a rule that has lost its case. -->
+
+**Fix the rule.** A rule you suppress at every occurrence is a bad rule. For
+the local style, edit the message, severity, or tokens in
+[`styles/Skills/`](styles/Skills/), or delete the rule. For the packaged
+styles, override in `.vale.ini`: `ai-tells.EmDashUsage = warning` demotes one
+rule to advice.
+
+<!-- vale Skills.VagueTerms = YES -->
+
+The editor test, before you commit: reread each sentence you changed as an
+editor who never saw the report. You are done when every alert has a verdict
+and every touched sentence reads at least as well as it did before.
+
 ## Vocabulary vs. formatting
 
 The vocabulary in
