@@ -41,8 +41,12 @@ and each one keeps an `UPSTREAM.md` naming its source and license.
 
 ## Validation
 
-Validate the marketplace structure before committing:
+Run every check through prek - `prek.toml` already wraps each tool (formatting,
+linting, plugin validation) and installs the pinned toolchain first, so prek is
+the one entrypoint instead of invoking tools directly:
 
 ```bash
-claude plugin validate .
+prek run --all-files
 ```
+
+To re-run one hook, name its id from `prek.toml`: `prek run vale --all-files`.
