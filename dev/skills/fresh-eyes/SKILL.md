@@ -10,10 +10,16 @@ description: >
 
 # fresh-eyes
 
+<!-- vale Skills.FillerWords = NO -->
+<!-- "why don't we just" quotes the reader's hunch; its "just" is the
+hunch's voice, not filler. -->
+
 Reproduce the hunch every reader gets: "why don't we just do it like this?" The
 discipline is in the order - design from the purpose first, then let the
 constraints kill what they can. Reading the current mechanism first anchors you
 to it, and every proposal comes out a tweak.
+
+<!-- vale Skills.FillerWords = YES -->
 
 ## Steps
 
@@ -26,6 +32,9 @@ has never seen the target could design from the paragraph alone.
 
 ### 2. Design naively
 
+<!-- vale Skills.FillerWords = NO -->
+<!-- The naive question is quoted verbatim; its "just" carries the hunch. -->
+
 Put the target aside and design from the purpose paragraph: the simplest thing
 that could serve it. Ask the naive question of each moving part the purpose
 seems to demand - "why don't we just [one obvious move]?" Produce one to three
@@ -33,6 +42,8 @@ proposals, each a short sketch: the one move it is built around, and what from
 the current shape it deletes. Done when each proposal is simpler than the
 current shape by a measure you name, such as fewer parts or a single source of
 truth, and any sketch that fails that measure is dropped here.
+
+<!-- vale Skills.FillerWords = YES -->
 
 ### 3. Walk the fences
 
