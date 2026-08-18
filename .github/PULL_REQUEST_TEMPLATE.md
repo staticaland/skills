@@ -26,7 +26,7 @@ Avoid these patterns:
 
 <!-- State what changed and why. -->
 
-[Add a brief description of what the change does. Name its kind, such as a feature, a fix, or another kind of change.]
+[Add a brief description of what the change does. Name its kind, such as a feature or a fix.]
 
 ## Why do we need this change?
 
