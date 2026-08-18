@@ -68,6 +68,20 @@ done
     pass_filenames = false
   },
   {
+    id = "actionlint",
+    name = "actionlint",
+    entry = "mise exec -- actionlint",
+    language = "system",
+    files = '^\.github/workflows/[^/]+\.ya?ml$'
+  },
+  {
+    id = "zizmor",
+    name = "zizmor",
+    entry = "mise exec -- zizmor",
+    language = "system",
+    files = '^\.github/workflows/[^/]+\.ya?ml$'
+  },
+  {
     id = "vale",
     name = "vale",
     entry = "mise exec -- vale",
