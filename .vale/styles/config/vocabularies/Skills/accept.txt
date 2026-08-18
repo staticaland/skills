@@ -78,6 +78,7 @@ pretraining
 [Rr]ebases?
 validator
 [Vv]endored
+[Ww]orktrees?
 $^ Norwegian words used in kontrollert-norsk/SKILL.md
 adjektiver
 aktiv
