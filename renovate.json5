@@ -11,6 +11,15 @@
   automergeType: "pr",
   customManagers: [
     {
+      // Generic manager for versions annotated with a `# renovate:` comment on
+      // the line above an env variable, such as MISE_VERSION in the workflows.
+      customType: "regex",
+      managerFilePatterns: ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
+      matchStrings: [
+        "# renovate: datasource=(?<datasource>[a-z-.]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+[A-Z0-9_]+_VERSION: [\"']?(?<currentValue>[^\"'\\s]+)[\"']?",
+      ],
+    },
+    {
       customType: "regex",
       managerFilePatterns: ["/^\\.vale\\.ini$/"],
       matchStrings: [
