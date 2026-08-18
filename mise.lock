@@ -28,6 +28,38 @@ checksum = "sha256:80cacf85ef23f53cfdd77355ec41a6ef99aec136f15dfb3517723482f3559
 url = "https://github.com/vale-cli/vale/releases/download/v3.17.1/vale_3.17.1_macOS_arm64.tar.gz"
 url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/502877337"
 
+[[tools."aqua:rhysd/actionlint"]]
+version = "1.7.12"
+backend = "aqua:rhysd/actionlint"
+
+[tools."aqua:rhysd/actionlint"."platforms.linux-x64"]
+checksum = "sha256:8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8"
+url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/384924896"
+provenance = "github-attestations"
+
+[tools."aqua:rhysd/actionlint"."platforms.macos-arm64"]
+checksum = "sha256:aba9ced2dee8d27fecca3dc7feb1a7f9a52caefa1eb46f3271ea66b6e0e6953f"
+url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/384924893"
+provenance = "github-attestations"
+
+[[tools."aqua:zizmorcore/zizmor"]]
+version = "1.29.0"
+backend = "aqua:zizmorcore/zizmor"
+
+[tools."aqua:zizmorcore/zizmor"."platforms.linux-x64"]
+checksum = "sha256:dd96df044a6e8538d5f423790f453bdd03d49e5b2bcc38214acc41a2f1297839"
+url = "https://github.com/zizmorcore/zizmor/releases/download/v1.29.0/zizmor-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/498263145"
+provenance = "github-attestations"
+
+[tools."aqua:zizmorcore/zizmor"."platforms.macos-arm64"]
+checksum = "sha256:720322fade9e83a9c7953944c438f2ba942636b86b96a8f0e6b15ce94c8a6b6f"
+url = "https://github.com/zizmorcore/zizmor/releases/download/v1.29.0/zizmor-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/498263141"
+provenance = "github-attestations"
+
 [[tools.node]]
 version = "24.19.0"
 backend = "core:node"
