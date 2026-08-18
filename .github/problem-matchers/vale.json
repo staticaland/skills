@@ -1,0 +1,19 @@
+{
+  "problemMatcher": [
+    {
+      "owner": "vale",
+      "severity": "notice",
+      "pattern": [
+        {
+          "regexp": "^\\s*([^:\\s]+):(\\d+):(\\d+):(?:(error|warning)|suggestion):([\\w.-]+):(.+)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 5,
+          "message": 6
+        }
+      ]
+    }
+  ]
+}

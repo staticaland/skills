@@ -1,0 +1,14 @@
+{
+  "problemMatcher": [
+    {
+      "owner": "prettier",
+      "pattern": [
+        {
+          "regexp": "^\\s*\\[warn\\] ((\\S+\\.(?:json|md|ya?ml)))$",
+          "file": 1,
+          "message": 2
+        }
+      ]
+    }
+  ]
+}

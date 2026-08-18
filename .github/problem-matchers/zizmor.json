@@ -1,0 +1,22 @@
+{
+  "problemMatcher": [
+    {
+      "owner": "zizmor",
+      "severity": "notice",
+      "pattern": [
+        {
+          "regexp": "^\\s*(?:(error|warning)|note|help)\\[([\\w-]+)\\]: (.+)$",
+          "severity": 1,
+          "code": 2,
+          "message": 3
+        },
+        {
+          "regexp": "^\\s*-->\\s+(\\S+):(\\d+):(\\d+)$",
+          "file": 1,
+          "line": 2,
+          "column": 3
+        }
+      ]
+    }
+  ]
+}
