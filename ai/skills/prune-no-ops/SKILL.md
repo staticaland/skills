@@ -30,6 +30,10 @@ work the deletion test cannot grade. Done when every in-scope file is read.
 Run the deletion test on each sentence and record a verdict: _survives_, or one
 no-op class:
 
+<!-- vale Skills.WeakVerbs = NO -->
+<!-- The bullets quote weak phrasing as the smells they name; "fixing" a
+quoted example would erase the smell it demonstrates. -->
+
 - **Aside** - "by the way", "note that", "keep in mind" framing around an
   instruction that binds on its own.
 - **Justification** - the why behind an instruction ("this ensures...",
@@ -42,9 +46,15 @@ no-op class:
 - **Duplicate** - a meaning another sentence in the file already carries. The
   clearer statement survives. The other is the no-op.
 
+<!-- vale Skills.WeakVerbs = YES -->
+<!-- vale Skills.HedgeWords = NO -->
+<!-- "A maybe" below is the verdict as a noun, not a hedge. -->
+
 Deletion demands certainty: mark a sentence no-op only when the behavior is
 identical either way. A maybe survives. Done when every sentence in scope
 carries a verdict.
+
+<!-- vale Skills.HedgeWords = YES -->
 
 ### 3. Apply the cuts
 
