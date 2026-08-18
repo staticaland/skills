@@ -19,14 +19,14 @@
       "name": "dev",
       "source": "./dev",
       "description": "Automate browsers and Electron apps with the agent-browser CLI, pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, deny install-time script execution, manage stacked pull requests, open pull requests, run Git hooks with prek, grill a plan until its design tree holds, look at a module with fresh eyes and keep the simplest redesigns that survive its constraints, and pin down a project's domain terms and decisions",
-      "version": "0.16.2",
+      "version": "0.16.3",
       "category": "dev"
     },
     {
       "name": "ai",
       "source": "./ai",
       "description": "Analyze skills, prune no-op prose, refactor references, and write documents for agents",
-      "version": "0.2.3",
+      "version": "0.2.4",
       "category": "ai"
     },
     {
