@@ -84,7 +84,7 @@ done
   {
     id = "vale",
     name = "vale",
-    entry = "mise exec -- vale",
+    entry = "mise exec -- scripts/vale-with-guidance.sh",
     language = "system",
     files = '\.md$'
   },

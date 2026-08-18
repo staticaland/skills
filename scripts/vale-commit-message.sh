@@ -13,4 +13,4 @@ message_copy="$message_dir/COMMIT_EDITMSG"
 trap 'rm -f "$message_copy"; rmdir "$message_dir"' EXIT HUP INT TERM
 
 cp "$1" "$message_copy"
-vale "$message_copy"
+"$repo_root/scripts/vale-with-guidance.sh" "$message_copy"
