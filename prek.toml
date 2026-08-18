@@ -86,7 +86,8 @@ done
     name = "vale",
     entry = "mise exec -- scripts/vale-with-guidance.sh",
     language = "system",
-    files = '\.md$'
+    files = '\.md$',
+    verbose = true
   },
   {
     id = "vale-commit-message",
