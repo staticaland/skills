@@ -1,0 +1,11 @@
+{{- /*
+One alert per line for the vale problem matcher in CI:
+path:line:column:severity:check:message
+Keep .github/problem-matchers/vale.json in sync with this format.
+*/ -}}
+{{- range .Files -}}
+{{- $path := .Path -}}
+{{- range .Alerts -}}
+{{$path}}:{{.Line}}:{{index .Span 0}}:{{.Severity}}:{{.Check}}:{{.Message}}
+{{end -}}
+{{- end -}}
