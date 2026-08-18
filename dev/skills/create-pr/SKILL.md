@@ -20,9 +20,11 @@ been in the session.
    original request, the decisions made and their tradeoffs, and what was
    tested and how. Follow the writing instructions in the template's comments,
    and leave the comments in place - the submit step removes them.
-3. Write the filled template to the `BODY FILE:` path `prepare` printed - never
-   a path of your own choosing, which risks reusing a stale body from an
-   earlier session. Then run:
+3. Read the `BODY FILE:` path `prepare` printed. It exists as an empty
+   placeholder, and a Write tool that guards overwrites refuses a file it has
+   not read. Then write the filled template there - never a path of your own
+   choosing, which risks reusing a stale body from an earlier session. Then
+   run:
 
    ```bash
    <skill-dir>/scripts/pr.py submit "<title>" <body-file>
