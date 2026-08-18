@@ -1,5 +1,5 @@
 extends: substitution
-message: "Consider replacing '%s' with a more specific verb like '%s'."
+message: "Consider a more specific verb like '%s' instead of '%s'."
 level: suggestion
 swap:
   make sure: verify
