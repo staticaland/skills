@@ -46,7 +46,8 @@ linting, plugin validation) and installs the pinned toolchain first, so prek is
 the one entrypoint instead of invoking tools directly:
 
 ```bash
-prek run --all-files
+mise exec -- prek run --all-files
 ```
 
-To re-run one hook, name its id from `prek.toml`: `prek run vale --all-files`.
+To re-run one hook, name its id from `prek.toml`:
+`mise exec -- prek run vale --all-files`.
