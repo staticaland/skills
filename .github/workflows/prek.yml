@@ -20,6 +20,11 @@ jobs:
         with:
           version: ${{ env.MISE_VERSION }}
           install_args: --locked
+      - name: Register problem matchers
+        run: |
+          for matcher in .github/problem-matchers/*.json; do
+            echo "::add-matcher::$matcher"
+          done
       - uses: j178/prek-action@4e14d07f9231acabce116ccfca13b13dd9755ece # v3.0.0
         with:
           prek-version: "0.4.13"
