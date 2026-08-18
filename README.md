@@ -61,7 +61,8 @@ Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
 Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
 their lock files, deny install-time script execution, manage stacked pull
-requests, open pull requests, run Git hooks with prek, grill a plan until its
+requests, open pull requests, surface branch drift at session start, block pull
+requests from a stale branch, run Git hooks with prek, grill a plan until its
 design tree holds, look at a module with fresh eyes and keep the simplest
 redesigns that survive its constraints, and pin down a project's domain terms
 and decisions.
@@ -127,6 +128,12 @@ and decisions.
 - **pr-create guard** (hook) - Blocks a direct `gh pr create` and tells Claude
   to invoke the create-pr skill instead. Other `git` and `gh` commands are
   untouched.
+- **pr freshness guard** (hook) - Blocks `gh pr create` and `gh pr ready` while
+  `HEAD` is behind the base branch on `origin`, telling Claude to rebase and
+  re-run the checks first.
+- **session git context** (hook) - Injects branch, worktree state, and drift
+  from the base branch into context at session start, with a rebase nudge when
+  the branch is behind.
 
 ### `ai`
 

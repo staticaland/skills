@@ -7,7 +7,8 @@ Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
 Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
 their lock files, deny install-time script execution, manage stacked pull
-requests, open pull requests, run Git hooks with prek, grill a plan until its
+requests, open pull requests, surface branch drift at session start, block pull
+requests from a stale branch, run Git hooks with prek, grill a plan until its
 design tree holds, look at a module with fresh eyes and keep the simplest
 redesigns that survive its constraints, and pin down a project's domain terms
 and decisions.
@@ -105,3 +106,15 @@ npx skills add staticaland/skills --skill renovate-setup
   instead. The guard permits a command that carries a `SKILL_CREATE_PR=1`
   marker, the escape hatch the skill's script uses. All other `git` and `gh`
   commands are untouched.
+- **pr freshness guard** (`hooks/pr_freshness_guard.py`, PreToolUse on Bash) -
+  Blocks `gh pr create` and `gh pr ready` while `HEAD` is behind the base
+  branch on `origin`, and tells Claude to rebase and re-run the checks first.
+  Fetches the base branch before checking; when the fetch fails (offline, no
+  remote) the command goes through. Set `BASE_BRANCH` to override the base
+  detected from `origin/HEAD`.
+- **session git context** (`hooks/session_git_context.py`, SessionStart) -
+  Injects the git state into context when a session starts, resumes, or is
+  cleared: current branch, dirty or clean worktree, and how far the branch is
+  behind and ahead of its base on `origin`. When the branch is behind, the
+  context tells Claude to rebase before touching files. Set `BASE_BRANCH` to
+  override the base detected from `origin/HEAD`.
