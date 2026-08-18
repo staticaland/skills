@@ -13,8 +13,8 @@ if [ "$status" -ne 0 ]; then
   cat <<'EOF'
 Vale flagged problems below. Alerts are advice from a style guide, not
 orders. Read .vale/README.md before editing, then give each alert a verdict:
-rewrite the sentence, suppress with an inline comment, or fix the rule. A
-change that silences an alert while weakening the prose is a regression.
+rewrite the sentence or suppress with an inline comment. A change that
+silences an alert while weakening the prose is a regression.
 
 EOF
   printf '%s\n' "$output"

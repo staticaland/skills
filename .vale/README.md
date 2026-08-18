@@ -10,7 +10,7 @@ runs without a download.
 An alert is advice from a style guide. The goal is prose that serves the
 reader; a change that silences an alert while weakening the sentence is a
 regression, even though the report goes green. Work through a report like an
-editor: give every alert a verdict - rewrite, suppress, or fix the rule.
+editor: give every alert a verdict, rewrite or suppress.
 
 **Rewrite.** Each rule detects a smell: vagueness, hedging, filler, padding.
 The flagged span is where the smell surfaced, which is seldom where the
@@ -26,18 +26,9 @@ verdict was wrong; suppress instead.
 vagueness: keep the prose and mute the one rule around the one passage, as
 [When a rule flags text that needs no fix](#when-a-rule-flags-text-that-needs-no-fix)
 shows. Suppression with a stated reason is an editor's outcome, a deliberate
-judgment that the prose wins.
-
-<!-- vale Skills.VagueTerms = NO -->
-<!-- "Bad rule" is the plain phrase for a rule that has lost its case. -->
-
-**Fix the rule.** A rule you suppress at every occurrence is a bad rule. For
-the local style, edit the message, severity, or tokens in
-[`styles/Skills/`](styles/Skills/), or delete the rule. For the packaged
-styles, override in `.vale.ini`: `ai-tells.EmDashUsage = warning` demotes one
-rule to advice.
-
-<!-- vale Skills.VagueTerms = YES -->
+judgment that the prose wins. A rule you find yourself suppressing at every
+occurrence is worth raising with a maintainer; changing the rules themselves
+is a separate decision, outside the scope of fixing prose.
 
 The editor test, before you commit: reread each sentence you changed as an
 editor who never saw the report. You are done when every alert has a verdict
