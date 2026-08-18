@@ -6,10 +6,9 @@ Usage:
     Pushes the branch, then prints the template to fill: the repo's
     .github/PULL_REQUEST_TEMPLATE.md if it exists, otherwise this
     skill's references/pr-template.md. Comments stay in - they carry
-    the writing instructions. Also prints a body file path in a fresh
-    /tmp directory, so no leftover file from an earlier session can be
-    submitted by mistake. The path does not exist yet - writing it
-    creates it, so an overwrite guard never fires.
+    the writing instructions. Also creates an empty, uniquely named
+    body file in /tmp and prints its path, so no leftover file from an
+    earlier session can be submitted by mistake.
 
   pr.py submit <title> <body-file>
     Strips HTML comments from <body-file>, then creates the PR with the
@@ -41,7 +40,8 @@ def prepare() -> None:
     if repo_template.is_file():
         template = repo_template
 
-    body_file = Path(tempfile.mkdtemp(prefix="pr-body-", dir="/tmp")) / "body.md"
+    fd, body_file = tempfile.mkstemp(prefix="pr-body-", suffix=".md", dir="/tmp")
+    os.close(fd)
 
     print(f"TEMPLATE: {template}")
     print(f"BODY FILE: {body_file}")

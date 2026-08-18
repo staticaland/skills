@@ -15,8 +15,7 @@ been in the session.
 
 1. Run `<skill-dir>/scripts/pr.py prepare`, where `<skill-dir>` is this
    skill's base directory. It pushes the branch, prints the template to fill,
-   and prints the `BODY FILE:` path it chose for this run. That path does not
-   exist yet - your write creates it.
+   and prints the `BODY FILE:` path it created for this run.
 2. Fill every template section from the whole session, not the diff alone: the
    original request, the decisions made and their tradeoffs, and what was
    tested and how. Follow the writing instructions in the template's comments,
