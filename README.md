@@ -54,6 +54,9 @@ lint Markdown with Vale.
 
 #### [dev](./dev/README.md)
 
+<!-- vale Skills.WeakVerbs = NO -->
+<!-- "look at ... with fresh eyes" is the fresh-eyes skill's idiom. -->
+
 Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
 Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
 dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
@@ -62,6 +65,8 @@ requests, open pull requests, run Git hooks with prek, grill a plan until its
 design tree holds, look at a module with fresh eyes and keep the simplest
 redesigns that survive its constraints, and pin down a project's domain terms
 and decisions.
+
+<!-- vale Skills.WeakVerbs = YES -->
 
 - **[agent-browser](./dev/skills/agent-browser/SKILL.md)** (skill) - Drives
   Chrome, web apps, and Electron apps from the command line with
