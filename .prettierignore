@@ -1,7 +1,7 @@
 # Skills vendored by vendir. Upstream writes these files, so this repository
 # does not format or lint them, and a reformat would be undone by the next
-# `vendir sync`. The same list lives in `.markdownlint-cli2.yaml` and in the
-# empty-styles section in `.vale.ini`.
+# `vendir sync`. The same list lives in `.rumdl.toml` and in the empty-styles
+# section in `.vale.ini`.
 ai/skills/writing-for-agents/
 dev/skills/agent-browser/
 dev/skills/domain-modeling/
@@ -16,8 +16,8 @@ other/skills/wait-what/
 # Pull request templates. Their prose is one paragraph per line, because GitHub
 # reflows the markdown and a hard wrap only makes the description awkward to
 # edit. Prettier leaves prose alone at its default `proseWrap`, so this entry
-# guards against a later config change. The templates disable `MD013`
-# themselves.
+# guards against a later config change. rumdl disables `MD013` (line length)
+# for the whole repository in `.rumdl.toml`.
 .github/PULL_REQUEST_TEMPLATE.md
 dev/skills/create-pr/references/pr-template.md
 

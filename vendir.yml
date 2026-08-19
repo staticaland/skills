@@ -3,7 +3,7 @@
 # reformats files that the next `vendir sync` overwrites:
 #
 #   1. `.prettierignore`
-#   2. `ignores` in `.markdownlint-cli2.yaml`
+#   2. `exclude` in `.rumdl.toml`
 #   3. the empty-styles section in `.vale.ini`
 #
 # Two more rules for a new entry:
