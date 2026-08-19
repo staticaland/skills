@@ -70,7 +70,7 @@ mise install --locked
   {
     id = "claude-plugin-validate",
     name = "claude plugin validate",
-    entry = "mise exec -- claude plugin validate .",
+    entry = "claude plugin validate .",
     language = "system",
     pass_filenames = false
   },
