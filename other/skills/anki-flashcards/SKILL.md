@@ -69,7 +69,7 @@ Every card must pass all five. A card that fails one gets rewritten or dropped.
    user wants top-of-mind - salience prompts ("Where could [principle] apply to
    [user's project]?").
 
-Done when every card passes all five attributes and every key concept from step
+Done when every card passes the five attributes and every key concept from step
 1 has at least one card.
 
 ## Reference

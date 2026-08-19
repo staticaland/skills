@@ -1,4 +1,4 @@
-# Where a project's tools and versions already hide
+# Markers that name a project's tools and versions
 
 Each marker answers one of two questions: **which tools** the project needs, and
 **which version** the repo already states. A marker in the second column makes
@@ -37,7 +37,7 @@ CI names tools that no version file mentions. Read every workflow.
 - A container `image:` on the job or a service - the tools baked into that
   image.
 - `.gitlab-ci.yml`, `.circleci/config.yml`, `azure-pipelines.yml`, `Jenkinsfile`
-  carry the same three shapes.
+  use the same three shapes.
 
 ## Task runners and hooks
 
@@ -48,7 +48,7 @@ The commands contributors type reveal the tools those commands need:
 - `.pre-commit-config.yaml`, `lefthook.yml`, `.husky/` - each hook's binary is a
   tool a contributor needs.
 - The distributed program's own runtime dependencies: `exec.Command`,
-  `subprocess.run`, and backtick calls name binaries that must exist at run
+  `subprocess.run`, and backtick calls invoke binaries that must exist at run
   time, not build time. `grep -rE "exec\.(Command|LookPath)\(" .` finds them in
   Go.
 

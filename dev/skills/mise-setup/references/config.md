@@ -70,21 +70,21 @@ Ignore a tool the config declares without editing the file with
 
 The ones that change a project's behavior:
 
-| Setting                                                        | Effect                                                                                                                                                             |
-| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `lockfile = true`                                              | Read and write `mise.lock`. Off by default                                                                                                                         |
-| `locked = true`                                                | `mise install` fails when the lockfile has no pre-resolved URL for the platform, so no install calls GitHub or the aqua registry                                   |
-| `locked_verify_provenance = true`                              | Re-verify SLSA provenance, Cosign, Minisign, and GitHub attestations at install time, even when the lockfile already holds a checksum and a provenance entry       |
-| `minimum_release_age = "7d"`                                   | Ignore versions published inside the window. Defaults to `24h`. Takes a duration or an absolute date                                                               |
-| `minimum_release_age_excludes = ["trivy", "npm:*"]`            | Exempt a tool or a whole backend from the window                                                                                                                   |
-| `pipx.uvx = true`                                              | Install `pipx:` tools with `uvx` when `uv` is on PATH. Already the default; write it to survive an older mise                                                      |
-| `idiomatic_version_file_enable_tools = ["python"]`             | Read `.python-version`, `.node-version`, `.nvmrc`, `.ruby-version`, and `go.mod`. Disabled by default - list only the tools whose version file owns the constraint |
-| `idiomatic_version_file_disable_files = ["node:package.json"]` | Stop reading one file for one tool                                                                                                                                 |
-| `disable_backends = ["asdf", "vfox"]`                          | Block a backend for new installs                                                                                                                                   |
-| `jobs = 8`                                                     | Parallel installs                                                                                                                                                  |
-| `experimental = true`                                          | Required by features still behind the flag                                                                                                                         |
-| `paranoid = true`, `safe = true`                               | Extra-secure behavior, and a hard boundary against code execution from repo-controlled config                                                                      |
-| `trusted_config_paths = ["~/work"]`                            | Trust configs under these paths without the prompt                                                                                                                 |
+| Setting                                                        | Effect                                                                                                                                                                |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `lockfile = true`                                              | Read and write `mise.lock`. Off by default                                                                                                                            |
+| `locked = true`                                                | `mise install` fails when the lockfile has no pre-resolved URL for the platform, so no install calls GitHub or the aqua registry                                      |
+| `locked_verify_provenance = true`                              | Re-verify SLSA provenance, Cosign, Minisign, and GitHub attestations at install time, even when the lockfile already holds a checksum and a provenance entry          |
+| `minimum_release_age = "7d"`                                   | Ignore versions published inside the window. Defaults to `24h`. Takes a duration or an absolute date                                                                  |
+| `minimum_release_age_excludes = ["trivy", "npm:*"]`            | Exempt a tool or a whole backend from the window                                                                                                                      |
+| `pipx.uvx = true`                                              | Install `pipx:` tools with `uvx` when `uv` is on PATH. Already the default; write it to survive an older mise                                                         |
+| `idiomatic_version_file_enable_tools = ["python"]`             | Read `.python-version`, `.node-version`, `.nvmrc`, `.ruby-version`, and `go.mod`. Disabled by default - list only the tools whose version file defines the constraint |
+| `idiomatic_version_file_disable_files = ["node:package.json"]` | Stop reading one file for one tool                                                                                                                                    |
+| `disable_backends = ["asdf", "vfox"]`                          | Block a backend for new installs                                                                                                                                      |
+| `jobs = 8`                                                     | Parallel installs                                                                                                                                                     |
+| `experimental = true`                                          | Required by features still behind the flag                                                                                                                            |
+| `paranoid = true`, `safe = true`                               | Extra-secure behavior, and a hard boundary against code execution from repo-controlled config                                                                         |
+| `trusted_config_paths = ["~/work"]`                            | Trust configs under these paths without the prompt                                                                                                                    |
 
 Language-specific settings sit in their own tables: `python.uv_venv_auto`,
 `python.default_packages_file`, `node.corepack`, `node.npm_shim`,

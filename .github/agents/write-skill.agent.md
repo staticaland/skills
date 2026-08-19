@@ -26,6 +26,6 @@ every rule to every plugin your change touches.
 
 ## Verify
 
-Run `mise exec -- prek run --all-files` and clear every finding. The hooks in
+Run `mise exec -- prek run --all-files` and resolve every finding. The hooks in
 `prek.toml` cover plugin validation, formatting, and Vale, and the same checks
 run on push, so a finding you leave becomes a red check on the pull request.

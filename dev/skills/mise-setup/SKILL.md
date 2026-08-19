@@ -50,7 +50,7 @@ Give each tool a row. Record the tool, what needs it, and the file that already
 states a version. Consumers include build commands and CI jobs. Also include
 runtime dependencies of the distributed binary.
 [discovery.md](references/discovery.md) maps each marker to the tools it implies
-and to where its version already lives.
+and to where its version is already declared.
 
 Inventory tools that CI installs but the README omits. Include runtime
 dependencies that the project invokes through the shell.
@@ -94,7 +94,7 @@ Sort every version into one of two kinds:
 
 - **Owner** - `mise.toml` is the only place the version appears. Pin an exact
   version.
-- **Mirror** - the constraint already lives in `go.mod`'s `go` directive,
+- **Mirror** - the constraint is already declared in `go.mod`'s `go` directive,
   `engines.node`, `requires-python`, `.terraform-version`, a Homebrew formula,
   or a Dockerfile base image. mise repeats it, so the comment beside it names
   that file.
@@ -145,7 +145,7 @@ Run `mise fmt` to normalize the file.
 Keep personal preferences out: `mise.toml` is committed, `mise.local.toml` is
 git-ignored.
 
-Done when `mise.toml` covers every managed row from step 1, `mise fmt` leaves it
+Done when `mise.toml` covers the managed rows from step 1, `mise fmt` leaves it
 unchanged, and each tool sits in a group.
 
 ### 5. Lock the resolution

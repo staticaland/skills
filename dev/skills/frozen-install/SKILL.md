@@ -79,7 +79,7 @@ or a recorded plan to commit one first.
 | `npm install --production`                  | `npm ci --omit=dev`                             | as above                                                         |
 | `uv sync`                                   | `uv sync --locked`                              | `uv.lock` is missing or out of date with `pyproject.toml`        |
 | `uv run <cmd>`                              | `uv run --locked <cmd>`                         | as above                                                         |
-| `uv pip install -r requirements.txt`        | `uv pip sync --require-hashes requirements.txt` | a requirement carries no matching hash                           |
+| `uv pip install -r requirements.txt`        | `uv pip sync --require-hashes requirements.txt` | a requirement lacks a matching hash                              |
 | `npm update`, `uv add`, `uv lock --upgrade` | keep - this is a resolving site                 | -                                                                |
 
 `npm ci` deletes `node_modules` before installing, so it costs a full install.
@@ -120,7 +120,7 @@ package, and the lockfile reaches every image build.
 
 ### 5. Make the drift loud once
 
-Prove the check fires instead of trusting the flag. Widen a dependency range in
+Prove the check fails instead of trusting the flag. Widen a dependency range in
 `package.json` or `pyproject.toml`, leave the lockfile alone, run the rewritten
 command, and confirm it exits non-zero. Then revert and confirm it exits zero.
 

@@ -20,20 +20,23 @@ constraints kill what they can. Reading the current mechanism first anchors you
 to it, and every proposal comes out a tweak.
 
 <!-- vale Skills.FillerWords = YES -->
+<!-- vale ai-tells.FillerIntensifier = YES -->
 
 ## Steps
 
 ### 1. State the purpose
 
 Read the target only far enough to write its purpose: what it must provide, to
-whom, in one paragraph that names no part of the current mechanism - inputs,
+whom, in one paragraph that doesn't name any part of the current mechanism - inputs,
 outputs, and guarantees, never classes, files, or steps. Done when someone who
 has never seen the target could design from the paragraph alone.
 
 ### 2. Design naively
 
 <!-- vale Skills.FillerWords = NO -->
-<!-- The naive question is quoted verbatim; its "just" carries the hunch. -->
+<!-- vale ai-tells.FillerIntensifier = NO -->
+<!-- The naive question is quoted verbatim; its "just" carries the hunch, and
+     "single source of truth" is the standard name for the measure. -->
 
 Put the target aside and design from the purpose paragraph: the simplest thing
 that could serve it. Ask the naive question of each moving part the purpose
@@ -54,7 +57,7 @@ issues and PRs, tests that only make sense against a hidden constraint such as
 scale, compatibility, ordering, failure modes, or policy. Classify each fence:
 
 - **Live** - the constraint still holds and the proposal breaks it. The
-  proposal dies, or absorbs the constraint and states the cost of carrying it.
+  proposal dies, or absorbs the constraint and states the cost of keeping it.
 - **Dead** - the constraint no longer holds. Name the evidence: the dependency
   is gone, the scale never came, the API changed.
 - **Unknown** - no reason found after the hunt. Say so; only evidence makes a
