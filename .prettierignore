@@ -20,3 +20,7 @@ other/skills/wait-what/
 # themselves.
 .github/PULL_REQUEST_TEMPLATE.md
 dev/skills/create-pr/references/pr-template.md
+
+# Per-plugin changelogs that release-please generates. The bot's markdown is
+# not prettier-shaped, and reformatting it would churn every release PR.
+*/CHANGELOG.md
