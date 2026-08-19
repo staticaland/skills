@@ -11,7 +11,7 @@ jobs:
       contents: read
     env:
       # renovate: datasource=github-releases depName=jdx/mise
-      MISE_VERSION: "2026.8.4"
+      MISE_VERSION: "2026.8.5"
       # renovate: datasource=github-releases depName=j178/prek
       PREK_VERSION: "0.4.13"
     steps:
