@@ -5,8 +5,12 @@ lockfile = true
 minimum_release_age = "7d"
 
 [tools]
+"aqua:anthropics/claude-code" = "2.1.236"
+"aqua:astral-sh/ruff" = "0.16.2"
 "aqua:carvel-dev/vendir" = "0.46.0"
 "aqua:errata-ai/vale" = "3.17.1"
+"aqua:koalaman/shellcheck" = "0.11.0"
+"aqua:lycheeverse/lychee" = "0.24.2"
 "aqua:rhysd/actionlint" = "1.7.12"
 "aqua:rvben/rumdl" = "0.2.54"
 "aqua:zizmorcore/zizmor" = "1.29.0"

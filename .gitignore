@@ -1,1 +1,4 @@
 __pycache__/
+
+# Scratch worktrees created by local agent tooling.
+.agent-shell/

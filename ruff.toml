@@ -1,0 +1,24 @@
+# Configuration file for `ruff`, a Python linter and formatter written in Rust.
+# See https://docs.astral.sh/ruff for more information.
+
+# The Python in this repository is a handful of small stdlib-only scripts: the
+# manifest and structure checks in `scripts/`, and the plugin hooks that Claude
+# Code runs. Pin the rule set rather than inherit ruff's defaults, so a version
+# bump changes the toolchain and not the verdict.
+[lint]
+select = [
+  "E",   # pycodestyle errors
+  "F",   # pyflakes
+  "I",   # import sorting
+  "UP",  # pyupgrade
+  "B",   # bugbear
+]
+
+# The formatter owns line width. It wraps what it can and leaves a long string
+# literal alone, so `E501` only ever reports lines that `ruff format` has
+# already decided to keep.
+ignore = ["E501"]
+
+# `hooks.json` invokes every hook as `python3 <path>`, so a hook needs no
+# executable bit and `EXE001` would report each one. The rule set above leaves
+# it unselected; this note records the reason.

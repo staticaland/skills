@@ -24,15 +24,24 @@ def main():
     )
 
     if result.returncode != 0 and result.stdout:
-        print(json.dumps({
-            "result": "Vale found issues",
-            "description": result.stdout.strip(),
-        }), file=sys.stderr)
+        print(
+            json.dumps(
+                {
+                    "result": "Vale found issues",
+                    "description": result.stdout.strip(),
+                }
+            ),
+            file=sys.stderr,
+        )
     elif result.returncode == 0:
-        print(json.dumps({
-            "result": "Vale passed",
-            "description": f"No issues found in {file_path}",
-        }))
+        print(
+            json.dumps(
+                {
+                    "result": "Vale passed",
+                    "description": f"No issues found in {file_path}",
+                }
+            )
+        )
 
 
 if __name__ == "__main__":

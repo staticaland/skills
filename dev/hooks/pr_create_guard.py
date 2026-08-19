@@ -28,17 +28,21 @@ def main():
     if "SKILL_CREATE_PR=1" in stripped:
         return
 
-    print(json.dumps({
-        "hookSpecificOutput": {
-            "hookEventName": "PreToolUse",
-            "permissionDecision": "deny",
-            "permissionDecisionReason": (
-                "Direct gh pr create is blocked. Invoke the create-pr skill "
-                "instead: it builds the PR description from the whole "
-                "session and fills the PR template."
-            ),
-        }
-    }))
+    print(
+        json.dumps(
+            {
+                "hookSpecificOutput": {
+                    "hookEventName": "PreToolUse",
+                    "permissionDecision": "deny",
+                    "permissionDecisionReason": (
+                        "Direct gh pr create is blocked. Invoke the create-pr skill "
+                        "instead: it builds the PR description from the whole "
+                        "session and fills the PR template."
+                    ),
+                }
+            }
+        )
+    )
 
 
 if __name__ == "__main__":

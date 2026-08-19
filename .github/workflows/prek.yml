@@ -4,6 +4,12 @@ on:
     branches: [main]
   pull_request:
 
+# A second push to a branch makes the first run's result irrelevant. Cancel it
+# on pull requests; let main runs finish so every commit keeps a status.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   prek:
     runs-on: ubuntu-latest
@@ -30,6 +36,3 @@ jobs:
       - uses: j178/prek-action@4e14d07f9231acabce116ccfca13b13dd9755ece # v3.0.0
         with:
           prek-version: ${{ env.PREK_VERSION }}
-        env:
-          # The claude CLI is not installed on the runner.
-          PREK_SKIP: claude-plugin-validate

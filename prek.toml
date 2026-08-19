@@ -47,9 +47,30 @@ mise install --locked
     files = '\.md$'
   },
   {
+    id = "ruff-check",
+    name = "ruff check",
+    entry = "mise exec -- ruff check --force-exclude",
+    language = "system",
+    files = '\.py$'
+  },
+  {
+    id = "ruff-format",
+    name = "ruff format",
+    entry = "mise exec -- ruff format --check --force-exclude",
+    language = "system",
+    files = '\.py$'
+  },
+  {
+    id = "shellcheck",
+    name = "shellcheck",
+    entry = "mise exec -- shellcheck",
+    language = "system",
+    files = '\.sh$'
+  },
+  {
     id = "claude-plugin-validate",
     name = "claude plugin validate",
-    entry = "claude plugin validate .",
+    entry = "mise exec -- claude plugin validate .",
     language = "system",
     pass_filenames = false
   },
@@ -57,6 +78,20 @@ mise install --locked
     id = "sync-manifests",
     name = "derived manifests match plugin.json",
     entry = "python3 scripts/sync-manifests.py --check",
+    language = "system",
+    pass_filenames = false
+  },
+  {
+    id = "lychee",
+    name = "lychee",
+    entry = "mise exec -- lychee --config lychee.toml --quiet --",
+    language = "system",
+    files = '\.md$'
+  },
+  {
+    id = "check-structure",
+    name = "plugins, skills, and hooks are listed everywhere",
+    entry = "python3 scripts/check-structure.py",
     language = "system",
     pass_filenames = false
   },

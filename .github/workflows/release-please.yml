@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
 
+# Releases queue instead of racing. Cancelling one mid-flight could leave a
+# release pull request without its synced manifests.
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   release-please:
     runs-on: ubuntu-latest
