@@ -39,9 +39,10 @@ and each one keeps an `UPSTREAM.md` naming its source and license.
   with the synced files.
 - Do not name an upstream commit outside `vendir.yml` and `vendir.lock.yml`. A version
   repeated in an `UPSTREAM.md` goes stale the next time a `ref` moves.
-- A new vendored path goes in four lists, or a check will fight the next
-  sync: `.prettierignore`, `exclude` in `.rumdl.toml`, the
-  empty-styles section in `.vale.ini`, and `exclude_path` in `lychee.toml`.
+- A new vendored path goes in six lists, or a check will fight the next
+  sync: `.prettierignore`, `exclude` in `.rumdl.toml`, the empty-styles
+  section in `.vale.ini`, `exclude_path` in `lychee.toml`, `Exclude` in
+  `.editorconfig-checker.json`, and `ignorePaths` in `.cspell.jsonc`.
 
 ## Validation
 
@@ -55,3 +56,8 @@ mise exec -- prek run --all-files
 
 To re-run one hook, name its id from `prek.toml`:
 `mise exec -- prek run vale --all-files`.
+
+`cspell` flags a word no dictionary knows: add it to
+`.cspell/project-words.txt` when it is real project vocabulary, and fix the
+spelling otherwise. `tombi format` reports TOML that does not match its
+formatting; `mise exec -- tombi format` writes the fix.

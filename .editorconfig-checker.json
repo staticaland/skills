@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/editorconfig-checker/editorconfig-checker/main/config.schema.json",
+  "Disable": {
+    "IndentSize": true
+  },
+  "Exclude": [
+    "^\\.vale/",
+    "^tmp/",
+    "/CHANGELOG\\.md$",
+    "^ai/skills/writing-for-agents/",
+    "^dev/skills/agent-browser/",
+    "^dev/skills/domain-modeling/",
+    "^dev/skills/gh-stack/",
+    "^dev/skills/grill-me/",
+    "^dev/skills/grill-with-docs/",
+    "^dev/skills/grilling/",
+    "^dev/skills/prek/",
+    "^other/skills/bro/",
+    "^other/skills/wait-what/"
+  ]
+}

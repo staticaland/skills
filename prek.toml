@@ -2,126 +2,157 @@
 # See https://prek.j178.dev for more information.
 #:schema https://www.schemastore.org/prek.json
 
-# Install mise itself before running these hooks.
-# prettier, rumdl, and Vale all skip the vendored skills through their own
-# configuration.
+# The hooks are written as `[[repos.hooks]]` tables rather than one inline
+# array, because tombi collapses an inline table onto a single line and the
+# hook list stops being readable at that width.
 
 [[repos]]
 repo = "local"
-hooks = [
-  {
-    id = "mise-install",
-    name = "mise trust and install locked tools",
-    entry = """
+
+# Install mise itself before running these hooks.
+# prettier, rumdl, Vale, cspell, and editorconfig-checker all skip the
+# vendored skills through their own configuration.
+[[repos.hooks]]
+id = "mise-install"
+name = "mise trust and install locked tools"
+entry = """
 export MISE_GLOBAL_CONFIG_FILE=/dev/null
 export MISE_SYSTEM_CONFIG_FILE=/dev/null
 export MISE_OVERRIDE_TOOL_VERSIONS_FILENAMES=none
 export MISE_CEILING_PATHS="$(dirname "$(git rev-parse --show-toplevel)")"
 mise trust mise.toml
 mise install --locked
-""",
-    language = "system",
-    shell = "sh",
-    pass_filenames = false,
-    always_run = true,
-    fail_fast = true,
-    verbose = true,
-    priority = 0,
-    stages = [
-      "pre-commit",
-      "commit-msg"
-    ]
-  },
-  {
-    id = "prettier",
-    name = "prettier",
-    entry = "mise exec -- prettier --check",
-    language = "system",
-    files = '\.(json|md|ya?ml)$'
-  },
-  {
-    id = "rumdl",
-    name = "rumdl",
-    entry = "mise exec -- rumdl check",
-    language = "system",
-    files = '\.md$'
-  },
-  {
-    id = "ruff-check",
-    name = "ruff check",
-    entry = "mise exec -- ruff check --force-exclude",
-    language = "system",
-    files = '\.py$'
-  },
-  {
-    id = "ruff-format",
-    name = "ruff format",
-    entry = "mise exec -- ruff format --check --force-exclude",
-    language = "system",
-    files = '\.py$'
-  },
-  {
-    id = "shellcheck",
-    name = "shellcheck",
-    entry = "mise exec -- shellcheck",
-    language = "system",
-    files = '\.sh$'
-  },
-  {
-    id = "claude-plugin-validate",
-    name = "claude plugin validate",
-    entry = "claude plugin validate .",
-    language = "system",
-    pass_filenames = false
-  },
-  {
-    id = "sync-manifests",
-    name = "derived manifests match plugin.json",
-    entry = "python3 scripts/sync-manifests.py --check",
-    language = "system",
-    pass_filenames = false
-  },
-  {
-    id = "lychee",
-    name = "lychee",
-    entry = "mise exec -- lychee --config lychee.toml --quiet --",
-    language = "system",
-    files = '\.md$'
-  },
-  {
-    id = "check-structure",
-    name = "plugins, skills, and hooks are listed everywhere",
-    entry = "python3 scripts/check-structure.py",
-    language = "system",
-    pass_filenames = false
-  },
-  {
-    id = "actionlint",
-    name = "actionlint",
-    entry = "mise exec -- actionlint",
-    language = "system",
-    files = '^\.github/workflows/[^/]+\.ya?ml$'
-  },
-  {
-    id = "zizmor",
-    name = "zizmor",
-    entry = "mise exec -- zizmor",
-    language = "system",
-    files = '^\.github/workflows/[^/]+\.ya?ml$'
-  },
-  {
-    id = "vale",
-    name = "vale",
-    entry = "mise exec -- scripts/vale-with-guidance.sh",
-    language = "system",
-    files = '\.md$',
-    verbose = true
-  },
-  {
-    id = "vale-commit-message",
-    name = "vale (commit message)",
-    entry = "mise exec -- scripts/vale-commit-message.sh",
-    language = "system",
-    stages = ["commit-msg"]
-  }
-]
+"""
+language = "system"
+shell = "sh"
+pass_filenames = false
+always_run = true
+fail_fast = true
+verbose = true
+priority = 0
+stages = ["pre-commit", "commit-msg"]
+
+[[repos.hooks]]
+id = "prettier"
+name = "prettier"
+entry = "mise exec -- prettier --check"
+language = "system"
+files = '\.(json|md|ya?ml)$'
+
+[[repos.hooks]]
+id = "rumdl"
+name = "rumdl"
+entry = "mise exec -- rumdl check"
+language = "system"
+files = '\.md$'
+
+# prettier has no TOML parser, so every config in this repository's root went
+# unformatted until tombi. `format --check` reports, and `tombi format` fixes.
+[[repos.hooks]]
+id = "tombi-format"
+name = "tombi format"
+entry = "mise exec -- tombi format --check"
+language = "system"
+files = '\.toml$'
+
+[[repos.hooks]]
+id = "tombi-lint"
+name = "tombi lint"
+entry = "mise exec -- tombi lint"
+language = "system"
+files = '\.toml$'
+
+[[repos.hooks]]
+id = "ruff-check"
+name = "ruff check"
+entry = "mise exec -- ruff check --force-exclude"
+language = "system"
+files = '\.py$'
+
+[[repos.hooks]]
+id = "ruff-format"
+name = "ruff format"
+entry = "mise exec -- ruff format --check --force-exclude"
+language = "system"
+files = '\.py$'
+
+[[repos.hooks]]
+id = "shellcheck"
+name = "shellcheck"
+entry = "mise exec -- shellcheck"
+language = "system"
+files = '\.sh$'
+
+# Enforce .editorconfig. With no path arguments `ec` walks the files git
+# tracks, and the rest of the scope lives in .editorconfig-checker.json.
+[[repos.hooks]]
+id = "editorconfig-checker"
+name = "editorconfig-checker"
+entry = "mise exec -- ec"
+language = "system"
+pass_filenames = false
+
+# Spelling. Vale reads prose style; this reads the words themselves. Unknown
+# words that are real project vocabulary go in .cspell/project-words.txt.
+[[repos.hooks]]
+id = "cspell"
+name = "cspell"
+entry = "mise exec -- cspell --config .cspell.jsonc --no-progress --no-summary --no-must-find-files"
+language = "system"
+
+[[repos.hooks]]
+id = "claude-plugin-validate"
+name = "claude plugin validate"
+entry = "claude plugin validate ."
+language = "system"
+pass_filenames = false
+
+[[repos.hooks]]
+id = "sync-manifests"
+name = "derived manifests match plugin.json"
+entry = "python3 scripts/sync-manifests.py --check"
+language = "system"
+pass_filenames = false
+
+[[repos.hooks]]
+id = "lychee"
+name = "lychee"
+entry = "mise exec -- lychee --config lychee.toml --quiet --"
+language = "system"
+files = '\.md$'
+
+[[repos.hooks]]
+id = "check-structure"
+name = "plugins, skills, and hooks are listed everywhere"
+entry = "python3 scripts/check-structure.py"
+language = "system"
+pass_filenames = false
+
+[[repos.hooks]]
+id = "actionlint"
+name = "actionlint"
+entry = "mise exec -- actionlint"
+language = "system"
+files = '^\.github/workflows/[^/]+\.ya?ml$'
+
+[[repos.hooks]]
+id = "zizmor"
+name = "zizmor"
+entry = "mise exec -- zizmor"
+language = "system"
+files = '^\.github/workflows/[^/]+\.ya?ml$'
+
+[[repos.hooks]]
+id = "vale"
+name = "vale"
+entry = "mise exec -- scripts/vale-with-guidance.sh"
+language = "system"
+files = '\.md$'
+verbose = true
+
+[[repos.hooks]]
+id = "vale-commit-message"
+name = "vale (commit message)"
+entry = "mise exec -- scripts/vale-commit-message.sh"
+language = "system"
+stages = ["commit-msg"]

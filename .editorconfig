@@ -1,0 +1,20 @@
+# Baseline file conventions, shared with every editor that reads them.
+# `ec` (editorconfig-checker) enforces these in the prek bar; see
+# `.editorconfig-checker.json` for the paths it skips.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Two trailing spaces are a hard line break in markdown. rumdl's MD009 is the
+# gate on those, so trailing whitespace here is its call, not this file's.
+[*.md]
+trim_trailing_whitespace = false
+
+[*.py]
+indent_size = 4

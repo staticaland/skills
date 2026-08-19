@@ -1,4 +1,4 @@
-# Adding a skill here takes four more edits. Every check in the repository
+# Adding a skill here takes six more edits. Every check in the repository
 # reads one of these lists, and a check that still sees a vendored path
 # reformats files that the next `vendir sync` overwrites:
 #
@@ -6,6 +6,8 @@
 #   2. `exclude` in `.rumdl.toml`
 #   3. the empty-styles section in `.vale.ini`
 #   4. `exclude_path` in `lychee.toml`
+#   5. `Exclude` in `.editorconfig-checker.json`
+#   6. `ignorePaths` in `.cspell.jsonc`
 #
 # Two more rules for a new entry:
 #
