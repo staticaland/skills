@@ -173,9 +173,25 @@ tokens:
   - (?:narrows?|scopes?|tunes?|optimi[sz]es?|tightens?|rewrites?|configures?|corrects?|prunes?|trims?) itself
   - sorts? itself out
   - resolves? itself
+  # Self-report: an artifact vouching for or exposing itself ("the line
+  # declares itself," "forgetting that announces itself," "the credential
+  # path proves itself"). The plural stays off "versions" because "the
+  # versions themselves" is an ordinary emphatic. Measured at zero across
+  # the Go and Python standard libraries.
+  - (?:declares?|announces?|proves?|reports?) (?:itself|themselves)
+  - versions itself
+  # Voice: a comparison or a gate that pipes up ("the check only speaks
+  # up after the push").
+  - speaks? up
+  - spoke up
   - pretend(?:s|ed|ing)? otherwise
   - pretend(?:s|ed|ing)? not to
   - cares? deeply
+  # Deliberation: a reader or a tool credited with a verdict-in-progress
+  # ("the reviewer forms an opinion," "the linter formed its own opinion")
+  # where judges or decides names the act. Measured at zero across the Go
+  # and Python standard libraries.
+  - form(?:s|ed|ing)? (?:an|its own|their own) opinion
   - deliver(?:s|ed|ing)? on (?:its|that|the|every) promise
   - keeps? (?:its|that) promise
   - breaks? (?:its|that) promise
@@ -185,21 +201,15 @@ tokens:
   - hinged (?:on|upon) (?:a single|(?:this |that )?one|whether)
 
   # "Adjudication" family.
-  # A fact or metric handed the gavel: "availability settles the
-  # question," "the benchmark decides the debate," "latency puts the
-  # matter to rest." State the conclusion and the evidence instead of
-  # letting the noun rule on it.
-  - settles? the (?:question|debate|matter|argument|issue|dispute)
-  - settled the (?:question|debate|matter|argument|issue|dispute)
-  # The same gavel with a pronoun or a bare interrogative for an object
-  # ("the histogram settles what kind of session ran", "the reconfirmation
-  # settles it"). The curated objects above miss this shape entirely, and
-  # it is the commoner one, since the writer rarely names the question
-  # being closed. The literal senses take different complements and stay
-  # clear: settle on a heuristic, settle for a simpler form, settle ties
-  # by string ordering, and wait for the dust to settle. Measured at zero
-  # across the Go and Python standard libraries.
-  - (?:settles|settled) (?:it|that|this|which|what|whether)\b
+  # A fact or metric handed the gavel: "the benchmark decides the
+  # debate," "latency puts the matter to rest." State the conclusion
+  # and the evidence instead of letting the noun rule on it. The same
+  # gavel wielded through "settles" ("availability settles the
+  # question," "the reconfirmation settles it") lives in
+  # FigurativeSettles with the rest of that verb's figures, and the
+  # invoice shapes ("settled the cost," "settles up," "squares the
+  # ledger," "balances the books") live in FigurativePays with the
+  # other money figures.
   - decides? the (?:question|debate|matter|argument|issue|dispute)
   - decided the (?:question|debate|matter|argument|issue|dispute)
   - puts? the (?:question|debate|matter|argument|issue|dispute) to (?:rest|bed)
