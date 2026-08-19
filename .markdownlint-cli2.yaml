@@ -11,6 +11,9 @@ ignores:
   - "dev/skills/prek/**"
   - "other/skills/bro/**"
   - "other/skills/wait-what/**"
+  # Per-plugin changelogs that release-please generates - bot output, not
+  # hand-written prose.
+  - "*/CHANGELOG.md"
 
 config:
   MD010:
