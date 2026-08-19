@@ -12,28 +12,28 @@
       "name": "writing",
       "source": "./writing",
       "description": "Add sourced footnotes, revise prose for clarity and busy readers, strip references the reader cannot see, write controlled technical Norwegian, and lint Markdown with Vale",
-      "version": "0.3.3",
+      "version": "0.4.0",
       "category": "writing"
     },
     {
       "name": "dev",
       "source": "./dev",
       "description": "Automate browsers and Electron apps with the agent-browser CLI, pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, deny install-time script execution, manage stacked pull requests, open pull requests, run Git hooks with prek, grill a plan until its design tree holds, look at a module with fresh eyes and keep the simplest redesigns that survive its constraints, and pin down a project's domain terms and decisions",
-      "version": "0.16.3",
+      "version": "0.17.0",
       "category": "dev"
     },
     {
       "name": "ai",
       "source": "./ai",
       "description": "Analyze skills, prune no-op prose, refactor references, and write documents for agents",
-      "version": "0.2.4",
+      "version": "0.3.0",
       "category": "ai"
     },
     {
       "name": "other",
       "source": "./other",
       "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles, and ask for a message again in plain language when it does not land",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "category": "other"
     }
   ]
