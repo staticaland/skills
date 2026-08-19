@@ -205,7 +205,7 @@ read the version and lets Renovate update the immutable reference. Add a version
 comment to an existing bare action SHA; Renovate disables updates for bare SHAs
 whose source tag or branch it cannot determine.
 
-Keep `minimumReleaseAge` at top level so it covers all supported data sources.
+Keep `minimumReleaseAge` at top level so it covers the supported data sources.
 Inspect inherited and local package rules after merging. Remove a shorter or
 `null` override, or replace it with an equally scoped value of `"7 days"`;
 preserve values longer than seven days. Keep the default
@@ -222,7 +222,7 @@ Enable `lockFileMaintenance` when supported lock files exist. Preserve an
 existing maintenance schedule, or use `:maintainLockFilesWeekly`. Confirm that
 the self-hosted runner allows each package manager or other artifact command.
 Renovate must commit lock files, integrity hashes, checksums, and related
-generated metadata exactly as their owning tools produce them; never hand-edit
+generated metadata exactly as the generating tools produce them; never hand-edit
 those fields.
 
 Then add only the manager patterns, custom managers, and policy the inventory

@@ -23,7 +23,7 @@ candidates for one tool, best first. Full docs:
 The registry's own tiers, from <https://mise.jdx.dev/registry.html>: `aqua` and
 `github` are preferred, `conda` comes next, and the language-specific backends
 (`pipx`, `npm`, `gem`, `go`, `cargo`, `dotnet`) are accepted only for tools that
-cannot be distributed as a single binary. Confirm what a candidate buys before
+cannot be distributed as one binary. Confirm what a candidate buys before
 taking it:
 
 ```bash

@@ -47,7 +47,7 @@ steps:
 ## `wait`
 
 `wait` stops the job until one or more background steps complete. A `wait` step
-does no work. It only blocks until the specified background steps finish. Give
+doesn't run anything. It only blocks until the specified background steps finish. Give
 one step `id` as a string, or more than one step `id` as an array.
 
 After a `wait` step completes, the outputs of the specified background steps

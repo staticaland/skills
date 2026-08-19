@@ -24,7 +24,7 @@ verdict was wrong; suppress instead.
 
 **Suppress.** Quoted material, terms of art, deliberate emphasis, honest
 vagueness: keep the prose and mute the one rule around the one passage, as
-[When a rule flags text that needs no fix](#when-a-rule-flags-text-that-needs-no-fix)
+[Deliberate exceptions](#deliberate-exceptions)
 shows. Suppression with a stated reason is an editor's outcome, a deliberate
 judgment that the prose wins. A rule you find yourself suppressing at every
 occurrence is worth raising with a maintainer; changing the rules themselves
@@ -103,9 +103,9 @@ everywhere in the repository. A rule that polices or renames a term only works
 while that term stays out of the vocabulary, so keep entries scoped to real
 spelling needs.
 
-## When a rule flags text that needs no fix
+## Deliberate exceptions
 
-A rule can flag text that needs no fix. Prose about a valley would trip the
+A rule can flag text that doesn't need fixing. Prose about a valley would trip the
 `Vale` casing term, which expects the product name. Do not widen `accept.txt`
 for such a case, since the section above shows an entry mutes the term
 everywhere. Turn the one rule off around the one passage instead, with Vale's
@@ -120,7 +120,7 @@ The vale lay under morning fog.
 <!-- vale Vale.Terms = YES -->
 ```
 
-Scope the marker to the single rule and turn it back on right after the
+Scope the marker to the one rule and turn it back on right after the
 passage. A bare `<!-- vale off -->` mutes every rule and is almost always too
 broad. Pair each marker with a comment that states why the rule is off there,
 so the next editor can tell a deliberate exception from a leftover.

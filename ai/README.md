@@ -11,7 +11,7 @@ Category: `ai`
   Refactors a skill to load only relevant guidance by splitting broad references
   and mapping concrete project markers to focused files.
 - **[prune-no-ops](./skills/prune-no-ops/SKILL.md)** - Deletes the sentences in
-  a skill that change no behavior: asides, justification, emphasis, and
+  a skill that don't change behavior: asides, justification, emphasis, and
   restated defaults.
 - **[skill-analyzer](./skills/skill-analyzer/SKILL.md)** - Splits a skill into
   scriptable and judgment work: classifies each step as deterministic or LLM,

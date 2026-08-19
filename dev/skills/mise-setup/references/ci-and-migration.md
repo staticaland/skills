@@ -45,7 +45,7 @@ tools belong.
 
 mise assumes trust in detected CI unless `paranoid` is on. A config holding only
 `min_version`, plain `[tools]` version strings, and template-free `[tasks]`
-needs no trust anywhere, because nothing in it runs code at load time. A config
+doesn't need trust anywhere, because nothing in it runs code at load time. A config
 with `[env]` templates, hooks, or tool options does, so on a runner mise does
 not detect, either mark it trusted or list the path:
 
@@ -60,7 +60,7 @@ On GitLab CI and similar, cache `MISE_DATA_DIR` between jobs.
 ## Containers
 
 `mise generate bootstrap --write bin/mise-bootstrap` writes a script that
-downloads a pinned mise, so a Dockerfile or a fresh contributor needs no mise on
+downloads a pinned mise, so a Dockerfile or a fresh contributor doesn't need mise on
 the image:
 
 ```bash

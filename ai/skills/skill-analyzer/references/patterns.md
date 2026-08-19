@@ -235,7 +235,7 @@ Given a skill that creates a branch from an issue description:
 ### Step 5: Summary
 
 Steps 3-4 are skipped because every step is blind. The deliverable is a
-standalone script. A SKILL.md would add no judgment work.
+standalone script. A SKILL.md wouldn't add any judgment work.
 
 - **Total steps:** 6
 - **SCRIPT:** 6 (100%)

@@ -54,14 +54,14 @@ Done when every inventoried step has a category and a rationale.
 Collect the `SCRIPT` steps into one shell or Python script, full source in a
 fenced block with a usage comment header. The script takes explicit inputs
 (paths, flags), produces deterministic outputs (files, stdout, exit codes),
-reports invalid input and exits nonzero, and is invocable from a single SKILL.md
+reports invalid input and exits nonzero, and is invocable from one SKILL.md
 instruction like "Run `./scripts/prepare.sh <input>`". Done when every `SCRIPT`
 row in the classification table is covered by the script.
 
 ### 4. Propose the simplified SKILL.md
 
 Rewrite the target SKILL.md: keep the frontmatter and every `LLM` step; replace
-the `SCRIPT` steps with the single instruction that invokes the script. Done
+the `SCRIPT` steps with the one instruction that invokes the script. Done
 when every `LLM` step survives and no `SCRIPT` step remains outside that one
 instruction.
 

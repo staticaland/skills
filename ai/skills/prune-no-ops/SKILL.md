@@ -8,7 +8,7 @@ version: 0.1.1
 
 # Prune No-ops
 
-Delete every sentence in a target skill that changes no behavior. The verdict
+Delete every sentence in a target skill that doesn't change behavior. The verdict
 for each sentence is the **deletion test**: would an agent running the skill
 on its trigger cases behave identically with the sentence and without it? A
 sentence whose deletion changes nothing is a **no-op** - delete it whole. A
@@ -23,7 +23,7 @@ report the verdicts.
 
 Read the target `SKILL.md` and every file it references. The body prose is the
 scope; leave frontmatter untouched - the description's wording does invocation
-work the deletion test cannot grade. Done when every in-scope file is read.
+work, and the deletion test does not grade it. Done when every in-scope file is read.
 
 ### 2. Classify every sentence
 
@@ -43,7 +43,7 @@ quoted example would erase the smell it demonstrates. -->
 - **Default restatement** - an instruction the model already obeys unprompted
   ("be careful", "make sure to read the file first").
 - **Emphasis** - "this is important", "always remember", "critically".
-- **Duplicate** - a meaning another sentence in the file already carries. The
+- **Duplicate** - a meaning another sentence in the file already states. The
   clearer statement survives. The other is the no-op.
 
 <!-- vale Skills.WeakVerbs = YES -->

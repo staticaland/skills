@@ -40,7 +40,7 @@ Model-invoked - Claude activates these automatically when the request matches.
 - **[frozen-install](./skills/frozen-install/SKILL.md)** - Rewrites resolving
   install commands as frozen ones (`npm ci`, `uv sync --locked`) at every site
   meant to reproduce a lockfile - CI, image builds, task runners, docs - and
-  proves the lockfile check fires.
+  proves the lockfile check fails when the lockfile drifts.
 - **[gh-stack](./skills/gh-stack/SKILL.md)** - Manages stacked branches and pull
   requests with the [gh-stack](https://github.com/github/gh-stack) GitHub CLI
   extension: create, view, push, submit, sync, rebase, merge, and check out a
@@ -102,6 +102,6 @@ npx skills add staticaland/skills --skill renovate-setup
   on your PATH.
 - **pr-create guard** (`hooks/pr_create_guard.py`, PreToolUse on Bash) - Blocks
   a direct `gh pr create` and tells Claude to invoke the create-pr skill
-  instead. The guard permits a command that carries a `SKILL_CREATE_PR=1`
+  instead. The guard permits a command that sets a `SKILL_CREATE_PR=1`
   marker, the escape hatch the skill's script uses. All other `git` and `gh`
   commands are untouched.

@@ -81,7 +81,7 @@ Read only the files for the managers present:
 Done when every manager from step 1 maps to a reference or to a recorded "no
 cooldown available".
 
-A `pyproject.toml` names no tool on its own. It can configure `uv`, Poetry, or
+A `pyproject.toml` doesn't name a tool on its own. It can configure `uv`, Poetry, or
 PDM, so inspect its tool tables and load only the matching rows. A
 `package.json` with no lockfile and no `packageManager` field identifies no
 JavaScript manager either - read the CI workflow's install command first, and

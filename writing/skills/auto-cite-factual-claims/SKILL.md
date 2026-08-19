@@ -56,7 +56,13 @@ Put a marker immediately after the clause or sentence it supports:
 The factual claim appears here.[^1]
 ```
 
+<!-- vale ai-tells.UniversalObject = NO -->
+<!-- "every claim" is the condition the rule sets, not a claim about coverage. -->
+
 Use one marker for two or more claims only when its source supports every claim.
+
+<!-- vale ai-tells.UniversalObject = YES -->
+
 Reuse a marker when the same source supports separate claims. Place multiple
 markers together when a claim needs two or more sources.
 

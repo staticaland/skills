@@ -51,4 +51,4 @@ File input is edited in place with the Edit tool. Unrecoverable references are
 reported after, whichever the input.
 
 Done when every reference in the artifact resolves from the artifact alone or
-is surfaced as unrecoverable.
+is reported as unrecoverable.

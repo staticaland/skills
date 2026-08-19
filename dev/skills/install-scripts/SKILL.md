@@ -14,7 +14,7 @@ version: 0.1.0
 Installing a package should copy files. A `preinstall`, `install`, or
 `postinstall` script makes it run code instead - with your shell, your
 environment, your CI token, and your `~/.ssh`, before anyone has read a line of
-the package. That is how the Shai-Hulud worm propagated, and it fires from a
+the package. The Shai-Hulud worm propagated exactly this way, out of a
 transitive dependency nobody chose.
 
 Almost no package needs it. In one 437-package tree, two do: `esbuild` and

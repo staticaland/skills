@@ -89,7 +89,7 @@ and decisions.
 - **[frozen-install](./dev/skills/frozen-install/SKILL.md)** (skill) -
   Rewrites resolving install commands as frozen ones (`npm ci`,
   `uv sync --locked`) at every site meant to reproduce a lockfile - CI, image
-  builds, task runners, docs - and proves the lockfile check fires.
+  builds, task runners, docs - and proves the lockfile check fails when the lockfile drifts.
 - **[gh-stack](./dev/skills/gh-stack/SKILL.md)** (skill) - Manages stacked
   branches and pull requests with the
   [gh-stack](https://github.com/github/gh-stack) GitHub CLI extension: create,
@@ -139,7 +139,7 @@ agents.
   (skill) - Refactors a skill to load only relevant guidance by splitting broad
   references and mapping concrete project markers to focused files.
 - **[prune-no-ops](./ai/skills/prune-no-ops/SKILL.md)** (skill) - Deletes the
-  sentences in a skill that change no behavior: asides, justification,
+  sentences in a skill that don't change behavior: asides, justification,
   emphasis, and restated defaults.
 - **[skill-analyzer](./ai/skills/skill-analyzer/SKILL.md)** (skill) -
   Splits a skill into scriptable and judgment work: classifies each step as

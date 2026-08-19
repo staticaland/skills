@@ -64,7 +64,7 @@ name the config key that distinguishes them and load only the matching row. When
 a topic has no filesystem marker, its marker is an explicit user choice or a
 condition the core procedure discovers.
 
-Every link into the references is a single dispatch row - a surviving catch-all
+Every link into the references is one dispatch row - a surviving catch-all
 link ("see the references for details") pulls in the whole group and undoes the
 split.
 
