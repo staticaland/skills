@@ -1,15 +1,12 @@
 ---
 extends: existence
-message: "AI filler: '%s'. Delete this phrase. It adds no meaning."
+message: "AI filler: '%s'. Delete this phrase. It adds nothing."
 level: error
 ignorecase: true
 tokens:
   - a wide range of
   - a broad range of
   - a variety of
-  - a myriad of
-  - a plethora of
-  - a wealth of
   - an abundance of
   - a multitude of
   - countless
