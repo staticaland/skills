@@ -40,7 +40,7 @@ and each one keeps an `UPSTREAM.md` naming its source and license.
 - Name no upstream commit outside `vendir.yml` and `vendir.lock.yml`. A version
   repeated in an `UPSTREAM.md` goes stale the next time a `ref` moves.
 - A new vendored path goes in three lists, or a check will fight the next
-  sync: `.prettierignore`, `ignores` in `.markdownlint-cli2.yaml`, and the
+  sync: `.prettierignore`, `exclude` in `.rumdl.toml`, and the
   empty-styles section in `.vale.ini`.
 
 ## Validation
