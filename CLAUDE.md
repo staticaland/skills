@@ -17,11 +17,15 @@ independently installable plugin with its own `.claude-plugin/plugin.json`.
   category.
 - Draft and retired plugins must NOT appear in `marketplace.json` or the
   top-level README catalog.
-- When a plugin's contents change, bump its `version` in both its `plugin.json`
-  and its entry in `marketplace.json` - installed users only see updates when
-  the version changes. A plugin that also has a `.codex-plugin/plugin.json`
-  (the manifest Codex requires) keeps it in lockstep with `plugin.json`: same
-  version, same description.
+- Never bump a plugin's `version` in a feature PR. release-please computes the
+  bump from the conventional commit history and opens a release PR that writes
+  it into `plugin.json`; merging that PR is what publishes the update to
+  installed users.
+- `plugin.json` is the source of truth for a plugin's `version` and
+  `description`. Its entry in `marketplace.json` and any
+  `.codex-plugin/plugin.json` (the manifest Codex requires) are derived: after
+  editing a description, run `scripts/sync-manifests.py`. The sync-manifests
+  prek hook fails while a derived file is stale.
 
 ## Vendored skills
 
