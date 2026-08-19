@@ -54,17 +54,10 @@ mise install --locked
     pass_filenames = false
   },
   {
-    id = "codex-manifest-lockstep",
-    name = "codex manifest matches plugin.json",
-    entry = """
-set -e
-for codex in */.codex-plugin/plugin.json; do
-  [ -e "$codex" ] || continue
-  diff -u "${codex%.codex-plugin/plugin.json}.claude-plugin/plugin.json" "$codex"
-done
-""",
+    id = "sync-manifests",
+    name = "derived manifests match plugin.json",
+    entry = "python3 scripts/sync-manifests.py --check",
     language = "system",
-    shell = "sh",
     pass_filenames = false
   },
   {
