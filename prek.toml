@@ -3,8 +3,8 @@
 #:schema https://www.schemastore.org/prek.json
 
 # Install mise itself before running these hooks.
-# prettier, markdownlint-cli2, and Vale all skip the vendored skills through
-# their own configuration.
+# prettier, rumdl, and Vale all skip the vendored skills through their own
+# configuration.
 
 [[repos]]
 repo = "local"
@@ -40,9 +40,9 @@ mise install --locked
     files = '\.(json|md|ya?ml)$'
   },
   {
-    id = "markdownlint-cli2",
-    name = "markdownlint-cli2",
-    entry = "mise exec -- markdownlint-cli2",
+    id = "rumdl",
+    name = "rumdl",
+    entry = "mise exec -- rumdl check",
     language = "system",
     files = '\.md$'
   },
