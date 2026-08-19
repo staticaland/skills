@@ -12,6 +12,8 @@ jobs:
     env:
       # renovate: datasource=github-releases depName=jdx/mise
       MISE_VERSION: "2026.8.4"
+      # renovate: datasource=github-releases depName=j178/prek
+      PREK_VERSION: "0.4.13"
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -27,7 +29,7 @@ jobs:
           done
       - uses: j178/prek-action@4e14d07f9231acabce116ccfca13b13dd9755ece # v3.0.0
         with:
-          prek-version: "0.4.13"
+          prek-version: ${{ env.PREK_VERSION }}
         env:
           # The claude CLI is not installed on the runner.
           PREK_SKIP: claude-plugin-validate
