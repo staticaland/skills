@@ -13,6 +13,10 @@ on:
       - mise.lock
       - .github/workflows/copilot-setup-steps.yml
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   copilot-setup-steps:
     runs-on: ubuntu-latest

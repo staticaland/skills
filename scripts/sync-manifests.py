@@ -68,7 +68,9 @@ def main():
     if stale:
         names = ", ".join(str(path.relative_to(ROOT)) for path in stale)
         if check:
-            sys.exit(f"Stale derived manifests: {names} - run scripts/sync-manifests.py")
+            sys.exit(
+                f"Stale derived manifests: {names} - run scripts/sync-manifests.py"
+            )
         print(f"Updated: {names}")
 
 

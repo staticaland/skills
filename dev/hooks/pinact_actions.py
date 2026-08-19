@@ -28,15 +28,24 @@ def main():
     )
 
     if result.returncode == 0 and result.stderr:
-        print(json.dumps({
-            "result": "Pin updated",
-            "description": f"pinact pinned actions in {os.path.basename(file_path)}",
-        }))
+        print(
+            json.dumps(
+                {
+                    "result": "Pin updated",
+                    "description": f"pinact pinned actions in {os.path.basename(file_path)}",
+                }
+            )
+        )
     elif result.returncode != 0:
-        print(json.dumps({
-            "result": "Pin failed",
-            "description": result.stderr.strip(),
-        }), file=sys.stderr)
+        print(
+            json.dumps(
+                {
+                    "result": "Pin failed",
+                    "description": result.stderr.strip(),
+                }
+            ),
+            file=sys.stderr,
+        )
 
 
 if __name__ == "__main__":

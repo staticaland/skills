@@ -1,0 +1,45 @@
+# Configuration file for `lychee`, a link checker written in Rust.
+# See https://lychee.cli.rs for more information.
+
+# Check links against the filesystem only, and never open a network
+# connection. The catalog in the top-level `README.md` and in each plugin
+# `README.md` links every skill name to its `SKILL.md`, and a rename silently
+# rots those links - that is the breakage this check exists to catch. The skill
+# documents also cite hundreds of external URLs, and checking those would make
+# every run slow and make CI fail whenever somebody else's site is down or rate
+# limits us.
+offline = true
+
+# Do not print a progress bar. Hooks and CI capture the output into a log,
+# where the redraw escape sequences are noise.
+no_progress = true
+
+# Name the file, the line, and the column of every failure, so the report is
+# enough to find the link without opening the document.
+format = "detailed"
+
+# Ignore links inside fenced code blocks and other verbatim sections. Skills
+# quote sample markdown to show an agent what a reference table looks like, and
+# the paths in those samples describe a skill that does not exist here.
+include_verbatim = false
+
+exclude_path = [
+  # Skills vendored by vendir. Upstream writes these files, so this repository
+  # does not lint them, and a link fixed here would be undone by the next
+  # `vendir sync`. The same list lives in `.prettierignore`, in `exclude` in
+  # `.rumdl.toml`, and in the empty-styles section in `.vale.ini`.
+  "ai/skills/writing-for-agents",
+  "dev/skills/agent-browser",
+  "dev/skills/domain-modeling",
+  "dev/skills/gh-stack",
+  "dev/skills/grill-me",
+  "dev/skills/grill-with-docs",
+  "dev/skills/grilling",
+  "dev/skills/prek",
+  "other/skills/bro",
+  "other/skills/wait-what",
+  # Per-plugin changelogs that release-please generates. The bot writes the
+  # links there from its own commit history, so a broken one is not something
+  # a contributor can fix by hand.
+  "CHANGELOG.md",
+]

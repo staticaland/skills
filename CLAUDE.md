@@ -37,11 +37,11 @@ and each one keeps an `UPSTREAM.md` naming its source and license.
 - To update one, change its `ref` to a new upstream commit and sync that
   directory: `vendir sync -d dev/skills/grilling`. Commit `vendir.lock.yml`
   with the synced files.
-- Name no upstream commit outside `vendir.yml` and `vendir.lock.yml`. A version
+- Do not name an upstream commit outside `vendir.yml` and `vendir.lock.yml`. A version
   repeated in an `UPSTREAM.md` goes stale the next time a `ref` moves.
-- A new vendored path goes in three lists, or a check will fight the next
-  sync: `.prettierignore`, `exclude` in `.rumdl.toml`, and the
-  empty-styles section in `.vale.ini`.
+- A new vendored path goes in four lists, or a check will fight the next
+  sync: `.prettierignore`, `exclude` in `.rumdl.toml`, the
+  empty-styles section in `.vale.ini`, and `exclude_path` in `lychee.toml`.
 
 ## Validation
 
