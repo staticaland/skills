@@ -5,7 +5,7 @@ lockfile = true
 minimum_release_age = "7d"
 
 [tools]
-"aqua:astral-sh/ruff" = "0.16.2"
+"aqua:astral-sh/ruff" = "0.16.3"
 "aqua:carvel-dev/vendir" = "0.46.0"
 "aqua:errata-ai/vale" = "3.17.1"
 "aqua:koalaman/shellcheck" = "0.11.0"
