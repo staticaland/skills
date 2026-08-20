@@ -83,19 +83,19 @@ url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/3849248
 provenance = "github-attestations"
 
 [[tools."aqua:rvben/rumdl"]]
-version = "0.2.54"
+version = "0.2.55"
 backend = "aqua:rvben/rumdl"
 
 [tools."aqua:rvben/rumdl"."platforms.linux-x64"]
-checksum = "sha256:a58c8de71484d4587f2a138476d70b3b2595366941d37b00606e80f86912aabb"
-url = "https://github.com/rvben/rumdl/releases/download/v0.2.54/rumdl-v0.2.54-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/rvben/rumdl/releases/assets/510066179"
+checksum = "sha256:7bddb23415f94c6503fe77f382d4c2398a2b36a78d936a434a8c71c3711da21b"
+url = "https://github.com/rvben/rumdl/releases/download/v0.2.55/rumdl-v0.2.55-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/rvben/rumdl/releases/assets/512169598"
 provenance = "github-attestations"
 
 [tools."aqua:rvben/rumdl"."platforms.macos-arm64"]
-checksum = "sha256:e2e005d6824d41402567feb5af21e1cfcd0ee47ea52a8ea53695479822ef4094"
-url = "https://github.com/rvben/rumdl/releases/download/v0.2.54/rumdl-v0.2.54-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/rvben/rumdl/releases/assets/510066176"
+checksum = "sha256:98dd5620e7eb8ba8fd77830fe1f313530ae2a6368ae867149f7de13dbebde6e3"
+url = "https://github.com/rvben/rumdl/releases/download/v0.2.55/rumdl-v0.2.55-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/rvben/rumdl/releases/assets/512169607"
 provenance = "github-attestations"
 
 [[tools."aqua:zizmorcore/zizmor"]]
