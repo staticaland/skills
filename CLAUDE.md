@@ -55,3 +55,6 @@ mise exec -- prek run --all-files
 
 To re-run one hook, name its id from `prek.toml`:
 `mise exec -- prek run vale --all-files`.
+
+`tombi format` reports TOML that does not match its formatting;
+`mise exec -- tombi format` writes the fix.
