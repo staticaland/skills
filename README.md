@@ -58,13 +58,13 @@ lint Markdown with Vale.
 <!-- "look at ... with fresh eyes" is the fresh-eyes skill's idiom. -->
 
 Automate browsers and Electron apps with the agent-browser CLI, pin GitHub
-Actions to commit SHAs on workflow edits, parallelize workflow steps, set up
-dependency cooldowns, Renovate, and mise toolchains, freeze install commands to
-their lock files, deny install-time script execution, manage stacked pull
-requests, open pull requests, run Git hooks with prek, grill a plan until its
-design tree holds, look at a module with fresh eyes and keep the simplest
-redesigns that survive its constraints, and pin down a project's domain terms
-and decisions.
+Actions to commit SHAs on workflow edits, parallelize workflow steps, replace
+repeated workflow configuration with YAML anchors, set up dependency cooldowns,
+Renovate, and mise toolchains, freeze install commands to their lock files, deny
+install-time script execution, manage stacked pull requests, open pull requests,
+run Git hooks with prek, grill a plan until its design tree holds, look at a
+module with fresh eyes and keep the simplest redesigns that survive its
+constraints, and pin down a project's domain terms and decisions.
 
 <!-- vale Skills.WeakVerbs = YES -->
 
@@ -121,6 +121,10 @@ and decisions.
 - **[Renovate setup](./dev/skills/renovate-setup/SKILL.md)** (skill) -
   Configures Renovate with a seven-day minimum release age and immutable updates
   through lock files, integrity hashes, action SHAs, and image digests.
+- **[yaml-anchors](./dev/skills/yaml-anchors/SKILL.md)** (skill) - Finds the
+  configuration a GitHub Actions workflow writes twice, replaces the identical
+  copies with YAML anchors and aliases, and routes the rest to a matrix,
+  composite action, reusable workflow, or workflow template.
 - **pinact** (hook) - Pins GitHub Actions references to full commit SHAs with
   [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes or
   edits workflow files. Requires the `pinact` CLI.
