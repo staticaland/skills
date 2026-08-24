@@ -53,5 +53,8 @@ the one entrypoint instead of invoking tools directly:
 mise exec -- prek run --all-files
 ```
 
+prek reads the git index, so `git add` a new file before you run it. The hooks
+skip a file outside the index, and the run reports success without checking it.
+
 To re-run one hook, name its id from `prek.toml`:
 `mise exec -- prek run vale --all-files`.

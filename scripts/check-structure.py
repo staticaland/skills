@@ -10,6 +10,7 @@ exist. This script finds what is missing from a list:
   - a hook script absent from its plugin README
   - a marketplace category that is not one of the four, or that does not
     match the directory the plugin lives in
+  - a SKILL.md outside <plugin>/skills/<name>/, where no plugin loads it
 
 Every violation is reported, then the script exits 1. A clean repo
 prints nothing and exits 0.
@@ -26,6 +27,9 @@ ROOT = Path(__file__).resolve().parent.parent
 MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
 README = ROOT / "README.md"
 CATEGORIES = ("writing", "dev", "ai", "other")
+# Local copies of a vendored skill, kept for the agent tools that read them
+# from these paths. `.vale.ini` turns its styles off for the same two.
+LOCAL_SKILL_ROOTS = (".claude/skills", ".agents/skills")
 
 
 def plugin_dirs():
@@ -61,8 +65,34 @@ def hook_files(plugin_dir):
     )
 
 
+def misplaced_skills():
+    """SKILL.md files that sit where no plugin loads them.
+
+    A plugin loads `<plugin>/skills/<name>/SKILL.md` and nothing else, so
+    a skill written one directory off is invisible to every other check
+    here: it is absent from no list, because no list knows it exists.
+    """
+    loadable = {
+        plugin_dir / "skills" / skill / "SKILL.md"
+        for plugin_dir in plugin_dirs()
+        for skill in skill_names(plugin_dir)
+    }
+    local = tuple(ROOT / root for root in LOCAL_SKILL_ROOTS)
+    found = []
+    for path in sorted(ROOT.rglob("SKILL.md")):
+        if ".git" in path.parts or path in loadable:
+            continue
+        if any(path.is_relative_to(root) for root in local):
+            continue
+        found.append(
+            f"{path.relative_to(ROOT)}: no plugin loads a skill from here - "
+            f"move it to <plugin>/skills/<name>/SKILL.md"
+        )
+    return found
+
+
 def main():
-    problems = []
+    problems = misplaced_skills()
 
     marketplace = json.loads(MARKETPLACE.read_text())
     catalog = README.read_text()

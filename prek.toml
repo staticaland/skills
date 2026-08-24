@@ -56,7 +56,11 @@ mise install --locked
   {
     id = "rumdl",
     name = "rumdl",
-    entry = "mise exec -- rumdl check",
+    # `--no-cache`: rumdl keys a cached verdict to the linted file's own
+    # content, and MD057 (relative link exists) reads other files. Adding the
+    # target of a link leaves the stale verdict in place, so a correct document
+    # keeps failing until the cache is deleted.
+    entry = "mise exec -- rumdl check --no-cache",
     language = "system",
     files = '\.md$'
   },
