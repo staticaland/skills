@@ -25,6 +25,9 @@ possible.
   bump from the conventional commit history and opens a release PR that writes
   it into `plugin.json`; merging that PR is what publishes the update to
   installed users.
+- Every plugin sits below 1.0.0, and `bump-minor-pre-major` in
+  `release-please-config.json` keeps it there. A breaking change bumps the
+  minor, so a `feat!` commit moves a plugin from 0.1.0 to 0.2.0, not to 1.0.0.
 - `plugin.json` is the source of truth for a plugin's `version` and
   `description`. Its entry in `marketplace.json` and any
   `.codex-plugin/plugin.json` (the manifest Codex requires) are derived: after
