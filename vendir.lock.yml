@@ -78,4 +78,14 @@ directories:
             - v0.4.14-2-g8f3ff02f
         path: .
     path: dev/skills/prek
+  - contents:
+      - git:
+          commitTitle:
+            "feat: add 'Information access' category to retrospective skill
+            for improved agent insights"
+          sha: 6654f6b60cd9d5be8b54c6fafe44346dabeb3b76
+          tags:
+            - v1.2.3-39-g6654f6b
+        path: .
+    path: ai/skills/retro
 kind: LockConfig

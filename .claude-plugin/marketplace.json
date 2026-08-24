@@ -25,7 +25,7 @@
     {
       "name": "ai",
       "source": "./ai",
-      "description": "Analyze skills, prune no-op prose, refactor references, and write documents for agents",
+      "description": "Analyze skills, prune no-op prose, refactor references, write documents for agents, and retrospect on a coding session to improve the environment the next one runs in",
       "version": "0.5.0",
       "category": "ai"
     },
