@@ -1,0 +1,8 @@
+{
+  "name": "github-actions",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Run GitHub Actions workflow steps in parallel, and pin every action reference to a commit SHA on workflow edits"
+}

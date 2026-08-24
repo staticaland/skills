@@ -1,0 +1,8 @@
+{
+  "name": "grilling",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Grill a plan until its design tree holds, and write the outcome up as domain terms and architecture decisions"
+}

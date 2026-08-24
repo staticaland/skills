@@ -1,20 +1,24 @@
 # Skills Marketplace
 
-This repo is a multi-plugin Claude Code marketplace. Each category directory
-(`writing/`, `dev/`, `ai/`, or `other/`) is an
-independently installable plugin with its own `.claude-plugin/plugin.json`.
+This repo is a multi-plugin Claude Code marketplace. Each directory under
+`plugins/` is an independently installable plugin with its own
+`.claude-plugin/plugin.json`. Plugins are small on purpose: a plugin holds the
+skills someone would want together, so installing one drags in as little as
+possible.
 
 ## Structure rules
 
-- Every available plugin directory must have an entry in
+- Every available plugin directory under `plugins/` must have an entry in
   `.claude-plugin/marketplace.json` and a section in the top-level `README.md`
   catalog.
 - Every plugin has its own `README.md` listing each of its skills and hooks with
   a one-line description. Skill names link to their `SKILL.md`, both in the
   plugin README and in the top-level catalog.
 - Every marketplace entry has one lowercase category: `writing`, `dev`, `ai`, or
-  `other`. Every published skill and hook in a plugin must belong to that
-  category.
+  `other`. The category groups plugins in the catalog and nothing else. Plugins
+  share categories, and a category is not a plugin's directory name.
+- A plugin may hold one skill. Prefer that over a catch-all bucket: a skill with
+  no siblings is its own plugin, not filler for `other`.
 - Draft and retired plugins must NOT appear in `marketplace.json` or the
   top-level README catalog.
 - Never bump a plugin's `version` in a feature PR. release-please computes the
@@ -35,8 +39,8 @@ and each one keeps an `UPSTREAM.md` naming its source and license.
 - Never hand-edit a vendored skill. `vendir sync` overwrites every path
   `vendir.yml` lists, except the `ignorePaths` that hold `UPSTREAM.md`.
 - To update one, change its `ref` to a new upstream commit and sync that
-  directory: `vendir sync -d dev/skills/grilling`. Commit `vendir.lock.yml`
-  with the synced files.
+  directory: `vendir sync -d plugins/grilling/skills/grilling`. Commit
+  `vendir.lock.yml` with the synced files.
 - Do not name an upstream commit outside `vendir.yml` and `vendir.lock.yml`. A version
   repeated in an `UPSTREAM.md` goes stale the next time a `ref` moves.
 - A new vendored path goes in four lists, or a check will fight the next
