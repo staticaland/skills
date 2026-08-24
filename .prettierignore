@@ -2,6 +2,7 @@
 # does not format or lint them, and a reformat would be undone by the next
 # `vendir sync`. The same list lives in `.rumdl.toml` and in the empty-styles
 # section in `.vale.ini`.
+ai/skills/retro/
 ai/skills/writing-for-agents/
 dev/skills/agent-browser/
 dev/skills/domain-modeling/

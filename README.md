@@ -132,8 +132,9 @@ and decisions.
 
 #### [ai](./ai/README.md)
 
-Analyze skills, prune no-op prose, refactor references, and write documents for
-agents.
+Analyze skills, prune no-op prose, refactor references, write documents for
+agents, and retrospect on a coding session to improve the environment the next
+one runs in.
 
 - **[progressive-disclosure](./ai/skills/progressive-disclosure/SKILL.md)**
   (skill) - Refactors a skill to load only relevant guidance by splitting broad
@@ -141,6 +142,9 @@ agents.
 - **[prune-no-ops](./ai/skills/prune-no-ops/SKILL.md)** (skill) - Deletes the
   sentences in a skill that don't change behavior: asides, justification,
   emphasis, and restated defaults.
+- **[retro](./ai/skills/retro/SKILL.md)** (skill) - Reviews a coding session
+  and ranks the changes that would make the next one go better: navigation
+  pointers, automated checks, coding standards, and tool economy.
 - **[skill-analyzer](./ai/skills/skill-analyzer/SKILL.md)** (skill) -
   Splits a skill into scriptable and judgment work: classifies each step as
   deterministic or LLM, proposes a script interface and a simplified SKILL.md.
