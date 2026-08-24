@@ -91,7 +91,7 @@ as `[Rr]epo` does.
 Genuine allowlist material is what legitimately appears bare and Vale would
 not otherwise know: product names (Renovate, Anki, Staticaland), English
 technical words missing from Vale's dictionary (lockfile, allowlist), and the
-Norwegian words that `writing/skills/kontrollert-norsk/SKILL.md` uses in
+Norwegian words that `plugins/norsk/skills/kontrollert-norsk/SKILL.md` uses in
 prose.
 
 ### The allowlist doubles as a global mute

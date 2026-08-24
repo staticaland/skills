@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/writing/hooks/vale_lint.py"
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/plugins/prose/hooks/vale_lint.py"
           }
         ]
       }

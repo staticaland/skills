@@ -5,7 +5,7 @@ directories:
           commitTitle: updates
           sha: cdba491f1f9c952979af37f15e4c3efb26f625df
         path: .
-    path: other/skills/bro
+    path: plugins/plain-language/skills/bro
   - contents:
       - git:
           commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
@@ -13,7 +13,7 @@ directories:
           tags:
             - v1.2.3-2-g84fdeff
         path: .
-    path: ai/skills/writing-for-agents
+    path: plugins/skill-authoring/skills/writing-for-agents
   - contents:
       - git:
           commitTitle: Prepare v0.34.0 release (#1678)
@@ -21,7 +21,7 @@ directories:
           tags:
             - v0.34.0
         path: .
-    path: dev/skills/agent-browser
+    path: plugins/browser/skills/agent-browser
   - contents:
       - git:
           commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
@@ -29,7 +29,7 @@ directories:
           tags:
             - v1.2.3-2-g84fdeff
         path: .
-    path: dev/skills/domain-modeling
+    path: plugins/grilling/skills/domain-modeling
   - contents:
       - git:
           commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
@@ -37,7 +37,7 @@ directories:
           tags:
             - v1.2.3-2-g84fdeff
         path: .
-    path: dev/skills/grill-with-docs
+    path: plugins/grilling/skills/grill-with-docs
   - contents:
       - git:
           commitTitle: Improve skill efficiency and performance (#388)...
@@ -45,7 +45,7 @@ directories:
           tags:
             - v0.1.0-2-g14fc42e
         path: .
-    path: dev/skills/gh-stack
+    path: plugins/pull-requests/skills/gh-stack
   - contents:
       - git:
           commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
@@ -53,7 +53,7 @@ directories:
           tags:
             - v1.2.3-2-g84fdeff
         path: .
-    path: dev/skills/grill-me
+    path: plugins/grilling/skills/grill-me
   - contents:
       - git:
           commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
@@ -61,7 +61,7 @@ directories:
           tags:
             - v1.2.3-2-g84fdeff
         path: .
-    path: dev/skills/grilling
+    path: plugins/grilling/skills/grilling
   - contents:
       - git:
           commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
@@ -69,7 +69,7 @@ directories:
           tags:
             - v1.2.3-2-g84fdeff
         path: .
-    path: other/skills/wait-what
+    path: plugins/plain-language/skills/wait-what
   - contents:
       - git:
           commitTitle: Simplify hook construction (#2572)...
@@ -77,7 +77,7 @@ directories:
           tags:
             - v0.4.14-2-g8f3ff02f
         path: .
-    path: dev/skills/prek
+    path: plugins/toolchain/skills/prek
   - contents:
       - git:
           commitTitle:
@@ -87,5 +87,5 @@ directories:
           tags:
             - v1.2.3-39-g6654f6b
         path: .
-    path: ai/skills/retro
+    path: plugins/retro/skills/retro
 kind: LockConfig
