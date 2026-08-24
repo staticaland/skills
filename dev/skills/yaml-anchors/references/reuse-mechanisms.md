@@ -42,8 +42,18 @@ jobs:
 ## Composite action
 
 A run of steps repeated across files becomes a composite action in
-`.github/actions/<name>/action.yml`, called as `uses: ./.github/actions/<name>`.
+`.github/actions/<name>/action.yml`. Each form that calls it costs something.
 
+- `uses: ./.github/actions/<name>` resolves against the runner's workspace,
+  which stays empty until `actions/checkout` runs. A job that calls the action
+  first fails on the missing `action.yml`, so an opening sequence that starts
+  with checkout cannot move into a `./` action whole: leave the checkout in the
+  caller and move the steps that follow it.
+- `uses: $/.github/actions/<name>` names the repository of the running workflow
+  at the running commit, so a job can call the action before it checks out
+  anything. It takes no `@ref`, and GitHub Enterprise Server does not have it.
+  `actionlint` 1.7.12 rejects the form as an invalid `uses` value, so a
+  repository that lints its workflows pays for this one at the linter.
 - A composite action holds steps. Job-level keys - `runs-on`, `services`,
   `strategy`, `permissions` - stay in the calling job.
 - Declare the values it needs as `inputs` in `action.yml` and pass them through

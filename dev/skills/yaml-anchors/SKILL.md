@@ -62,6 +62,14 @@ repeated block has a mechanism.
 
 ### 3. Anchor the identical blocks
 
+Copy each workflow before you change it, so step 4 compares against the file as
+it stood. `git show HEAD:<file>` returns the committed file, which is a
+different document whenever the working tree already carries an edit.
+
+```bash
+cp .github/workflows/ci.yml /tmp/before.yml
+```
+
 - **Define on the first copy.** Put `&name` on the first copy in document order
   and `*name` on each later copy. The parser resolves an alias against an anchor
   it has already read, so a definition under its own alias fails.
@@ -93,17 +101,20 @@ It reads anchors and aliases, and it reports a merge key by name:
 `GitHub Actions does not support YAML merge key "<<"`. A YAML library reports
 nothing there, because PyYAML follows YAML 1.1 and expands `<<` in silence.
 
-Then prove the rewrite didn't change behavior. The old file and the new one
-expand to the same data, or the rewrite dropped something.
+Then prove the rewrite didn't change behavior. The copy from step 3 and the new
+file expand to the same data, or the rewrite dropped something.
 
 ```bash
-git show HEAD:.github/workflows/ci.yml > /tmp/before.yml
 python3 -c '
 import sys, yaml
 before, after = (yaml.safe_load(open(p)) for p in sys.argv[1:])
 sys.exit(0 if before == after else "workflows differ")
 ' /tmp/before.yml .github/workflows/ci.yml
 ```
+
+The comparison reads PyYAML, a third-party package. Where `import yaml` raises
+`ModuleNotFoundError`, run the same script through
+`uv run --with pyyaml python -c` instead.
 
 `zizmor` 1.29 audits every alias site and prints each finding at the anchor's
 line. A finding repeated on one line describes a different job each time.
