@@ -28,17 +28,17 @@ exclude_path = [
   # does not lint them, and a link fixed here would be undone by the next
   # `vendir sync`. The same list lives in `.prettierignore`, in `exclude` in
   # `.rumdl.toml`, and in the empty-styles section in `.vale.ini`.
-  "ai/skills/retro",
-  "ai/skills/writing-for-agents",
-  "dev/skills/agent-browser",
-  "dev/skills/domain-modeling",
-  "dev/skills/gh-stack",
-  "dev/skills/grill-me",
-  "dev/skills/grill-with-docs",
-  "dev/skills/grilling",
-  "dev/skills/prek",
-  "other/skills/bro",
-  "other/skills/wait-what",
+  "plugins/retro/skills/retro",
+  "plugins/skill-authoring/skills/writing-for-agents",
+  "plugins/browser/skills/agent-browser",
+  "plugins/grilling/skills/domain-modeling",
+  "plugins/pull-requests/skills/gh-stack",
+  "plugins/grilling/skills/grill-me",
+  "plugins/grilling/skills/grill-with-docs",
+  "plugins/grilling/skills/grilling",
+  "plugins/toolchain/skills/prek",
+  "plugins/plain-language/skills/bro",
+  "plugins/plain-language/skills/wait-what",
   # Per-plugin changelogs that release-please generates. The bot writes the
   # links there from its own commit history, so a broken one is not something
   # a contributor can fix by hand.

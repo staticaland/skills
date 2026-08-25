@@ -1,12 +1,23 @@
 {
   "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/scripts/session-setup.sh"
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Write|Edit",
         "hooks": [
           {
             "type": "command",
-            "command": "python3 writing/hooks/vale_lint.py"
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/plugins/prose/hooks/vale_lint.py"
           }
         ]
       }

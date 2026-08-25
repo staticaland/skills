@@ -1,0 +1,8 @@
+{
+  "name": "plain-language",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Restate a message in plain human language, or ask for a re-pitch when it does not land"
+}
