@@ -13,7 +13,7 @@ version: 0.2.0
 A cooldown holds back package versions published less than N days ago, so
 researchers catch a compromised release before it reaches the project. An
 analysis of ten prominent supply-chain attacks found eight had exploitation
-windows under one week; a three-day cooldown would have blocked most of them.
+windows under one week. A three-day cooldown would have blocked most of them.
 
 A cooldown binds at **resolution** - the moment a version range becomes a
 concrete version. Installing from an existing lockfile resolves nothing, and an
