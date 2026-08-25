@@ -93,13 +93,16 @@ issues and pull requests.
 
 #### [github-actions](./plugins/github-actions/README.md)
 
-Run GitHub Actions workflow steps in parallel, and pin every action
-reference to a commit SHA on workflow edits.
+Run GitHub Actions workflow steps in parallel, name every workflow, job,
+and step, and pin every action reference to a commit SHA on workflow edits.
 
 - **[parallel-steps](./plugins/github-actions/skills/parallel-steps/SKILL.md)**
   (skill) - Makes GitHub Actions workflow steps run in parallel with the
   `background`, `wait`, `cancel`, and `parallel` keywords, written in ASD-STE100
   Simplified Technical English.
+- **[workflow-names](./plugins/github-actions/skills/workflow-names/SKILL.md)**
+  (skill) - Checks that every GitHub Actions workflow, job, and step has a
+  name, and writes the missing ones in imperative, sentence-case style.
 - **pinact** (hook) - Pins GitHub Actions references to full commit SHAs
   with [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes
   or edits workflow files. Requires the `pinact` CLI.
