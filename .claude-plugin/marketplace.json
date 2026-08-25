@@ -32,14 +32,14 @@
     {
       "name": "pull-requests",
       "source": "./plugins/pull-requests",
-      "description": "Open a GitHub pull request from the repository's own template, and manage stacked branches and pull requests with gh-stack",
+      "description": "Open a GitHub pull request from the repository's own template, manage stacked branches and pull requests with gh-stack, and attach images and videos to issues and pull requests",
       "version": "0.1.0",
       "category": "dev"
     },
     {
       "name": "github-actions",
       "source": "./plugins/github-actions",
-      "description": "Run GitHub Actions workflow steps in parallel, replace repeated workflow configuration with YAML anchors, and pin every action reference to a commit SHA on workflow edits",
+      "description": "Run GitHub Actions workflow steps in parallel, replace repeated workflow configuration with YAML anchors, name every workflow, job, and step, and pin every action reference to a commit SHA on workflow edits",
       "version": "0.1.0",
       "category": "dev"
     },

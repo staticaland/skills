@@ -1,8 +1,8 @@
 # github-actions
 
 Run GitHub Actions workflow steps in parallel, replace repeated workflow
-configuration with YAML anchors, and pin every action reference to a commit SHA
-on workflow edits.
+configuration with YAML anchors, name every workflow, job, and step, and pin
+every action reference to a commit SHA on workflow edits.
 
 ## Install
 
@@ -20,6 +20,9 @@ on workflow edits.
 - **[yaml-anchors](./skills/yaml-anchors/SKILL.md)** (skill) - Finds the
   configuration a workflow writes twice in the same file and replaces the
   identical copies with YAML anchors and aliases.
+- **[workflow-names](./skills/workflow-names/SKILL.md)** (skill) - Checks
+  that every GitHub Actions workflow, job, and step has a name, and writes the
+  missing ones in imperative, sentence-case style.
 
 ## Hooks
 

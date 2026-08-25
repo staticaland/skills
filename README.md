@@ -72,12 +72,17 @@ does not land.
 
 #### [pull-requests](./plugins/pull-requests/README.md)
 
-Open a GitHub pull request from the repository's own template, and manage
-stacked branches and pull requests with gh-stack.
+Open a GitHub pull request from the repository's own template, manage stacked
+branches and pull requests with gh-stack, and attach images and videos to
+issues and pull requests.
 
 - **[create-pr](./plugins/pull-requests/skills/create-pr/SKILL.md)**
   (skill) - Opens a GitHub pull request with `gh`, filling the repo's PR
   template or the skill's bundled one.
+- **[gh-attach](./plugins/pull-requests/skills/gh-attach/SKILL.md)**
+  (skill) - Uploads an image or video to a GitHub issue, pull request, or
+  comment with the `gh --attach` flag, and controls where it renders in the
+  body.
 - **[gh-stack](./plugins/pull-requests/skills/gh-stack/SKILL.md)**
   (skill) - Manages stacked branches and pull requests with the
   [gh-stack](https://github.com/github/gh-stack) GitHub CLI extension: create,
@@ -89,8 +94,8 @@ stacked branches and pull requests with gh-stack.
 #### [github-actions](./plugins/github-actions/README.md)
 
 Run GitHub Actions workflow steps in parallel, replace repeated workflow
-configuration with YAML anchors, and pin every action reference to a commit SHA
-on workflow edits.
+configuration with YAML anchors, name every workflow, job, and step, and pin
+every action reference to a commit SHA on workflow edits.
 
 - **[parallel-steps](./plugins/github-actions/skills/parallel-steps/SKILL.md)**
   (skill) - Makes GitHub Actions workflow steps run in parallel with the
@@ -99,6 +104,9 @@ on workflow edits.
 - **[yaml-anchors](./plugins/github-actions/skills/yaml-anchors/SKILL.md)**
   (skill) - Finds the configuration a workflow writes twice in the same file and
   replaces the identical copies with YAML anchors and aliases.
+- **[workflow-names](./plugins/github-actions/skills/workflow-names/SKILL.md)**
+  (skill) - Checks that every GitHub Actions workflow, job, and step has a
+  name, and writes the missing ones in imperative, sentence-case style.
 - **pinact** (hook) - Pins GitHub Actions references to full commit SHAs
   with [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes
   or edits workflow files. Requires the `pinact` CLI.
