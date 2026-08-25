@@ -12,10 +12,8 @@ version: 0.1.0
 
 GitHub Actions parses workflow YAML with anchors and aliases since
 [18 September 2025](https://github.blog/changelog/2025-09-18-actions-yaml-anchors-and-non-public-workflow-templates/).
-An anchor (`&name`) marks a node and an alias (`*name`) copies that node whole.
 GitHub rejects the merge key (`<<`), so an alias overrides nothing: a copy that
-differs by one key is out of an anchor's reach. An anchor also resolves inside
-one file.
+differs by one key is out of an anchor's reach.
 
 ## Procedure
 
@@ -38,9 +36,7 @@ different. Done when every repeated block has a site list and that verdict.
 ### 2. Identify anchor candidates
 
 Anchor a block of three lines or more that is identical across two or more sites
-in the same file. An alias to a one-line value saves one line and costs the
-reader a jump to the definition, so write that value out. A copy that differs by
-one key is out of an anchor's reach: leave it.
+in the same file.
 
 Done when each candidate has a verdict: anchor or leave.
 
@@ -55,14 +51,12 @@ cp .github/workflows/ci.yml /tmp/before.yml
 ```
 
 - **Define on the first copy.** Put `&name` on the first copy in document order
-  and `*name` on each later copy. The parser resolves an alias against an anchor
-  it has already read, so a definition under its own alias fails.
+  and `*name` on each later copy.
 - **Anchor configuration that is already doing a job.** A workflow accepts eight
   top-level keys - `name`, `run-name`, `on`, `permissions`, `env`, `defaults`,
   `concurrency`, and `jobs` - so a workflow has nowhere to park a block of
   definitions.
 - **Name the anchor after its content**, such as `&env_vars` or `&code_paths`.
-  A reorder of the file moves the definition to a different site.
 - **Alias whole nodes.** An alias replaces a node. It appends to no list and
   overrides no key.
 - **Keep the anchored expressions context-free.** An alias copies `${{ ... }}`
@@ -85,8 +79,7 @@ It reads anchors and aliases, and it reports a merge key by name:
 `GitHub Actions does not support YAML merge key "<<"`. A YAML library reports
 nothing there, because PyYAML follows YAML 1.1 and expands `<<` in silence.
 
-Then prove the rewrite didn't change behavior. The copy from step 3 and the new
-file expand to the same data, or the rewrite dropped something.
+Then prove the rewrite didn't change behavior.
 
 ```bash
 python3 -c '
@@ -96,8 +89,7 @@ sys.exit(0 if before == after else "workflows differ")
 ' /tmp/before.yml .github/workflows/ci.yml
 ```
 
-The comparison reads PyYAML, a third-party package. Where `import yaml` raises
-`ModuleNotFoundError`, run the same script through
+Where `import yaml` raises `ModuleNotFoundError`, run the same script through
 `uv run --with pyyaml python -c` instead.
 
 `zizmor` 1.29 audits every alias site and prints each finding at the anchor's
