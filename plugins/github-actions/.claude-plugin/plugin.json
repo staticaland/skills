@@ -4,5 +4,5 @@
   "author": {
     "name": "staticaland"
   },
-  "description": "Run GitHub Actions workflow steps in parallel, and pin every action reference to a commit SHA on workflow edits"
+  "description": "Run GitHub Actions workflow steps in parallel, name every workflow, job, and step, and pin every action reference to a commit SHA on workflow edits"
 }
