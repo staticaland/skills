@@ -16,12 +16,6 @@
       "category": "writing"
     },
     {
-<<<<<<< HEAD
-      "name": "dev",
-      "source": "./dev",
-      "description": "Automate browsers and Electron apps with the agent-browser CLI, pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, deny install-time script execution, manage stacked pull requests, open pull requests, attach images and videos to issues and pull requests, run Git hooks with prek, grill a plan until its design tree holds, look at a module with fresh eyes and keep the simplest redesigns that survive its constraints, and pin down a project's domain terms and decisions",
-      "version": "0.19.0",
-=======
       "name": "norsk",
       "source": "./plugins/norsk",
       "description": "Write and revise documentation in controlled technical Norwegian - klarspråk per NS-ISO 24495-1 with ASD-STE100 principles",
@@ -38,9 +32,8 @@
     {
       "name": "pull-requests",
       "source": "./plugins/pull-requests",
-      "description": "Open a GitHub pull request from the repository's own template, and manage stacked branches and pull requests with gh-stack",
+      "description": "Open a GitHub pull request from the repository's own template, manage stacked branches and pull requests with gh-stack, and attach images and videos to issues and pull requests",
       "version": "0.1.0",
->>>>>>> origin/main
       "category": "dev"
     },
     {
