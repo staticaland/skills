@@ -93,13 +93,17 @@ issues and pull requests.
 
 #### [github-actions](./plugins/github-actions/README.md)
 
-Run GitHub Actions workflow steps in parallel, name every workflow, job,
-and step, and pin every action reference to a commit SHA on workflow edits.
+Run GitHub Actions workflow steps in parallel, replace repeated workflow
+configuration with YAML anchors, name every workflow, job, and step, and pin
+every action reference to a commit SHA on workflow edits.
 
 - **[parallel-steps](./plugins/github-actions/skills/parallel-steps/SKILL.md)**
   (skill) - Makes GitHub Actions workflow steps run in parallel with the
   `background`, `wait`, `cancel`, and `parallel` keywords, written in ASD-STE100
   Simplified Technical English.
+- **[yaml-anchors](./plugins/github-actions/skills/yaml-anchors/SKILL.md)**
+  (skill) - Finds the configuration a workflow writes twice in the same file and
+  replaces the identical copies with YAML anchors and aliases.
 - **[workflow-names](./plugins/github-actions/skills/workflow-names/SKILL.md)**
   (skill) - Checks that every GitHub Actions workflow, job, and step has a
   name, and writes the missing ones in imperative, sentence-case style.

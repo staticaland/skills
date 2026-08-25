@@ -1,0 +1,5 @@
+interface:
+  display_name: "YAML Anchors"
+  short_description: "Replace repeated GitHub Actions configuration with YAML anchors"
+policy:
+  allow_implicit_invocation: true

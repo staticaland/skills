@@ -39,7 +39,7 @@
     {
       "name": "github-actions",
       "source": "./plugins/github-actions",
-      "description": "Run GitHub Actions workflow steps in parallel, name every workflow, job, and step, and pin every action reference to a commit SHA on workflow edits",
+      "description": "Run GitHub Actions workflow steps in parallel, replace repeated workflow configuration with YAML anchors, name every workflow, job, and step, and pin every action reference to a commit SHA on workflow edits",
       "version": "0.1.0",
       "category": "dev"
     },
