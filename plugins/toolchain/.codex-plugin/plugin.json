@@ -1,0 +1,8 @@
+{
+  "name": "toolchain",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Pin a project's tools to a mise toolchain, and run Git hooks with prek"
+}

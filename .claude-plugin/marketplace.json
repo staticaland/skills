@@ -9,31 +9,101 @@
   },
   "plugins": [
     {
-      "name": "writing",
-      "source": "./writing",
-      "description": "Add sourced footnotes, revise prose for clarity and busy readers, strip references the reader cannot see, write controlled technical Norwegian, and lint Markdown with Vale",
-      "version": "0.5.0",
+      "name": "prose",
+      "source": "./plugins/prose",
+      "description": "Revise prose for clarity and busy readers, add sourced footnotes, strip references the reader cannot see, and lint Markdown with Vale",
+      "version": "0.1.0",
       "category": "writing"
     },
     {
+<<<<<<< HEAD
       "name": "dev",
       "source": "./dev",
       "description": "Automate browsers and Electron apps with the agent-browser CLI, pin GitHub Actions to commit SHAs on workflow edits, parallelize workflow steps, set up dependency cooldowns, Renovate, and mise toolchains, freeze install commands to their lock files, deny install-time script execution, manage stacked pull requests, open pull requests, attach images and videos to issues and pull requests, run Git hooks with prek, grill a plan until its design tree holds, look at a module with fresh eyes and keep the simplest redesigns that survive its constraints, and pin down a project's domain terms and decisions",
       "version": "0.19.0",
+=======
+      "name": "norsk",
+      "source": "./plugins/norsk",
+      "description": "Write and revise documentation in controlled technical Norwegian - klarspråk per NS-ISO 24495-1 with ASD-STE100 principles",
+      "version": "0.1.0",
+      "category": "writing"
+    },
+    {
+      "name": "plain-language",
+      "source": "./plugins/plain-language",
+      "description": "Restate a message in plain human language, or ask for a re-pitch when it does not land",
+      "version": "0.1.0",
+      "category": "writing"
+    },
+    {
+      "name": "pull-requests",
+      "source": "./plugins/pull-requests",
+      "description": "Open a GitHub pull request from the repository's own template, and manage stacked branches and pull requests with gh-stack",
+      "version": "0.1.0",
+>>>>>>> origin/main
       "category": "dev"
     },
     {
-      "name": "ai",
-      "source": "./ai",
-      "description": "Analyze skills, prune no-op prose, refactor references, write documents for agents, and retrospect on a coding session to improve the environment the next one runs in",
-      "version": "0.5.0",
+      "name": "github-actions",
+      "source": "./plugins/github-actions",
+      "description": "Run GitHub Actions workflow steps in parallel, and pin every action reference to a commit SHA on workflow edits",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
+      "name": "dependencies",
+      "source": "./plugins/dependencies",
+      "description": "Hold new dependency releases for a cooldown, configure Renovate, freeze install commands to their lock files, and deny install-time script execution",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
+      "name": "toolchain",
+      "source": "./plugins/toolchain",
+      "description": "Pin a project's tools to a mise toolchain, and run Git hooks with prek",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
+      "name": "grilling",
+      "source": "./plugins/grilling",
+      "description": "Grill a plan until its design tree holds, and write the outcome up as domain terms and architecture decisions",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
+      "name": "fresh-eyes",
+      "source": "./plugins/fresh-eyes",
+      "description": "Look at a module with fresh eyes and keep the simplest redesigns that survive its constraints",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
+      "name": "browser",
+      "source": "./plugins/browser",
+      "description": "Drive Chrome, web apps, and Electron apps from the command line with the agent-browser CLI",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
+      "name": "skill-authoring",
+      "source": "./plugins/skill-authoring",
+      "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, and split broad references into focused files",
+      "version": "0.1.0",
       "category": "ai"
     },
     {
-      "name": "other",
-      "source": "./other",
-      "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles, and ask for a message again in plain language when it does not land",
-      "version": "0.5.0",
+      "name": "retro",
+      "source": "./plugins/retro",
+      "description": "Retrospect on a coding session to improve the environment the next one runs in",
+      "version": "0.1.0",
+      "category": "ai"
+    },
+    {
+      "name": "flashcards",
+      "source": "./plugins/flashcards",
+      "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles",
+      "version": "0.1.0",
       "category": "other"
     }
   ]

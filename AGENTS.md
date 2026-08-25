@@ -1,6 +1,6 @@
 # Skills Marketplace
 
-A multi-plugin Claude Code marketplace: every top-level plugin directory is an
+A multi-plugin Claude Code marketplace: every directory under `plugins/` is an
 independently installable plugin.
 
 Use the `write-skill` agent (`.github/agents/write-skill.agent.md`) for skill

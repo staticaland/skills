@@ -1,0 +1,8 @@
+{
+  "name": "prose",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Revise prose for clarity and busy readers, add sourced footnotes, strip references the reader cannot see, and lint Markdown with Vale"
+}
