@@ -27,6 +27,11 @@ npx skills add staticaland/skills --skill writing-revision
 Each plugin README lists the command for every available skill. The skills CLI
 does not install plugin hooks.
 
+Each plugin also has a `plugin.json` manifest at its root per the
+[Agent Plugins](https://agent-plugins.org/) specification, and its skills
+follow the [Agent Skills](https://agentskills.io/) format, so any client that
+supports those specifications can install the plugins too.
+
 ## Plugins
 
 ### `writing`
