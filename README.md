@@ -97,9 +97,8 @@ on workflow edits.
   `background`, `wait`, `cancel`, and `parallel` keywords, written in ASD-STE100
   Simplified Technical English.
 - **[yaml-anchors](./plugins/github-actions/skills/yaml-anchors/SKILL.md)**
-  (skill) - Finds the configuration a workflow writes twice, replaces the
-  identical in-file copies with YAML anchors and aliases, and routes the rest to
-  a matrix, composite action, reusable workflow, or workflow template.
+  (skill) - Finds the configuration a workflow writes twice in the same file and
+  replaces the identical copies with YAML anchors and aliases.
 - **pinact** (hook) - Pins GitHub Actions references to full commit SHAs
   with [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes
   or edits workflow files. Requires the `pinact` CLI.

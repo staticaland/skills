@@ -18,9 +18,8 @@ on workflow edits.
   `cancel`, and `parallel` keywords, written in ASD-STE100 Simplified Technical
   English.
 - **[yaml-anchors](./skills/yaml-anchors/SKILL.md)** (skill) - Finds the
-  configuration a workflow writes twice, replaces the identical in-file copies
-  with YAML anchors and aliases, and routes the rest to a matrix, composite
-  action, reusable workflow, or workflow template.
+  configuration a workflow writes twice in the same file and replaces the
+  identical copies with YAML anchors and aliases.
 
 ## Hooks
 

@@ -2,10 +2,9 @@
 name: yaml-anchors
 description:
   Replace repeated configuration in a GitHub Actions workflow with YAML anchors
-  and aliases, and route the duplication an alias cannot reach to a matrix,
-  composite action, reusable workflow, or workflow template. Use when the user
-  wants a shorter workflow, mentions YAML anchors, or writes the same env,
-  services, matrix, permissions, path filter, or steps in more than one job.
+  and aliases. Use when the user wants a shorter workflow, mentions YAML anchors,
+  or writes the same env, services, permissions, or path filter in more than one
+  job of the same file.
 version: 0.1.0
 ---
 
@@ -15,50 +14,35 @@ GitHub Actions parses workflow YAML with anchors and aliases since
 [18 September 2025](https://github.blog/changelog/2025-09-18-actions-yaml-anchors-and-non-public-workflow-templates/).
 An anchor (`&name`) marks a node and an alias (`*name`) copies that node whole.
 GitHub rejects the merge key (`<<`), so an alias overrides nothing: a copy that
-differs by one key is out of an anchor's reach.
-
-An anchor also resolves inside one file. Duplication that spans files belongs to
-a composite action, a reusable workflow, or a workflow template - the same
-changelog opened templates to non-public `.github` repositories.
+differs by one key is out of an anchor's reach. An anchor also resolves inside
+one file.
 
 ## Procedure
 
 ### 1. Inventory the repeated blocks
 
 Read every workflow in `.github/workflows/`. Find the configuration written more
-than once and record each copy's file, job, and key. These keys hold most of the
-duplication.
+than once in the same file and record each copy's file, job, and key. These keys
+hold most of the duplication.
 
 - `env` maps shared by jobs
 - `services` containers, such as a database or a cache
-- `strategy.matrix`
 - `permissions`
 - `paths`, `paths-ignore`, and `branches` filters under `on.push` and
   `on.pull_request`
 - `runs-on`, when it names a set of self-hosted labels
-- the run of steps that opens each job: checkout, toolchain setup, cache restore
-- a whole job
 
 Compare the copies of each block key by key and mark them identical or
 different. Done when every repeated block has a site list and that verdict.
 
-### 2. Route each block
+### 2. Identify anchor candidates
 
-| Repeated block                            | Sites           | Mechanism                                                        |
-| ----------------------------------------- | --------------- | ---------------------------------------------------------------- |
-| A value every job in the file needs       | 1 file          | workflow-level `env`                                             |
-| Identical copies                          | 1 file          | anchor and alias, in step 3                                      |
-| Copies that differ                        | 1 file          | `strategy.matrix` over the key that differs, or leave the copies |
-| A run of steps                            | 2+ files        | composite action                                                 |
-| A whole job                               | 2+ files        | reusable workflow                                                |
-| The workflow a new repository starts from | 2+ repositories | workflow template                                                |
+Anchor a block of three lines or more that is identical across two or more sites
+in the same file. An alias to a one-line value saves one line and costs the
+reader a jump to the definition, so write that value out. A copy that differs by
+one key is out of an anchor's reach: leave it.
 
-Anchor a block of three lines or more. An alias to a one-line value saves one
-line and costs the reader a jump to the definition, so write that value out.
-
-[references/reuse-mechanisms.md](references/reuse-mechanisms.md) covers every
-mechanism except the anchor. Read it before you write one. Done when every
-repeated block has a mechanism.
+Done when each candidate has a verdict: anchor or leave.
 
 ### 3. Anchor the identical blocks
 
@@ -119,7 +103,7 @@ The comparison reads PyYAML, a third-party package. Where `import yaml` raises
 `zizmor` 1.29 audits every alias site and prints each finding at the anchor's
 line. A finding repeated on one line describes a different job each time.
 
-Report the blocks that stay duplicated and the reason for each.
+Report the blocks that an anchor cannot reach and the reason for each.
 
 ## Example
 
@@ -155,5 +139,5 @@ jobs:
 ```
 
 [Reusing workflow configurations](https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations)
-is the source of truth for anchors, reusable workflows, and workflow templates.
-If a rule here disagrees with that page, obey the page.
+is the source of truth for anchors. If a rule here disagrees with that page,
+obey the page.
