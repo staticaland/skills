@@ -36,8 +36,7 @@ end
 
 Bundler **fails open**: it only holds back versions it can prove are too new, so
 releases with no `created_at` timestamp (older servers, v1-format registries,
-private gems) stay resolvable. See the
-[RubyGems announcement](https://blog.rubygems.org/2026/06/03/cooldown-let-new-gems-be-vetted.html).
+private gems) stay resolvable.
 
 The community-run [gem.coop](https://gem.coop) index is beta-testing a 48-hour
 registry-level delay on newly published gems.

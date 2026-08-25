@@ -11,9 +11,7 @@ version: 0.2.0
 # Dependency Cooldown
 
 A cooldown holds back package versions published less than N days ago, so
-researchers catch a compromised release before it reaches the project. An
-analysis of ten prominent supply-chain attacks found eight had exploitation
-windows under one week. A three-day cooldown would have blocked most of them.
+researchers catch a compromised release before it reaches the project.
 
 A cooldown binds at **resolution** - the moment a version range becomes a
 concrete version. Installing from an existing lockfile resolves nothing, and an
@@ -37,8 +35,7 @@ Then find the resolvers among the hits: update bot configs, CI workflows and
 Dockerfiles that install without a committed lockfile or run an update command,
 and tool-version managers.
 
-Single-file scripts declare dependencies inline instead of in a manifest, so no
-filename matches them. Add `git grep -ln '/// script'` for
+Add `git grep -ln '/// script'` for
 [PEP 723](https://peps.python.org/pep-0723/) Python scripts.
 
 Done when every manager in the repo appears in a list with its resolution sites,
@@ -107,10 +104,8 @@ Default to 3 days unless the user gives a constraint.
   fast-moving dependencies.
 
 Use one duration everywhere. Each tool takes it in its own unit - days, minutes,
-seconds, or ISO 8601 - and each reference gives the form per tool. Sibling
-managers in one ecosystem disagree: `npm` counts days where `pnpm` counts
-minutes and Bun counts seconds. Convert the duration into each tool's own unit.
-Do not copy the number across.
+seconds, or ISO 8601 - and each reference gives the form per tool. Convert the
+duration into each tool's own unit.
 
 ### 5. Write the config
 
@@ -119,16 +114,14 @@ containers, and teammates share the same gate.
 
 Beside each setting, add a comment naming that manager's **bypass** - the
 per-package escape hatch for an urgent security fix - and the reminder to revert
-it afterwards. A cooldown with no documented bypass gets deleted the first time
-it blocks a hotfix.
+it afterwards.
 
 Done when every uncovered resolution site from step 1 has a committed setting or
 a recorded reason it has none.
 
 ### 6. Verify enforcement
 
-Prove the gate is live instead of trusting that the file took effect. Read the
-setting back through the tool itself (`npm config get min-release-age`,
+Read the setting back through the tool itself (`npm config get min-release-age`,
 `poetry config solver.min-release-age`, `bundle config get cooldown`), then run
 one resolution in dry-run mode and confirm the tool holds back a version
 published inside the window.
