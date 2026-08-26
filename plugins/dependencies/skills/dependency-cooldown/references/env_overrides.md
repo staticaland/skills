@@ -7,15 +7,15 @@ variable and the committed setting does nothing, with no error. CI without the v
 the file, so the same command resolves differently on the two machines, and a
 verification run on the wrong machine passes for the wrong reason.
 
-| Variable                        | Tool                     | Against the committed setting                                          |
-| ------------------------------- | ------------------------ | ---------------------------------------------------------------------- |
-| `UV_EXCLUDE_NEWER`              | `uv`                     | Wins over `exclude-newer` in `pyproject.toml` and `uv.toml`            |
-| `PIP_UPLOADED_PRIOR_TO`         | `pip`, pip-tools, `pipenv` | Wins over `uploaded-prior-to` at every `pip.conf` level              |
-| `POETRY_SOLVER_MIN_RELEASE_AGE` | Poetry                   | Wins over `solver.min-release-age` in config files                     |
-| `npm_config_min_release_age`    | `npm`                    | Wins over `min-release-age` in the project `.npmrc`                    |
-| `YARN_NPM_MINIMAL_AGE_GATE`     | Yarn                     | Wins over `npmMinimalAgeGate` in `.yarnrc.yml`                         |
-| `BUNDLE_COOLDOWN`               | Bundler                  | **Loses** to a committed `.bundle/config`; wins over the global config |
-| `COOLDOWN_MINUTES`              | cargo-cooldown           | No conflict - the variable is the only place the duration lives        |
+| Variable                        | Tool                       | Against the committed setting                                          |
+| ------------------------------- | -------------------------- | ---------------------------------------------------------------------- |
+| `UV_EXCLUDE_NEWER`              | `uv`                       | Wins over `exclude-newer` in `pyproject.toml` and `uv.toml`            |
+| `PIP_UPLOADED_PRIOR_TO`         | `pip`, pip-tools, `pipenv` | Wins over `uploaded-prior-to` at every `pip.conf` level                |
+| `POETRY_SOLVER_MIN_RELEASE_AGE` | Poetry                     | Wins over `solver.min-release-age` in config files                     |
+| `npm_config_min_release_age`    | `npm`                      | Wins over `min-release-age` in the project `.npmrc`                    |
+| `YARN_NPM_MINIMAL_AGE_GATE`     | Yarn                       | Wins over `npmMinimalAgeGate` in `.yarnrc.yml`                         |
+| `BUNDLE_COOLDOWN`               | Bundler                    | **Loses** to a committed `.bundle/config`; wins over the global config |
+| `COOLDOWN_MINUTES`              | cargo-cooldown             | No conflict - the variable is the only place the duration lives        |
 
 Shell wrappers shadow the same way: `cooldowns.sh` installs a `pip` function
 and `deno` aliases that inject a CLI flag, and a flag outranks even the
