@@ -25,7 +25,9 @@ variables. `type pip deno` exposes them.
 
 Leave the user's environment alone - it is their machine-wide gate and may be
 deliberate. Warn instead: show the variable's value next to the committed one
-and say which of the two this machine obeys. CI has no such variable and reads
-only the committed file. A difference in either direction misleads - a longer
+and say which of the two this machine obeys. Say what CI obeys only after
+looking - workflows and images export these variables too, as
+[containers.md](containers.md) recommends - so grep the workflow files and
+Dockerfiles for the same names. A difference in either direction misleads - a longer
 window in the environment adds friction the repo never asked for, a shorter one
 weakens the gate the repo promises.
