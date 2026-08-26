@@ -126,6 +126,18 @@ Read the setting back through the tool itself (`npm config get min-release-age`,
 one resolution in dry-run mode and confirm the tool holds back a version
 published inside the window.
 
+A user-wide environment variable can outrank the file you committed, so
+this machine obeys a value the repo never sees - and the read-back above
+reports the variable as if the file worked. Check for one:
+
+```bash
+env | grep -iE '^(UV_EXCLUDE_NEWER|PIP_UPLOADED_PRIOR_TO|POETRY_SOLVER_MIN_RELEASE_AGE|npm_config_min_release_age|YARN_NPM_MINIMAL_AGE_GATE|BUNDLE_COOLDOWN|COOLDOWN_MINUTES)='
+```
+
+On a hit that differs from the committed value, read
+[env_overrides.md](references/env_overrides.md) for which side wins per tool and
+what to warn the user.
+
 Done when every manager from step 1 shows an observed hold-back or a stated
 reason verification was impossible.
 
