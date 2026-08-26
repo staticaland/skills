@@ -14,10 +14,9 @@ cooldowns.sh set uv "3 days"
 cooldowns.sh set npm 7d
 ```
 
-Each `set` writes **user-wide** configuration. It edits no project file, but
-the environment-variable rows below outrank a project config in every shell
-that sources them - [env_overrides.md](env_overrides.md) maps which side wins
-per tool:
+Each `set` writes **user-wide** configuration. It edits no project file, but an
+exported variable can still outrank a committed project config - which side
+wins differs per tool, and [env_overrides.md](env_overrides.md) maps it:
 
 | Tool      | Method                                                        | Location                                       |
 | --------- | ------------------------------------------------------------- | ---------------------------------------------- |
