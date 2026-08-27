@@ -45,8 +45,8 @@ references the reader cannot see, and lint Markdown with Vale.
   (skill) - Makes text clear, scannable, and action-oriented for busy
   readers.
 - **[Auto-cite Factual Claims](./plugins/prose/skills/auto-cite-factual-claims/SKILL.md)**
-  (skill) - Finds web sources for factual claims and adds them as
-  Markdown footnotes.
+  (skill) - Finds web sources for the factual claims a document rests
+  on and adds them as Markdown footnotes.
 - **[standalone](./plugins/prose/skills/standalone/SKILL.md)** (skill) -
   Strips references the reader cannot see - "as discussed", "the old
   handler" - from prose and code comments.
