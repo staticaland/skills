@@ -67,6 +67,8 @@ $^ https://prek.j178.dev/
 prek
 $^ https://docs.astral.sh/uv/
 uv
+$^ https://github.com/cursor/plugins/tree/main/pstack/skills/unslop
+unslop
 $^ English technical terms not in Vale's dictionary
 ADRs
 [Aa]llowlists?
