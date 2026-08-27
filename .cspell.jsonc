@@ -1,0 +1,58 @@
+{
+  // Configuration file for `cspell`, a spell checker for source and prose.
+  // See https://cspell.org for more information.
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "dictionaryDefinitions": [
+    {
+      "name": "project-words",
+      "path": "./.cspell/project-words.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": ["project-words", "softwareTerms", "typescript", "python", "bash", "node", "npm", "html", "css", "fonts", "filetypes"],
+  "ignorePaths": [
+    ".git/",
+    ".vale/",
+    "tmp/",
+    "*/CHANGELOG.md",
+    "mise.lock",
+    "vendir.lock.yml",
+    // Skills vendored by vendir. Upstream writes these files, so this
+    // repository does not lint them. The same list lives in
+    // `.prettierignore`, `.rumdl.toml`, `.editorconfig-checker.json`, and the
+    // empty-styles section in `.vale.ini`.
+    "ai/skills/writing-for-agents/",
+    "dev/skills/agent-browser/",
+    "dev/skills/domain-modeling/",
+    "dev/skills/gh-stack/",
+    "dev/skills/grill-me/",
+    "dev/skills/grill-with-docs/",
+    "dev/skills/grilling/",
+    "dev/skills/prek/",
+    "other/skills/bro/",
+    "other/skills/wait-what/",
+    // The local installs of the vendored `writing-for-agents` skill: the same
+    // upstream prose as `ai/skills/writing-for-agents`, only rewrapped, so
+    // they are ignored here for the same reason. `.vale.ini` exempts them too.
+    ".claude/skills/writing-for-agents/",
+    ".agents/skills/writing-for-agents/",
+    // Norwegian prose. The English dictionaries have nothing true to say
+    // about it, and a Norwegian dictionary would have to be vendored to
+    // check it properly.
+    "writing/skills/kontrollert-norsk/"
+  ],
+  "ignoreRegExpList": [
+    // Fenced code blocks and inline code: identifiers, flags, and package
+    // names are not prose, and the vocabulary is unbounded.
+    "/^\\s*```[\\s\\S]*?^\\s*```/gm",
+    "/`[^`\\n]+`/g",
+    // Link targets and bare URLs.
+    "/\\]\\([^)]*\\)/g",
+    "/https?:\\/\\/\\S+/g",
+    // YAML frontmatter keys that hold identifiers rather than prose.
+    "/^(allowed-tools|argument-hint|model|name):.*$/gm"
+  ],
+  "useGitignore": true
+}

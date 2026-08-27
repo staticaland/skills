@@ -30,6 +30,18 @@ checksum = "sha256:e136160aa642231c6eb1df25cbe3e57e5f3848ac0a7e7de57bbc3249fdbd8
 url = "https://github.com/carvel-dev/vendir/releases/download/v0.46.0/vendir-darwin-arm64"
 url_api = "https://api.github.com/repos/carvel-dev/vendir/releases/assets/441967028"
 
+[[tools."aqua:editorconfig-checker/editorconfig-checker"]]
+version = "3.11.1"
+backend = "aqua:editorconfig-checker/editorconfig-checker"
+
+[tools."aqua:editorconfig-checker/editorconfig-checker"."platforms.linux-x64"]
+checksum = "sha256:5a37922963248451e88149251e49f6ae08f69717a3918202a51fe9945e19691e"
+url = "https://github.com/editorconfig-checker/editorconfig-checker/releases/download/v3.11.1/ec-linux-amd64.tar.gz"
+
+[tools."aqua:editorconfig-checker/editorconfig-checker"."platforms.macos-arm64"]
+checksum = "sha256:69205598fe8b26677d31194c5c9fdf7e8be321909ffb3c99efb5c9e4e648583e"
+url = "https://github.com/editorconfig-checker/editorconfig-checker/releases/download/v3.11.1/ec-darwin-arm64.tar.gz"
+
 [[tools."aqua:errata-ai/vale"]]
 version = "3.17.1"
 backend = "aqua:errata-ai/vale"
@@ -114,6 +126,18 @@ url = "https://github.com/rvben/rumdl/releases/download/v0.2.58/rumdl-v0.2.58-aa
 url_api = "https://api.github.com/repos/rvben/rumdl/releases/assets/521255433"
 provenance = "github-attestations"
 
+[[tools."aqua:tombi-toml/tombi"]]
+version = "1.3.3"
+backend = "aqua:tombi-toml/tombi"
+
+[tools."aqua:tombi-toml/tombi"."platforms.linux-x64"]
+checksum = "sha256:768b8a8fc8eab01d2a65b100eb8db8da6297a0ba3d076ece65a99a74e69e1bb0"
+url = "https://github.com/tombi-toml/tombi/releases/download/v1.3.3/tombi-cli-1.3.3-x86_64-unknown-linux-musl.tar.gz"
+
+[tools."aqua:tombi-toml/tombi"."platforms.macos-arm64"]
+checksum = "sha256:2160de191f65ab2acac1e040ba60f2a7705f9f6cd240c8fe50eff718b16f9712"
+url = "https://github.com/tombi-toml/tombi/releases/download/v1.3.3/tombi-cli-1.3.3-aarch64-apple-darwin.tar.gz"
+
 [[tools."aqua:zizmorcore/zizmor"]]
 version = "1.29.0"
 backend = "aqua:zizmorcore/zizmor"
@@ -141,6 +165,10 @@ url = "https://nodejs.org/dist/v24.19.0/node-v24.19.0-linux-x64.tar.gz"
 [tools.node."platforms.macos-arm64"]
 checksum = "sha256:8294b7aa9b03997481c06babf1e8b270c859358f27da57a11509afe537ac381d"
 url = "https://nodejs.org/dist/v24.19.0/node-v24.19.0-darwin-arm64.tar.gz"
+
+[[tools."npm:cspell"]]
+version = "10.0.1"
+backend = "npm:cspell"
 
 [[tools."npm:prettier"]]
 version = "3.9.6"

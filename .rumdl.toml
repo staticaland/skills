@@ -1,5 +1,8 @@
 # Configuration file for `rumdl`, a markdown linter written in Rust.
 # See https://github.com/rvben/rumdl for more information.
+#:tombi schema.strict = false
+# Strict mode off: rumdl's schemastore entry omits `respect_gitignore`, which
+# rumdl itself supports, so tombi would flag a valid key.
 
 [global]
 disable = [
@@ -12,7 +15,8 @@ exclude = [
   ".vale",
   "tmp",
   # Skills vendored by vendir. Upstream writes these files, so this repository
-  # does not lint them. The same list lives in `.prettierignore` and in the
+  # does not lint them. The same list lives in `.prettierignore`,
+  # `lychee.toml`, `.editorconfig-checker.json`, `.cspell.jsonc`, and the
   # empty-styles section in `.vale.ini`.
   "plugins/retro/skills/retro",
   "plugins/skill-authoring/skills/writing-for-agents",
