@@ -20,6 +20,8 @@ references the reader cannot see, and lint Markdown with Vale.
 - **[standalone](./skills/standalone/SKILL.md)** (skill) - Strips
   references the reader cannot see - "as discussed", "the old
   handler" - from prose and code comments.
+- **[unslop](./skills/unslop/SKILL.md)** (skill) - Cuts AI tells from any
+  writing and adds human voice.
 
 ## Hooks
 

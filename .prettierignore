@@ -13,6 +13,7 @@ plugins/grilling/skills/grilling/
 plugins/toolchain/skills/prek/
 plugins/plain-language/skills/bro/
 plugins/plain-language/skills/wait-what/
+plugins/prose/skills/unslop/
 
 # Pull request templates. Their prose is one paragraph per line, because GitHub
 # reflows the markdown and a hard wrap only makes the description awkward to

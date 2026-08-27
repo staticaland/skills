@@ -88,4 +88,10 @@ directories:
             - v1.2.3-39-g6654f6b
         path: .
     path: plugins/retro/skills/retro
+  - contents:
+      - git:
+          commitTitle: "Merge pull request #276 from cursor/cursor/microsoft-plugins-fe9b..."
+          sha: fdf357fae76feff7e5f2e5aaff57f99f644b55f8
+        path: .
+    path: plugins/prose/skills/unslop
 kind: LockConfig
