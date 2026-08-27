@@ -1,7 +1,8 @@
 # prose
 
 Revise prose for clarity and busy readers, add sourced footnotes, strip
-references the reader cannot see, and lint Markdown with Vale.
+references the reader cannot see, cut AI tells from any writing, and lint
+Markdown with Vale.
 
 ## Install
 

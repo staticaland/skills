@@ -39,7 +39,8 @@ supports those specifications can install the plugins too.
 #### [prose](./plugins/prose/README.md)
 
 Revise prose for clarity and busy readers, add sourced footnotes, strip
-references the reader cannot see, and lint Markdown with Vale.
+references the reader cannot see, cut AI tells from any writing, and lint
+Markdown with Vale.
 
 - **[writing-revision](./plugins/prose/skills/writing-revision/SKILL.md)**
   (skill) - Makes text clear, scannable, and action-oriented for busy
