@@ -11,7 +11,7 @@
     {
       "name": "prose",
       "source": "./plugins/prose",
-      "description": "Revise prose for clarity and busy readers, add sourced footnotes, strip references the reader cannot see, and lint Markdown with Vale",
+      "description": "Revise prose for clarity and busy readers, add sourced footnotes, strip references the reader cannot see, cut AI tells from any writing, and lint Markdown with Vale",
       "version": "0.2.0",
       "category": "writing"
     },
