@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/staticaland/skills/compare/dependencies-v0.2.0...dependencies-v0.3.0) (2026-08-27)
+
+
+### Features
+
+* **dependencies:** warn when a cooldown env variable outranks project config ([#147](https://github.com/staticaland/skills/issues/147)) ([f47e86b](https://github.com/staticaland/skills/commit/f47e86ba9d44e162859544713c1ca6d0d9a3737a))
+
 ## [0.2.0](https://github.com/staticaland/skills/compare/dependencies-v0.1.0...dependencies-v0.2.0) (2026-08-25)
 
 
