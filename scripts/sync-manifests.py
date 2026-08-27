@@ -7,9 +7,14 @@ that repeat them:
 
   - the plugin's entry in .claude-plugin/marketplace.json
   - the plugin's .codex-plugin/plugin.json, when that directory exists
+  - the plugin's root plugin.json, the Agent Plugins manifest
+    (https://agent-plugins.org/), which is the source manifest plus the
+    required $schema field
 
 marketplace.json stays the curated list of published plugins: the script
 never adds or removes entries, it only refreshes version and description.
+The per-plugin derived files cover every plugin under plugins/, including
+drafts that marketplace.json omits on purpose.
 
 Usage:
   sync-manifests.py          Rewrite the derived files in place.
@@ -22,15 +27,40 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
+AGENT_PLUGIN_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 
 
 def dumps(data):
     return json.dumps(data, indent=2, ensure_ascii=False) + "\n"
 
 
+def sync_plugin_files(plugin_dir, stale, check):
+    manifest_path = plugin_dir / ".claude-plugin" / "plugin.json"
+    manifest = json.loads(manifest_path.read_text())
+
+    codex_path = plugin_dir / ".codex-plugin" / "plugin.json"
+    if codex_path.parent.is_dir():
+        want = manifest_path.read_text()
+        if not codex_path.is_file() or codex_path.read_text() != want:
+            stale.append(codex_path)
+            if not check:
+                codex_path.write_text(want)
+
+    agent_plugin_path = plugin_dir / "plugin.json"
+    want = dumps({"$schema": AGENT_PLUGIN_SCHEMA, **manifest})
+    if not agent_plugin_path.is_file() or agent_plugin_path.read_text() != want:
+        stale.append(agent_plugin_path)
+        if not check:
+            agent_plugin_path.write_text(want)
+
+
 def main():
     check = "--check" in sys.argv[1:]
     stale = []
+
+    for plugin_dir in sorted((ROOT / "plugins").iterdir()):
+        if (plugin_dir / ".claude-plugin" / "plugin.json").is_file():
+            sync_plugin_files(plugin_dir, stale, check)
 
     marketplace = json.loads(MARKETPLACE.read_text())
     for entry in marketplace["plugins"]:
@@ -50,14 +80,6 @@ def main():
             )
         entry["version"] = manifest["version"]
         entry["description"] = manifest["description"]
-
-        codex_path = plugin_dir / ".codex-plugin" / "plugin.json"
-        if codex_path.parent.is_dir():
-            want = manifest_path.read_text()
-            if not codex_path.is_file() or codex_path.read_text() != want:
-                stale.append(codex_path)
-                if not check:
-                    codex_path.write_text(want)
 
     want = dumps(marketplace)
     if MARKETPLACE.read_text() != want:

@@ -1,0 +1,8 @@
+{
+  "name": "browser",
+  "version": "0.2.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Drive Chrome, web apps, and Electron apps from the command line with the agent-browser CLI"
+}

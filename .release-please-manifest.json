@@ -1,6 +1,15 @@
 {
-  "ai": "0.5.0",
-  "dev": "0.19.0",
-  "other": "0.5.0",
-  "writing": "0.5.0"
+  "plugins/browser": "0.2.0",
+  "plugins/dependencies": "0.2.0",
+  "plugins/flashcards": "0.2.0",
+  "plugins/fresh-eyes": "0.2.0",
+  "plugins/github-actions": "0.2.0",
+  "plugins/grilling": "0.2.0",
+  "plugins/norsk": "0.2.0",
+  "plugins/plain-language": "0.2.0",
+  "plugins/prose": "0.2.0",
+  "plugins/pull-requests": "0.2.0",
+  "plugins/retro": "0.2.0",
+  "plugins/skill-authoring": "0.2.0",
+  "plugins/toolchain": "0.2.0"
 }

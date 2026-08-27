@@ -1,0 +1,8 @@
+{
+  "name": "skill-authoring",
+  "version": "0.2.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, and split broad references into focused files"
+}
