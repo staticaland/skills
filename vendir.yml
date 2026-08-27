@@ -19,7 +19,7 @@
 apiVersion: vendir.k14s.io/v1alpha1
 kind: Config
 directories:
-  - path: other/skills/bro
+  - path: plugins/plain-language/skills/bro
     contents:
       - path: .
         git:
@@ -30,7 +30,7 @@ directories:
         ignorePaths:
           - UPSTREAM.md
         newRootPath: home/.agents/skills/bro
-  - path: ai/skills/writing-for-agents
+  - path: plugins/skill-authoring/skills/writing-for-agents
     contents:
       - path: .
         git:
@@ -42,7 +42,19 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/productivity/writing-for-agents
-  - path: dev/skills/agent-browser
+  - path: plugins/retro/skills/retro
+    contents:
+      - path: .
+        git:
+          url: https://github.com/mattpocock/skills
+          ref: 6654f6b60cd9d5be8b54c6fafe44346dabeb3b76
+        includePaths:
+          - skills/in-progress/retro/**/*
+        ignorePaths:
+          - LICENSE
+          - UPSTREAM.md
+        newRootPath: skills/in-progress/retro
+  - path: plugins/browser/skills/agent-browser
     contents:
       - path: .
         git:
@@ -53,7 +65,7 @@ directories:
         ignorePaths:
           - UPSTREAM.md
         newRootPath: skills/agent-browser
-  - path: dev/skills/domain-modeling
+  - path: plugins/grilling/skills/domain-modeling
     contents:
       - path: .
         git:
@@ -65,7 +77,7 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/engineering/domain-modeling
-  - path: dev/skills/grill-with-docs
+  - path: plugins/grilling/skills/grill-with-docs
     contents:
       - path: .
         git:
@@ -77,7 +89,7 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/engineering/grill-with-docs
-  - path: dev/skills/gh-stack
+  - path: plugins/pull-requests/skills/gh-stack
     contents:
       - path: .
         git:
@@ -89,7 +101,7 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/gh-stack
-  - path: dev/skills/grill-me
+  - path: plugins/grilling/skills/grill-me
     contents:
       - path: .
         git:
@@ -101,7 +113,7 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/productivity/grill-me
-  - path: dev/skills/grilling
+  - path: plugins/grilling/skills/grilling
     contents:
       - path: .
         git:
@@ -113,7 +125,7 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/productivity/grilling
-  - path: dev/skills/prek
+  - path: plugins/toolchain/skills/prek
     contents:
       - path: .
         git:
@@ -124,7 +136,7 @@ directories:
         ignorePaths:
           - UPSTREAM.md
         newRootPath: skills/prek
-  - path: other/skills/wait-what
+  - path: plugins/plain-language/skills/wait-what
     contents:
       - path: .
         git:

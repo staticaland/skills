@@ -1,8 +1,0 @@
-{
-  "name": "other",
-  "version": "0.5.0",
-  "author": {
-    "name": "staticaland"
-  },
-  "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles, and ask for a message again in plain language when it does not land"
-}

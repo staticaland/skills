@@ -17,19 +17,20 @@ exclude = [
   # Skills vendored by vendir. Upstream writes these files, so this repository
   # does not lint them. The same list lives in `.prettierignore` and in the
   # empty-styles section in `.vale.ini`.
-  "ai/skills/writing-for-agents",
-  "dev/skills/agent-browser",
-  "dev/skills/domain-modeling",
-  "dev/skills/gh-stack",
-  "dev/skills/grill-me",
-  "dev/skills/grill-with-docs",
-  "dev/skills/grilling",
-  "dev/skills/prek",
-  "other/skills/bro",
-  "other/skills/wait-what",
+  "plugins/retro/skills/retro",
+  "plugins/skill-authoring/skills/writing-for-agents",
+  "plugins/browser/skills/agent-browser",
+  "plugins/grilling/skills/domain-modeling",
+  "plugins/pull-requests/skills/gh-stack",
+  "plugins/grilling/skills/grill-me",
+  "plugins/grilling/skills/grill-with-docs",
+  "plugins/grilling/skills/grilling",
+  "plugins/toolchain/skills/prek",
+  "plugins/plain-language/skills/bro",
+  "plugins/plain-language/skills/wait-what",
   # Per-plugin changelogs that release-please generates - bot output, not
   # hand-written prose.
-  "*/CHANGELOG.md",
+  "plugins/*/CHANGELOG.md",
 ]
 
 # The pull request template opens at level 2: GitHub renders the pull
@@ -37,7 +38,7 @@ exclude = [
 # would repeat it.
 [per-file-ignores]
 ".github/PULL_REQUEST_TEMPLATE.md" = ["MD041"]
-"dev/skills/create-pr/references/pr-template.md" = ["MD041"]
+"plugins/pull-requests/skills/create-pr/references/pr-template.md" = ["MD041"]
 
 [MD003]
 style = "atx"

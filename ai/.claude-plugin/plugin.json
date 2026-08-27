@@ -1,8 +1,0 @@
-{
-  "name": "ai",
-  "version": "0.5.0",
-  "author": {
-    "name": "staticaland"
-  },
-  "description": "Analyze skills, prune no-op prose, refactor references, and write documents for agents"
-}

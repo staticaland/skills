@@ -2,16 +2,17 @@
 # does not format or lint them, and a reformat would be undone by the next
 # `vendir sync`. The same list lives in `.rumdl.toml` and in the empty-styles
 # section in `.vale.ini`.
-ai/skills/writing-for-agents/
-dev/skills/agent-browser/
-dev/skills/domain-modeling/
-dev/skills/gh-stack/
-dev/skills/grill-me/
-dev/skills/grill-with-docs/
-dev/skills/grilling/
-dev/skills/prek/
-other/skills/bro/
-other/skills/wait-what/
+plugins/retro/skills/retro/
+plugins/skill-authoring/skills/writing-for-agents/
+plugins/browser/skills/agent-browser/
+plugins/grilling/skills/domain-modeling/
+plugins/pull-requests/skills/gh-stack/
+plugins/grilling/skills/grill-me/
+plugins/grilling/skills/grill-with-docs/
+plugins/grilling/skills/grilling/
+plugins/toolchain/skills/prek/
+plugins/plain-language/skills/bro/
+plugins/plain-language/skills/wait-what/
 
 # Pull request templates. Their prose is one paragraph per line, because GitHub
 # reflows the markdown and a hard wrap only makes the description awkward to
@@ -19,8 +20,8 @@ other/skills/wait-what/
 # guards against a later config change. rumdl disables `MD013` (line length)
 # for the whole repository in `.rumdl.toml`.
 .github/PULL_REQUEST_TEMPLATE.md
-dev/skills/create-pr/references/pr-template.md
+plugins/pull-requests/skills/create-pr/references/pr-template.md
 
 # Per-plugin changelogs that release-please generates. The bot's markdown is
 # not prettier-shaped, and reformatting it would churn every release PR.
-*/CHANGELOG.md
+plugins/*/CHANGELOG.md

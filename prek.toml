@@ -36,6 +36,16 @@ verbose = true
 priority = 0
 stages = ["pre-commit", "commit-msg"]
 
+# Scans the whole working tree, not just the staged files, so a `prek run
+# --all-files` in CI covers the same ground as a commit does.
+[[repos.hooks]]
+id = "gitleaks"
+name = "gitleaks"
+entry = "mise exec -- gitleaks dir . --no-banner --redact --verbose"
+language = "system"
+pass_filenames = false
+always_run = true
+
 [[repos.hooks]]
 id = "prettier"
 name = "prettier"
@@ -46,7 +56,11 @@ files = '\.(json|md|ya?ml)$'
 [[repos.hooks]]
 id = "rumdl"
 name = "rumdl"
-entry = "mise exec -- rumdl check"
+# `--no-cache`: rumdl keys a cached verdict to the linted file's own
+# content, and MD057 (relative link exists) reads other files. Adding the
+# target of a link leaves the stale verdict in place, so a correct document
+# keeps failing until the cache is deleted.
+entry = "mise exec -- rumdl check --no-cache"
 language = "system"
 files = '\.md$'
 
