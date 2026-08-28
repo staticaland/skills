@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.0](https://github.com/staticaland/skills/compare/prose-v0.3.0...prose-v0.4.0) (2026-08-28)
+
+
+### Features
+
+* **prose:** cite claims the user names or the argument rests on ([490984d](https://github.com/staticaland/skills/commit/490984de3f04a4224d67011a8a1ea375d6499bd6))
+* **prose:** vendor the unslop skill from cursor/plugins ([a4983fe](https://github.com/staticaland/skills/commit/a4983fe665bf718cca0d2262e797193ceb1827b7))
+
 ## [0.3.0](https://github.com/staticaland/skills/compare/prose-v0.2.0...prose-v0.3.0) (2026-08-27)
 
 
