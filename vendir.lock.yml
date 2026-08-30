@@ -1,97 +1,96 @@
 apiVersion: vendir.k14s.io/v1alpha1
 directories:
-  - contents:
-      - git:
-          commitTitle: updates
-          sha: cdba491f1f9c952979af37f15e4c3efb26f625df
-        path: .
-    path: plugins/plain-language/skills/bro
-  - contents:
-      - git:
-          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
-          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-          tags:
-            - v1.2.3-2-g84fdeff
-        path: .
-    path: plugins/skill-authoring/skills/writing-for-agents
-  - contents:
-      - git:
-          commitTitle: Prepare v0.34.0 release (#1678)
-          sha: 548b159b30eef119ccf6846c8bc807d0eaa3f6f8
-          tags:
-            - v0.34.0
-        path: .
-    path: plugins/browser/skills/agent-browser
-  - contents:
-      - git:
-          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
-          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-          tags:
-            - v1.2.3-2-g84fdeff
-        path: .
-    path: plugins/grilling/skills/domain-modeling
-  - contents:
-      - git:
-          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
-          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-          tags:
-            - v1.2.3-2-g84fdeff
-        path: .
-    path: plugins/grilling/skills/grill-with-docs
-  - contents:
-      - git:
-          commitTitle: Improve skill efficiency and performance (#388)...
-          sha: 14fc42ed9b6c376a53b2f999f138d3bd26dac546
-          tags:
-            - v0.1.0-2-g14fc42e
-        path: .
-    path: plugins/pull-requests/skills/gh-stack
-  - contents:
-      - git:
-          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
-          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-          tags:
-            - v1.2.3-2-g84fdeff
-        path: .
-    path: plugins/grilling/skills/grill-me
-  - contents:
-      - git:
-          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
-          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-          tags:
-            - v1.2.3-2-g84fdeff
-        path: .
-    path: plugins/grilling/skills/grilling
-  - contents:
-      - git:
-          commitTitle: "Merge pull request #788 from mattpocock/grill-me-align..."
-          sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
-          tags:
-            - v1.2.3-2-g84fdeff
-        path: .
-    path: plugins/plain-language/skills/wait-what
-  - contents:
-      - git:
-          commitTitle: Simplify hook construction (#2572)...
-          sha: 8f3ff02f567130737685589f039074ca023900e9
-          tags:
-            - v0.4.14-2-g8f3ff02f
-        path: .
-    path: plugins/toolchain/skills/prek
-  - contents:
-      - git:
-          commitTitle:
-            "feat: add 'Information access' category to retrospective skill
-            for improved agent insights"
-          sha: 6654f6b60cd9d5be8b54c6fafe44346dabeb3b76
-          tags:
-            - v1.2.3-39-g6654f6b
-        path: .
-    path: plugins/retro/skills/retro
-  - contents:
-      - git:
-          commitTitle: "Merge pull request #276 from cursor/cursor/microsoft-plugins-fe9b..."
-          sha: fdf357fae76feff7e5f2e5aaff57f99f644b55f8
-        path: .
-    path: plugins/prose/skills/unslop
+- contents:
+  - git:
+      commitTitle: updates
+      sha: cdba491f1f9c952979af37f15e4c3efb26f625df
+    path: .
+  path: plugins/plain-language/skills/bro
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
+      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+      tags:
+      - v1.2.3-2-g84fdeff
+    path: .
+  path: plugins/skill-authoring/skills/writing-for-agents
+- contents:
+  - git:
+      commitTitle: 'feat: add ''Information access'' category to retrospective skill
+        for improved agent insights'
+      sha: 6654f6b60cd9d5be8b54c6fafe44346dabeb3b76
+      tags:
+      - v1.2.3-39-g6654f6b
+    path: .
+  path: plugins/retro/skills/retro
+- contents:
+  - git:
+      commitTitle: Prepare v0.34.0 release (#1678)
+      sha: 548b159b30eef119ccf6846c8bc807d0eaa3f6f8
+      tags:
+      - v0.34.0
+    path: .
+  path: plugins/browser/skills/agent-browser
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
+      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+      tags:
+      - v1.2.3-2-g84fdeff
+    path: .
+  path: plugins/grilling/skills/domain-modeling
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
+      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+      tags:
+      - v1.2.3-2-g84fdeff
+    path: .
+  path: plugins/grilling/skills/grill-with-docs
+- contents:
+  - git:
+      commitTitle: Improve skill efficiency and performance (#388)...
+      sha: 14fc42ed9b6c376a53b2f999f138d3bd26dac546
+      tags:
+      - v0.1.0-2-g14fc42e
+    path: .
+  path: plugins/pull-requests/skills/gh-stack
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
+      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+      tags:
+      - v1.2.3-2-g84fdeff
+    path: .
+  path: plugins/grilling/skills/grill-me
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
+      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+      tags:
+      - v1.2.3-2-g84fdeff
+    path: .
+  path: plugins/grilling/skills/grilling
+- contents:
+  - git:
+      commitTitle: Simplify hook construction (#2572)...
+      sha: 8f3ff02f567130737685589f039074ca023900e9
+      tags:
+      - v0.4.14-2-g8f3ff02f
+    path: .
+  path: plugins/toolchain/skills/prek
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #276 from cursor/cursor/microsoft-plugins-fe9b...'
+      sha: fdf357fae76feff7e5f2e5aaff57f99f644b55f8
+    path: .
+  path: plugins/prose/skills/unslop
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #788 from mattpocock/grill-me-align...'
+      sha: 84fdeffd12f2ee307994d1eb6feb48173b6e0502
+      tags:
+      - v1.2.3-2-g84fdeff
+    path: .
+  path: plugins/plain-language/skills/wait-what
 kind: LockConfig
