@@ -69,12 +69,18 @@ def hook_files(plugin_dir):
 
 
 def tracked_skill_files():
-    """Every tracked SKILL.md, as absolute paths.
+    """Every tracked SKILL.md that is present on disk, as absolute paths.
 
     Tracked only, so the walk stays inside the repo git knows about. A
     nested worktree or any other ignored checkout carries its own
     SKILL.md files that this repo does not own, and reporting those as
     misplaced is noise no edit here can silence.
+
+    The pathspec is a prefix match, so `OLD-SKILL.md` comes back too and
+    the basename decides. Present on disk, because every other check
+    here reads the worktree: under a sparse checkout the index still
+    lists a plugin whose directory was never materialized, and its
+    skills would look misplaced only because nothing can see them.
     """
     result = subprocess.run(
         ["git", "ls-files", "-z", "--", "*SKILL.md"],
@@ -83,7 +89,11 @@ def tracked_skill_files():
         text=True,
         check=True,
     )
-    return sorted(ROOT / name for name in result.stdout.split("\0") if name)
+    return sorted(
+        path
+        for path in (ROOT / name for name in result.stdout.split("\0") if name)
+        if path.name == "SKILL.md" and path.is_file()
+    )
 
 
 def misplaced_skills():
