@@ -24,7 +24,7 @@ jobs:
       contents: read
     env:
       # renovate: datasource=github-releases depName=jdx/mise
-      MISE_VERSION: "2026.8.10"
+      MISE_VERSION: "2026.8.11"
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
