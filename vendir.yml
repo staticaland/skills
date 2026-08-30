@@ -14,8 +14,11 @@
 # - Name the upstream commit here and nowhere else. A SHA repeated in an
 #   `UPSTREAM.md` goes stale the next time a `ref` moves.
 #
-# A sync rewrites `vendir.lock.yml` unformatted, so run
-# `mise exec -- prettier --write vendir.lock.yml` before you commit it.
+# A sync rewrites `vendir.lock.yml` in a shape Prettier disagrees with, so
+# `.prettierignore` lists the lockfile and no check reads its formatting.
+# Renovate's `lockFileMaintenance` regenerates the same file with no chance to
+# format it, which is why formatting it by hand would not hold. Commit the
+# lockfile exactly as the sync writes it.
 apiVersion: vendir.k14s.io/v1alpha1
 kind: Config
 directories:
