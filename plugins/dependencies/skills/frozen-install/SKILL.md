@@ -18,8 +18,8 @@ sitting beside it. `npm ci` is frozen.
 
 Sort every install site by intent. A site that reproduces an environment - CI,
 an image build, a deploy, a contributor's first setup - belongs on the frozen
-side. A site that moves the lockfile forward is a **resolving site**, and a
-person running it deliberately is the point of it.
+side. Anything that moves the lockfile forward is a **resolving site**, run
+deliberately by a person who wants exactly that.
 
 A complete fix pairs a frozen command with a committed lockfile. Either half
 alone gives a broken build or silent drift.
