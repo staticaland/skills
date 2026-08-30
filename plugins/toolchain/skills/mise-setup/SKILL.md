@@ -12,9 +12,13 @@ version: 0.1.0
 
 [mise](https://mise.jdx.dev/) declares a project's whole toolchain in one
 committed `mise.toml`, so a laptop, a container, and CI run the same versions.
-Writing the TOML takes minutes. The work is the **inventory**: the toolchain
-already exists, spread across CI workflows, Dockerfiles, task runners, READMEs,
-and one version file per language.
+Writing the TOML takes minutes. Taking **inventory** is what takes time: the
+toolchain already exists, spread across CI workflows, Dockerfiles, task
+runners, READMEs, and one version file per language.
+
+<!-- vale ai-tells.FigurativeOwns = NO -->
+<!-- The second bullet defines "owns" as a term for the version this file is
+     the source for, so the verb is the terminology, not a metaphor. -->
 
 - A **backend** is the source mise downloads a tool from. The registry maps a
   bare name like `yq` to a backend for you, and that mapping changes between
@@ -23,6 +27,8 @@ and one version file per language.
 - A version in `mise.toml` either **owns** its constraint or **mirrors** one
   that lives in another file. A mirror drifts unless the comment beside it names
   its upstream.
+
+<!-- vale ai-tells.FigurativeOwns = YES -->
 
 Verify claims against the installed mise, not from memory:
 `mise settings --all`, `mise registry <tool>`, `mise tool <tool>`, and

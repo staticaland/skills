@@ -15,10 +15,10 @@ editor: give every alert a verdict, rewrite or suppress.
 **Rewrite.** Each rule detects a smell: vagueness, hedging, filler, padding.
 The flagged span is where the smell surfaced, which is seldom where the
 problem lives. Reread the whole sentence and ask what it is trying to say.
-Restructure over substitute: when `a number of` is flagged, name the things;
-when a hedge is flagged, make the call and state it plainly. Keep the
-meaning true: replace `several` with `5` when you counted five, and when
-nobody counted, keep only the precision you possess. Then reread the result.
+Restructure over substitute: when `a number of` is flagged, name the things.
+When a hedge is flagged, make the call and state it plainly. Keep the meaning
+true: replace `several` with `5` when you counted five. When nobody counted,
+keep only the precision you possess. Then reread the result.
 A sentence that satisfies the rule but reads worse than before means the
 verdict was wrong; suppress instead.
 

@@ -10,10 +10,14 @@ version: 0.1.0
 
 # Workflow Names
 
-GitHub Actions shows a fallback wherever a name is missing: the file path for a
-workflow, the job id for a job, and the `run` command or action reference for a
-step. A name turns the log line into documentation, while the fallback leaves
-it as source code.
+GitHub Actions shows a fallback wherever a name is missing:
+
+- a workflow falls back to its file path
+- a job falls back to its job id
+- a step falls back to its `run` command or action reference
+
+A name turns the log line into documentation, while the fallback leaves it as
+source code.
 
 ## Procedure
 
