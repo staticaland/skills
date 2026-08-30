@@ -21,6 +21,7 @@ Usage:
 """
 
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -67,6 +68,34 @@ def hook_files(plugin_dir):
     )
 
 
+def tracked_skill_files():
+    """Every tracked SKILL.md that is present on disk, as absolute paths.
+
+    Tracked only, so the walk stays inside the repo git knows about. A
+    nested worktree or any other ignored checkout carries its own
+    SKILL.md files that this repo does not own, and reporting those as
+    misplaced is noise no edit here can silence.
+
+    The pathspec is a prefix match, so `OLD-SKILL.md` comes back too and
+    the basename decides. Present on disk, because every other check
+    here reads the worktree: under a sparse checkout the index still
+    lists a plugin whose directory was never materialized, and its
+    skills would look misplaced only because nothing can see them.
+    """
+    result = subprocess.run(
+        ["git", "ls-files", "-z", "--", "*SKILL.md"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    return sorted(
+        path
+        for path in (ROOT / name for name in result.stdout.split("\0") if name)
+        if path.name == "SKILL.md" and path.is_file()
+    )
+
+
 def misplaced_skills():
     """SKILL.md files that sit where no plugin loads them.
 
@@ -81,8 +110,8 @@ def misplaced_skills():
     }
     local = tuple(ROOT / root for root in LOCAL_SKILL_ROOTS)
     found = []
-    for path in sorted(ROOT.rglob("SKILL.md")):
-        if ".git" in path.parts or path in loadable:
+    for path in tracked_skill_files():
+        if path in loadable:
             continue
         if any(path.is_relative_to(root) for root in local):
             continue

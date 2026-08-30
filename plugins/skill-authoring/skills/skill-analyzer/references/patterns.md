@@ -98,9 +98,9 @@ Given a skill that generates release notes from git history:
 
 ### Step 3: Proposed Scripts
 
-Two scripts cover the `SCRIPT` rows: `collect.sh` (steps 1-3, 5) in this
-section, and `format.sh` (steps 8-9), which renders the LLM's grouped summary
-into a changelog entry and appends it to CHANGELOG.md.
+`collect.sh` (steps 1-3, 5) covers the `SCRIPT` rows in this section.
+`format.sh` (steps 8-9) renders the LLM's grouped summary into a changelog
+entry and appends it to CHANGELOG.md.
 
 ```bash
 #!/usr/bin/env bash

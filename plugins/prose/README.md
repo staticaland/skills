@@ -1,7 +1,8 @@
 # prose
 
 Revise prose for clarity and busy readers, add sourced footnotes, strip
-references the reader cannot see, and lint Markdown with Vale.
+references the reader cannot see, cut AI tells from any writing, and lint
+Markdown with Vale.
 
 ## Install
 
@@ -15,11 +16,13 @@ references the reader cannot see, and lint Markdown with Vale.
 - **[writing-revision](./skills/writing-revision/SKILL.md)** (skill) -
   Makes text clear, scannable, and action-oriented for busy readers.
 - **[Auto-cite Factual Claims](./skills/auto-cite-factual-claims/SKILL.md)**
-  (skill) - Finds web sources for factual claims and adds them as
-  Markdown footnotes.
+  (skill) - Finds web sources for the factual claims a document rests
+  on and adds them as Markdown footnotes.
 - **[standalone](./skills/standalone/SKILL.md)** (skill) - Strips
   references the reader cannot see - "as discussed", "the old
   handler" - from prose and code comments.
+- **[unslop](./skills/unslop/SKILL.md)** (skill) - Cuts AI tells from any
+  writing and adds human voice.
 
 ## Hooks
 

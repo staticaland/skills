@@ -1,9 +1,9 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "prose",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "author": {
     "name": "staticaland"
   },
-  "description": "Revise prose for clarity and busy readers, add sourced footnotes, strip references the reader cannot see, and lint Markdown with Vale"
+  "description": "Revise prose for clarity and busy readers, add sourced footnotes, strip references the reader cannot see, cut AI tells from any writing, and lint Markdown with Vale"
 }

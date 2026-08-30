@@ -95,7 +95,14 @@ steps:
     run: npm run package
 ```
 
+<!-- vale ai-tells.ParallelStaccato = NO -->
+<!-- The rule reads the conditional below as the second half of a staccato
+     pair. This document also obeys ASD-STE100, which mandates the short
+     sentences the rule flags. -->
+
 The
 [workflow syntax reference](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax)
 is the source of truth for these keywords. If a keyword does not agree with this
 document, obey the reference.
+
+<!-- vale ai-tells.ParallelStaccato = YES -->

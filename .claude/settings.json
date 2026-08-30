@@ -26,5 +26,10 @@
   "enabledPlugins": {
     "plugin-dev@claude-plugins-official": true,
     "mattpocock-skills@mattpocock": true
+  },
+  "attribution": {
+    "sessionUrl": false,
+    "pr": "",
+    "commit": ""
   }
 }

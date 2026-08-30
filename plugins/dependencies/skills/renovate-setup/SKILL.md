@@ -28,7 +28,7 @@ enables most built-in managers by default. A long
 manifests easier to miss.
 
 Keep three forms distinct. An exact dependency version in a manifest is
-**version pinning**, not a cryptographic hash. A lockfile resolves manifest
+**version pinning**. A lockfile resolves manifest
 ranges and can contain package-manager integrity data. A commit SHA or image
 digest makes the referenced action or image content immutable. Renovate cannot
 create hashes for every ecosystem or make a custom-manager match update a
@@ -97,9 +97,9 @@ Give every declaration a row:
 | File and field | Dependency | Version form | Lock, hash, or immutable target | Owner or mirror | Intended scope |
 | -------------- | ---------- | ------------ | ------------------------------- | --------------- | -------------- |
 
-An **owner** is the source Renovate should update. A **mirror** repeats a version
-owned elsewhere and needs either synchronized updates or an explicit reason to
-stay manual. Include lock files beside their manifests. Mark fixtures, examples,
+An **owner** is the source Renovate should update, while a **mirror** repeats a
+version owned elsewhere and needs either synchronized updates or an explicit
+reason to stay manual. Include lock files beside their manifests. Mark fixtures, examples,
 third-party source copies, generated files, and local-only mise configs as in
 scope or intentionally excluded. Presets can ignore these directories silently.
 
@@ -234,7 +234,7 @@ the fully merged result instead of assuming ordinary JSON merge behavior.
 Choose manifest `rangeStrategy` separately. Exact manifest pins can be useful
 for applications and tools. Libraries can require ranges, and peer dependencies
 must express compatibility. A committed, refreshed lockfile is the immutable
-resolution strategy in those cases; `rangeStrategy: "pin"` does not replace it.
+resolution strategy in those cases. `rangeStrategy: "pin"` does not replace it.
 
 `minimumReleaseAge` cannot age `lockFileMaintenance` or `lockfileUpdate`
 updates because Renovate delegates their resolution to the package manager.
