@@ -26,3 +26,7 @@ plugins/pull-requests/skills/create-pr/references/pr-template.md
 # Per-plugin changelogs that release-please generates. The bot's markdown is
 # not prettier-shaped, and reformatting it would churn every release PR.
 plugins/*/CHANGELOG.md
+
+# Lockfile that `vendir sync` writes. Prettier and vendir disagree on its
+# shape, and a reformat would be undone by the next sync.
+vendir.lock.yml
