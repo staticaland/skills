@@ -82,7 +82,7 @@
       "name": "show-me",
       "source": "./plugins/show-me",
       "description": "Explain the topic at hand visually with diagrams, code-shape sketches, and focused HTML",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "dev"
     },
     {
