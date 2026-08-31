@@ -201,6 +201,16 @@ agent-browser CLI.
   [agent-browser](https://github.com/vercel-labs/agent-browser) -
   navigating, filling forms, clicking, taking screenshots, and extracting data.
 
+#### [show-me](./plugins/show-me/README.md)
+
+Explain the topic at hand visually with diagrams, code-shape sketches, and
+focused HTML.
+
+- **[show-me](./plugins/show-me/skills/show-me/SKILL.md)** (skill) - Picks
+  the smallest view that makes the point - pseudocode, a call tree, a
+  component tree, a file tree, a Mermaid diagram, a diff, or one focused HTML
+  file - and places it next to short prose.
+
 ### `ai`
 
 #### [skill-authoring](./plugins/skill-authoring/README.md)
