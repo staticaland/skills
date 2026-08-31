@@ -93,4 +93,10 @@ directories:
       - v1.2.3-2-g84fdeff
     path: .
   path: plugins/plain-language/skills/wait-what
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #5 from humanlayer/helptext...'
+      sha: 3c2629142c5d437428269b1b722b08c0b87f574d
+    path: .
+  path: plugins/show-me/skills/show-me
 kind: LockConfig
