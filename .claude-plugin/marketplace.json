@@ -79,6 +79,13 @@
       "category": "dev"
     },
     {
+      "name": "show-me",
+      "source": "./plugins/show-me",
+      "description": "Explain the topic at hand visually with diagrams, code-shape sketches, and focused HTML",
+      "version": "0.2.0",
+      "category": "dev"
+    },
+    {
       "name": "skill-authoring",
       "source": "./plugins/skill-authoring",
       "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, and split broad references into focused files",

@@ -29,6 +29,7 @@ exclude = [
   "plugins/plain-language/skills/bro",
   "plugins/plain-language/skills/wait-what",
   "plugins/prose/skills/unslop",
+  "plugins/show-me/skills/show-me",
   # Per-plugin changelogs that release-please generates - bot output, not
   # hand-written prose.
   "plugins/*/CHANGELOG.md",

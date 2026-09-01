@@ -163,3 +163,14 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/productivity/wait-what
+  - path: plugins/show-me/skills/show-me
+    contents:
+      - path: .
+        git:
+          url: https://github.com/humanlayer/skills
+          ref: 3c2629142c5d437428269b1b722b08c0b87f574d
+        includePaths:
+          - plugins/show-me/skills/show-me/**/*
+        ignorePaths:
+          - UPSTREAM.md
+        newRootPath: plugins/show-me/skills/show-me
