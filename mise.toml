@@ -6,7 +6,7 @@ minimum_release_age = "7d"
 
 [tools]
 "aqua:astral-sh/ruff" = "0.16.4"
-"aqua:carvel-dev/vendir" = "0.46.0"
+"aqua:carvel-dev/vendir" = "0.46.1"
 "aqua:errata-ai/vale" = "3.18.0"
 "aqua:gitleaks/gitleaks" = "8.30.1"
 "aqua:koalaman/shellcheck" = "0.11.0"
