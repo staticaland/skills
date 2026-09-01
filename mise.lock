@@ -118,6 +118,18 @@ url = "https://github.com/rvben/rumdl/releases/download/v0.2.60/rumdl-v0.2.60-aa
 url_api = "https://api.github.com/repos/rvben/rumdl/releases/assets/524937031"
 provenance = "github-attestations"
 
+[[tools."aqua:tombi-toml/tombi"]]
+version = "1.3.3"
+backend = "aqua:tombi-toml/tombi"
+
+[tools."aqua:tombi-toml/tombi"."platforms.linux-x64"]
+checksum = "sha256:768b8a8fc8eab01d2a65b100eb8db8da6297a0ba3d076ece65a99a74e69e1bb0"
+url = "https://github.com/tombi-toml/tombi/releases/download/v1.3.3/tombi-cli-1.3.3-x86_64-unknown-linux-musl.tar.gz"
+
+[tools."aqua:tombi-toml/tombi"."platforms.macos-arm64"]
+checksum = "sha256:2160de191f65ab2acac1e040ba60f2a7705f9f6cd240c8fe50eff718b16f9712"
+url = "https://github.com/tombi-toml/tombi/releases/download/v1.3.3/tombi-cli-1.3.3-aarch64-apple-darwin.tar.gz"
+
 [[tools."aqua:zizmorcore/zizmor"]]
 version = "1.29.0"
 backend = "aqua:zizmorcore/zizmor"

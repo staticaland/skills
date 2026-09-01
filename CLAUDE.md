@@ -66,3 +66,6 @@ skip a file outside the index, and the run reports success without checking it.
 
 To re-run one hook, name its id from `prek.toml`:
 `mise exec -- prek run vale --all-files`.
+
+`tombi format` reports TOML that does not match its formatting;
+`mise exec -- tombi format` writes the fix.

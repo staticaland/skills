@@ -2,17 +2,20 @@
 # See https://prek.j178.dev for more information.
 #:schema https://www.schemastore.org/prek.json
 
-# Install mise itself before running these hooks.
-# prettier, rumdl, and Vale all skip the vendored skills through their own
-# configuration.
+# The hooks are written as `[[repos.hooks]]` tables rather than one inline
+# array, because tombi collapses an inline table onto a single line and the
+# hook list stops being readable at that width.
 
 [[repos]]
 repo = "local"
-hooks = [
-  {
-    id = "mise-install",
-    name = "mise trust and install locked tools",
-    entry = """
+
+# Install mise itself before running these hooks.
+# prettier, rumdl, tombi, and Vale all skip the vendored skills through their
+# own configuration.
+[[repos.hooks]]
+id = "mise-install"
+name = "mise trust and install locked tools"
+entry = """
 # An empty file, not /dev/null: mise 2026.8.10 reads the extension and rejects
 # a config file it cannot name a type for.
 empty_config="$(mktemp -d)/mise.toml"
@@ -23,123 +26,134 @@ export MISE_OVERRIDE_TOOL_VERSIONS_FILENAMES=none
 export MISE_CEILING_PATHS="$(dirname "$(git rev-parse --show-toplevel)")"
 mise trust mise.toml
 mise install --locked
-""",
-    language = "system",
-    shell = "sh",
-    pass_filenames = false,
-    always_run = true,
-    fail_fast = true,
-    verbose = true,
-    priority = 0,
-    stages = [
-      "pre-commit",
-      "commit-msg"
-    ]
-  },
-  # Scans the whole working tree, not just the staged files, so a `prek run
-  # --all-files` in CI covers the same ground as a commit does.
-  {
-    id = "gitleaks",
-    name = "gitleaks",
-    entry = "mise exec -- gitleaks dir . --no-banner --redact --verbose",
-    language = "system",
-    pass_filenames = false,
-    always_run = true
-  },
-  {
-    id = "prettier",
-    name = "prettier",
-    entry = "mise exec -- prettier --check",
-    language = "system",
-    files = '\.(json|md|ya?ml)$'
-  },
-  {
-    id = "rumdl",
-    name = "rumdl",
-    # `--no-cache`: rumdl keys a cached verdict to the linted file's own
-    # content, and MD057 (relative link exists) reads other files. Adding the
-    # target of a link leaves the stale verdict in place, so a correct document
-    # keeps failing until the cache is deleted.
-    entry = "mise exec -- rumdl check --no-cache",
-    language = "system",
-    files = '\.md$'
-  },
-  {
-    id = "ruff-check",
-    name = "ruff check",
-    entry = "mise exec -- ruff check --force-exclude",
-    language = "system",
-    files = '\.py$'
-  },
-  {
-    id = "ruff-format",
-    name = "ruff format",
-    entry = "mise exec -- ruff format --check --force-exclude",
-    language = "system",
-    files = '\.py$'
-  },
-  {
-    id = "shellcheck",
-    name = "shellcheck",
-    entry = "mise exec -- shellcheck",
-    language = "system",
-    files = '\.sh$'
-  },
-  {
-    id = "claude-plugin-validate",
-    name = "claude plugin validate",
-    entry = "claude plugin validate .",
-    language = "system",
-    pass_filenames = false
-  },
-  {
-    id = "sync-manifests",
-    name = "derived manifests match plugin.json",
-    entry = "python3 scripts/sync-manifests.py --check",
-    language = "system",
-    pass_filenames = false
-  },
-  {
-    id = "lychee",
-    name = "lychee",
-    entry = "mise exec -- lychee --config lychee.toml --quiet --",
-    language = "system",
-    files = '\.md$'
-  },
-  {
-    id = "check-structure",
-    name = "plugins, skills, and hooks are listed everywhere",
-    entry = "python3 scripts/check-structure.py",
-    language = "system",
-    pass_filenames = false
-  },
-  {
-    id = "actionlint",
-    name = "actionlint",
-    entry = "mise exec -- actionlint",
-    language = "system",
-    files = '^\.github/workflows/[^/]+\.ya?ml$'
-  },
-  {
-    id = "zizmor",
-    name = "zizmor",
-    entry = "mise exec -- zizmor",
-    language = "system",
-    files = '^\.github/workflows/[^/]+\.ya?ml$'
-  },
-  {
-    id = "vale",
-    name = "vale",
-    entry = "mise exec -- scripts/vale-with-guidance.sh",
-    language = "system",
-    files = '\.md$',
-    verbose = true
-  },
-  {
-    id = "vale-commit-message",
-    name = "vale (commit message)",
-    entry = "mise exec -- scripts/vale-commit-message.sh",
-    language = "system",
-    stages = ["commit-msg"]
-  }
-]
+"""
+language = "system"
+shell = "sh"
+pass_filenames = false
+always_run = true
+fail_fast = true
+verbose = true
+priority = 0
+stages = ["pre-commit", "commit-msg"]
+
+# Scans the whole working tree, not just the staged files, so a `prek run
+# --all-files` in CI covers the same ground as a commit does.
+[[repos.hooks]]
+id = "gitleaks"
+name = "gitleaks"
+entry = "mise exec -- gitleaks dir . --no-banner --redact --verbose"
+language = "system"
+pass_filenames = false
+always_run = true
+
+[[repos.hooks]]
+id = "prettier"
+name = "prettier"
+entry = "mise exec -- prettier --check"
+language = "system"
+files = '\.(json|md|ya?ml)$'
+
+[[repos.hooks]]
+id = "rumdl"
+name = "rumdl"
+# `--no-cache`: rumdl keys a cached verdict to the linted file's own
+# content, and MD057 (relative link exists) reads other files. Adding the
+# target of a link leaves the stale verdict in place, so a correct document
+# keeps failing until the cache is deleted.
+entry = "mise exec -- rumdl check --no-cache"
+language = "system"
+files = '\.md$'
+
+# prettier has no TOML parser, so every config in this repository's root went
+# unformatted until tombi. `format --check` reports, and `tombi format` fixes.
+[[repos.hooks]]
+id = "tombi-format"
+name = "tombi format"
+entry = "mise exec -- tombi format --check"
+language = "system"
+files = '\.toml$'
+
+[[repos.hooks]]
+id = "tombi-lint"
+name = "tombi lint"
+entry = "mise exec -- tombi lint"
+language = "system"
+files = '\.toml$'
+
+[[repos.hooks]]
+id = "ruff-check"
+name = "ruff check"
+entry = "mise exec -- ruff check --force-exclude"
+language = "system"
+files = '\.py$'
+
+[[repos.hooks]]
+id = "ruff-format"
+name = "ruff format"
+entry = "mise exec -- ruff format --check --force-exclude"
+language = "system"
+files = '\.py$'
+
+[[repos.hooks]]
+id = "shellcheck"
+name = "shellcheck"
+entry = "mise exec -- shellcheck"
+language = "system"
+files = '\.sh$'
+
+[[repos.hooks]]
+id = "claude-plugin-validate"
+name = "claude plugin validate"
+entry = "claude plugin validate ."
+language = "system"
+pass_filenames = false
+
+[[repos.hooks]]
+id = "sync-manifests"
+name = "derived manifests match plugin.json"
+entry = "python3 scripts/sync-manifests.py --check"
+language = "system"
+pass_filenames = false
+
+[[repos.hooks]]
+id = "lychee"
+name = "lychee"
+entry = "mise exec -- lychee --config lychee.toml --quiet --"
+language = "system"
+files = '\.md$'
+
+[[repos.hooks]]
+id = "check-structure"
+name = "plugins, skills, and hooks are listed everywhere"
+entry = "python3 scripts/check-structure.py"
+language = "system"
+pass_filenames = false
+
+[[repos.hooks]]
+id = "actionlint"
+name = "actionlint"
+entry = "mise exec -- actionlint"
+language = "system"
+files = '^\.github/workflows/[^/]+\.ya?ml$'
+
+[[repos.hooks]]
+id = "zizmor"
+name = "zizmor"
+entry = "mise exec -- zizmor"
+language = "system"
+files = '^\.github/workflows/[^/]+\.ya?ml$'
+
+[[repos.hooks]]
+id = "vale"
+name = "vale"
+entry = "mise exec -- scripts/vale-with-guidance.sh"
+language = "system"
+files = '\.md$'
+verbose = true
+
+[[repos.hooks]]
+id = "vale-commit-message"
+name = "vale (commit message)"
+entry = "mise exec -- scripts/vale-commit-message.sh"
+language = "system"
+stages = ["commit-msg"]
