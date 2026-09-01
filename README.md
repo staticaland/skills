@@ -32,6 +32,12 @@ Each plugin also has a `plugin.json` manifest at its root per the
 follow the [Agent Skills](https://agentskills.io/) format, so any client that
 supports those specifications can install the plugins too.
 
+## Invoke a skill
+
+Each client has its own sigil for invoking a skill by name: type
+`/skill-name` in Claude Code and `$skill-name` in Codex. Codex also lists
+every installed skill when you run `/skills`.
+
 ## Plugins
 
 ### `writing`
