@@ -47,7 +47,7 @@
       "name": "dependencies",
       "source": "./plugins/dependencies",
       "description": "Hold new dependency releases for a cooldown, configure Renovate, freeze install commands to their lock files, and deny install-time script execution",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "category": "dev"
     },
     {
@@ -82,7 +82,7 @@
       "name": "show-me",
       "source": "./plugins/show-me",
       "description": "Explain the topic at hand visually with diagrams, code-shape sketches, and focused HTML",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "category": "dev"
     },
     {
