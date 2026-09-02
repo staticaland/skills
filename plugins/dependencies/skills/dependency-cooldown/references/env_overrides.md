@@ -16,6 +16,7 @@ verification run on the wrong machine passes for the wrong reason.
 | `YARN_NPM_MINIMAL_AGE_GATE`     | Yarn                       | Wins over `npmMinimalAgeGate` in `.yarnrc.yml`                         |
 | `BUNDLE_COOLDOWN`               | Bundler                    | **Loses** to a committed `.bundle/config`; wins over the global config |
 | `COOLDOWN_MINUTES`              | cargo-cooldown             | No conflict - the variable is the only place the duration lives        |
+| `PINACT_MIN_AGE`                | pinact                     | Wins over `min_age` and every `rules[].min_age` in `.pinact.yaml`      |
 
 Shell wrappers shadow the same way: `cooldowns.sh` installs a `pip` function
 and `deno` aliases that inject a CLI flag, and a flag outranks even the

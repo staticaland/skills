@@ -131,7 +131,7 @@ value the repo never sees - and the read-back above reports that value as if
 the file worked. Check for an exported variable and for a shell wrapper:
 
 ```bash
-env | grep -iE '^(UV_EXCLUDE_NEWER|PIP_UPLOADED_PRIOR_TO|POETRY_SOLVER_MIN_RELEASE_AGE|npm_config_min_release_age|YARN_NPM_MINIMAL_AGE_GATE|BUNDLE_COOLDOWN|COOLDOWN_MINUTES)='
+env | grep -iE '^(UV_EXCLUDE_NEWER|PIP_UPLOADED_PRIOR_TO|POETRY_SOLVER_MIN_RELEASE_AGE|npm_config_min_release_age|YARN_NPM_MINIMAL_AGE_GATE|BUNDLE_COOLDOWN|COOLDOWN_MINUTES|PINACT_MIN_AGE)='
 type pip deno 2>/dev/null | grep -E 'function|alias'
 ```
 
