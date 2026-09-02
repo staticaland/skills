@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/staticaland/skills/compare/dependencies-v0.4.0...dependencies-v0.5.0) (2026-09-02)
+
+
+### Features
+
+* **dependencies:** document pinact cooldowns in dependency-cooldown ([721e2e5](https://github.com/staticaland/skills/commit/721e2e53478ba309112353f8d323a02fb8bada85))
+
 ## [0.4.0](https://github.com/staticaland/skills/compare/dependencies-v0.3.0...dependencies-v0.4.0) (2026-08-28)
 
 
