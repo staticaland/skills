@@ -66,7 +66,7 @@ Read only the files for the managers present:
 | `.scala-steward.conf`, `pom.xml`, `build.sbt`, `build.mill`                            | [jvm_scala_steward.md](references/jvm_scala_steward.md) - Scala Steward                                |
 | `mise.toml`, `.tool-versions`                                                          | [mise.md](references/mise.md) - mise                                                                   |
 | `.vscode/extensions.json`, `.vscode/settings.json`                                     | [vscode.md](references/vscode.md) - VS Code extensions                                                 |
-| `.github/workflows/`, `.pinact.yaml`, `.github/pinact.yaml`                            | [github-actions.md](references/github-actions.md) - pinact, actions-up, SHA pinning                    |
+| `.github/workflows/`, `.pinact.yaml`, `.github/pinact.yaml`                            | [github-actions.md](references/github-actions.md) - pinact, SHA pinning                                |
 | `renovate.json`, `renovate.json5`                                                      | [bot_renovate.md](references/bot_renovate.md) - Renovate                                               |
 | `dependabot.yml`                                                                       | [bot_github.md](references/bot_github.md) - GitHub Dependabot                                          |
 | `go.mod`, `*.csproj`, `composer.json`, `pubspec.yaml`, `Package.swift`, `build.gradle` | [ecosystems_no_native.md](references/ecosystems_no_native.md) - no native cooldown; bot gate only      |
