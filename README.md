@@ -34,9 +34,14 @@ supports those specifications can install the plugins too.
 
 ## Invoke a skill
 
-Each client has its own sigil for invoking a skill by name: type
-`/skill-name` in Claude Code and `$skill-name` in Codex. Codex also lists
-every installed skill when you run `/skills`.
+A skill installed through a plugin is named `plugin-name:skill-name`, where the
+skill name is the one the catalog below lists. Each client has its own sigil
+for invoking it: type `/prose:unslop` in Claude Code and `$prose:unslop` in
+Codex. Codex also lists every installed skill when you run `/skills` and
+inserts the mention for the one you pick.
+
+A skill installed on its own with the skills CLI has no plugin prefix, so the
+same skill is `/unslop` in Claude Code and `$unslop` in Codex.
 
 ## Plugins
 
