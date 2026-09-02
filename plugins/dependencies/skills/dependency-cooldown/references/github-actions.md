@@ -102,20 +102,6 @@ over the variable for a personal default. Reserve the variable for CI, where a
 floor no repo can lower is the point. On a machine that exports it, the
 committed file does nothing - see [env_overrides.md](env_overrides.md).
 
-## actions-up
-
-[actions-up](https://github.com/azat-io/actions-up) scans workflows and
-composite actions and updates the actions they reference, pinning to full commit
-SHAs by default. `--min-age` since **1.6.0**, and a one-day cooldown by default
-since **1.16.0**. The value is days:
-
-```bash
-npx actions-up --min-age 3
-```
-
-No per-action exemption. To bypass for an urgent fix, run `--min-age 0` and
-select only the action needed.
-
 Dependabot and Renovate also update GitHub Actions and carry their own cooldown
 settings - see [bot_github.md](bot_github.md) and
 [bot_renovate.md](bot_renovate.md).
