@@ -31,18 +31,18 @@ url = "https://github.com/carvel-dev/vendir/releases/download/v0.46.1/vendir-dar
 url_api = "https://api.github.com/repos/carvel-dev/vendir/releases/assets/528793587"
 
 [[tools."aqua:errata-ai/vale"]]
-version = "3.18.0"
+version = "3.19.0"
 backend = "aqua:errata-ai/vale"
 
 [tools."aqua:errata-ai/vale"."platforms.linux-x64"]
-checksum = "sha256:a6f71a75a12fe689345b754f2412b90367fe33648abb7d200fa19eaadc2dbf6d"
-url = "https://github.com/vale-cli/vale/releases/download/v3.18.0/vale_3.18.0_Linux_64-bit.tar.gz"
-url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/522705132"
+checksum = "sha256:c8f9d6c8055442bc7e9c121b2498e6f0e3fb670f4665e6ee577f1897f7665cf6"
+url = "https://github.com/vale-cli/vale/releases/download/v3.19.0/vale_3.19.0_Linux_64-bit.tar.gz"
+url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/531372829"
 
 [tools."aqua:errata-ai/vale"."platforms.macos-arm64"]
-checksum = "sha256:4d7de9bda8379da14cd45048500199c549413187526d0913383ad822866ad43d"
-url = "https://github.com/vale-cli/vale/releases/download/v3.18.0/vale_3.18.0_macOS_arm64.tar.gz"
-url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/522705131"
+checksum = "sha256:a0e5f30986bc06db6700dac7f550f42880c74fe202113dae68035ed2030e5b4d"
+url = "https://github.com/vale-cli/vale/releases/download/v3.19.0/vale_3.19.0_macOS_arm64.tar.gz"
+url_api = "https://api.github.com/repos/vale-cli/vale/releases/assets/531372830"
 
 [[tools."aqua:gitleaks/gitleaks"]]
 version = "8.30.1"
