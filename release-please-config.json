@@ -282,6 +282,26 @@
           "jsonpath": "$.version"
         }
       ]
+    },
+    "plugins/no-org-internals": {
+      "component": "no-org-internals",
+      "extra-files": [
+        {
+          "type": "json",
+          "path": ".claude-plugin/plugin.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": ".codex-plugin/plugin.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "json",
+          "path": "plugin.json",
+          "jsonpath": "$.version"
+        }
+      ]
     }
   }
 }

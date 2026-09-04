@@ -5,6 +5,7 @@
   "plugins/fresh-eyes": "0.2.0",
   "plugins/github-actions": "0.2.0",
   "plugins/grilling": "0.2.0",
+  "plugins/no-org-internals": "0.1.0",
   "plugins/norsk": "0.2.0",
   "plugins/plain-language": "0.2.0",
   "plugins/prose": "0.4.0",
