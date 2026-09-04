@@ -1,6 +1,6 @@
 {
   "plugins/browser": "0.2.0",
-  "plugins/dependencies": "0.5.0",
+  "plugins/dependencies": "0.6.0",
   "plugins/flashcards": "0.2.0",
   "plugins/fresh-eyes": "0.2.0",
   "plugins/github-actions": "0.2.0",
@@ -11,7 +11,7 @@
   "plugins/prose": "0.4.0",
   "plugins/pull-requests": "0.2.0",
   "plugins/retro": "0.2.0",
-  "plugins/show-me": "0.3.0",
+  "plugins/show-me": "0.4.0",
   "plugins/skill-authoring": "0.2.0",
   "plugins/toolchain": "0.2.0"
 }
