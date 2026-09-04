@@ -86,6 +86,13 @@
       "category": "dev"
     },
     {
+      "name": "no-org-internals",
+      "source": "./plugins/no-org-internals",
+      "description": "Keep organization-internal names, hosts, tickets, and people out of a public repository by telling the agent at session start that everything it writes is world-readable",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "skill-authoring",
       "source": "./plugins/skill-authoring",
       "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, and split broad references into focused files",

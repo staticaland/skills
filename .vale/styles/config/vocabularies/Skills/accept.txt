@@ -74,6 +74,7 @@ ADRs
 [Aa]llowlists?
 [Aa]llowlisted
 discoverability
+hostnames
 lookups
 pretrained
 pretraining
