@@ -211,6 +211,18 @@ focused HTML.
   component tree, a file tree, a Mermaid diagram, a diff, or one focused HTML
   file - and places it next to short prose.
 
+#### [public-repo](./plugins/public-repo/README.md)
+
+Tell the agent at session start when the repository is public, so nothing
+internal to its owner leaks into code, commits, or pull requests.
+
+- **public repository notice** (hook) - Asks `gh` for the visibility of the
+  repository at session start. Unless the answer is private or internal, it
+  tells the agent that the repository is public and that internal repositories,
+  systems, hostnames, ticket IDs, people, and data stay out of everything it
+  writes. An unknown visibility counts as public. Requires the `gh` CLI and
+  `jq`.
+
 ### `ai`
 
 #### [skill-authoring](./plugins/skill-authoring/README.md)

@@ -86,6 +86,13 @@
       "category": "dev"
     },
     {
+      "name": "public-repo",
+      "source": "./plugins/public-repo",
+      "description": "Tell the agent at session start when the repository is public, so nothing internal to its owner leaks into code, commits, or pull requests",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "skill-authoring",
       "source": "./plugins/skill-authoring",
       "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, and split broad references into focused files",

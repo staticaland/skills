@@ -1,0 +1,8 @@
+{
+  "name": "public-repo",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Tell the agent at session start when the repository is public, so nothing internal to its owner leaks into code, commits, or pull requests"
+}
