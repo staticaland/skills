@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/staticaland/skills/compare/dependencies-v0.5.0...dependencies-v0.6.0) (2026-09-04)
+
+
+### Features
+
+* **dependencies:** document pinact cooldowns in dependency-cooldown ([721e2e5](https://github.com/staticaland/skills/commit/721e2e53478ba309112353f8d323a02fb8bada85))
+* **dependencies:** warn when a cooldown env variable outranks project config ([#147](https://github.com/staticaland/skills/issues/147)) ([f47e86b](https://github.com/staticaland/skills/commit/f47e86ba9d44e162859544713c1ca6d0d9a3737a))
+
 ## [0.5.0](https://github.com/staticaland/skills/compare/dependencies-v0.4.0...dependencies-v0.5.0) (2026-09-02)
 
 
