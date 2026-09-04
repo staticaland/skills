@@ -89,7 +89,7 @@
       "name": "no-org-internals",
       "source": "./plugins/no-org-internals",
       "description": "Keep organization-internal names, hosts, tickets, and people out of a public repository by telling the agent at session start that everything it writes is world-readable",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "dev"
     },
     {
