@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "no-org-internals",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Keep organization-internal names, hosts, tickets, and people out of a public repository by telling the agent at session start that everything it writes is world-readable"
+}
