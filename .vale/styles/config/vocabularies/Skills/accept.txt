@@ -73,7 +73,7 @@ $^ English technical terms not in Vale's dictionary
 ADRs
 [Aa]llowlists?
 [Aa]llowlisted
-[Aa]utomerges?
+[Aa]utomerge[sd]?
 discoverability
 hostnames
 lookups

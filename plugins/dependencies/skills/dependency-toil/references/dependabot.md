@@ -6,6 +6,10 @@ read the action's README for the current list of outputs.
 
 ## The workflow
 
+One merge step per ecosystem the step 3 table automerges, each gated on
+`package-ecosystem`, and no step without that gate. An ecosystem with no step
+is held.
+
 ```yaml
 name: Automerge Dependabot updates
 on: pull_request
@@ -25,33 +29,48 @@ jobs:
         uses: dependabot/fetch-metadata@<sha> # v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Enable auto-merge
+      - name: Enable auto-merge for GitHub Actions
         if: >-
-          contains(fromJSON('["version-update:semver-minor", "version-update:semver-patch"]'), steps.metadata.outputs.update-type)
+          steps.metadata.outputs.package-ecosystem == 'github_actions'
+          && steps.metadata.outputs.update-type != 'version-update:semver-major'
+        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Enable auto-merge for npm development dependencies
+        if: >-
+          steps.metadata.outputs.package-ecosystem == 'npm_and_yarn'
+          && steps.metadata.outputs.dependency-type == 'direct:development'
+          && steps.metadata.outputs.update-type != 'version-update:semver-major'
           && !startsWith(steps.metadata.outputs.previous-version, '0.')
-          && !contains(steps.metadata.outputs.dependency-names, '<deploy tool>')
+          && !contains(steps.metadata.outputs.dependency-names, '<held package>')
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-Fill in the three placeholders:
+Fill in the placeholders:
 
 - `<owner>/<repo>` stops the workflow running in forks.
 - `<sha>` pins the action, as the `renovate-setup` skill pins every action:
   `gh api repos/dependabot/fetch-metadata/commits/v2 --jq .sha`. Keep the
   version comment so the bot can update the pin.
-- `<deploy tool>` is the hold list from the policy. `dependency-names` is a
+- `<held package>` is the hold list from the policy. `dependency-names` is a
   comma-separated string, so `contains` also matches part of a longer name, and
   for a grouped PR it names every dependency in the group.
+
+`package-ecosystem` uses Dependabot's internal names, which differ from the
+keys in `dependabot.yml`: `github_actions`, `npm_and_yarn`, `pip`, `docker`,
+`gomod`, `bundler`, `cargo`, `terraform`. The same string is the second segment
+of every Dependabot branch name, `dependabot/<ecosystem>/...`, so read it off an
+existing PR.
 
 `update-type` is one of `version-update:semver-major`,
 `version-update:semver-minor`, and `version-update:semver-patch`. A grouped PR
 reports the highest level in the group, so one major in a group holds the
 whole group. `dependency-type` distinguishes `direct:production`,
-`direct:development`, and `indirect` when the policy automerges development
-dependencies more freely.
+`direct:development`, and `indirect`.
 
 ## Token and event
 

@@ -23,8 +23,7 @@ and deny install-time script execution.
   through lock files, integrity hashes, action SHAs, and image digests.
 - **[dependency-toil](./skills/dependency-toil/SKILL.md)** (skill) -
   Measures how long Renovate and Dependabot PRs sit open, sorts the stale ones
-  by cause, and removes the merge click for non-major updates of stable
-  packages: an `automerge` rule for Renovate, a `gh pr merge --auto` workflow
+  by cause, and removes the merge click one ecosystem at a time: an `automerge` rule for Renovate, a `gh pr merge --auto` workflow
   for Dependabot. Hands the repository settings it depends on to the user as a
   checklist.
 - **[frozen-install](./skills/frozen-install/SKILL.md)** (skill) -

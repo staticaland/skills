@@ -5,23 +5,40 @@ Read the current option semantics from the
 and the [configuration options](https://docs.renovatebot.com/configuration-options/)
 when a detail below disagrees with what the validator says.
 
-## The rule
+## The rules
 
-Add to the canonical config, in its existing syntax, beside any rules the
+One `packageRules` entry per ecosystem the step 3 table automerges, matched on
+its manager, and no rule that spans every manager. `automerge` defaults to
+`false`, so an ecosystem with no rule is held without writing one. Add to the
+canonical config, in its existing syntax, beside any rules the
 `renovate-setup` skill wrote:
 
 ```json5
 {
   packageRules: [
     {
-      description: "Automerge non-major updates of stable packages",
+      description: "GitHub Actions: pinned to SHAs and exercised by the checks",
+      matchManagers: ["github-actions"],
       matchUpdateTypes: ["minor", "patch", "pin", "digest", "pinDigest"],
+      automerge: true,
+    },
+    {
+      description: "npm development dependencies at 1.0 or above",
+      matchManagers: ["npm"],
+      matchDepTypes: ["devDependencies"],
+      matchUpdateTypes: ["minor", "patch"],
       matchCurrentVersion: "!/^0/",
       automerge: true,
     },
     {
-      description: "A person merges these",
-      matchPackageNames: ["<deploy tool>", "<framework>"],
+      description: "Container digests behind an unchanged tag",
+      matchManagers: ["dockerfile", "docker-compose"],
+      matchUpdateTypes: ["digest", "pinDigest"],
+      automerge: true,
+    },
+    {
+      description: "A person merges these whatever the manager says",
+      matchPackageNames: ["<database driver>", "<framework>"],
       automerge: false,
     },
   ],
@@ -32,12 +49,15 @@ Add to the canonical config, in its existing syntax, beside any rules the
 }
 ```
 
+Manager names come from Renovate's
+[manager index](https://docs.renovatebot.com/modules/manager/). `matchDatasources`
+scopes a rule the same way when one manager serves more than one registry.
 `matchCurrentVersion: "!/^0/"` keeps every `0.x` package on the manual side,
 because a minor of a pre-1.0 package can break anything. Rules apply in order
-and later rules win, so the hold list goes after the automerge rule. `major` is
-absent from `matchUpdateTypes` on purpose. The presets `:automergeMinor`,
-`:automergePatch`, and `:automergeDigest` exist, but a written rule shows the
-policy in one place instead of behind a preset name.
+and later rules win, so the hold list goes after the automerge rules. `major` is
+absent from every `matchUpdateTypes` on purpose. The presets `:automergeMinor`,
+`:automergePatch`, and `:automergeDigest` exist, but they apply to every
+manager at once, which is the switch this skill avoids.
 
 ## How Renovate merges
 

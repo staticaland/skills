@@ -54,24 +54,51 @@ Fixing a red check or a missing workflow comes first, because automerge on a PR 
 
 Done when every row's cause is confirmed and the `toil` rows are counted.
 
-### 3. Write the policy
+### 3. Write the policy per ecosystem
 
-Decide which updates merge without a person, and write the decision down before
-touching config so the config has something to match. The default that fits
-most projects:
+First ask what a merge to the default branch does, because that is the blast
+radius of every automerge:
 
-- **Automerge**: patch and minor of packages at 1.0 or above, digest and pin
-  updates, lockfile maintenance.
-- **Hold for a person**: major updates, anything on a `0.x` version because
-  semantic versioning promises nothing about it, and a list of dependencies the
-  project cannot afford to have move silently: the deploy tooling, the
-  database driver, the framework.
+- **Deploys on merge:** an application that deploys from the default branch
+  turns automerge into auto-deploy. Its production dependencies stay on hold.
+- **Publishes at release:** a library that other projects install passes a
+  runtime dependency bump on to every consumer at the next release. Its runtime
+  dependencies stay on hold. Development dependencies only touch this
+  repository.
+- **Runs nothing:** a configuration, documentation, or tooling repository has
+  no runtime, so automerge widely.
+
+Then decide one ecosystem at a time, never with one switch for the whole
+repository. A GitHub Action pinned to a SHA and a production database driver do
+not share a risk, so they do not share a rule.
+
+List the ecosystems the bot updates. Dependabot names them as
+`package-ecosystem` entries in `dependabot.yml`. Renovate lists them by manager
+under "Detected dependencies" on the Dependency Dashboard issue, or in the
+output of `renovate --platform=local --dry-run=extract`. The `ecosystem` column
+from step 1 shows which of them hold the toil.
+
+Give each ecosystem a row: the update types that merge without a person, or
+hold. The default that fits most projects:
+
+| Ecosystem                                                             | Automerge                    | Hold                                                  |
+| --------------------------------------------------------------------- | ---------------------------- | ----------------------------------------------------- |
+| GitHub Actions                                                        | minor, patch, digest or SHA  | major                                                 |
+| Development dependencies (`devDependencies`, Python dev groups)       | minor, patch at 1.0 or above | major, anything on `0.x`                              |
+| Lock file maintenance                                                 | all                          | -                                                     |
+| Container images                                                      | digest                       | tag changes                                           |
+| Production application dependencies                                   | -                            | all, until a month of clean manual merges earns patch |
+| Infrastructure (Terraform providers, database drivers) and frameworks | -                            | all                                                   |
+
+`0.x` stays on hold everywhere because semantic versioning promises nothing
+about it. An ecosystem starts on hold and is promoted after its PRs have merged
+cleanly for a while. The step 1 measurement re-run tells when.
 
 Automerge and the cooldown from the `dependency-cooldown` skill compose. Keep
 both.
 
-Done when the policy names the update types and dependencies on each side, and
-the user has agreed to the split.
+Done when every ecosystem the bot updates has a row, each row names its update
+types or hold, and the user has agreed to the table.
 
 ### 4. Configure the bot
 
@@ -82,8 +109,9 @@ Read the file for the bot the repository runs:
 
 A repository running both bots gets both, and the same policy in each.
 
-Done when the config or workflow expresses exactly the step 3 policy and
-validates, and the merge method it uses is one the repository allows.
+Done when the config or workflow has one rule or step per automerged ecosystem
+from the step 3 table and nothing broader, validates, and the merge method it
+uses is one the repository allows.
 
 ### 5. List the settings for the user
 
