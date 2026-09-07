@@ -44,6 +44,7 @@ jobs:
           && steps.metadata.outputs.update-type != 'version-update:semver-major'
           && !startsWith(steps.metadata.outputs.previous-version, '0.')
           && !contains(steps.metadata.outputs.dependency-names, '<held package>')
+          && !contains(steps.metadata.outputs.dependency-names, '<another held package>')
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
@@ -56,9 +57,12 @@ Fill in the placeholders:
 - `<sha>` pins the action, as the `renovate-setup` skill pins every action:
   `gh api repos/dependabot/fetch-metadata/commits/v2 --jq .sha`. Keep the
   version comment so the bot can update the pin.
-- `<held package>` is the hold list from the policy. `dependency-names` is a
-  comma-separated string, so `contains` also matches part of a longer name, and
-  for a grouped PR it names every dependency in the group.
+- `<held package>` is one entry of the hold list from the policy, and every
+  held package gets its own `!contains` predicate: `contains` tests for one
+  piece of text, so one predicate with a comma-separated list matches only that
+  exact list. `dependency-names` is itself a comma-separated string, so
+  `contains` also matches part of a longer name, and for a grouped PR it names
+  every dependency in the group.
 
 `package-ecosystem` uses Dependabot's internal names, which differ from the
 keys in `dependabot.yml`: `github_actions`, `npm_and_yarn`, `pip`, `docker`,
@@ -78,7 +82,10 @@ A workflow that a Dependabot PR triggers runs with a read-only `GITHUB_TOKEN`
 until the `permissions` block raises it, and it sees Dependabot secrets, not
 Actions secrets. Keep the event on `pull_request`: `pull_request_target` runs with the
 base branch's permissions on code from the PR, and this workflow checks nothing
-out, so it gains nothing from the wider token.
+out, so it gains nothing from the wider token. A merge step that fails with a
+403 has lost that write access, to a missing `permissions` block or to an
+organization policy that pins the token to read. The fallback is a fine-grained
+PAT stored as a Dependabot secret and passed as `GH_TOKEN`.
 
 `gh pr merge --auto` arms auto-merge and exits. With no required check GitHub
 reports the PR as already clean and refuses to arm it, and the step fails with
