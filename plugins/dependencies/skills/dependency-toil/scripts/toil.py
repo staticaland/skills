@@ -16,7 +16,8 @@ Usage:
     login is assumed, and a bot author alone is not a signal, because
     release and assistant bots open PRs too; those logins are listed at
     the end so --author can add one the signals miss. --org ranks that
-    owner's repositories by the open PRs of the authors found.
+    owner's repositories by the open PRs of the bot authors found and of
+    every --author login.
 
   toil.py verify <pr-number>
     Prints the PR's auto-merge request, check states, merge time and
@@ -39,7 +40,9 @@ Exits 2 when `gh` fails, 1 when nothing could be measured.
 
 import argparse
 import json
+import math
 import re
+import statistics
 import subprocess
 import sys
 from collections import Counter
@@ -216,8 +219,8 @@ def measure(args: argparse.Namespace) -> None:
 
     ages = sorted(merged_ages(merged_prs))
     if ages:
-        median = ages[len(ages) // 2]
-        p90 = ages[min(int(len(ages) * 0.9), len(ages) - 1)]
+        median = statistics.median(ages)
+        p90 = ages[math.ceil(0.9 * len(ages)) - 1]
         print(
             f"merged: {len(ages)} of the last 300 merged PRs  median_days: {median:.1f}  p90_days: {p90:.1f}"
         )
@@ -259,7 +262,9 @@ def measure(args: argparse.Namespace) -> None:
 
     if args.org:
         counts: Counter = Counter()
-        for login in authors:
+        for login in sorted(
+            {login for login in authors if login.startswith("app/")} | extra
+        ):
             hits = gh(
                 "search",
                 "prs",
