@@ -24,12 +24,13 @@ the API and the web UI alike: the user changes them.
 ### 1. Measure the toil
 
 Run `<skill-dir>/scripts/toil.py measure`, where `<skill-dir>` is this skill's
-base directory. It prints one row per open bot PR with its age, check states,
-merge conflict and review state, and a provisional cause, then the cause counts, the
-merged median and p90 time-to-merge, the bot config the repository tracks, and
-the merge settings the API returns. Add `--author app/<bot>` for a self-hosted
-bot under another login, and `--org <owner>` to rank an organization's
-repositories by open bot PRs.
+base directory. It recognizes an update PR from its `renovate/` or `dependabot/` branch, its label, or the shape of its title, and counts any login given with `--author` too, so a self-hosted bot under an unfamiliar login is still found. It prints one row per open update PR with its age, ecosystem, check
+states, merge conflict and review state, and a provisional cause, then the cause
+counts, the merged median and p90 time-to-merge, the authors counted and the bot
+authors that were not, the bot config the repository tracks, and the merge
+settings the API returns. Pass a bot author that should have been counted with
+`--author`. `--org <owner>` ranks an organization's repositories by open update
+PRs.
 
 Done when the output is saved as the baseline the fix has to beat.
 

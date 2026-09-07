@@ -2,15 +2,21 @@
 """Deterministic halves of the dependency-toil skill.
 
 Usage:
-  toil.py measure [--author app/<bot>]... [--org <org>]
-    Prints one row per open bot PR - age in days, check states, mergeable
-    and review state, and a provisional cause read off those states - then
-    the cause counts, the merged median and p90 time-to-merge, the update
-    bots the repository has config for, and the merge settings the
-    repository API returns to a reader with push access. Without --author, app/renovate and app/dependabot are
-    measured when either authored one of the last 100 PRs; a self-hosted
-    bot under another login needs --author. --org ranks that owner's
-    repositories by open bot PRs.
+  toil.py measure [--author <login>]... [--org <org>]
+    Prints one row per open update PR - age in days, the Dependabot
+    ecosystem read off the branch name, check states, mergeable and review
+    state, and a provisional cause read off those states - then the cause
+    counts, the merged median and p90 time-to-merge, the authors behind the
+    update PRs, the update bots the repository has config for, and the
+    merge settings the repository API returns to a reader with push access.
+
+    An update PR is one with any of: a renovate/ or dependabot/ branch, a
+    dependencies, renovate, or dependabot label, or an update-shaped title
+    (chore(deps), Update, Bump, Pin, Lock file maintenance, digest). No
+    login is assumed, and a bot author alone is not a signal, because
+    release and assistant bots open PRs too; those logins are listed at
+    the end so --author can add one the signals miss. --org ranks that
+    owner's repositories by the open PRs of the authors found.
 
   toil.py verify <pr-number>
     Prints the PR's auto-merge request, check states, merge time and
@@ -33,6 +39,7 @@ Exits 2 when `gh` fails, 1 when nothing could be measured.
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -105,31 +112,55 @@ def cause(pr: dict) -> str:
     return "toil"
 
 
-UPDATE_BOTS = {"app/renovate", "app/dependabot"}
+BRANCH_PREFIXES = ("renovate/", "dependabot/")
+TITLE_PATTERN = re.compile(
+    r"^(chore|fix|build|ci)\(deps(-dev)?\)|^(Update|Pin|Bump|Upgrade) |Lock file maintenance|digest to [0-9a-f]{7}",
+    re.IGNORECASE,
+)
+PR_FIELDS = "number,title,createdAt,mergedAt,isDraft,reviewDecision,mergeable,statusCheckRollup,headRefName,author,labels"
 
 
-def bot_authors() -> list[str]:
-    prs = gh("pr", "list", "--state", "all", "--limit", "100", "--json", "author")
-    bots = {pr["author"]["login"] for pr in prs if pr["author"].get("is_bot")}
-    known = sorted(bots & UPDATE_BOTS)
-    if not known and bots:
-        sys.exit(
-            f"No Renovate or Dependabot PR among the last 100. Bots seen: {', '.join(sorted(bots))}. Pass --author."
-        )
-    return known
+LABELS = {"dependencies", "renovate", "dependabot"}
 
 
-def open_rows(author: str) -> list[tuple]:
-    prs = gh(
-        "pr", "list", "--state", "open", "--author", author, "--limit", "200",
-        "--json", "number,title,createdAt,isDraft,reviewDecision,mergeable,statusCheckRollup",
-    )  # fmt: skip
+def is_update_pr(pr: dict, extra_authors: set[str]) -> bool:
+    """Any one signal marks an update PR: a bot branch prefix, an update label, an update-shaped title, a named author."""
+    return (
+        pr["author"].get("login") in extra_authors
+        or pr["headRefName"].startswith(BRANCH_PREFIXES)
+        or any(label["name"].lower() in LABELS for label in pr["labels"])
+        or bool(TITLE_PATTERN.search(pr["title"]))
+    )
+
+
+def update_prs(
+    state: str, limit: int, extra_authors: set[str]
+) -> tuple[list[dict], Counter]:
+    """Return the update PRs and, for the note at the end, bot authors whose PRs matched no signal."""
+    prs = gh("pr", "list", "--state", state, "--limit", str(limit), "--json", PR_FIELDS)
+    matched = [pr for pr in prs if is_update_pr(pr, extra_authors)]
+    unmatched_bots = Counter(
+        pr["author"]["login"]
+        for pr in prs
+        if pr["author"].get("is_bot") and pr not in matched
+    )
+    return matched, unmatched_bots
+
+
+def ecosystem(branch: str) -> str:
+    """Dependabot encodes the ecosystem in the branch: dependabot/<ecosystem>/<dir>/<dep>-<version>."""
+    parts = branch.split("/")
+    return parts[1] if parts[0] == "dependabot" and len(parts) > 2 else "-"
+
+
+def open_rows(prs: list[dict]) -> list[tuple]:
     now = datetime.now(UTC)
     return [
         (
             (now - parse_time(pr["createdAt"])).total_seconds() / 86400,
             pr["number"],
-            author,
+            pr["author"]["login"],
+            ecosystem(pr["headRefName"]),
             ",".join(check_states(pr["statusCheckRollup"])) or "-",
             pr["mergeable"],
             pr["reviewDecision"] or "-",
@@ -140,19 +171,7 @@ def open_rows(author: str) -> list[tuple]:
     ]
 
 
-def merged_ages(author: str) -> list[float]:
-    prs = gh(
-        "pr",
-        "list",
-        "--state",
-        "merged",
-        "--author",
-        author,
-        "--limit",
-        "100",
-        "--json",
-        "createdAt,mergedAt",
-    )
+def merged_ages(prs: list[dict]) -> list[float]:
     return [
         (parse_time(pr["mergedAt"]) - parse_time(pr["createdAt"])).total_seconds()
         / 86400
@@ -176,29 +195,46 @@ def tracked_bots() -> list[str]:
 
 
 def measure(args: argparse.Namespace) -> None:
-    authors = args.author or bot_authors()
-    if not authors:
-        sys.exit("No bot among the last 100 PRs. Pass --author app/<bot>.")
+    extra = set(args.author or [])
+    open_prs, open_bots = update_prs("open", 500, extra)
+    merged_prs, merged_bots = update_prs("merged", 300, extra)
+    if not open_prs and not merged_prs:
+        sys.exit(
+            "No update PR found: no renovate/ or dependabot/ branch, update label, or update-shaped title. Pass --author <login>."
+        )
 
-    rows = [row for author in authors for row in open_rows(author)]
-    print("days\tnumber\tauthor\tchecks\tmergeable\treview\tcause\ttitle")
+    rows = open_rows(open_prs)
+    print("days\tnumber\tauthor\tecosystem\tchecks\tmergeable\treview\tcause\ttitle")
     for row in sorted(rows, reverse=True):
         print(f"{row[0]:.0f}\t" + "\t".join(str(field) for field in row[1:]))
     print()
     print(
         "open:",
         len(rows),
-        json.dumps(dict(Counter(row[6] for row in rows).most_common())),
+        json.dumps(dict(Counter(row[7] for row in rows).most_common())),
     )
 
-    ages = sorted(age for author in authors for age in merged_ages(author))
+    ages = sorted(merged_ages(merged_prs))
     if ages:
         median = ages[len(ages) // 2]
         p90 = ages[min(int(len(ages) * 0.9), len(ages) - 1)]
-        print(f"merged: {len(ages)}  median_days: {median:.1f}  p90_days: {p90:.1f}")
+        print(
+            f"merged: {len(ages)} of the last 300 merged PRs  median_days: {median:.1f}  p90_days: {p90:.1f}"
+        )
     else:
         print("merged: 0")
 
+    authors = Counter(pr["author"]["login"] for pr in open_prs + merged_prs)
+    print(
+        "update authors:",
+        ", ".join(f"{login} ({n})" for login, n in authors.most_common()),
+    )
+    other_bots = open_bots + merged_bots
+    if other_bots:
+        print(
+            "other bot authors, not counted:",
+            ", ".join(f"{login} ({n})" for login, n in other_bots.most_common()),
+        )
     print("bot config:", ", ".join(tracked_bots()) or "none tracked")
 
     repo = gh("api", "repos/{owner}/{repo}")
@@ -222,11 +258,23 @@ def measure(args: argparse.Namespace) -> None:
     )
 
     if args.org:
-        hits = gh(
-            "search", "prs", "--author", authors[0], "--state", "open", "--owner", args.org,
-            "--limit", "1000", "--json", "repository",
-        )  # fmt: skip
-        counts = Counter(hit["repository"]["nameWithOwner"] for hit in hits)
+        counts: Counter = Counter()
+        for login in authors:
+            hits = gh(
+                "search",
+                "prs",
+                "--author",
+                login,
+                "--state",
+                "open",
+                "--owner",
+                args.org,
+                "--limit",
+                "1000",
+                "--json",
+                "repository",
+            )
+            counts.update(hit["repository"]["nameWithOwner"] for hit in hits)
         print()
         print("repository\topen")
         for repo_name, count in counts.most_common():
