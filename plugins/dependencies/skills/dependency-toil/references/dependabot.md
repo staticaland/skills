@@ -1,9 +1,6 @@
 # Dependabot automerge
 
-`dependabot.yml` has no automerge option. The policy is a GitHub Actions
-workflow that runs on each Dependabot PR, classifies the update with
-`dependabot/fetch-metadata`, and arms GitHub's auto-merge with
-`gh pr merge --auto`. GitHub's own guide is
+`dependabot.yml` has no automerge option. GitHub's own guide is
 [Automating Dependabot with GitHub Actions](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/automate-dependabot-with-actions);
 read the action's README for the current list of outputs.
 
@@ -49,9 +46,6 @@ Fill in the three placeholders:
   comma-separated string, so `contains` also matches part of a longer name, and
   for a grouped PR it names every dependency in the group.
 
-Use a merge method the repository allows: `--squash`, `--merge`, or
-`--rebase`.
-
 `update-type` is one of `version-update:semver-major`,
 `version-update:semver-minor`, and `version-update:semver-patch`. A grouped PR
 reports the highest level in the group, so one major in a group holds the
@@ -63,17 +57,13 @@ dependencies more freely.
 
 A workflow that a Dependabot PR triggers runs with a read-only `GITHUB_TOKEN`
 until the `permissions` block raises it, and it sees Dependabot secrets, not
-Actions secrets. The block above grants exactly what `gh pr merge --auto`
-needs. Keep the event on `pull_request`: `pull_request_target` runs with the
+Actions secrets. Keep the event on `pull_request`: `pull_request_target` runs with the
 base branch's permissions on code from the PR, and this workflow checks nothing
 out, so it gains nothing from the wider token.
 
-`gh pr merge --auto` arms auto-merge and exits. The merge happens when the
-required checks pass, which depends on **Allow auto-merge** on the repository
-and on branch protection or a rule set that requires at least one status
-check. Both are the user's settings. With no required check GitHub reports the
-PR as already clean and refuses to arm it, and the step fails with that
-message.
+`gh pr merge --auto` arms auto-merge and exits. With no required check GitHub
+reports the PR as already clean and refuses to arm it, and the step fails with
+that message.
 
 ## Reviews
 
@@ -88,17 +78,11 @@ same `if` condition:
     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-The approval counts only when the administrator has enabled **Allow GitHub
-Actions to create and approve pull requests** under the repository's Actions
-settings, and a CODEOWNERS requirement is never met by a bot. State both and
-leave the change to the user.
-
 ## Validate
 
 Push the workflow, then open the next Dependabot PR:
 
 ```bash
-gh pr view <number> --json autoMergeRequest --jq .autoMergeRequest
 gh run list --workflow 'Automerge Dependabot updates' --limit 5
 ```
 

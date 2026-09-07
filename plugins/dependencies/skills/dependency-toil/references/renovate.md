@@ -1,7 +1,6 @@
 # Renovate automerge
 
-Renovate keeps the automerge policy in its own config, so the whole fix is a
-`packageRules` entry. Read the current option semantics from the
+Read the current option semantics from the
 [automerge concept page](https://docs.renovatebot.com/key-concepts/automerge/)
 and the [configuration options](https://docs.renovatebot.com/configuration-options/)
 when a detail below disagrees with what the validator says.
@@ -40,18 +39,7 @@ absent from `matchUpdateTypes` on purpose. The presets `:automergeMinor`,
 `:automergePatch`, and `:automergeDigest` exist, but a written rule shows the
 policy in one place instead of behind a preset name.
 
-`automerge` is `false` by default, and a `minimumReleaseAge` already in the
-config still applies. Renovate opens the PR when the release has aged, and
-automerges it when the checks pass.
-
 ## How Renovate merges
-
-`platformAutomerge` defaults to `true`, so Renovate arms GitHub's own auto-merge
-on the PR, and GitHub merges the moment the required checks pass. This needs the
-repository's **Allow auto-merge** setting, and branch protection that requires
-at least one status check, otherwise GitHub can merge a PR whose tests failed.
-Without platform automerge Renovate merges the PR itself on a later run, once
-it sees passing checks, so a merge can take a couple of hours.
 
 Renovate refuses to automerge a branch with no checks at all. `ignoreTests: true`
 lifts that refusal, and belongs nowhere near a project that automerges.
@@ -70,8 +58,8 @@ that differs from Renovate's choice.
 
 A required review blocks automerge. On GitHub, either the administrator adds
 the Renovate app to **Allow specified actors to bypass required pull requests**,
-or installs the `renovate-approve` helper app. Both are the user's settings
-change. Name the one that fits and stop.
+or installs the `renovate-approve` helper app. Name the one that fits and
+stop.
 
 ## Validate
 

@@ -12,26 +12,12 @@ version: 0.1.0
 # Dependency Toil
 
 **Toil** is the manual work a bot's pull request still asks of a person: open
-it, see the checks are green, click merge. Repeated for every patch bump it
-costs an hour a week and buys nothing, so the PRs accumulate. A backlog of
-stale updates is worse than either merging or ignoring them: the fix a project
-needs is buried under forty it does not, and every day open is a day the
-lockfile drifts further from what the manifest says.
+it, see the checks are green, click merge.
 
-**Automerge** removes the click, and only the click. The check suite keeps its
-vote. An update merges because a required check passed, and a person is
-involved only when it fails, or when the change is one the policy holds back
-for a human: a major, a pre-1.0 package, a dependency of the deploy itself.
+**Automerge** removes the click, and only the click.
 
-The bots differ in where the policy is defined. Renovate keeps it in its own
-config. Dependabot has no automerge setting, so a GitHub Actions workflow
-enables GitHub's auto-merge on each PR the bot opens.
-
-**Repository settings are the user's.** Automerge depends on settings that only
-an administrator changes: auto-merge allowed, branch protection, required
-checks. Read them where a read-only command exists, state what must hold, and
-hand the list over. Leave every setting as it is, through the API and the web
-UI alike: the user changes them.
+**Repository settings are the user's.** Leave every setting as it is, through
+the API and the web UI alike: the user changes them.
 
 ## Procedure
 
@@ -52,7 +38,7 @@ Done when the output is saved as the baseline the fix has to beat.
 The script's cause is a lookup on states. Correct it where reading is needed:
 
 - `red-check`: open the failing run. A flaky check is fixed in the check; a real
-  break is fixed or closed in the PR. Automerge leaves both open.
+  break is fixed or closed in the PR.
 - `no-checks` or `pending-check`: no workflow runs on the bot's branches. Add
   the branch pattern or event first; a PR with no check can never automerge
   safely.
@@ -62,10 +48,9 @@ The script's cause is a lookup on states. Correct it where reading is needed:
 - A burst of `toil` rows of one kind opened the same day: grouping is missing
   (`groupName`, Dependabot `groups`), not a merge step.
 - Updates held on Renovate's Dependency Dashboard are not PRs. Keep the gate if
-  the project chose it. Automerge is for the updates outside it.
+  the project chose it.
 
-Only `toil` is what automerge cures. Fixing a red check or a missing workflow
-comes first, because automerge on a PR that never turns green is a no-op.
+Fixing a red check or a missing workflow comes first, because automerge on a PR that never turns green is a no-op.
 
 Done when every row's cause is confirmed and the `toil` rows are counted.
 
@@ -82,10 +67,8 @@ most projects:
   project cannot afford to have move silently: the deploy tooling, the
   database driver, the framework.
 
-Automerge and the cooldown from the `dependency-cooldown` skill compose. A
-release ages for the minimum release age first, and only then does the bot open
-the PR that automerges, so a compromised version still gets its window to be
-caught. Keep both.
+Automerge and the cooldown from the `dependency-cooldown` skill compose. Keep
+both.
 
 Done when the policy names the update types and dependencies on each side, and
 the user has agreed to the split.
@@ -94,11 +77,8 @@ the user has agreed to the split.
 
 Read the file for the bot the repository runs:
 
-- Renovate: [`references/renovate.md`](references/renovate.md). `automerge` in
-  `packageRules`, and the PR body's `Automerge:` line as the proof.
-- Dependabot: [`references/dependabot.md`](references/dependabot.md). A
-  workflow on `pull_request` that runs `gh pr merge --auto` after
-  `dependabot/fetch-metadata` classifies the update.
+- Renovate: [`references/renovate.md`](references/renovate.md).
+- Dependabot: [`references/dependabot.md`](references/dependabot.md).
 
 A repository running both bots gets both, and the same policy in each.
 
@@ -110,8 +90,7 @@ validates, and the merge method it uses is one the repository allows.
 The `measure` output ends with the settings the API returns: auto-merge
 allowed, the merge methods allowed, and delete-branch-on-merge. Give the user
 this list, marked with what that read showed and what the user still confirms
-in the repository settings. Each line names the setting and what breaks without
-it:
+in the repository settings:
 
 - **Allow auto-merge** under general settings. Without it, `gh pr merge --auto`
   fails, and Renovate's `platformAutomerge` falls back to merging on its own
