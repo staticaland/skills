@@ -37,57 +37,37 @@ UI alike: the user changes them.
 
 ### 1. Measure the toil
 
-Find the bot's login first. The hosted Renovate app is `app/renovate`, a
-self-hosted runner is whatever account it runs as, and Dependabot is always
-`app/dependabot`:
+Run `<skill-dir>/scripts/toil.py measure`, where `<skill-dir>` is this skill's
+base directory. It prints one row per open bot PR with its age, check states,
+merge conflict and review state, and a provisional cause, then the cause counts, the
+merged median and p90 time-to-merge, the bot config the repository tracks, and
+the merge settings the API returns. Add `--author app/<bot>` for a self-hosted
+bot under another login, and `--org <owner>` to rank an organization's
+repositories by open bot PRs.
 
-```bash
-gh pr list --state all --limit 100 --json author --jq '[.[].author.login] | unique'
-```
+Done when the output is saved as the baseline the fix has to beat.
 
-Then age every open bot PR, with the state that explains why it is still open:
+### 2. Confirm each cause
 
-```bash
-gh pr list --state open --author app/renovate --limit 200 \
-  --json number,title,url,createdAt,isDraft,reviewDecision,mergeable,statusCheckRollup \
-  --jq '.[] | [((now - (.createdAt | fromdateiso8601)) / 86400 | floor), .number, .reviewDecision, .mergeable, ([.statusCheckRollup[]? | .conclusion // .state] | unique | join(",")), .title] | @tsv' \
-  | sort -rn
-```
+The script's cause is a lookup on states. Correct it where reading is needed:
 
-Add the merged history, because time-to-merge is the toil in one number:
+- `red-check`: open the failing run. A flaky check is fixed in the check; a real
+  break is fixed or closed in the PR. Automerge leaves both open.
+- `no-checks` or `pending-check`: no workflow runs on the bot's branches. Add
+  the branch pattern or event first; a PR with no check can never automerge
+  safely.
+- `conflicting`: `rebaseWhen` controls when Renovate rebases. Dependabot
+  rebases on `@dependabot rebase` or on its next run.
+- `review-required`: step 5, the approval workflow or a bypass for the bot.
+- A burst of `toil` rows of one kind opened the same day: grouping is missing
+  (`groupName`, Dependabot `groups`), not a merge step.
+- Updates held on Renovate's Dependency Dashboard are not PRs. Keep the gate if
+  the project chose it. Automerge is for the updates outside it.
 
-```bash
-gh pr list --state merged --author app/renovate --limit 100 --json createdAt,mergedAt \
-  --jq '[.[] | ((.mergedAt | fromdateiso8601) - (.createdAt | fromdateiso8601)) / 86400] | sort | {merged: length, median_days: .[length / 2 | floor], p90_days: .[length * 0.9 | floor]}'
-```
+Only `toil` is what automerge cures. Fixing a red check or a missing workflow
+comes first, because automerge on a PR that never turns green is a no-op.
 
-For a whole organization, `gh search prs --author app/dependabot --state open --owner <org> --json repository,number,createdAt,url` ranks the repositories by
-backlog.
-
-Done when every open bot PR has a row with its age in days, check state, review
-state, and conflict state, and the merged median and p90 are recorded as the
-baseline the fix has to beat.
-
-### 2. Sort each stale PR by cause
-
-Automerge cures one cause. Read the rows and give each PR one of these:
-
-| Row looks like                                   | Cause                                              | Fix                                                                                            |
-| ------------------------------------------------ | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| checks `SUCCESS`, no review, `MERGEABLE`         | **toil**: waiting for a click                      | automerge, steps 3 to 5                                                                        |
-| checks `FAILURE`                                 | the update breaks the build, or the check is flaky | fix or close the PR; automerge would leave it open anyway                                      |
-| checks empty or `PENDING` for days               | no workflow runs on the bot's branches             | add the branch pattern or event to the workflow; a PR with no check can never automerge safely |
-| `CONFLICTING`                                    | the base moved and the bot has not rebased         | Renovate: `rebaseWhen`; Dependabot: `@dependabot rebase`, or let it rebase on its next run     |
-| `reviewDecision` `REVIEW_REQUIRED`               | branch protection wants an approval no one gives   | step 5: the approval workflow, or a bypass for the bot                                         |
-| a burst of PRs of one kind on the same day       | limits or grouping missing, not a merge problem    | group them (`groupName`, Dependabot `groups`) so one PR carries the batch                      |
-| Renovate PR held behind the Dependency Dashboard | `dependencyDashboardApproval` gates it             | keep the gate if the project chose it; automerge is for the updates outside it                 |
-
-The first cause is where automerge pays. Fixing a red check or a missing
-workflow comes first, because automerge on a PR that never turns green is a
-no-op.
-
-Done when every PR from step 1 has a cause and the toil rows are counted
-separately.
+Done when every row's cause is confirmed and the `toil` rows are counted.
 
 ### 3. Write the policy
 
@@ -127,15 +107,11 @@ validates, and the merge method it uses is one the repository allows.
 
 ### 5. List the settings for the user
 
-Read what a read-only command shows:
-
-```bash
-gh repo view --json autoMergeAllowed,squashMergeAllowed,mergeCommitAllowed,rebaseMergeAllowed,deleteBranchOnMerge
-```
-
-Then give the user this list, marked with what the read showed and what the
-user still confirms in the repository settings. Each line names the setting
-and what breaks without it:
+The `measure` output ends with the settings the API returns: auto-merge
+allowed, the merge methods allowed, and delete-branch-on-merge. Give the user
+this list, marked with what that read showed and what the user still confirms
+in the repository settings. Each line names the setting and what breaks without
+it:
 
 - **Allow auto-merge** under general settings. Without it, `gh pr merge --auto`
   fails, and Renovate's `platformAutomerge` falls back to merging on its own
@@ -165,17 +141,14 @@ nothing in the repository's settings was changed by this session.
 ### 6. Prove it on the next PR
 
 Wait for the next bot PR in the automerge class, or trigger one with
-Dependabot's **Check for updates** or Renovate's dashboard checkbox. Observe:
+Dependabot's **Check for updates** or Renovate's dashboard checkbox. Then run
+`<skill-dir>/scripts/toil.py verify <number>`.
 
-```bash
-gh pr view <number> --json autoMergeRequest,statusCheckRollup,mergedAt,mergedBy
-```
-
-Renovate's PR body says `Automerge: Enabled`. A Dependabot PR shows a non-null
-`autoMergeRequest` after the workflow runs. Then confirm the PR merged after
-its checks passed and that a PR outside the class, such as a major, stayed
-open. After the first merge, check the default branch's push workflows
-ran on the merge commit, so a release pipeline downstream still sees the
+Renovate's PR body line reads `Automerge: Enabled`. A Dependabot PR shows a
+non-null auto-merge request after the workflow runs. Then confirm the PR merged
+after its checks passed and that a PR outside the class, such as a major,
+stayed open. The runs listed on the merge commit show whether the default
+branch's push workflows ran, so a release pipeline downstream still sees the
 change.
 
 Done when one PR inside the policy has merged by itself with green checks, one
