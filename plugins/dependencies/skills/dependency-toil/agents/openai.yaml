@@ -1,0 +1,5 @@
+interface:
+  display_name: "Dependency Toil"
+  short_description: "Automerge the bot PRs that a green check already vouches for"
+policy:
+  allow_implicit_invocation: true
