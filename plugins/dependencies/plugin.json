@@ -5,5 +5,5 @@
   "author": {
     "name": "staticaland"
   },
-  "description": "Hold new dependency releases for a cooldown, configure Renovate, freeze install commands to their lock files, and deny install-time script execution"
+  "description": "Hold new dependency releases for a cooldown, configure Renovate, automerge the updates a green check vouches for, freeze install commands to their lock files, and deny install-time script execution"
 }
