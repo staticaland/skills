@@ -29,13 +29,16 @@ Then delete every `actions/setup-*` step whose tool now lives in `mise.toml`. A
 `setup-node` left beside a `node` entry means two versions and one of them wins
 silently.
 
-With `mise.lock` committed, add `--locked` so a missing lockfile entry fails the
-job instead of resolving over the network:
+With `mise.lock` committed and `[tool_config] locked = true` in `mise.toml`,
+the default `mise install` already fails the job on a missing lockfile entry
+instead of resolving over the network, so the action runs with no arguments.
+On a mise older than 2026.8.6, `tool_config` is unavailable; pass the flag
+instead:
 
 ```yaml
 - uses: jdx/mise-action@7e36c90d9ab29c415a2384db3006f3ec8a8cc654 # v4.2.4
   with:
-    install_args: --locked
+    install_args: --locked # only for mise < 2026.8.6
 ```
 
 `MISE_ENV=ci` loads `mise.ci.toml` on top of `mise.toml`, which is where CI-only
@@ -75,9 +78,13 @@ shell activation, since `RUN` is non-interactive:
 
 ```dockerfile
 COPY mise.toml mise.lock ./
-RUN mise install --locked
+RUN mise install
 ENV PATH="/root/.local/share/mise/shims:$PATH"
 ```
+
+`[tool_config] locked = true` in `mise.toml` makes that install fail on a
+lockfile miss. Write `RUN mise install --locked` only when the image's mise is
+older than 2026.8.6.
 
 `mise generate devcontainer` writes a devcontainer that runs mise. `mise oci`
 builds a container image from `mise.toml` and is experimental.
