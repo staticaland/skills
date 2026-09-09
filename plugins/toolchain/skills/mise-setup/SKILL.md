@@ -253,5 +253,10 @@ description = "Build the project"
 run = "mage build"
 ```
 
+mise runs a `run` script with `sh -c`, which is dash on Ubuntu runners and
+bash on macOS. Write POSIX sh (no `<<<`, `[[ ]]`, arrays, or `pipefail`), or
+set `shell = "bash -c"` on the task. Check with `sh -n` or `dash -c` before
+pushing, because a bash-only construct passes on a Mac and exits 2 in CI.
+
 A task that wraps nothing adds a layer to read through. Full reference:
 <https://mise.jdx.dev/tasks/>
