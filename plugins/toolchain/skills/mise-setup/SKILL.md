@@ -147,9 +147,6 @@ pipx.uvx = true
 locked = true
 ```
 
-`[tool_config]` needs mise 2026.8.6 or newer. Check `mise --version`; on an
-older mise, drop the block and pass `--locked` to `mise install` in CI only.
-
 Match `minimum_release_age` to the cooldown the project's package managers
 already use, and reach for the `dependency-cooldown` skill to set the duration
 everywhere else it resolves.
