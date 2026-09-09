@@ -128,7 +128,7 @@ is what tells the next reader whether a tool is still needed.
 
 Consult [config.md](references/config.md) for the `[settings]` worth committing,
 the accepted version syntax, tool options, and `[env]`. Set at least these
-three:
+four:
 
 ```toml
 [settings]
@@ -140,7 +140,15 @@ minimum_release_age = "7d"
 
 # Install Python tools with uv instead of pipx.
 pipx.uvx = true
+
+[tool_config]
+# Require the tools declared here to install from mise.lock. Unlike
+# `settings.locked`, this leaves tools from a contributor's global config alone.
+locked = true
 ```
+
+`[tool_config]` needs mise 2026.8.6 or newer. Check `mise --version`; on an
+older mise, drop the block and pass `--locked` to `mise install` in CI only.
 
 Match `minimum_release_age` to the cooldown the project's package managers
 already use, and reach for the `dependency-cooldown` skill to set the duration
@@ -164,12 +172,32 @@ mise install
 mise lock --platform macos-arm64,macos-x64,linux-x64,linux-arm64
 ```
 
-With the lockfile committed, CI installs from pre-resolved URLs and checksums
-instead of calling GitHub and the aqua registry: pass `--locked` to
-`mise install` to make a missing entry fail the job.
+With the lockfile committed, installs read pre-resolved URLs and checksums
+instead of calling GitHub and the aqua registry. `[tool_config] locked = true`
+makes plain `mise install` fail on a missing entry, locally and in CI, so no
+`--locked` flag is needed. Prove the enforcement in both directions:
+
+```bash
+mise install                                   # succeeds from the lockfile
+cp mise.lock /tmp/mise.lock.bak
+# delete one tool's block from mise.lock, then:
+mise install -f <tool>                         # expect: "<tool> is not in the lockfile"
+mv /tmp/mise.lock.bak mise.lock
+```
+
+> [!WARNING]
+> Verify with plain `mise install`, never `mise install --locked`. `--locked`,
+> `MISE_LOCKED`, and `settings.locked` apply to every loaded config, so on a
+> developer machine they fail for every tool in `~/.config/mise/config.toml`
+> that the project never declared. CI passes only because runners have no
+> global config. When `--locked` has to run locally, hide the global config:
+> `MISE_IGNORED_CONFIG_PATHS=$HOME/.config/mise/config.toml mise install --locked`.
+> Pointing `MISE_GLOBAL_CONFIG_FILE` at `/dev/null` errors, and an empty file
+> does not stop the real global config from loading.
 
 Done when `mise.lock` holds a checksum for each tool on each platform in use,
-and `mise install --locked` succeeds.
+`mise install` succeeds, and the install of a tool removed from the lockfile
+fails.
 
 ### 6. Verify the toolchain runs
 
