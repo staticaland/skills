@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/staticaland/skills/compare/toolchain-v0.2.0...toolchain-v0.3.0) (2026-09-10)
+
+
+### Features
+
+* **toolchain:** enforce the lockfile with tool_config.locked ([35f8cc8](https://github.com/staticaland/skills/commit/35f8cc81f768c35888cc2549b709bc47d7c272f9))
+
+
+### Bug Fixes
+
+* **toolchain:** prefer github: over ubi: when aqua has no package ([cee3cf2](https://github.com/staticaland/skills/commit/cee3cf2e679e5177a38fc69d0fffdc684d71fce6))
+
 ## [0.2.0](https://github.com/staticaland/skills/compare/toolchain-v0.1.0...toolchain-v0.2.0) (2026-08-25)
 
 
