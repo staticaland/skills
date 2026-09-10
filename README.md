@@ -126,8 +126,9 @@ every action reference to a commit SHA on workflow edits.
 
 #### [dependencies](./plugins/dependencies/README.md)
 
-Hold new dependency releases for a cooldown, configure Renovate, freeze
-install commands to their lock files, and deny install-time script execution.
+Hold new dependency releases for a cooldown, configure Renovate, automerge the
+updates a green check vouches for, freeze install commands to their lock files,
+and deny install-time script execution.
 
 - **[dependency-cooldown](./plugins/dependencies/skills/dependency-cooldown/SKILL.md)**
   (skill) - Sets up a minimum release age across a project's package
@@ -138,6 +139,11 @@ install commands to their lock files, and deny install-time script execution.
   (skill) - Configures Renovate with a seven-day minimum release age and
   immutable updates through lock files, integrity hashes, action SHAs, and image
   digests.
+- **[dependency-toil](./plugins/dependencies/skills/dependency-toil/SKILL.md)**
+  (skill) - Measures how long Renovate and Dependabot PRs sit open, sorts the
+  stale ones by cause, and removes the merge click one ecosystem at a time: an `automerge` rule for Renovate, a `gh pr merge --auto`
+  workflow for Dependabot. Hands the repository settings it depends on to the
+  user as a checklist.
 - **[frozen-install](./plugins/dependencies/skills/frozen-install/SKILL.md)**
   (skill) - Rewrites resolving install commands as frozen ones
   (`npm ci`, `uv sync --locked`) at every site meant to

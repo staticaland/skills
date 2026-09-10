@@ -73,13 +73,14 @@ $^ English technical terms not in Vale's dictionary
 ADRs
 [Aa]llowlists?
 [Aa]llowlisted
+[Aa]utomerge[sd]?
 discoverability
 hostnames
 lookups
 pretrained
 pretraining
 [Pp]seudocode
-[Rr]ebases?
+[Rr]ebase[sd]?
 validator
 [Vv]endored
 $^ Norwegian words used in kontrollert-norsk/SKILL.md
