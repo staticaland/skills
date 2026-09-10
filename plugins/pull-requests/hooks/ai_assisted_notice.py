@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""PreToolUse hook: require an AI-assistance notice on gh pr and gh issue bodies.
+"""PreToolUse hook: end gh pr and gh issue bodies with an AI-assistance notice.
 
 Matches `gh pr create`, `gh pr edit`, `gh issue create`, and `gh issue edit`.
 The body may arrive as `--body`, `-b`, `--body-file`, `-F`, or a heredoc on
@@ -16,17 +16,17 @@ import shlex
 import sys
 from pathlib import Path
 
-NOTICE = "<sub>🤖 Written with AI assistance.</sub>"
+NOTICE = "**<sub>AI assisted 🤖</sub>**"
 
 BODY_FLAGS = ("--body", "-b", "--body-file", "-F")
 
 
 def wrap(body):
-    """Return body with NOTICE as the first and last line."""
+    """Return body with NOTICE as its last line."""
     body = body.strip("\n")
-    if body.startswith(NOTICE) and body.endswith(NOTICE):
+    if body.endswith(NOTICE):
         return body + "\n"
-    return f"{NOTICE}\n\n{body}\n\n{NOTICE}\n"
+    return f"{body}\n\n{NOTICE}\n"
 
 
 def strip_quoted(command):
@@ -99,22 +99,22 @@ def main():
             pass  # the file is missing or unreadable; gh will say so
         deny(
             f"The {what} body in {path} needs the AI-assistance notice. Add "
-            f"this line as its first and last line, then run the command again:\n"
+            f"this line at the end, then run the command again:\n"
             f"{NOTICE}"
         )
         return
 
     if has_body_flag(stripped):
         deny(
-            f"The {what} body needs the AI-assistance notice. Add this line as "
-            f"its first and last line, then run the command again:\n{NOTICE}"
+            f"The {what} body needs the AI-assistance notice. Add this line at "
+            f"the end, then run the command again:\n{NOTICE}"
         )
         return
 
     if verb == "create" and not re.search(r"(^|\s)(--web|-w)(\s|$)", stripped):
         deny(
-            f"gh {what} needs a body that carries the AI-assistance notice. Pass "
-            f"--body or --body-file with this line as its first and last line:\n"
+            f"gh {what} needs a body that ends with the AI-assistance notice. Pass "
+            f"--body or --body-file with this line at the end:\n"
             f"{NOTICE}"
         )
 

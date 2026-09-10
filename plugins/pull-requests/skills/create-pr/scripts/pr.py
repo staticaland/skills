@@ -12,7 +12,7 @@ Usage:
 
   pr.py submit <title> <body-file>
     Strips HTML comments from <body-file>, puts the AI-assistance notice
-    on its first and last line, then creates the PR with the
+    on its last line, then creates the PR with the
     SKILL_CREATE_PR=1 marker the guard hook requires.
 """
 

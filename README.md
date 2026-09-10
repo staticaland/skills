@@ -99,8 +99,8 @@ issues and pull requests.
   `gh pr create` and tells Claude to invoke the create-pr skill
   instead. Other `git` and `gh` commands are untouched.
 - **AI-assistance notice** (hook) - Requires the body of a `gh pr create`,
-  `gh pr edit`, `gh issue create`, or `gh issue edit` to open and close with
-  the line `<sub>🤖 Written with AI assistance.</sub>`. Denies the call and
+  `gh pr edit`, `gh issue create`, or `gh issue edit` to end with the line
+  `**<sub>AI assisted 🤖</sub>**`. Denies the call and
   quotes the line until the body has it. The create-pr skill adds it for
   you.
 
