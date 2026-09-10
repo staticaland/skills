@@ -9,6 +9,21 @@
   minimumReleaseAge: "7 days",
   automerge: true,
   automergeType: "pr",
+  // One PR per ecosystem instead of one per dependency. Lockfile maintenance
+  // keeps its own PR through :maintainLockFilesWeekly, and vulnerability alerts
+  // stay ungrouped by default.
+  packageRules: [
+    {
+      matchManagers: ["github-actions"],
+      groupName: "GitHub Actions",
+    },
+    {
+      // mise.toml tools plus the workflow env versions and the Vale package the
+      // custom regex managers track: they are all developer tooling.
+      matchManagers: ["mise", "custom.regex"],
+      groupName: "toolchain",
+    },
+  ],
   customManagers: [
     {
       // Generic manager for versions annotated with a `# renovate:` comment on
