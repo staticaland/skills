@@ -29,6 +29,11 @@ issues and pull requests.
 - **pr-create guard** (`hooks/pr_create_guard.py`) - Blocks a direct
   `gh pr create` and tells Claude to invoke the create-pr skill
   instead. Other `git` and `gh` commands are untouched.
+- **AI-assistance notice** (`hooks/ai_assisted_notice.py`) - Requires the
+  body of a `gh pr create`, `gh pr edit`, `gh issue create`, or
+  `gh issue edit` to open and close with the line
+  `<sub>Written with AI assistance.</sub>`. Denies the call and quotes the
+  line until the body has it. The create-pr skill adds it for you.
 
 ## License
 
