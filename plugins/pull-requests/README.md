@@ -32,7 +32,7 @@ issues and pull requests.
 - **AI-assistance notice** (`hooks/ai_assisted_notice.py`) - Requires the
   body of a `gh pr create`, `gh pr edit`, `gh issue create`, or
   `gh issue edit` to open and close with the line
-  `<sub>Written with AI assistance.</sub>`. Denies the call and quotes the
+  `<sub>🤖 Written with AI assistance.</sub>`. Denies the call and quotes the
   line until the body has it. The create-pr skill adds it for you.
 
 ## License
