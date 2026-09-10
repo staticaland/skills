@@ -11,7 +11,8 @@ Usage:
     earlier session can be submitted by mistake.
 
   pr.py submit <title> <body-file>
-    Strips HTML comments from <body-file>, then creates the PR with the
+    Strips HTML comments from <body-file>, puts the AI-assistance notice
+    on its first and last line, then creates the PR with the
     SKILL_CREATE_PR=1 marker the guard hook requires.
 """
 
@@ -21,6 +22,11 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+
+PLUGIN_ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(PLUGIN_ROOT / "hooks"))
+
+from ai_assisted_notice import wrap  # noqa: E402
 
 
 def prepare() -> None:
@@ -60,7 +66,7 @@ def submit(title: str, body_file: str) -> None:
     subprocess.run(
         ["gh", "pr", "create", "--title", title, "--body-file", "-"],
         check=True,
-        input=body,
+        input=wrap(body),
         text=True,
         env={**os.environ, "SKILL_CREATE_PR": "1"},
     )
