@@ -16,7 +16,7 @@ import shlex
 import sys
 from pathlib import Path
 
-NOTICE = "<sub>Written with AI assistance.</sub>"
+NOTICE = "<sub>🤖 Written with AI assistance.</sub>"
 
 BODY_FLAGS = ("--body", "-b", "--body-file", "-F")
 
