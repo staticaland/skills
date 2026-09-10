@@ -7,6 +7,11 @@
     ":maintainLockFilesWeekly",
   ],
   minimumReleaseAge: "7 days",
+  // Open update PRs only on Friday mornings. Renovate still rebases and
+  // automerges existing PRs at any time, and vulnerability alerts ignore the
+  // schedule by default.
+  timezone: "Europe/Oslo",
+  schedule: ["* 6-11 * * 5"],
   automerge: true,
   automergeType: "pr",
   // One PR per ecosystem instead of one per dependency. Lockfile maintenance
