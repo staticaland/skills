@@ -4,7 +4,6 @@
     "config:recommended",
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests",
-    ":maintainLockFilesWeekly",
   ],
   minimumReleaseAge: "7 days",
   // Open update PRs only on Friday mornings. Renovate still rebases and
@@ -12,11 +11,16 @@
   // schedule by default.
   timezone: "Europe/Oslo",
   schedule: ["* 6-11 * * 5"],
+  // Lockfile maintenance carries its own default schedule (before 4am on
+  // Monday), so the Friday window has to be repeated here.
+  lockFileMaintenance: {
+    enabled: true,
+    schedule: ["* 6-11 * * 5"],
+  },
   automerge: true,
   automergeType: "pr",
   // One PR per ecosystem instead of one per dependency. Lockfile maintenance
-  // keeps its own PR through :maintainLockFilesWeekly, and vulnerability alerts
-  // stay ungrouped by default.
+  // keeps its own PR, and vulnerability alerts stay ungrouped by default.
   packageRules: [
     {
       matchManagers: ["github-actions"],
