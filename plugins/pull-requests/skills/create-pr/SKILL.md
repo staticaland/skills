@@ -30,5 +30,6 @@ been in the session.
    <skill-dir>/scripts/pr.py submit "<title>" <body-file>
    ```
 
-The submit command strips the comments and creates the PR through `gh`; the
-guard hook blocks a bare `gh pr create`.
+The submit command strips the comments, adds the AI-assistance notice above
+and below the body, and creates the PR through `gh`; the guard hook blocks a
+bare `gh pr create`.
