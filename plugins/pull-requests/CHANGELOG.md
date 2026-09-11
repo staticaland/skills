@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.4.0](https://github.com/staticaland/skills/compare/pull-requests-v0.3.0...pull-requests-v0.4.0) (2026-09-11)
+
+
+### Features
+
+* **pull-requests:** add a robot emoji to the AI-assistance notice ([e23d671](https://github.com/staticaland/skills/commit/e23d671b72d98d86db3adf12bfbc3b063c5acb17))
+* **pull-requests:** add the AI-assistance notice hook ([389ce6f](https://github.com/staticaland/skills/commit/389ce6f5bf3cc9861879702e7de23e160b3f3add))
+* **pull-requests:** add the AI-assistance notice on create-pr submit ([ca6f06b](https://github.com/staticaland/skills/commit/ca6f06b2fb24446b92bd9cd6ddbbde9710081386))
+* **pull-requests:** end the body with a bold AI assisted notice ([3adb6d1](https://github.com/staticaland/skills/commit/3adb6d1f5a5c0d3d3d77e5ccde594ea5a5d86476))
+
+
+### Bug Fixes
+
+* **pull-requests:** judge the body the notice hook actually reads ([9767261](https://github.com/staticaland/skills/commit/97672618f78aade6d1dd4b17fc1fcbade5997999))
+
 ## [0.3.0](https://github.com/staticaland/skills/compare/pull-requests-v0.2.0...pull-requests-v0.3.0) (2026-09-10)
 
 
