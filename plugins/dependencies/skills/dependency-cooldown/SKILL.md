@@ -119,16 +119,16 @@ it afterwards.
 Done when every uncovered resolution site from step 1 has a committed setting or
 a recorded reason it has none.
 
-### 6. Verify enforcement
+### 6. Check for a competing gate
 
-Read the setting back through the tool itself (`npm config get min-release-age`,
-`poetry config solver.min-release-age`, `bundle config get cooldown`), then run
-one resolution in dry-run mode and confirm the tool holds back a version
-published inside the window.
+The tool enforces the setting on its own. Once the file matches its reference
+and the manager passed step 3, the gate is in force. A dry-run resolution adds
+nothing, and a window with no version published inside it has nothing to hold
+back anyway.
 
-A user-wide gate can outrank the file you committed, so this machine obeys a
-value the repo never sees - and the read-back above reports that value as if
-the file worked. Check for an exported variable and for a shell wrapper:
+What can defeat the committed file is a user-wide gate that outranks it, so this
+machine obeys a value the repo never sees. Check for an exported variable and for
+a shell wrapper:
 
 ```bash
 env | grep -iE '^(UV_EXCLUDE_NEWER|PIP_UPLOADED_PRIOR_TO|POETRY_SOLVER_MIN_RELEASE_AGE|npm_config_min_release_age|YARN_NPM_MINIMAL_AGE_GATE|BUNDLE_COOLDOWN|COOLDOWN_MINUTES|PINACT_MIN_AGE)='
@@ -138,8 +138,8 @@ type pip deno 2>/dev/null | grep -E 'function|alias'
 On any hit, read [env_overrides.md](references/env_overrides.md) for which side
 wins per tool and what to warn the user.
 
-Done when every manager from step 1 shows an observed hold-back or a stated
-reason verification was impossible.
+Done when every manager from step 1 has no competing gate, or the user has been
+warned about the one found.
 
 Report the covered managers, the duration, and what the cooldown leaves open:
 typosquatting, a long-term maintainer compromise, and vulnerabilities in
