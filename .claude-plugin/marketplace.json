@@ -93,6 +93,13 @@
       "category": "dev"
     },
     {
+      "name": "architecture-decisions",
+      "source": "./plugins/architecture-decisions",
+      "description": "Write architecture decision records: decide whether a decision needs one, pick a template, name the file, and supersede an old record",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "skill-authoring",
       "source": "./plugins/skill-authoring",
       "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, and split broad references into focused files",

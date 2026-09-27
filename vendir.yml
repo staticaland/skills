@@ -174,3 +174,14 @@ directories:
         ignorePaths:
           - UPSTREAM.md
         newRootPath: plugins/show-me/skills/show-me
+  - path: plugins/architecture-decisions/skills/architecture-decision-record-skill
+    contents:
+      - path: .
+        git:
+          url: https://github.com/architecture-decision-record/architecture-decision-record
+          ref: 464354b7d94901916542f64eb8b62dc9048a6486
+        includePaths:
+          - skills/architecture-decision-record-skill/**/*
+        ignorePaths:
+          - UPSTREAM.md
+        newRootPath: skills/architecture-decision-record-skill
