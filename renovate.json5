@@ -16,6 +16,9 @@
   lockFileMaintenance: {
     enabled: true,
     schedule: ["* 6-11 * * 5"],
+    // A lockfile refresh has no release timestamp, so the minimum release age
+    // check stays pending forever and blocks automerge.
+    minimumReleaseAge: null,
   },
   automerge: true,
   automergeType: "pr",
