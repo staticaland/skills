@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/staticaland/skills/compare/pull-requests-v0.5.0...pull-requests-v0.6.0) (2026-09-28)
+
+
+### Features
+
+* **pull-requests:** add a merge danger section to the PR template ([#206](https://github.com/staticaland/skills/issues/206)) ([58e5e8b](https://github.com/staticaland/skills/commit/58e5e8bd1b49d2a49cc8be363e5748fda2fdda32))
+
 ## [0.5.0](https://github.com/staticaland/skills/compare/pull-requests-v0.4.0...pull-requests-v0.5.0) (2026-09-17)
 
 

@@ -33,7 +33,7 @@
       "name": "pull-requests",
       "source": "./plugins/pull-requests",
       "description": "Open a GitHub pull request from the repository's own template, manage stacked branches and pull requests with gh-stack, and attach images and videos to issues and pull requests",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "category": "dev"
     },
     {
