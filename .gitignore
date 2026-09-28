@@ -2,3 +2,6 @@ __pycache__/
 
 # Scratch worktrees created by local agent tooling.
 .agent-shell/
+
+# Local output of `claude plugin eval`.
+plugins/*/evals/results/
