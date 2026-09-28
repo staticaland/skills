@@ -38,6 +38,9 @@ exclude = [
 [per-file-ignores]
 ".github/PULL_REQUEST_TEMPLATE.md" = ["MD041"]
 "plugins/pull-requests/skills/create-pr/references/pr-template.md" = ["MD041"]
+# Eval cases for `claude plugin eval` are prompts and grader criteria, not
+# documents. A heading would become part of the text the agent or judge reads.
+"plugins/*/evals/**/*.md" = ["MD041"]
 
 [MD003]
 style = "atx"
