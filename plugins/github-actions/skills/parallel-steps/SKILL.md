@@ -72,13 +72,13 @@ failure rules, and composite-action restrictions - see
 
 ```yaml
 steps:
- - name: Start test server
+  - name: Start test server
     id: server
     run: npm run start
     background: true
- - name: Run E2E tests
+  - name: Run E2E tests
     run: npm run e2e
- - name: Stop server
+  - name: Stop server
     cancel: server
 ```
 
@@ -86,12 +86,12 @@ steps:
 
 ```yaml
 steps:
- - parallel:
-     - name: Build the app
+  - parallel:
+      - name: Build the app
         run: npm run build
-     - name: Build the docs
+      - name: Build the docs
         run: npm run docs
- - name: Package
+  - name: Package
     run: npm run package
 ```
 
