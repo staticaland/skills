@@ -10,6 +10,7 @@ Anki
 anki-flashcards
 Cloze
 Matuschak
+Nygard
 Staticaland
 frontmatter
 formatters
