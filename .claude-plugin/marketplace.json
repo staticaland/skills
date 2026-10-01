@@ -25,7 +25,7 @@
     {
       "name": "plain-language",
       "source": "./plugins/plain-language",
-      "description": "Restate a message in plain human language, or ask for a re-pitch when it does not land",
+      "description": "Restate a message in plain human language, ask for a re-pitch when it does not land, or have the agent restate your intent before it continues",
       "version": "0.2.0",
       "category": "writing"
     },
