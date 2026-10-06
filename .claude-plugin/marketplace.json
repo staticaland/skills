@@ -112,6 +112,13 @@
       "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles",
       "version": "0.2.0",
       "category": "other"
+    },
+    {
+      "name": "pasta",
+      "source": "./plugins/pasta",
+      "description": "Cook spaghetti pomodoro two ways: a quick garlic and olive oil sauce, and Marcella Hazan's slow tomato, butter, and onion sauce",
+      "version": "0.1.0",
+      "category": "other"
     }
   ]
 }
