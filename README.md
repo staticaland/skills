@@ -245,6 +245,17 @@ world-readable.
   writes. An unknown visibility counts as public. Requires the `gh` CLI and
   `jq`.
 
+#### [architecture-decisions](./plugins/architecture-decisions/README.md)
+
+Write architecture decision records: decide whether a decision needs one, pick
+a template, name the file, and supersede an old record.
+
+- **[architecture-decision-record-skill](./plugins/architecture-decisions/skills/architecture-decision-record-skill/SKILL.md)**
+  (skill) - Creates and maintains architecture decision records (ADRs):
+  finds or sets up the ADR directory, names the file, picks a template such
+  as Nygard or MADR, and records supersession instead of editing an accepted
+  record.
+
 ### `ai`
 
 #### [skill-authoring](./plugins/skill-authoring/README.md)

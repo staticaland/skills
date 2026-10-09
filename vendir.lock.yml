@@ -99,4 +99,10 @@ directories:
       sha: 3c2629142c5d437428269b1b722b08c0b87f574d
     path: .
   path: plugins/show-me/skills/show-me
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #124 from nhconganhmedia/docs/add-myspec...'
+      sha: 464354b7d94901916542f64eb8b62dc9048a6486
+    path: .
+  path: plugins/architecture-decisions/skills/architecture-decision-record-skill
 kind: LockConfig
