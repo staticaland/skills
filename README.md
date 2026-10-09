@@ -286,6 +286,18 @@ Matuschak's prompt-writing principles.
   (skill) - Creates concise Anki flashcards from text, documents, or
   images for spaced repetition learning.
 
+#### [pasta](./plugins/pasta/README.md)
+
+Cook spaghetti pomodoro two ways: a quick garlic and olive oil sauce, and
+Marcella Hazan's slow tomato, butter, and onion sauce.
+
+- **[pomodoro-garlic-oil](./plugins/pasta/skills/pomodoro-garlic-oil/SKILL.md)**
+  (skill) - Walks through a bright 30-minute spaghetti pomodoro with
+  garlic, olive oil, and basil.
+- **[pomodoro-butter-onion](./plugins/pasta/skills/pomodoro-butter-onion/SKILL.md)**
+  (skill) - Walks through Marcella Hazan's slow tomato, butter, and onion
+  sauce over spaghetti.
+
 ## Repo layout
 
 - Each directory under `plugins/` is one marketplace entry.
