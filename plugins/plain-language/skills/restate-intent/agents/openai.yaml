@@ -1,0 +1,5 @@
+interface:
+  display_name: "Restate Intent"
+  short_description: "Restate my goals and problem before continuing"
+policy:
+  allow_implicit_invocation: false
