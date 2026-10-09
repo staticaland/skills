@@ -174,3 +174,15 @@ directories:
         ignorePaths:
           - UPSTREAM.md
         newRootPath: plugins/show-me/skills/show-me
+  - path: plugins/skill-authoring/skills/skill-cutter
+    contents:
+      - path: .
+        git:
+          url: https://github.com/swyxio/skills
+          ref: 6fd282ae73a373c36468305b6785e451382ac715
+        includePaths:
+          - skill-cutter/**/*
+        ignorePaths:
+          - LICENSE
+          - UPSTREAM.md
+        newRootPath: skill-cutter
