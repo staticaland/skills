@@ -83,14 +83,17 @@ klarspråk per NS-ISO 24495-1 with ASD-STE100 principles.
 
 #### [plain-language](./plugins/plain-language/README.md)
 
-Restate a message in plain human language, or ask for a re-pitch when it
-does not land.
+Restate a message in plain human language, ask for a re-pitch when it does
+not land, or have the agent restate your intent before it continues.
 
 - **[bro](./plugins/plain-language/skills/bro/SKILL.md)** (skill) -
   Restates the last message in plain human language, with no jargon.
 - **[wait-what](./plugins/plain-language/skills/wait-what/SKILL.md)**
   (skill) - Asks for a re-pitch of the last message, in Simplified
   Technical English and the project's own domain terms.
+- **[restate-intent](./plugins/plain-language/skills/restate-intent/SKILL.md)**
+  (skill) - Asks the agent to restate your goals and the problem you're
+  solving, then wait for you to confirm.
 
 ### `dev`
 
