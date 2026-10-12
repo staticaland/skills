@@ -286,6 +286,16 @@ Matuschak's prompt-writing principles.
   (skill) - Creates concise Anki flashcards from text, documents, or
   images for spaced repetition learning.
 
+#### [nerd-consensus](./plugins/nerd-consensus/README.md)
+
+Find what enthusiast communities agree on, argue about, and warn against for a
+product, tool, or product category.
+
+- **[nerd-consensus](./plugins/nerd-consensus/skills/nerd-consensus/SKILL.md)**
+  (skill) - Researches the forums, subreddits, and wikis of the communities
+  that obsess over a product or category, and reports the consensus, the
+  contested points, and the known flaws, with sources.
+
 ## Repo layout
 
 - Each directory under `plugins/` is one marketplace entry.
