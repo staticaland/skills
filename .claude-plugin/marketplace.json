@@ -117,7 +117,7 @@
       "name": "nerd-consensus",
       "source": "./plugins/nerd-consensus",
       "description": "Find what enthusiast communities agree on, argue about, and warn against for a product, tool, or product category",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "category": "other"
     }
   ]
