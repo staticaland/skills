@@ -1,7 +1,8 @@
 # skill-authoring
 
 Write documents for agents, analyze a skill, prune the prose that changes no
-behavior, and split broad references into focused files.
+behavior, cut a skill to its behavioral core, and split broad references into
+focused files.
 
 ## Install
 
@@ -21,6 +22,8 @@ behavior, and split broad references into focused files.
 - **[prune-no-ops](./skills/prune-no-ops/SKILL.md)** (skill) - Deletes
   the sentences in a skill that don't change behavior: asides, justification,
   emphasis, and restated defaults.
+- **[skill-cutter](./skills/skill-cutter/SKILL.md)** (skill) - Audits or
+  trims a skill to its behavioral core and narrows over-broad trigger metadata.
 - **[progressive-disclosure](./skills/progressive-disclosure/SKILL.md)**
   (skill) - Refactors a skill to load only relevant guidance by splitting
   broad references and mapping concrete project markers to focused files.
