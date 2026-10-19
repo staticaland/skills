@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/staticaland/skills/compare/pull-requests-v0.6.0...pull-requests-v0.6.1) (2026-10-19)
+
+
+### Bug Fixes
+
+* **pull-requests:** stop the PR template from repeating facts across sections ([#221](https://github.com/staticaland/skills/issues/221)) ([7b11030](https://github.com/staticaland/skills/commit/7b11030ba46a1e173659292848ef256bb12460eb))
+
 ## [0.6.0](https://github.com/staticaland/skills/compare/pull-requests-v0.5.0...pull-requests-v0.6.0) (2026-09-28)
 
 
