@@ -33,7 +33,7 @@
       "name": "pull-requests",
       "source": "./plugins/pull-requests",
       "description": "Open a GitHub pull request from the repository's own template, manage stacked branches and pull requests with gh-stack, and attach images and videos to issues and pull requests",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "category": "dev"
     },
     {
@@ -117,7 +117,7 @@
       "name": "nerd-consensus",
       "source": "./plugins/nerd-consensus",
       "description": "Find what enthusiast communities agree on, argue about, and warn against for a product, tool, or product category",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "category": "other"
     }
   ]
