@@ -7,6 +7,7 @@ Use short sentences.
 Use a controlled and consistent vocabulary.
 Make direct statements.
 Remove hedging and information that reviewers do not need.
+Say each fact one time. Each section gives information that the other sections do not give. Do not repeat the title, and do not name the kind of change when the title prefix, such as `feat:` or `chore:`, already names it.
 
 Follow Zinsser's four principles of quality writing:
 1. Simplicity
@@ -23,11 +24,13 @@ Avoid these patterns:
 
 ## What is this change?
 
-<!-- State what changed and why. -->
+<!-- State what changed. Keep the reason for the next section. -->
 
-[Add a brief description of what the change does. Name its kind, such as a feature or a fix.]
+[Add a brief description of what the change does.]
 
 ## Why do we need this change?
+
+<!-- State the problem and why it matters. Do not describe the change again. -->
 
 [Add a description of the problem the change solves.]
 
