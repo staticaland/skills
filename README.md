@@ -275,6 +275,16 @@ in.
   coding session and ranks the changes that would make the next one go better:
   navigation pointers, automated checks, coding standards, and tool economy.
 
+#### [spin-off-side-task](./plugins/spin-off-side-task/README.md)
+
+Hand a side task found in an agent's thread to a new agent in its own Herdr
+worktree, with a brief that gives it the thread's context.
+
+- **[spin-off-side-task](./plugins/spin-off-side-task/skills/spin-off-side-task/SKILL.md)**
+  (skill) - Writes a brief with the task, evidence, decisions, and scope from
+  the current thread, creates a Herdr worktree for it, and starts a new agent of
+  the same kind there with the brief.
+
 ### `other`
 
 #### [flashcards](./plugins/flashcards/README.md)

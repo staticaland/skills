@@ -107,6 +107,13 @@
       "category": "ai"
     },
     {
+      "name": "spin-off-side-task",
+      "source": "./plugins/spin-off-side-task",
+      "description": "Hand a side task found in an agent's thread to a new agent in its own Herdr worktree, with a brief that gives it the thread's context",
+      "version": "0.1.0",
+      "category": "ai"
+    },
+    {
       "name": "flashcards",
       "source": "./plugins/flashcards",
       "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles",
