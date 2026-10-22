@@ -45,12 +45,11 @@ with no reader needs neither.
 
 ### 3. Verify the workflow
 
-Run `actionlint` on the file if the tool is installed. `actionlint` does not
-support these keywords yet
-([rhysd/actionlint#693](https://github.com/rhysd/actionlint/issues/693)), so it
-can report an error or a warning on a `background`, `wait`, `wait-all`,
-`cancel`, or `parallel` step that agrees with the reference. Ignore those
-messages. Read the changed workflow again. Make sure that no step reads data
+Run [`jactionlint`](https://github.com/jdx/jactionlint) on the file if the tool
+is installed. It supports these keywords, so treat its messages as real. Do not
+use `actionlint` here: it does not support the keywords yet
+([rhysd/actionlint#693](https://github.com/rhysd/actionlint/issues/693)) and
+reports false errors on them. Read the changed workflow again. Make sure that no step reads data
 from a background step without a `wait` between them. Report the steps that stay
 in sequence and the reason for each.
 
