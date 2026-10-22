@@ -250,7 +250,8 @@ world-readable.
 #### [skill-authoring](./plugins/skill-authoring/README.md)
 
 Write documents for agents, analyze a skill, prune the prose that changes no
-behavior, and split broad references into focused files.
+behavior, cut a skill to its behavioral core, and split broad references into
+focused files.
 
 - **[writing-for-agents](./plugins/skill-authoring/skills/writing-for-agents/SKILL.md)**
   (skill) - Guides writing skills, agent instructions, and documents
@@ -262,6 +263,9 @@ behavior, and split broad references into focused files.
 - **[prune-no-ops](./plugins/skill-authoring/skills/prune-no-ops/SKILL.md)**
   (skill) - Deletes the sentences in a skill that don't change behavior:
   asides, justification, emphasis, and restated defaults.
+- **[skill-cutter](./plugins/skill-authoring/skills/skill-cutter/SKILL.md)**
+  (skill) - Audits or trims a skill to its behavioral core and narrows
+  over-broad trigger metadata.
 - **[progressive-disclosure](./plugins/skill-authoring/skills/progressive-disclosure/SKILL.md)**
   (skill) - Refactors a skill to load only relevant guidance by splitting
   broad references and mapping concrete project markers to focused files.

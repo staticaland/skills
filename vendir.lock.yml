@@ -99,4 +99,10 @@ directories:
       sha: 3c2629142c5d437428269b1b722b08c0b87f574d
     path: .
   path: plugins/show-me/skills/show-me
+- contents:
+  - git:
+      commitTitle: Improve run supervision and add grounded progress and ETA reporting
+      sha: 6fd282ae73a373c36468305b6785e451382ac715
+    path: .
+  path: plugins/skill-authoring/skills/skill-cutter
 kind: LockConfig

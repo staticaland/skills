@@ -95,7 +95,7 @@
     {
       "name": "skill-authoring",
       "source": "./plugins/skill-authoring",
-      "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, and split broad references into focused files",
+      "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, cut a skill to its behavioral core, and split broad references into focused files",
       "version": "0.2.0",
       "category": "ai"
     },
