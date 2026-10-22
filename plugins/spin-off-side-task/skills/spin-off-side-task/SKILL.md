@@ -34,46 +34,33 @@ Write it to a temporary file. The new agent must be able to act on it without as
 
 Done when a reader with only the brief and the repo could start the work.
 
-## 2. Create the worktree
+## 2. Pick the target
 
 The side task usually lives in this repo. When it belongs in another one, such as "add this to my skills repo",
 find that repo's local checkout: `herdr workspace list` and the `cwd` of its panes show the checkouts open in Herdr.
-If no checkout exists, ask the user where it is, and leave cloning to them. Use the checkout's path as `<repo>`
-below, or `$PWD` for this repo.
+If no checkout exists, ask the user where it is, and leave cloning to them.
 
-Pick a short kebab-case branch name for the side task. Base it on `origin/main` after
-`git -C <repo> fetch origin main`. Base it on `HEAD` only when the side task is in this repo and needs commits that
-exist only on this branch, and say so in the brief.
+Pick a short kebab-case branch name for the side task. The base is `origin/main`. Use `HEAD` only when the side task
+is in this repo and needs commits that exist only on this branch, and say so in the brief.
 
-`herdr worktree create` refuses to start from a linked worktree (`linked_worktree_source`), so start it from the
-repo's main checkout. That works even when the repo has no open Herdr workspace:
+## 3. Launch in the background
 
-```sh
-src=$(herdr worktree list --cwd <repo> | jq -r '.result.source.source_checkout_path')
-herdr worktree create --cwd "$src" --branch <branch> --base origin/main --no-focus
+Creating the worktree and starting the agent takes about a minute and needs nothing from the thread, so hand it to a
+background subagent with the Agent tool. Give it this prompt, filled in:
+
+```text
+Follow <this skill's base directory>/launch.md with:
+- brief: <brief file>
+- repo: <checkout path>
+- branch: <branch>
+- base: <origin/main or HEAD>
+- caller pane: <HERDR_PANE_ID>
 ```
 
-Read the new pane from `.result.root_pane.pane_id` and the workspace from `.result.workspace.workspace_id`. If the
-command asks for `--trust-repository`, ask the user. Add it only when they say so.
+Tell the user in one line that the side task is launching, then go back to this session's own task.
 
-## 3. Start the agent and send the brief
+## 4. Report
 
-Start an agent of this session's kind, named after the branch (`[a-z][a-z0-9_-]{0,31}`):
-
-```sh
-kind=$(herdr pane get "$HERDR_PANE_ID" | jq -r '.result.pane.agent')
-herdr agent start <name> --kind "$kind" --pane <root-pane-id>
-herdr agent prompt <name> "$(cat <brief-file>)"
-herdr agent wait <name> --until working --until blocked --timeout 60000
-```
-
-If `agent start` returns `agent_not_ready` or the wait ends `blocked`, read the pane with
-`herdr agent read <name> --source recent-unwrapped --lines 80` and show the user what it asks; leave the answer to
-them.
-
-Done when the new agent is `working`.
-
-## 4. Report and return
-
-Tell the user the branch, workspace ID and agent name in one or two lines, then go back to this session's own
-task. The side task belongs to the new agent now, so leave its files and branch alone.
+When the subagent reports back, relay the branch, workspace ID and agent name in one or two lines. If it stopped on
+a question, such as a `--trust-repository` prompt or a blocked agent, show the user the question and leave the
+answer to them. The side task belongs to the new agent now, so leave its files and branch alone.
