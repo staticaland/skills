@@ -1,0 +1,8 @@
+{
+  "name": "spin-off-side-task",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Hand a side task found in an agent's thread to a new agent in its own Herdr worktree, with a brief that gives it the thread's context"
+}
