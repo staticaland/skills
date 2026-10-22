@@ -36,15 +36,21 @@ Done when a reader with only the brief and the repo could start the work.
 
 ## 2. Create the worktree
 
-Pick a short kebab-case branch name for the side task. Base it on `origin/main` after `git fetch origin main`. Base
-it on `HEAD` only when the side task needs commits that exist only on this branch, and say so in the brief.
+The side task usually lives in this repo. When it belongs in another one, such as "add this to my skills repo",
+find that repo's local checkout: `herdr workspace list` and the `cwd` of its panes show the checkouts open in Herdr.
+If no checkout exists, ask the user where it is, and leave cloning to them. Use the checkout's path as `<repo>`
+below, or `$PWD` for this repo.
+
+Pick a short kebab-case branch name for the side task. Base it on `origin/main` after
+`git -C <repo> fetch origin main`. Base it on `HEAD` only when the side task is in this repo and needs commits that
+exist only on this branch, and say so in the brief.
 
 `herdr worktree create` refuses to start from a linked worktree (`linked_worktree_source`), so start it from the
-repo's parent workspace:
+repo's main checkout. That works even when the repo has no open Herdr workspace:
 
 ```sh
-src=$(herdr worktree list --cwd "$PWD" | jq -r '.result.source.source_workspace_id')
-herdr worktree create --workspace "$src" --branch <branch> --base origin/main --no-focus
+src=$(herdr worktree list --cwd <repo> | jq -r '.result.source.source_checkout_path')
+herdr worktree create --cwd "$src" --branch <branch> --base origin/main --no-focus
 ```
 
 Read the new pane from `.result.root_pane.pane_id` and the workspace from `.result.workspace.workspace_id`. If the
