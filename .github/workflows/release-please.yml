@@ -16,6 +16,9 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+    outputs:
+      releases_created: ${{ steps.release.outputs.releases_created }}
+      release: ${{ toJSON(steps.release.outputs) }}
     steps:
       - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
         id: release
@@ -39,3 +42,26 @@ jobs:
             git commit -am "chore: sync derived manifests"
             git push
           fi
+
+  # Attach each released plugin as ZIP files that Claude and ChatGPT can
+  # upload as a custom plugin.
+  upload-zips:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.releases_created == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build and upload plugin ZIPs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE: ${{ needs.release-please.outputs.release }}
+        run: |
+          for path in $(jq -r '.paths_released | fromjson | .[]' <<< "$RELEASE"); do
+            tag="$(jq -r --arg path "$path" '.[$path + "--tag_name"]' <<< "$RELEASE")"
+            mapfile -t zips < <(python3 scripts/build-plugin-zips.py dist "$path")
+            gh release upload "$tag" "${zips[@]}" --clobber
+          done
