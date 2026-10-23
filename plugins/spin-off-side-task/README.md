@@ -3,6 +3,12 @@
 Hand a side task found in an agent's thread to a new agent in its own Herdr
 worktree, with a brief that gives it the thread's context.
 
+> Always leave the campground cleaner than you found it.
+
+The plugin applies [The Boy Scout Rule](https://www.oreilly.com/library/view/97-things-every/9780596809515/ch08.html)
+without derailing the thread: the mess you spot on the way gets fixed on its own
+branch, while you keep working on your own task.
+
 ## Install
 
 ```text
