@@ -140,6 +140,15 @@ every action reference to a commit SHA on workflow edits.
   with [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes
   or edits workflow files. Requires the `pinact` CLI.
 
+#### [pinact](./plugins/pinact/README.md)
+
+Pin every GitHub Actions reference to a commit SHA with pinact after the agent
+writes or edits a workflow file.
+
+- **pinact** (hook) - Runs [pinact](https://github.com/suzuki-shunsuke/pinact)
+  on a workflow or action file after Claude writes or edits it. It also updates
+  every action to its latest release. Requires the `pinact` CLI.
+
 #### [dependencies](./plugins/dependencies/README.md)
 
 Hold new dependency releases for a cooldown, configure Renovate, freeze

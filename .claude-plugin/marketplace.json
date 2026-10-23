@@ -44,6 +44,13 @@
       "category": "dev"
     },
     {
+      "name": "pinact",
+      "source": "./plugins/pinact",
+      "description": "Pin every GitHub Actions reference to a commit SHA with pinact after the agent writes or edits a workflow file",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "dependencies",
       "source": "./plugins/dependencies",
       "description": "Hold new dependency releases for a cooldown, configure Renovate, freeze install commands to their lock files, and deny install-time script execution",
