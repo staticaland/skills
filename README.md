@@ -123,8 +123,7 @@ issues and pull requests.
 #### [github-actions](./plugins/github-actions/README.md)
 
 Run GitHub Actions workflow steps in parallel, replace repeated workflow
-configuration with YAML anchors, name every workflow, job, and step, and pin
-every action reference to a commit SHA on workflow edits.
+configuration with YAML anchors, and name every workflow, job, and step.
 
 - **[parallel-steps](./plugins/github-actions/skills/parallel-steps/SKILL.md)**
   (skill) - Makes GitHub Actions workflow steps run in parallel with the
@@ -136,9 +135,6 @@ every action reference to a commit SHA on workflow edits.
 - **[workflow-names](./plugins/github-actions/skills/workflow-names/SKILL.md)**
   (skill) - Checks that every GitHub Actions workflow, job, and step has a
   name, and writes the missing ones in imperative, sentence-case style.
-- **pinact** (hook) - Pins GitHub Actions references to full commit SHAs
-  with [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes
-  or edits workflow files. Requires the `pinact` CLI.
 
 #### [pinact](./plugins/pinact/README.md)
 
