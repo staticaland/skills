@@ -40,14 +40,14 @@
       "name": "github-actions",
       "source": "./plugins/github-actions",
       "description": "Run GitHub Actions workflow steps in parallel, replace repeated workflow configuration with YAML anchors, and name every workflow, job, and step",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "category": "dev"
     },
     {
       "name": "pinact",
       "source": "./plugins/pinact",
       "description": "Pin every GitHub Actions reference to a commit SHA with pinact after the agent writes or edits a workflow file",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "category": "dev"
     },
     {
@@ -117,7 +117,7 @@
       "name": "spin-off-side-task",
       "source": "./plugins/spin-off-side-task",
       "description": "Hand a side task found in an agent's thread to a new agent in its own Herdr worktree, with a brief that gives it the thread's context",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "category": "ai"
     },
     {
