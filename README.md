@@ -32,6 +32,11 @@ Each plugin also has a `plugin.json` manifest at its root per the
 follow the [Agent Skills](https://agentskills.io/) format, so any client that
 supports those specifications can install the plugins too.
 
+To upload a plugin to Claude or ChatGPT as a custom plugin, download its ZIP
+from the plugin's latest [GitHub release](https://github.com/staticaland/skills/releases):
+`<plugin>-<version>-claude.zip` for Claude, `<plugin>-<version>-chatgpt.zip`
+for ChatGPT.
+
 ## Invoke a skill
 
 A skill installed through a plugin is named `plugin-name:skill-name`, where the
