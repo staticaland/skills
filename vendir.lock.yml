@@ -99,4 +99,10 @@ directories:
       sha: 3c2629142c5d437428269b1b722b08c0b87f574d
     path: .
   path: plugins/show-me/skills/show-me
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #143 from vladimirtsk/docs/shorten-skill-description...'
+      sha: 3ccff5338ea700537839b21900aa5358a0402c98
+    path: .
+  path: plugins/defuddle/skills/defuddle
 kind: LockConfig

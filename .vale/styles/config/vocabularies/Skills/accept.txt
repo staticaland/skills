@@ -204,3 +204,5 @@ listicles
 subreddits?
 Herdr
 worktrees?
+$^ Defuddle is the product; lowercase defuddle is its CLI and this repository's plugin and skill name.
+[Dd]efuddle

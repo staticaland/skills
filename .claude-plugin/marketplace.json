@@ -93,6 +93,13 @@
       "category": "dev"
     },
     {
+      "name": "defuddle",
+      "source": "./plugins/defuddle",
+      "description": "Extract clean Markdown from web pages with the Defuddle CLI, without the navigation, ads, and clutter",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "no-org-internals",
       "source": "./plugins/no-org-internals",
       "description": "Keep organization-internal names, hosts, tickets, and people out of a public repository by telling the agent at session start that everything it writes is world-readable",
