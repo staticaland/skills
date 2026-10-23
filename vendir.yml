@@ -174,3 +174,15 @@ directories:
         ignorePaths:
           - UPSTREAM.md
         newRootPath: plugins/show-me/skills/show-me
+  - path: plugins/defuddle/skills/defuddle
+    contents:
+      - path: .
+        git:
+          url: https://github.com/kepano/obsidian-skills
+          ref: 3ccff5338ea700537839b21900aa5358a0402c98
+        includePaths:
+          - skills/defuddle/**/*
+        ignorePaths:
+          - LICENSE
+          - UPSTREAM.md
+        newRootPath: skills/defuddle

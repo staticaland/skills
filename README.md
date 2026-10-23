@@ -242,6 +242,16 @@ focused HTML.
   component tree, a file tree, a Mermaid diagram, a diff, or one focused HTML
   file - and places it next to short prose.
 
+#### [defuddle](./plugins/defuddle/README.md)
+
+Extract clean Markdown from web pages with the Defuddle CLI, without the
+navigation, ads, and clutter.
+
+- **[defuddle](./plugins/defuddle/skills/defuddle/SKILL.md)** (skill) - Reads
+  a web page with [Defuddle](https://github.com/kepano/defuddle) instead of a
+  plain fetch, so the agent gets the page's content as Markdown, or one
+  metadata field, for fewer tokens.
+
 #### [no-org-internals](./plugins/no-org-internals/README.md)
 
 Keep organization-internal names, hosts, tickets, and people out of a public

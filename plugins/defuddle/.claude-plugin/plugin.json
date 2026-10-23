@@ -1,0 +1,8 @@
+{
+  "name": "defuddle",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Extract clean Markdown from web pages with the Defuddle CLI, without the navigation, ads, and clutter"
+}
