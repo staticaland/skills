@@ -16,5 +16,6 @@
   "plugins/toolchain": "0.5.0",
   "plugins/nerd-consensus": "1.0.0",
   "plugins/spin-off-side-task": "1.0.0",
-  "plugins/pinact": "1.0.0"
+  "plugins/pinact": "1.0.0",
+  "plugins/defuddle": "0.1.0"
 }
