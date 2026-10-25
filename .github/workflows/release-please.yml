@@ -44,7 +44,7 @@ jobs:
           fi
 
   # Attach each released plugin as ZIP files that Claude and ChatGPT can
-  # upload as a custom plugin.
+  # upload as a custom plugin, and add the upload steps to the release notes.
   upload-zips:
     needs: release-please
     if: ${{ needs.release-please.outputs.releases_created == 'true' }}
@@ -64,4 +64,11 @@ jobs:
             tag="$(jq -r --arg path "$path" '.[$path + "--tag_name"]' <<< "$RELEASE")"
             mapfile -t zips < <(python3 scripts/build-plugin-zips.py dist "$path")
             gh release upload "$tag" "${zips[@]}" --clobber
+            # Append the upload steps once, so a re-run doesn't repeat them.
+            gh release view "$tag" --json body --jq .body > dist/notes.md
+            if ! grep -q '^## Upload to Claude or ChatGPT' dist/notes.md; then
+              printf '\n' >> dist/notes.md
+              cat .github/release-upload-notes.md >> dist/notes.md
+              gh release edit "$tag" --notes-file dist/notes.md
+            fi
           done
