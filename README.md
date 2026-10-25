@@ -33,9 +33,14 @@ follow the [Agent Skills](https://agentskills.io/) format, so any client that
 supports those specifications can install the plugins too.
 
 To upload a plugin to Claude or ChatGPT as a custom plugin, download its ZIP
-from the plugin's latest [GitHub release](https://github.com/staticaland/skills/releases):
-`<plugin>-<version>-claude.zip` for Claude, `<plugin>-<version>-chatgpt.zip`
-for ChatGPT.
+from the plugin's latest [GitHub release](https://github.com/staticaland/skills/releases),
+then upload it:
+
+- **Claude**: in [Customize > Plugins](https://claude.ai/customize/plugins),
+  select **Add** > **Upload plugin** and choose
+  `<plugin>-<version>-claude.zip`.
+- **ChatGPT**: in [Skills](https://chatgpt.com/skills), select **Create** >
+  **Upload from your computer** and choose `<plugin>-<version>-chatgpt.zip`.
 
 ## Invoke a skill
 
