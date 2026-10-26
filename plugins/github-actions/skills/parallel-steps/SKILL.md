@@ -2,8 +2,8 @@
 name: parallel-steps
 description:
   Make GitHub Actions steps run in parallel with the background, wait, wait-all,
-  cancel, and parallel keywords. Use when the user wants a faster job, starts a
-  service in a job, or asks for background or parallel steps.
+  cancel, and parallel keywords. Use when the user wants a faster job or asks
+  for background or parallel steps, including a service that later steps use.
 version: 0.2.0
 ---
 
