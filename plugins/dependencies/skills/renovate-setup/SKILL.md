@@ -2,9 +2,10 @@
 name: renovate-setup
 description: >-
   Add or extend Renovate with a seven-day minimum release age and immutable
-  updates: lock files and integrity hashes, GitHub Action SHAs, and container
-  digests. Use when adopting Renovate, replacing another update bot, covering
-  missing manifests, or updating tools, images, actions, or custom files.
+  updates: lock files kept with their integrity hashes, and GitHub Actions and
+  container images pinned to commit SHAs and digests. Use when the user adopts
+  Renovate, fresh or in place of another update bot, or wants it to cover
+  manifests, tools, images, actions, or custom files it misses.
 version: 0.2.0
 ---
 

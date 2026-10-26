@@ -1,11 +1,11 @@
 ---
 name: install-scripts
-description:
-  Stop dependency install scripts from executing - a committed `ignore-scripts`
-  for `npm`, `--no-build` for `uv` - then allowlist by name the few packages
-  that genuinely build something. Use when the user wants to block `postinstall`
-  scripts, harden a project against a compromised release, or mentions
-  `ignore-scripts`, lifecycle scripts, or `npm rebuild`. Covers `npm` and `uv`.
+description: Stop dependency install scripts from executing, with a committed
+  `ignore-scripts` for `npm` and the no-build flag for `uv`, then allowlist by
+  name the few packages whose install scripts build something they need. Use
+  when the user wants to block `postinstall` scripts or harden a project
+  against a compromised release, or mentions `ignore-scripts`, lifecycle
+  scripts, or `npm rebuild`. Covers `npm` and `uv`.
 version: 0.1.0
 ---
 
