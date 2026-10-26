@@ -1,11 +1,11 @@
 ---
 name: fresh-eyes
 description: >
-  Look at a module, config, workflow, or design with fresh eyes: ignore how it
-  works today, propose the simplest design that could serve the same purpose,
-  and keep the proposals that survive the constraints that shaped the current
-  one. Use when the user asks why something is so complicated, wants a
-  first-principles or fresh-eyes review, or asks "why don't we just...".
+  Look at a module, config, workflow, or design with fresh eyes. Set aside how
+  it works today and propose the simplest design that could serve the same
+  purpose, then keep the proposals that survive the constraints behind the
+  current one. Use when the user wants a first-principles or fresh-eyes review,
+  or asks why something is so complicated or "why don't we just...".
 ---
 
 # fresh-eyes
@@ -58,8 +58,9 @@ scale, compatibility, ordering, failure modes, or policy. Classify each fence:
 
 - **Live** - the constraint still holds and the proposal breaks it. The
   proposal dies, or absorbs the constraint and states the cost of keeping it.
-- **Dead** - the constraint no longer holds. Name the evidence: the dependency
-  is gone, the scale never came, the API changed.
+- **Dead** - the constraint no longer holds. Name the evidence, such as the
+  commit that removed the dependency or the traffic that never reached the
+  scale the design was built for.
 - **Unknown** - no reason found after the hunt. Say so; only evidence makes a
   fence dead.
 
