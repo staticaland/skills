@@ -7,6 +7,7 @@ $^ project. Write the entry in the project's exact casing - Vale.Terms then flag
 $^ so a stray Prek gets "use prek instead". Such an entry goes under the "Official lowercase names"
 $^ comment below, so the lowercase form reads as deliberate. See .vale/README.md for the full reasoning.
 Anki
+ankify
 anki-flashcards
 Cloze
 Matuschak
@@ -71,6 +72,7 @@ $^ https://github.com/cursor/plugins/tree/main/pstack/skills/unslop
 unslop
 $^ English technical terms not in Vale's dictionary
 ADRs
+PRs
 [Aa]llowlists?
 [Aa]llowlisted
 discoverability
