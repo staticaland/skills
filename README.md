@@ -291,9 +291,14 @@ behavior, and split broad references into focused files.
 Retrospect on a coding session to improve the environment the next one runs
 in.
 
+<!-- vale ai-tells.VerbTricolon = NO -->
+<!-- The list has four items; the rule reads only the first three. -->
+
 - **[retro](./plugins/retro/skills/retro/SKILL.md)** (skill) - Reviews a
   coding session and ranks the changes that would make the next one go better:
   navigation pointers, automated checks, coding standards, and tool economy.
+
+<!-- vale ai-tells.VerbTricolon = YES -->
 
 #### [spin-off-side-task](./plugins/spin-off-side-task/README.md)
 
