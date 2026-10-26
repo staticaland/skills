@@ -2,9 +2,9 @@
 name: yaml-anchors
 description:
   Replace repeated configuration in a GitHub Actions workflow with YAML anchors
-  and aliases. Use when the user wants a shorter workflow, mentions YAML anchors,
-  or writes the same env, services, permissions, or path filter in more than one
-  job of the same file.
+  and aliases. Use when the user wants a shorter workflow or mentions YAML
+  anchors, or when one workflow repeats the same `env`, `services`,
+  `permissions`, or path filter in more than one job.
 version: 0.1.0
 ---
 
