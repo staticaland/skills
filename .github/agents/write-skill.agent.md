@@ -2,7 +2,7 @@
 name: write-skill
 description:
   Skill work in this marketplace repo - drafting a new skill, revising an
-  existing SKILL.md, or the plugin packaging that ships it.
+  existing SKILL.md, or the plugin packaging that publishes it.
 tools: ["read", "edit", "search", "execute", "github/*"]
 ---
 
