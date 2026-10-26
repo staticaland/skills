@@ -2,8 +2,8 @@
 name: create-pr
 description: >
   Create a GitHub pull request. Use when the user asks to open, create, or
-  submit a PR, when work is ready for review, or whenever gh pr create would
-  otherwise be run.
+  submit a PR, when work is ready for review, or whenever `gh pr create`
+  would otherwise be run.
 ---
 
 # create-pr
