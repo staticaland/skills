@@ -128,6 +128,13 @@
       "category": "ai"
     },
     {
+      "name": "herdr",
+      "source": "./plugins/herdr",
+      "description": "Control Herdr, a terminal multiplexer for coding agents, to inspect and drive its panes, tabs, workspaces, and the agents running in them",
+      "version": "0.1.0",
+      "category": "ai"
+    },
+    {
       "name": "flashcards",
       "source": "./plugins/flashcards",
       "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles",

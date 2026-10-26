@@ -105,4 +105,13 @@ directories:
       sha: 3ccff5338ea700537839b21900aa5358a0402c98
     path: .
   path: plugins/defuddle/skills/defuddle
+- contents:
+  - git:
+      commitTitle: 'test: wait for the hook to exit instead of a fixed timer in hook
+        tests'
+      sha: 5608de0608918aba2f9d501e7793b984a0ca9cfa
+      tags:
+      - preview-2026-10-12-6d697e1e75ff-34-g5608de06
+    path: .
+  path: plugins/herdr/skills/herdr
 kind: LockConfig
