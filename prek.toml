@@ -64,6 +64,23 @@ mise install --locked
     language = "system",
     files = '\.md$'
   },
+  # prettier has no TOML parser. prek.toml is left out of the format check:
+  # tombi collapses each hook table here onto one unreadable line.
+  {
+    id = "tombi-format",
+    name = "tombi format",
+    entry = "mise exec -- tombi format --check",
+    language = "system",
+    files = '\.toml$',
+    exclude = '^prek\.toml$'
+  },
+  {
+    id = "tombi-lint",
+    name = "tombi lint",
+    entry = "mise exec -- tombi lint",
+    language = "system",
+    files = '\.toml$'
+  },
   {
     id = "ruff-check",
     name = "ruff check",

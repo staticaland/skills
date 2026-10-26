@@ -7,11 +7,11 @@
 # bump changes the toolchain and not the verdict.
 [lint]
 select = [
-  "E",   # pycodestyle errors
-  "F",   # pyflakes
-  "I",   # import sorting
+  "E",  # pycodestyle errors
+  "F",  # pyflakes
+  "I",  # import sorting
   "UP",  # pyupgrade
-  "B",   # bugbear
+  "B",  # bugbear
 ]
 
 # The formatter owns line width. It wraps what it can and leaves a long string
