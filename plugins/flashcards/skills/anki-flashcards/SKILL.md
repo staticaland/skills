@@ -1,9 +1,9 @@
 ---
 name: Anki Flashcards
 description:
-  Create Anki flashcards for spaced repetition learning. Use when the user wants
-  to ankify content, asks for flashcards or Anki cards, or wants to memorize or
-  study material from text, notes, code, or images.
+  Create Anki flashcards for spaced repetition learning. Use when the user asks
+  for flashcards or Anki cards, or wants to ankify, memorize, or study material
+  from text, notes, code, or images.
 version: 0.3.0
 ---
 
