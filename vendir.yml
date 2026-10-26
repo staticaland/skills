@@ -186,3 +186,15 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/defuddle
+  - path: plugins/herdr/skills/herdr
+    contents:
+      - path: .
+        git:
+          url: https://github.com/herdrdev/herdr
+          ref: 5608de0608918aba2f9d501e7793b984a0ca9cfa
+        includePaths:
+          - skills/herdr/**/*
+        ignorePaths:
+          - LICENSE
+          - UPSTREAM.md
+        newRootPath: skills/herdr
