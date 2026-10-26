@@ -204,7 +204,8 @@ virkning
 eGullet
 listicles
 subreddits?
-Herdr
+$^ Herdr is the product; lowercase herdr is its CLI and this repository's plugin and skill name.
+[Hh]erdr
 worktrees?
 $^ Defuddle is the product; lowercase defuddle is its CLI and this repository's plugin and skill name.
 [Dd]efuddle
