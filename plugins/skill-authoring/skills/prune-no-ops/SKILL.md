@@ -1,6 +1,7 @@
 ---
 name: prune-no-ops
-description: Delete the sentences in a skill that change no behavior - asides,
+description:
+  Delete the sentences in a skill that don't change behavior - asides,
   justification, emphasis, and restated defaults.
 disable-model-invocation: true
 version: 0.1.1
