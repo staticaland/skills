@@ -4,8 +4,8 @@ description: >
   Find the nerd consensus on a product, tool, or product category: what the
   enthusiast communities that obsess over it agree on, and what they still
   argue about or warn against. Source it from their forums, subreddits, and
-  wikis rather than affiliate review sites. Use when the user asks what enthusiasts, experts, or
-  a named community think of something, whether a product is worth it or
+  wikis, not affiliate review sites. Use when the user asks what enthusiasts,
+  experts, or a named community think of something, whether a product is worth it or
   buy-it-for-life quality, or what to buy in a category.
 ---
 
