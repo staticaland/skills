@@ -5,5 +5,5 @@
   "author": {
     "name": "staticaland"
   },
-  "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, and split broad references into focused files"
+  "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, split broad references into focused files, and keep skills lean as they change"
 }
