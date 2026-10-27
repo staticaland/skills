@@ -114,4 +114,12 @@ directories:
       - preview-2026-10-12-6d697e1e75ff-34-g5608de06
     path: .
   path: plugins/herdr/skills/herdr
+- contents:
+  - git:
+      commitTitle: 'docs: install from npm in Pi now that v0.1.0 is published (#21)...'
+      sha: 5f41df1220eb5759c413390206f1b9e6c63be754
+      tags:
+      - v0.1.0-1-g5f41df1
+    path: .
+  path: plugins/skill-authoring/skills/skill-diet
 kind: LockConfig

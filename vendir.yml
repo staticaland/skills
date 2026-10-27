@@ -198,3 +198,16 @@ directories:
           - LICENSE
           - UPSTREAM.md
         newRootPath: skills/herdr
+  - path: plugins/skill-authoring/skills/skill-diet
+    contents:
+      - path: .
+        git:
+          url: https://github.com/nicobailon/skill-diet
+          ref: 5f41df1220eb5759c413390206f1b9e6c63be754
+        includePaths:
+          - LICENSE
+          - SKILL.md
+          - references/**/*
+          - scripts/**/*
+        ignorePaths:
+          - UPSTREAM.md

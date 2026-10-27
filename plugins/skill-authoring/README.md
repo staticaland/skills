@@ -1,7 +1,8 @@
 # skill-authoring
 
 Write documents for agents, analyze a skill, prune the prose that changes no
-behavior, and split broad references into focused files.
+behavior, split broad references into focused files, and keep skills lean as
+they change.
 
 ## Install
 
@@ -24,6 +25,10 @@ behavior, and split broad references into focused files.
 - **[progressive-disclosure](./skills/progressive-disclosure/SKILL.md)**
   (skill) - Refactors a skill to load only relevant guidance by splitting
   broad references and mapping concrete project markers to focused files.
+- **[skill-diet](./skills/skill-diet/SKILL.md)** (skill) - Keeps a
+  skill short while it is edited or while the code it describes changes. A
+  bloated skill gets rewritten, with agent test runs before and after. Vendored
+  from [nicobailon/skill-diet](https://github.com/nicobailon/skill-diet).
 
 ## License
 

@@ -275,7 +275,8 @@ world-readable.
 #### [skill-authoring](./plugins/skill-authoring/README.md)
 
 Write documents for agents, analyze a skill, prune the prose that changes no
-behavior, and split broad references into focused files.
+behavior, split broad references into focused files, and keep skills lean as
+they change.
 
 - **[writing-for-agents](./plugins/skill-authoring/skills/writing-for-agents/SKILL.md)**
   (skill) - Guides writing skills, agent instructions, and documents
@@ -290,6 +291,10 @@ behavior, and split broad references into focused files.
 - **[progressive-disclosure](./plugins/skill-authoring/skills/progressive-disclosure/SKILL.md)**
   (skill) - Refactors a skill to load only relevant guidance by splitting
   broad references and mapping concrete project markers to focused files.
+- **[skill-diet](./plugins/skill-authoring/skills/skill-diet/SKILL.md)** (skill) - Keeps a
+  skill short while it is edited or while the code it describes changes. A
+  bloated skill gets rewritten, with agent test runs before and after. Vendored
+  from [nicobailon/skill-diet](https://github.com/nicobailon/skill-diet).
 
 #### [retro](./plugins/retro/README.md)
 

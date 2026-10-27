@@ -17,6 +17,7 @@ plugins/prose/skills/unslop/
 plugins/show-me/skills/show-me/
 plugins/defuddle/skills/defuddle/
 plugins/herdr/skills/herdr/
+plugins/skill-authoring/skills/skill-diet/
 
 # Pull request templates. Their prose is one paragraph per line, because GitHub
 # reflows the markdown and a hard wrap only makes the description awkward to
