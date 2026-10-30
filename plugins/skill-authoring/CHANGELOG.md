@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/staticaland/skills/compare/skill-authoring-v0.2.0...skill-authoring-v0.3.0) (2026-10-30)
+
+
+### Features
+
+* **skill-authoring:** vendor the skill-diet skill ([0a11e41](https://github.com/staticaland/skills/commit/0a11e412167189e4e8b2c0c365b94f5ca9555af3))
+
 ## [0.2.0](https://github.com/staticaland/skills/compare/skill-authoring-v0.1.0...skill-authoring-v0.2.0) (2026-08-25)
 
 
