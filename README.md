@@ -270,6 +270,16 @@ world-readable.
   writes. An unknown visibility counts as public. Requires the `gh` CLI and
   `jq`.
 
+#### [upgrade-path](./plugins/upgrade-path/README.md)
+
+Work toward the next major framework upgrade in small, bounded steps with the
+Mikado Method, tracked in `UPGRADE-PATH.md`.
+
+- **[upgrade-path](./plugins/upgrade-path/skills/upgrade-path/SKILL.md)**
+  (skill) - Each run either explores, attempting the upgrade and recording each
+  breakage as a blocker in a Mikado graph before reverting, or executes, fixing
+  one leaf blocker and committing it on a green build.
+
 ### `ai`
 
 #### [skill-authoring](./plugins/skill-authoring/README.md)

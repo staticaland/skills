@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "upgrade-path",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Work toward the next major framework upgrade in small, bounded steps with the Mikado Method, tracked in UPGRADE-PATH.md"
+}

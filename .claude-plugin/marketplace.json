@@ -107,6 +107,13 @@
       "category": "dev"
     },
     {
+      "name": "upgrade-path",
+      "source": "./plugins/upgrade-path",
+      "description": "Work toward the next major framework upgrade in small, bounded steps with the Mikado Method, tracked in UPGRADE-PATH.md",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "skill-authoring",
       "source": "./plugins/skill-authoring",
       "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, split broad references into focused files, and keep skills lean as they change",
