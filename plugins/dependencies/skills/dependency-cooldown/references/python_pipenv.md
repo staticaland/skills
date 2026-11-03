@@ -13,5 +13,6 @@ cool-down-period = "3d"
 ```
 
 Passes the value to `pip`'s `--uploaded-prior-to` during resolution, so it only
-filters against indexes that expose upload times. No environment variable, no
-per-package bypass - remove the setting or install through `pip` directly.
+filters against indexes that expose upload times. It has no environment
+variable or per-package bypass: to skip it, remove the setting or install through
+`pip` directly.
