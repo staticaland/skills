@@ -11,16 +11,16 @@ editor's verdict: rewrite or suppress.
 
 ## Verdicts
 
-**Rewrite.** The flagged span is where a smell surfaced, seldom where the
-problem lives. Reread the whole sentence and ask what it is trying to say.
+**Rewrite.** The flagged span shows where a smell surfaced, which is seldom
+where the problem started. Reread the whole sentence and ask what it is trying to say.
 Restructure over substitute: when `a number of` is flagged, name the things.
 When a hedge is flagged, make the call and state it plainly. Keep the meaning
 true: replace `several` with `5` when you counted five. When nobody counted,
 keep only the precision you possess. A sentence that satisfies the rule but
 reads worse than before means the verdict was wrong, so suppress instead.
 
-**Suppress.** A false positive keeps its prose: quoted material, terms of art,
-deliberate emphasis, honest vagueness. A rule you find yourself suppressing at
+**Suppress.** A false positive keeps its prose, such as quoted material, a term of
+art, deliberate emphasis, or honest vagueness. A rule you find yourself suppressing at
 every occurrence is worth raising with a maintainer. Changing the rules
 themselves is a separate decision, outside the scope of fixing prose.
 

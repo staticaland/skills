@@ -65,7 +65,7 @@ prek
 An entry has the widest blast radius of any suppression. Vale mutes every alert
 whose matched text is an accepted term, from every style, not only spelling.
 A rule that polices or renames a term only works while that term stays out of
-the vocabulary, so keep entries scoped to real spelling needs, and suppress a
-single passage with comment markers instead.
+the vocabulary, so keep entries scoped to real spelling needs, and suppress one
+passage with comment markers instead.
 
 <!-- vale ai-tells.FigurativeIdioms = YES -->
