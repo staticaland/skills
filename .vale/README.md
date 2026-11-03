@@ -8,8 +8,8 @@ runs without a download.
 ## Acting on alerts
 
 The [`vale-alerts`](../plugins/vale/skills/vale-alerts/SKILL.md) skill covers
-how to act on a report: give every alert a verdict, rewrite or suppress, and
-keep the vocabulary to real spelling needs. Its
+how to act on a report: every alert gets a verdict (rewrite or suppress), and
+the vocabulary holds only real spelling needs. Its
 [`VOCABULARY.md`](../plugins/vale/skills/vale-alerts/VOCABULARY.md) explains
 when a term belongs in the allowlist and when it belongs in backticks.
 
