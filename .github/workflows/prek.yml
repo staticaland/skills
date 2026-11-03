@@ -24,6 +24,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          # A pull request checks out its merge commit; the first parent is
+          # the base branch, which the Vale step below diffs against.
+          fetch-depth: 2
       - uses: jdx/mise-action@8418fedb1110381a0d3ba51a7a415d7c1b884550 # v5.2.2
         with:
           version: ${{ env.MISE_VERSION }}
@@ -37,5 +40,12 @@ jobs:
         with:
           prek-version: ${{ env.PREK_VERSION }}
         env:
-          # The claude CLI is not installed on the runner.
-          PREK_SKIP: claude-plugin-validate
+          # The claude CLI is not installed on the runner. On a pull request,
+          # Vale runs in the next step instead.
+          PREK_SKIP: ${{ github.event_name == 'pull_request' && 'claude-plugin-validate,vale' || 'claude-plugin-validate' }}
+      # A pull request lints only the prose it changes, so a Vale or style
+      # upgrade that flags existing prose does not block the upgrade itself.
+      # Pushes to main still lint every file and surface those alerts.
+      - name: Vale on changed files
+        if: ${{ !cancelled() && github.event_name == 'pull_request' }}
+        run: mise exec -- prek run vale --show-diff-on-failure --color=always --from-ref HEAD^1 --to-ref HEAD
