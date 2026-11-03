@@ -1,7 +1,7 @@
 # plain-language
 
 Restate a message in plain human language, or ask for a re-pitch when it
-does not land.
+does not make sense.
 
 ## Install
 
