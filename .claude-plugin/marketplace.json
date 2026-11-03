@@ -30,6 +30,13 @@
       "category": "writing"
     },
     {
+      "name": "vale",
+      "source": "./plugins/vale",
+      "description": "Act on Vale alerts like an editor: rewrite the sentence or suppress the one rule, and keep the vocabulary to real spelling needs",
+      "version": "0.1.0",
+      "category": "writing"
+    },
+    {
       "name": "pull-requests",
       "source": "./plugins/pull-requests",
       "description": "Open a GitHub pull request from the repository's own template, manage stacked branches and pull requests with gh-stack, and attach images and videos to issues and pull requests",

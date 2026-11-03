@@ -10,6 +10,7 @@ Anki
 ankify
 anki-flashcards
 Cloze
+Goodhart
 Matuschak
 Staticaland
 frontmatter

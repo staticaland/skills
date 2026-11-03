@@ -102,6 +102,21 @@ does not land.
   (skill) - Asks for a re-pitch of the last message, in Simplified
   Technical English and the project's own domain terms.
 
+<!-- vale Vale.Terms = NO -->
+<!-- `vale` and `vale-alerts` below are the plugin and skill names. -->
+
+#### [vale](./plugins/vale/README.md)
+
+Act on Vale alerts like an editor: rewrite the sentence or suppress the one
+rule, and keep the vocabulary to real spelling needs.
+
+- **[vale-alerts](./plugins/vale/skills/vale-alerts/SKILL.md)** (skill) -
+  Gives each [Vale](https://vale.sh/) alert a verdict - rewrite or suppress -
+  and separates spelling allowlist entries from terms that belong in
+  backticks.
+
+<!-- vale Vale.Terms = YES -->
+
 ### `dev`
 
 #### [pull-requests](./plugins/pull-requests/README.md)
