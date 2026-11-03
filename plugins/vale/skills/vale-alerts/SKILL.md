@@ -22,8 +22,8 @@ keep only the precision you possess. A sentence that
 satisfies the rule but reads worse than before means the verdict was wrong;
 suppress instead.
 
-**Suppress.** Quoted material, terms of art, deliberate emphasis, honest
-vagueness: keep the prose and mute the one rule around the one passage, as
+**Suppress.** A false positive keeps its prose: quoted material, terms of art,
+deliberate emphasis, honest vagueness. Mute the rule as
 [Suppressing one passage](#suppressing-one-passage) shows. Suppression with a
 stated reason is an editor's outcome, a deliberate judgment that the prose
 wins. A rule you find yourself suppressing at every occurrence is worth
@@ -31,12 +31,15 @@ raising with a maintainer; changing the rules themselves is a separate
 decision, outside the scope of fixing prose.
 
 **Spelling and term alerts** (`Vale.Spelling`, `Vale.Terms`) usually ask a
-different question: is the string a word, or code that wants backticks? Read
-[`VOCABULARY.md`](VOCABULARY.md) before you add an entry to a vocabulary.
+use-mention question: is the string a word, or a literal that belongs in code
+font? Read [`VOCABULARY.md`](VOCABULARY.md) before you add an entry to a vocabulary.
 
 ## Suppressing one passage
 
-Turn the one rule off around the one passage with Vale's
+<!-- vale ai-tells.FigurativeIdioms = NO -->
+<!-- "Blast radius" is the term of art for how far a suppression reaches. -->
+
+Keep a suppression's blast radius to one rule over one passage, with Vale's
 [comment markers](https://vale.sh/docs/keys/commentdelimiters). Prose about a
 valley trips a `Vale` casing term that expects the product name:
 
@@ -50,9 +53,12 @@ The vale lay under morning fog.
 ```
 
 Name the rule exactly as the report prints it, and turn it back on right after
-the passage. A bare `<!-- vale off -->` mutes every rule and is almost always
-too broad. Pair each marker with a comment that states why the rule is off
-there, so the next editor can tell a deliberate exception from a leftover.
+the passage. A bare `<!-- vale off -->` mutes every rule, the widest blast
+radius a marker has. Pair each marker with a comment that states why the rule
+is off there, so the next editor can tell a deliberate exception from a
+leftover.
+
+<!-- vale ai-tells.FigurativeIdioms = YES -->
 
 ## Done
 

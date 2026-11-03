@@ -22,8 +22,8 @@ is a name they would say out loud, leave it plain.
 A tool can carry two names. The prose name takes the project's official
 orthography (Git, Prettier, Vale), and the command form takes backticks
 (`git`, `prettier`, `vale`). A project can also declare a lowercase prose name
-(prek, uv). That casing is part of the name: follow the project's styling, and
-recast a sentence that would capitalize such a name at its start.
+(prek, uv). That casing is part of its orthography: keep it, and recast a
+sentence that would capitalize such a name at its start.
 
 ## Backticks hide text from Vale
 
@@ -65,9 +65,15 @@ prek
 
 ## The allowlist doubles as a global mute
 
-Vale suppresses every alert whose matched text is an accepted term, from every
-style, not only spelling. Adding `synergy` to `accept.txt` would silence a
-style's alert on overused vocabulary for `synergy` everywhere in the project.
+<!-- vale ai-tells.FigurativeIdioms = NO -->
+<!-- "Blast radius" is the term of art for how far a suppression reaches. -->
+
+An entry has the widest blast radius of any suppression. Vale suppresses every
+alert whose matched text is an accepted term, from every style, not only
+spelling. Adding `synergy` to `accept.txt` would silence a style's alert on
+overused vocabulary for `synergy` everywhere in the project.
 A rule that polices or renames a term only works while that term stays out of
 the vocabulary, so keep entries scoped to real spelling needs, and suppress a
 single passage with comment markers instead.
+
+<!-- vale ai-tells.FigurativeIdioms = YES -->
