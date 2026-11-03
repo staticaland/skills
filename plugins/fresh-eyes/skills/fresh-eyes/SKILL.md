@@ -26,9 +26,9 @@ to it, and every proposal comes out a tweak.
 
 ### 1. State the purpose
 
-Read the target only far enough to write its purpose: what it must provide, to
-whom, in one paragraph that doesn't name any part of the current mechanism - inputs,
-outputs, and guarantees, never classes, files, or steps. Done when someone who
+Read the target only far enough to write its purpose in one paragraph. State
+what it must provide and to whom in terms of inputs, outputs, and guarantees,
+without naming any part of the current mechanism: no classes, files, or steps. Done when someone who
 has never seen the target could design from the paragraph alone.
 
 ### 2. Design naively
@@ -41,8 +41,8 @@ has never seen the target could design from the paragraph alone.
 Put the target aside and design from the purpose paragraph: the simplest thing
 that could serve it. Ask the naive question of each moving part the purpose
 seems to demand - "why don't we just [one obvious move]?" Produce one to three
-proposals, each a short sketch: the one move it is built around, and what from
-the current shape it deletes. Done when each proposal is simpler than the
+proposals. Sketch each as the one move it is built around and what from the
+current shape it deletes. Done when each proposal is simpler than the
 current shape by a measure you name, such as fewer parts or a single source of
 truth, and any sketch that fails that measure is dropped here.
 
