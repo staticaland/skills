@@ -9,9 +9,9 @@ disable-model-invocation: true
 All state lives in `UPGRADE-PATH.md` at the repo root; every run reads it
 first and leaves it updated.
 
-Each run is exactly one of two modes. The user says which. If they
-don't, use Explore when the graph is empty or has no open leaves,
-otherwise Execute.
+Each run is exactly one of two modes, chosen by the user or, failing
+that, by the graph. Run Explore when the graph is empty or has no open
+leaves, otherwise Execute.
 
 ## Explore
 
