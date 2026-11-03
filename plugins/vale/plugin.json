@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "vale",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Act on Vale alerts like an editor: rewrite the sentence or suppress the one rule, and keep the vocabulary to real spelling needs"
+}
