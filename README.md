@@ -94,7 +94,7 @@ klarspråk per NS-ISO 24495-1 with ASD-STE100 principles.
 #### [plain-language](./plugins/plain-language/README.md)
 
 Restate a message in plain human language, or ask for a re-pitch when it
-does not land.
+does not make sense.
 
 - **[bro](./plugins/plain-language/skills/bro/SKILL.md)** (skill) -
   Restates the last message in plain human language, with no jargon.
