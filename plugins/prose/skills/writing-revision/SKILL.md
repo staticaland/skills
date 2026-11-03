@@ -1,10 +1,10 @@
 ---
 name: Writing Revision
 description:
-  This skill should be used when the user asks to "revise text", "make writing
-  clearer", "improve readability", "edit for busy readers", "make text
-  scannable", "tighten up writing", "cut filler words", "lead with the point",
-  or wants text revised for clarity and conciseness.
+  Use when the user asks to "revise text", "make writing clearer", "improve
+  readability", "edit for busy readers", "make text scannable", "tighten up
+  writing", "cut filler words", "lead with the point", or wants text revised
+  for clarity and conciseness.
 version: 0.1.1
 ---
 

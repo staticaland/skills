@@ -2,8 +2,8 @@
 name: parallel-steps
 description:
   Make GitHub Actions steps run in parallel with the background, wait, wait-all,
-  cancel, and parallel keywords. Use when the user wants a faster job, starts a
-  service in a job, or asks for background or parallel steps.
+  cancel, and parallel keywords. Use when the user wants a faster job or asks
+  for background or parallel steps, including a service that later steps use.
 version: 0.2.0
 ---
 
@@ -45,12 +45,11 @@ with no reader needs neither.
 
 ### 3. Verify the workflow
 
-Run `actionlint` on the file if the tool is installed. `actionlint` does not
-support these keywords yet
-([rhysd/actionlint#693](https://github.com/rhysd/actionlint/issues/693)), so it
-can report an error or a warning on a `background`, `wait`, `wait-all`,
-`cancel`, or `parallel` step that agrees with the reference. Ignore those
-messages. Read the changed workflow again. Make sure that no step reads data
+Run [`jactionlint`](https://github.com/jdx/jactionlint) on the file if the tool
+is installed. It supports these keywords, so treat its messages as real. Do not
+use `actionlint` here: it does not support the keywords yet
+([rhysd/actionlint#693](https://github.com/rhysd/actionlint/issues/693)) and
+reports false errors on them. Read the changed workflow again. Make sure that no step reads data
 from a background step without a `wait` between them. Report the steps that stay
 in sequence and the reason for each.
 
@@ -72,13 +71,13 @@ failure rules, and composite-action restrictions - see
 
 ```yaml
 steps:
- - name: Start test server
+  - name: Start test server
     id: server
     run: npm run start
     background: true
- - name: Run E2E tests
+  - name: Run E2E tests
     run: npm run e2e
- - name: Stop server
+  - name: Stop server
     cancel: server
 ```
 
@@ -86,12 +85,12 @@ steps:
 
 ```yaml
 steps:
- - parallel:
-     - name: Build the app
+  - parallel:
+      - name: Build the app
         run: npm run build
-     - name: Build the docs
+      - name: Build the docs
         run: npm run docs
- - name: Package
+  - name: Package
     run: npm run package
 ```
 

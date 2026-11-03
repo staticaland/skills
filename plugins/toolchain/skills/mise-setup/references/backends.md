@@ -38,8 +38,12 @@ Move right in the list when:
   `pipx:cogapp`) - a language backend is the only honest source.
 - The aqua package lags the release you need. Compare
   `mise ls-remote aqua:owner/repo` against the upstream releases.
-- Nothing carries it. Fall back to `ubi:owner/repo`, or write an `http:` tool
-  stub.
+- Nothing carries it. Fall back to `github:owner/repo` first: it records a
+  sha256 checksum in the lockfile and verifies SLSA provenance when upstream
+  publishes it. `ubi:owner/repo` records nothing and strict mode skips it, so
+  it comes after. Both take `exe = "name"` when the binary is not named after
+  the repo: `"github:cooklang/cookcli" = { version = "0.35.0", exe = "cook" }`.
+  An `http:` tool stub is the last option.
 
 An `asdf:` or `vfox:` plugin executes code from a third-party repository at
 install time. Prefer any other backend, and record why when one is unavoidable.

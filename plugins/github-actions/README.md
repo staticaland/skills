@@ -1,8 +1,7 @@
 # github-actions
 
 Run GitHub Actions workflow steps in parallel, replace repeated workflow
-configuration with YAML anchors, name every workflow, job, and step, and pin
-every action reference to a commit SHA on workflow edits.
+configuration with YAML anchors, and name every workflow, job, and step.
 
 ## Install
 
@@ -26,9 +25,8 @@ every action reference to a commit SHA on workflow edits.
 
 ## Hooks
 
-- **pinact** (`hooks/pinact_actions.py`) - Pins GitHub Actions references
-  to full commit SHAs with [pinact](https://github.com/suzuki-shunsuke/pinact)
-  after Claude writes or edits workflow files. Requires the `pinact` CLI.
+The pinact hook that pins action references on workflow edits moved to the
+[pinact](../pinact/README.md) plugin. Install that plugin to keep it.
 
 ## License
 

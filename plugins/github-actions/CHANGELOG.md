@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.0](https://github.com/staticaland/skills/compare/github-actions-v0.2.0...github-actions-v0.3.0) (2026-10-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **github-actions:** github-actions no longer runs pinact on workflow edits. Install pinact@staticaland-skills to keep the hook.
+
+### Features
+
+* **github-actions:** move the pinact hook to the pinact plugin ([6bb955d](https://github.com/staticaland/skills/commit/6bb955d7ac0b88a212bcba91fc47362d7b2e161b))
+
+
+### Bug Fixes
+
+* **github-actions:** lint parallel steps with jactionlint ([#222](https://github.com/staticaland/skills/issues/222)) ([a8fffd4](https://github.com/staticaland/skills/commit/a8fffd4aec1d662c5ba7ce084d44feb88a7abf82))
+
 ## [0.2.0](https://github.com/staticaland/skills/compare/github-actions-v0.1.0...github-actions-v0.2.0) (2026-08-25)
 
 

@@ -1,18 +1,19 @@
 ---
 name: frozen-install
 description:
-  "Replace resolving install commands with frozen ones - `npm ci`, `uv sync
-  --locked` - at every site meant to reproduce a lockfile: CI workflows, image
-  builds, task runners, deploy scripts, and docs. Use when the user wants
-  reproducible installs, or mentions `npm install` in CI, `npm ci`,
-  clean-install, `--frozen-lockfile`, or lockfile drift. Covers `npm` and `uv`."
+  "Replace resolving install commands with frozen ones, such as `npm ci` and
+  `uv sync` in locked mode, at every site meant to reproduce a lockfile, from
+  CI workflows and image builds to task runners, deploy scripts, and docs. Use
+  when the user wants reproducible installs, or mentions `npm install` in CI,
+  `npm ci`, clean-install, a frozen lockfile, or lockfile drift. Covers `npm`
+  and `uv`."
 version: 0.1.0
 ---
 
 # Frozen Install
 
-An install command either **resolves** - reads the ranges in the manifest, picks
-versions, and writes the lockfile - or is **frozen**: it installs the lockfile
+An install command either **resolves** - picks versions from the ranges in the
+manifest and writes them to the lockfile - or is **frozen**: it installs the lockfile
 exactly and fails when it cannot. `npm install` resolves even with a lockfile
 sitting beside it. `npm ci` is frozen.
 
@@ -101,7 +102,7 @@ vocabulary is `--frozen-lockfile` (`pnpm`, Yarn 1, `bun`), `--immutable` (Yarn
 (Terraform).
 
 Done when every reproducing row runs a frozen command, and every resolving row
-carries a comment naming it as one.
+has a comment naming it as one.
 
 ### 4. Close the ways back in
 

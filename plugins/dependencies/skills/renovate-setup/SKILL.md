@@ -2,9 +2,10 @@
 name: renovate-setup
 description: >-
   Add or extend Renovate with a seven-day minimum release age and immutable
-  updates: lock files and integrity hashes, GitHub Action SHAs, and container
-  digests. Use when adopting Renovate, replacing another update bot, covering
-  missing manifests, or updating tools, images, actions, or custom files.
+  updates: lock files kept with their integrity hashes, and GitHub Actions and
+  container images pinned to commit SHAs and digests. Use when the user adopts
+  Renovate, fresh or in place of another update bot, or wants it to cover
+  manifests, tools, images, actions, or custom files it misses.
 version: 0.2.0
 ---
 
@@ -68,9 +69,11 @@ instead of creating a competing `renovate.json`. Treat inherited presets and
 global configuration as active even when they are outside the repository.
 
 Resolve preset contents and package-rule precedence instead of judging the
-local file alone. Find every rule that lowers, nulls, or scopes
-`minimumReleaseAge`, disables digest pinning or lockfile maintenance, or skips
-artifact updates.
+local file alone. Find every rule that does any of these:
+
+- lowers, nulls, or scopes `minimumReleaseAge`
+- disables digest pinning or lockfile maintenance
+- skips artifact updates
 
 Done when every config layer and execution path is named, every existing rule
 has a keep, change, or retire verdict, and the strongest existing cooldown is
@@ -206,9 +209,9 @@ comment to an existing bare action SHA; Renovate disables updates for bare SHAs
 whose source tag or branch it cannot determine.
 
 Keep `minimumReleaseAge` at top level so it covers the supported data sources.
-Inspect inherited and local package rules after merging. Remove a shorter or
-`null` override, or replace it with an equally scoped value of `"7 days"`;
-preserve values longer than seven days. Keep the default
+Inspect inherited and local package rules after merging. Leave a longer value
+alone, and remove a shorter or `null` override or replace it with an equally
+scoped value of `"7 days"`. Keep the default
 `minimumReleaseAgeBehaviour: "timestamp-required"`: a data source without a
 usable timestamp cannot prove a seven-day age and belongs in the report as a
 cooldown limitation, not behind a global timestamp-optional escape.
@@ -238,8 +241,8 @@ resolution strategy in those cases. `rangeStrategy: "pin"` does not replace it.
 
 `minimumReleaseAge` cannot age `lockFileMaintenance` or `lockfileUpdate`
 updates because Renovate delegates their resolution to the package manager.
-Configure that manager's committed native cooldown when it supports one. Where
-it does not, report the transitive lockfile-maintenance gap explicitly; the
+Configure that manager's committed native cooldown when it supports one, and
+otherwise report the transitive lockfile-maintenance gap explicitly. The
 seven-day Renovate gate still applies to supported direct version and digest
 updates. Security updates bypass Renovate's minimum release age.
 

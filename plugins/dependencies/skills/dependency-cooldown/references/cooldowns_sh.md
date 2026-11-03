@@ -38,6 +38,8 @@ exists and is writable, otherwise `~/.bashrc`.
 Project-only tools are **not covered**: `pipenv`, `pixi`, mise, and Scala
 Steward. (`pipenv` does inherit `PIP_UPLOADED_PRIOR_TO` from
 `cooldowns.sh set pip`, since it runs on `pip`.)
+pinact is not covered either, but carries its own user-wide file - the global
+config in [github-actions.md](github-actions.md).
 
 `cooldowns.sh check` scans installed managers and exits non-zero on any missing
 or stale cooldown, which makes it usable as a CI gate:

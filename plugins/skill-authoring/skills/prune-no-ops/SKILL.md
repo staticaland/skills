@@ -1,6 +1,7 @@
 ---
 name: prune-no-ops
-description: Delete the sentences in a skill that change no behavior - asides,
+description:
+  Delete the sentences in a skill that don't change behavior - asides,
   justification, emphasis, and restated defaults.
 disable-model-invocation: true
 version: 0.1.1
@@ -11,8 +12,8 @@ version: 0.1.1
 Delete every sentence in a target skill that doesn't change behavior. The verdict
 for each sentence is the **deletion test**: would an agent running the skill
 on its trigger cases behave identically with the sentence and without it? A
-sentence whose deletion changes nothing is a **no-op** - delete it whole. A
-sentence that survives keeps every word.
+sentence whose deletion changes nothing is a **no-op** - delete it whole. Keep
+every word of a sentence that survives.
 
 Apply the cuts. When the user asks for analysis only, stop after step 2 and
 report the verdicts.

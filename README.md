@@ -24,13 +24,39 @@ the skills CLI:
 npx skills add staticaland/skills --skill writing-revision
 ```
 
-Each plugin README lists the command for every available skill. The skills CLI
-does not install plugin hooks.
+Each plugin README lists the command for every available skill. Hooks need the
+plugin install above, because the skills CLI skips them.
 
 Each plugin also has a `plugin.json` manifest at its root per the
 [Agent Plugins](https://agent-plugins.org/) specification, and its skills
 follow the [Agent Skills](https://agentskills.io/) format, so any client that
 supports those specifications can install the plugins too.
+
+To upload a plugin to Claude or ChatGPT as a custom plugin, download its ZIP
+from the plugin's latest [GitHub release](https://github.com/staticaland/skills/releases),
+then upload it:
+
+- **Claude**: in [Customize > Plugins](https://claude.ai/customize/plugins),
+  select **Add** > **Upload plugin** and choose
+  `<plugin>-<version>-claude.zip`.
+- **ChatGPT**: in [Skills](https://chatgpt.com/skills), select **Create** >
+  **Upload from your computer** and choose `<plugin>-<version>-chatgpt.zip`.
+
+## Invoke a skill
+
+A skill installed through a plugin is named `plugin-name:skill-name`, where the
+skill name is the one the catalog below lists. Each client has its own sigil
+for invoking it:
+
+- **Claude Code**: type `/prose:unslop`.
+- **Codex**: type `$prose:unslop`. Codex also lists every installed skill when
+  you run `/skills` and inserts the mention for the one you pick.
+
+A skill installed on its own with the skills CLI has no plugin prefix, so the
+same skill is:
+
+- **Claude Code**: `/unslop`.
+- **Codex**: `$unslop`.
 
 ## Plugins
 
@@ -68,13 +94,28 @@ klarspråk per NS-ISO 24495-1 with ASD-STE100 principles.
 #### [plain-language](./plugins/plain-language/README.md)
 
 Restate a message in plain human language, or ask for a re-pitch when it
-does not land.
+does not make sense.
 
 - **[bro](./plugins/plain-language/skills/bro/SKILL.md)** (skill) -
   Restates the last message in plain human language, with no jargon.
 - **[wait-what](./plugins/plain-language/skills/wait-what/SKILL.md)**
   (skill) - Asks for a re-pitch of the last message, in Simplified
   Technical English and the project's own domain terms.
+
+<!-- vale Vale.Terms = NO -->
+<!-- `vale` and `vale-alerts` below are the plugin and skill names. -->
+
+#### [vale](./plugins/vale/README.md)
+
+Act on Vale alerts like an editor: rewrite the sentence or suppress the one
+rule, and keep the vocabulary to real spelling needs.
+
+- **[vale-alerts](./plugins/vale/skills/vale-alerts/SKILL.md)** (skill) -
+  Gives each [Vale](https://vale.sh/) alert a verdict - rewrite or suppress -
+  and separates spelling allowlist entries from terms that belong in
+  backticks.
+
+<!-- vale Vale.Terms = YES -->
 
 ### `dev`
 
@@ -98,12 +139,16 @@ issues and pull requests.
 - **pr-create guard** (hook) - Blocks a direct
   `gh pr create` and tells Claude to invoke the create-pr skill
   instead. Other `git` and `gh` commands are untouched.
+- **AI-assistance notice** (hook) - Requires the body of a `gh pr create`,
+  `gh pr edit`, `gh issue create`, or `gh issue edit` to end with the line
+  `**<sub>AI assisted 🤖</sub>**`. Denies the call and
+  quotes the line until the body has it. The create-pr skill adds it for
+  you.
 
 #### [github-actions](./plugins/github-actions/README.md)
 
 Run GitHub Actions workflow steps in parallel, replace repeated workflow
-configuration with YAML anchors, name every workflow, job, and step, and pin
-every action reference to a commit SHA on workflow edits.
+configuration with YAML anchors, and name every workflow, job, and step.
 
 - **[parallel-steps](./plugins/github-actions/skills/parallel-steps/SKILL.md)**
   (skill) - Makes GitHub Actions workflow steps run in parallel with the
@@ -115,9 +160,15 @@ every action reference to a commit SHA on workflow edits.
 - **[workflow-names](./plugins/github-actions/skills/workflow-names/SKILL.md)**
   (skill) - Checks that every GitHub Actions workflow, job, and step has a
   name, and writes the missing ones in imperative, sentence-case style.
-- **pinact** (hook) - Pins GitHub Actions references to full commit SHAs
-  with [pinact](https://github.com/suzuki-shunsuke/pinact) after Claude writes
-  or edits workflow files. Requires the `pinact` CLI.
+
+#### [pinact](./plugins/pinact/README.md)
+
+Pin every GitHub Actions reference to a commit SHA with pinact after the agent
+writes or edits a workflow file.
+
+- **pinact** (hook) - Runs [pinact](https://github.com/suzuki-shunsuke/pinact)
+  on a workflow or action file after Claude writes or edits it. It also updates
+  every action to its latest release. Requires the `pinact` CLI.
 
 #### [dependencies](./plugins/dependencies/README.md)
 
@@ -201,12 +252,56 @@ agent-browser CLI.
   [agent-browser](https://github.com/vercel-labs/agent-browser) -
   navigating, filling forms, clicking, taking screenshots, and extracting data.
 
+#### [show-me](./plugins/show-me/README.md)
+
+Explain the topic at hand visually with diagrams, code-shape sketches, and
+focused HTML.
+
+- **[show-me](./plugins/show-me/skills/show-me/SKILL.md)** (skill) - Picks
+  the smallest view that makes the point - pseudocode, a call tree, a
+  component tree, a file tree, a Mermaid diagram, a diff, or one focused HTML
+  file - and places it next to short prose.
+
+#### [defuddle](./plugins/defuddle/README.md)
+
+Extract clean Markdown from web pages with the Defuddle CLI, without the
+navigation, ads, and clutter.
+
+- **[defuddle](./plugins/defuddle/skills/defuddle/SKILL.md)** (skill) - Reads
+  a web page with [Defuddle](https://github.com/kepano/defuddle) instead of a
+  plain fetch, so the agent gets the page's content as Markdown, or one
+  metadata field, for fewer tokens.
+
+#### [no-org-internals](./plugins/no-org-internals/README.md)
+
+Keep organization-internal names, hosts, tickets, and people out of a public
+repository by telling the agent at session start that everything it writes is
+world-readable.
+
+- **public repository notice** (hook) - Asks `gh` for the visibility of the
+  repository at session start. Unless the answer is private or internal, it
+  tells the agent that the repository is public and that internal repositories,
+  systems, hostnames, ticket IDs, people, and data stay out of everything it
+  writes. An unknown visibility counts as public. Requires the `gh` CLI and
+  `jq`.
+
+#### [upgrade-path](./plugins/upgrade-path/README.md)
+
+Work toward the next major framework upgrade in small, bounded steps with the
+Mikado Method, tracked in `UPGRADE-PATH.md`.
+
+- **[upgrade-path](./plugins/upgrade-path/skills/upgrade-path/SKILL.md)**
+  (skill) - Each run either explores, attempting the upgrade and recording each
+  breakage as a blocker in a Mikado graph before reverting, or executes, fixing
+  one leaf blocker and committing it on a green build.
+
 ### `ai`
 
 #### [skill-authoring](./plugins/skill-authoring/README.md)
 
-Write documents for agents, analyze a skill, prune the prose that changes no
-behavior, and split broad references into focused files.
+Write documents for agents, analyze a skill, prune the prose that does not
+change behavior, split broad references into focused files, and keep skills lean as
+they change.
 
 - **[writing-for-agents](./plugins/skill-authoring/skills/writing-for-agents/SKILL.md)**
   (skill) - Guides writing skills, agent instructions, and documents
@@ -221,15 +316,44 @@ behavior, and split broad references into focused files.
 - **[progressive-disclosure](./plugins/skill-authoring/skills/progressive-disclosure/SKILL.md)**
   (skill) - Refactors a skill to load only relevant guidance by splitting
   broad references and mapping concrete project markers to focused files.
+- **[skill-diet](./plugins/skill-authoring/skills/skill-diet/SKILL.md)** (skill) - Keeps a
+  skill short while it is edited or while the code it describes changes. A
+  bloated skill gets rewritten, with agent test runs before and after. Vendored
+  from [nicobailon/skill-diet](https://github.com/nicobailon/skill-diet).
 
 #### [retro](./plugins/retro/README.md)
 
 Retrospect on a coding session to improve the environment the next one runs
 in.
 
+<!-- vale ai-tells.VerbTricolon = NO -->
+<!-- The list has four items; the rule reads only the first three. -->
+
 - **[retro](./plugins/retro/skills/retro/SKILL.md)** (skill) - Reviews a
   coding session and ranks the changes that would make the next one go better:
   navigation pointers, automated checks, coding standards, and tool economy.
+
+<!-- vale ai-tells.VerbTricolon = YES -->
+
+#### [spin-off-side-task](./plugins/spin-off-side-task/README.md)
+
+Hand a side task found in an agent's thread to a new agent in its own Herdr
+worktree, with a brief that gives it the thread's context.
+
+- **[spin-off-side-task](./plugins/spin-off-side-task/skills/spin-off-side-task/SKILL.md)**
+  (skill) - Writes a brief with the task, evidence, decisions, and scope from
+  the current thread, creates a Herdr worktree for it, and starts a new agent of
+  the same kind there with the brief.
+
+#### [herdr](./plugins/herdr/README.md)
+
+Control Herdr, a terminal multiplexer for coding agents, to inspect and drive
+its panes, tabs, workspaces, and the agents running in them.
+
+- **[herdr](./plugins/herdr/skills/herdr/SKILL.md)** (skill) - Drives the
+  [Herdr](https://github.com/herdrdev/herdr) session the agent runs in through
+  the `herdr` CLI: reads neighboring panes, starts commands and agents, and
+  waits for their state to change. It acts only when the user names Herdr.
 
 ### `other`
 
@@ -241,6 +365,16 @@ Matuschak's prompt-writing principles.
 - **[anki-flashcards](./plugins/flashcards/skills/anki-flashcards/SKILL.md)**
   (skill) - Creates concise Anki flashcards from text, documents, or
   images for spaced repetition learning.
+
+#### [nerd-consensus](./plugins/nerd-consensus/README.md)
+
+Find what enthusiast communities agree on, argue about, and warn against for a
+product, tool, or product category.
+
+- **[nerd-consensus](./plugins/nerd-consensus/skills/nerd-consensus/SKILL.md)**
+  (skill) - Researches the forums, subreddits, and wikis of the communities
+  that obsess over a product or category, and reports the consensus, the
+  contested points, and the known flaws, with sources.
 
 ## Repo layout
 

@@ -28,6 +28,9 @@ nothing uses.
 
 ## Left alone
 
+<!-- vale ai-tells.VerbTricolon = NO -->
+<!-- The third item lists the three ways CommonMark rejects a link destination. -->
+
 - A path inside a fenced block, an indented code block, or an inline code span.
 - A remote URL, an anchor such as `[jump](#login.png)`, and any local path that
   no `--attach` argument named.
@@ -35,6 +38,8 @@ nothing uses.
   parenthesis, an unbracketed space, an unclosed angle bracket.
 - Every reference to a file whose upload failed, so a partially written body
   still points at the local paths for the files that never uploaded.
+
+<!-- vale ai-tells.VerbTricolon = YES -->
 
 ## Video, degraded
 

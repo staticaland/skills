@@ -1,0 +1,8 @@
+{
+  "name": "herdr",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Control Herdr, a terminal multiplexer for coding agents, to inspect and drive its panes, tabs, workspaces, and the agents running in them"
+}

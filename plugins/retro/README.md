@@ -12,9 +12,14 @@ in.
 
 ## Skills
 
+<!-- vale ai-tells.VerbTricolon = NO -->
+<!-- The list has four items; the rule reads only the first three. -->
+
 - **[retro](./skills/retro/SKILL.md)** (skill) - Reviews a coding session
   and ranks the changes that would make the next one go better: navigation
   pointers, automated checks, coding standards, and tool economy.
+
+<!-- vale ai-tells.VerbTricolon = YES -->
 
 ## License
 

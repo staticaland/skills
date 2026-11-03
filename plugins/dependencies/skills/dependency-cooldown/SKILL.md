@@ -28,12 +28,15 @@ a reference file below disagrees or omits a manager.
 List the candidate files:
 
 ```bash
-git ls-files | grep -Ei '(^|/)(package\.json|package-lock\.json|pnpm-workspace\.yaml|pnpm-lock\.yaml|\.npmrc|\.yarnrc\.yml|yarn\.lock|bunfig\.toml|bun\.lockb?|deno\.jsonc?|deno\.lock|pyproject\.toml|uv\.lock|uv\.toml|requirements.*\.txt|Pipfile|poetry\.lock|pdm\.lock|pixi\.toml|pixi\.lock|environment\.ya?ml|Gemfile|mix\.exs|Cargo\.toml|pom\.xml|build\.(sbt|gradle|gradle\.kts|mill)|go\.mod|composer\.json|pubspec\.yaml|Package\.swift|.*\.csproj|mise\.toml|\.tool-versions|renovate\.json5?|dependabot\.yml|\.scala-steward\.conf|Dockerfile[^/]*|Containerfile)$|\.github/workflows/|\.vscode/'
+git ls-files | grep -Ei '(^|/)(package\.json|package-lock\.json|pnpm-workspace\.yaml|pnpm-lock\.yaml|\.npmrc|\.yarnrc\.yml|yarn\.lock|bunfig\.toml|bun\.lockb?|deno\.jsonc?|deno\.lock|pyproject\.toml|uv\.lock|uv\.toml|requirements.*\.txt|Pipfile|poetry\.lock|pdm\.lock|pixi\.toml|pixi\.lock|environment\.ya?ml|Gemfile|mix\.exs|Cargo\.toml|pom\.xml|build\.(sbt|gradle|gradle\.kts|mill)|go\.mod|composer\.json|pubspec\.yaml|Package\.swift|.*\.csproj|mise\.toml|\.tool-versions|renovate\.json5?|dependabot\.yml|\.scala-steward\.conf|\.pinact\.ya?ml|Dockerfile[^/]*|Containerfile)$|\.github/workflows/|\.github/pinact\.ya?ml|\.vscode/'
 ```
 
-Then find the resolvers among the hits: update bot configs, CI workflows and
-Dockerfiles that install without a committed lockfile or run an update command,
-and tool-version managers.
+Then find the resolvers among the hits:
+
+- update bot configs
+- CI workflows and Dockerfiles that install without a committed lockfile or run
+  an update command
+- tool-version managers
 
 Add `git grep -ln '/// script'` for
 [PEP 723](https://peps.python.org/pep-0723/) Python scripts.
@@ -66,7 +69,7 @@ Read only the files for the managers present:
 | `.scala-steward.conf`, `pom.xml`, `build.sbt`, `build.mill`                            | [jvm_scala_steward.md](references/jvm_scala_steward.md) - Scala Steward                                |
 | `mise.toml`, `.tool-versions`                                                          | [mise.md](references/mise.md) - mise                                                                   |
 | `.vscode/extensions.json`, `.vscode/settings.json`                                     | [vscode.md](references/vscode.md) - VS Code extensions                                                 |
-| `.github/workflows/`                                                                   | [github-actions.md](references/github-actions.md) - actions-up, SHA pinning                            |
+| `.github/workflows/`, `.pinact.yaml`, `.github/pinact.yaml`                            | [github-actions.md](references/github-actions.md) - pinact, SHA pinning                                |
 | `renovate.json`, `renovate.json5`                                                      | [bot_renovate.md](references/bot_renovate.md) - Renovate                                               |
 | `dependabot.yml`                                                                       | [bot_github.md](references/bot_github.md) - GitHub Dependabot                                          |
 | `go.mod`, `*.csproj`, `composer.json`, `pubspec.yaml`, `Package.swift`, `build.gradle` | [ecosystems_no_native.md](references/ecosystems_no_native.md) - no native cooldown; bot gate only      |
@@ -131,7 +134,7 @@ value the repo never sees - and the read-back above reports that value as if
 the file worked. Check for an exported variable and for a shell wrapper:
 
 ```bash
-env | grep -iE '^(UV_EXCLUDE_NEWER|PIP_UPLOADED_PRIOR_TO|POETRY_SOLVER_MIN_RELEASE_AGE|npm_config_min_release_age|YARN_NPM_MINIMAL_AGE_GATE|BUNDLE_COOLDOWN|COOLDOWN_MINUTES)='
+env | grep -iE '^(UV_EXCLUDE_NEWER|PIP_UPLOADED_PRIOR_TO|POETRY_SOLVER_MIN_RELEASE_AGE|npm_config_min_release_age|YARN_NPM_MINIMAL_AGE_GATE|BUNDLE_COOLDOWN|COOLDOWN_MINUTES|PINACT_MIN_AGE)='
 type pip deno 2>/dev/null | grep -E 'function|alias'
 ```
 

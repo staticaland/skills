@@ -25,36 +25,50 @@
     {
       "name": "plain-language",
       "source": "./plugins/plain-language",
-      "description": "Restate a message in plain human language, or ask for a re-pitch when it does not land",
+      "description": "Restate a message in plain human language, or ask for a re-pitch when it does not make sense",
       "version": "0.2.0",
+      "category": "writing"
+    },
+    {
+      "name": "vale",
+      "source": "./plugins/vale",
+      "description": "Act on Vale alerts like an editor: rewrite the sentence or suppress the one rule, and keep the vocabulary to real spelling needs",
+      "version": "0.1.0",
       "category": "writing"
     },
     {
       "name": "pull-requests",
       "source": "./plugins/pull-requests",
       "description": "Open a GitHub pull request from the repository's own template, manage stacked branches and pull requests with gh-stack, and attach images and videos to issues and pull requests",
-      "version": "0.2.0",
+      "version": "0.6.1",
       "category": "dev"
     },
     {
       "name": "github-actions",
       "source": "./plugins/github-actions",
-      "description": "Run GitHub Actions workflow steps in parallel, replace repeated workflow configuration with YAML anchors, name every workflow, job, and step, and pin every action reference to a commit SHA on workflow edits",
-      "version": "0.2.0",
+      "description": "Run GitHub Actions workflow steps in parallel, replace repeated workflow configuration with YAML anchors, and name every workflow, job, and step",
+      "version": "0.3.0",
+      "category": "dev"
+    },
+    {
+      "name": "pinact",
+      "source": "./plugins/pinact",
+      "description": "Pin every GitHub Actions reference to a commit SHA with pinact after the agent writes or edits a workflow file",
+      "version": "1.0.0",
       "category": "dev"
     },
     {
       "name": "dependencies",
       "source": "./plugins/dependencies",
       "description": "Hold new dependency releases for a cooldown, configure Renovate, freeze install commands to their lock files, and deny install-time script execution",
-      "version": "0.4.0",
+      "version": "0.8.0",
       "category": "dev"
     },
     {
       "name": "toolchain",
       "source": "./plugins/toolchain",
       "description": "Pin a project's tools to a mise toolchain, and run Git hooks with prek",
-      "version": "0.2.0",
+      "version": "0.5.0",
       "category": "dev"
     },
     {
@@ -79,9 +93,37 @@
       "category": "dev"
     },
     {
+      "name": "show-me",
+      "source": "./plugins/show-me",
+      "description": "Explain the topic at hand visually with diagrams, code-shape sketches, and focused HTML",
+      "version": "0.6.0",
+      "category": "dev"
+    },
+    {
+      "name": "defuddle",
+      "source": "./plugins/defuddle",
+      "description": "Extract clean Markdown from web pages with the Defuddle CLI, without the navigation, ads, and clutter",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
+      "name": "no-org-internals",
+      "source": "./plugins/no-org-internals",
+      "description": "Keep organization-internal names, hosts, tickets, and people out of a public repository by telling the agent at session start that everything it writes is world-readable",
+      "version": "0.2.0",
+      "category": "dev"
+    },
+    {
+      "name": "upgrade-path",
+      "source": "./plugins/upgrade-path",
+      "description": "Work toward the next major framework upgrade in small, bounded steps with the Mikado Method, tracked in UPGRADE-PATH.md",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "skill-authoring",
       "source": "./plugins/skill-authoring",
-      "description": "Write documents for agents, analyze a skill, prune the prose that changes no behavior, and split broad references into focused files",
+      "description": "Write documents for agents, analyze a skill, prune the prose that does not change behavior, split broad references into focused files, and keep skills lean as they change",
       "version": "0.2.0",
       "category": "ai"
     },
@@ -93,10 +135,31 @@
       "category": "ai"
     },
     {
+      "name": "spin-off-side-task",
+      "source": "./plugins/spin-off-side-task",
+      "description": "Hand a side task found in an agent's thread to a new agent in its own Herdr worktree, with a brief that gives it the thread's context",
+      "version": "1.0.0",
+      "category": "ai"
+    },
+    {
+      "name": "herdr",
+      "source": "./plugins/herdr",
+      "description": "Control Herdr, a terminal multiplexer for coding agents, to inspect and drive its panes, tabs, workspaces, and the agents running in them",
+      "version": "0.1.0",
+      "category": "ai"
+    },
+    {
       "name": "flashcards",
       "source": "./plugins/flashcards",
       "description": "Turn text, notes, code, or images into Anki flashcards built on Andy Matuschak's prompt-writing principles",
       "version": "0.2.0",
+      "category": "other"
+    },
+    {
+      "name": "nerd-consensus",
+      "source": "./plugins/nerd-consensus",
+      "description": "Find what enthusiast communities agree on, argue about, and warn against for a product, tool, or product category",
+      "version": "1.0.0",
       "category": "other"
     }
   ]

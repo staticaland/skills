@@ -17,14 +17,17 @@ jobs:
       contents: read
     env:
       # renovate: datasource=github-releases depName=jdx/mise
-      MISE_VERSION: "2026.8.11"
+      MISE_VERSION: "2026.10.20"
       # renovate: datasource=github-releases depName=j178/prek
-      PREK_VERSION: "0.4.14"
+      PREK_VERSION: "0.5.7"
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: jdx/mise-action@3c2e0cf82a5b2e5249f0d3635a4d83d0ae861518 # v4.2.5
+          # A pull request checks out its merge commit; the first parent is
+          # the base branch, which the Vale step below diffs against.
+          fetch-depth: 2
+      - uses: jdx/mise-action@8418fedb1110381a0d3ba51a7a415d7c1b884550 # v5.2.2
         with:
           version: ${{ env.MISE_VERSION }}
           install_args: --locked
@@ -33,9 +36,16 @@ jobs:
           for matcher in .github/problem-matchers/*.json; do
             echo "::add-matcher::$matcher"
           done
-      - uses: j178/prek-action@4e14d07f9231acabce116ccfca13b13dd9755ece # v3.0.0
+      - uses: j178/prek-action@44924fe9ef4a6f88253c4b6b1bf11c689d3ce53d # v3.1.0
         with:
           prek-version: ${{ env.PREK_VERSION }}
         env:
-          # The claude CLI is not installed on the runner.
-          PREK_SKIP: claude-plugin-validate
+          # The claude CLI is not installed on the runner. On a pull request,
+          # Vale runs in the next step instead.
+          PREK_SKIP: ${{ github.event_name == 'pull_request' && 'claude-plugin-validate,vale' || 'claude-plugin-validate' }}
+      # A pull request lints only the prose it changes, so a Vale or style
+      # upgrade that flags existing prose does not block the upgrade itself.
+      # Pushes to main still lint every file and surface those alerts.
+      - name: Vale on changed files
+        if: ${{ !cancelled() && github.event_name == 'pull_request' }}
+        run: mise exec -- prek run vale --show-diff-on-failure --color=always --from-ref HEAD^1 --to-ref HEAD

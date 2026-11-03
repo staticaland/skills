@@ -1,8 +1,8 @@
 ---
 name: gh-attach
 description: >-
-  Upload an image or video to a GitHub issue, pull request, or comment with the
-  GitHub CLI's `--attach` flag, and control where it renders in the body. Use
+  Upload an image or video through the attach flag of `gh` and control where it
+  renders in the body of a GitHub issue, pull request, or comment. Use
   when attaching or embedding a screenshot, screen recording, diagram, or GIF
   through `gh`, when a body already written references a local image path, or
   when a `gh` attachment upload fails.

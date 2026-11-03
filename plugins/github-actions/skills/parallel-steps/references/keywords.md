@@ -185,8 +185,11 @@ then a `wait` step.
 
 ## Tool support
 
+[`jactionlint`](https://github.com/jdx/jactionlint), a fork of `actionlint`,
+supports `background`, `wait`, `wait-all`, `cancel`, and `parallel`. Lint with
+it.
+
 `actionlint` does not support these keywords yet. See
 [rhysd/actionlint#693](https://github.com/rhysd/actionlint/issues/693). The tool
-can report an error or a warning on a workflow that uses `background`, `wait`,
-`wait-all`, `cancel`, or `parallel`. Do not remove a keyword that agrees with
-this reference because of an `actionlint` message.
+can report an error or a warning on a workflow that uses them. Do not remove a
+keyword that agrees with this reference because of an `actionlint` message.

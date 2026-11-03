@@ -1,5 +1,64 @@
 # Changelog
 
+## [0.6.1](https://github.com/staticaland/skills/compare/pull-requests-v0.6.0...pull-requests-v0.6.1) (2026-10-19)
+
+
+### Bug Fixes
+
+* **pull-requests:** stop the PR template from repeating facts across sections ([#221](https://github.com/staticaland/skills/issues/221)) ([7b11030](https://github.com/staticaland/skills/commit/7b11030ba46a1e173659292848ef256bb12460eb))
+
+## [0.6.0](https://github.com/staticaland/skills/compare/pull-requests-v0.5.0...pull-requests-v0.6.0) (2026-09-28)
+
+
+### Features
+
+* **pull-requests:** add a merge danger section to the PR template ([#206](https://github.com/staticaland/skills/issues/206)) ([58e5e8b](https://github.com/staticaland/skills/commit/58e5e8bd1b49d2a49cc8be363e5748fda2fdda32))
+
+## [0.5.0](https://github.com/staticaland/skills/compare/pull-requests-v0.4.0...pull-requests-v0.5.0) (2026-09-17)
+
+
+### Features
+
+* **pull-requests:** add a robot emoji to the AI-assistance notice ([e23d671](https://github.com/staticaland/skills/commit/e23d671b72d98d86db3adf12bfbc3b063c5acb17))
+* **pull-requests:** add the AI-assistance notice hook ([389ce6f](https://github.com/staticaland/skills/commit/389ce6f5bf3cc9861879702e7de23e160b3f3add))
+* **pull-requests:** add the AI-assistance notice on create-pr submit ([ca6f06b](https://github.com/staticaland/skills/commit/ca6f06b2fb24446b92bd9cd6ddbbde9710081386))
+* **pull-requests:** end the body with a bold AI assisted notice ([3adb6d1](https://github.com/staticaland/skills/commit/3adb6d1f5a5c0d3d3d77e5ccde594ea5a5d86476))
+
+
+### Bug Fixes
+
+* **pull-requests:** judge the body the notice hook actually reads ([9767261](https://github.com/staticaland/skills/commit/97672618f78aade6d1dd4b17fc1fcbade5997999))
+
+## [0.4.0](https://github.com/staticaland/skills/compare/pull-requests-v0.3.0...pull-requests-v0.4.0) (2026-09-11)
+
+
+### Features
+
+* **pull-requests:** add a robot emoji to the AI-assistance notice ([e23d671](https://github.com/staticaland/skills/commit/e23d671b72d98d86db3adf12bfbc3b063c5acb17))
+* **pull-requests:** add the AI-assistance notice hook ([389ce6f](https://github.com/staticaland/skills/commit/389ce6f5bf3cc9861879702e7de23e160b3f3add))
+* **pull-requests:** add the AI-assistance notice on create-pr submit ([ca6f06b](https://github.com/staticaland/skills/commit/ca6f06b2fb24446b92bd9cd6ddbbde9710081386))
+* **pull-requests:** end the body with a bold AI assisted notice ([3adb6d1](https://github.com/staticaland/skills/commit/3adb6d1f5a5c0d3d3d77e5ccde594ea5a5d86476))
+
+
+### Bug Fixes
+
+* **pull-requests:** judge the body the notice hook actually reads ([9767261](https://github.com/staticaland/skills/commit/97672618f78aade6d1dd4b17fc1fcbade5997999))
+
+## [0.3.0](https://github.com/staticaland/skills/compare/pull-requests-v0.2.0...pull-requests-v0.3.0) (2026-09-10)
+
+
+### Features
+
+* **pull-requests:** add a robot emoji to the AI-assistance notice ([e23d671](https://github.com/staticaland/skills/commit/e23d671b72d98d86db3adf12bfbc3b063c5acb17))
+* **pull-requests:** add the AI-assistance notice hook ([389ce6f](https://github.com/staticaland/skills/commit/389ce6f5bf3cc9861879702e7de23e160b3f3add))
+* **pull-requests:** add the AI-assistance notice on create-pr submit ([ca6f06b](https://github.com/staticaland/skills/commit/ca6f06b2fb24446b92bd9cd6ddbbde9710081386))
+* **pull-requests:** end the body with a bold AI assisted notice ([3adb6d1](https://github.com/staticaland/skills/commit/3adb6d1f5a5c0d3d3d77e5ccde594ea5a5d86476))
+
+
+### Bug Fixes
+
+* **pull-requests:** judge the body the notice hook actually reads ([9767261](https://github.com/staticaland/skills/commit/97672618f78aade6d1dd4b17fc1fcbade5997999))
+
 ## [0.2.0](https://github.com/staticaland/skills/compare/pull-requests-v0.1.0...pull-requests-v0.2.0) (2026-08-25)
 
 

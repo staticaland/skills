@@ -93,4 +93,33 @@ directories:
       - v1.2.3-2-g84fdeff
     path: .
   path: plugins/plain-language/skills/wait-what
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #5 from humanlayer/helptext...'
+      sha: 3c2629142c5d437428269b1b722b08c0b87f574d
+    path: .
+  path: plugins/show-me/skills/show-me
+- contents:
+  - git:
+      commitTitle: 'Merge pull request #143 from vladimirtsk/docs/shorten-skill-description...'
+      sha: 3ccff5338ea700537839b21900aa5358a0402c98
+    path: .
+  path: plugins/defuddle/skills/defuddle
+- contents:
+  - git:
+      commitTitle: 'test: wait for the hook to exit instead of a fixed timer in hook
+        tests'
+      sha: 5608de0608918aba2f9d501e7793b984a0ca9cfa
+      tags:
+      - preview-2026-10-12-6d697e1e75ff-34-g5608de06
+    path: .
+  path: plugins/herdr/skills/herdr
+- contents:
+  - git:
+      commitTitle: 'docs: install from npm in Pi now that v0.1.0 is published (#21)...'
+      sha: 5f41df1220eb5759c413390206f1b9e6c63be754
+      tags:
+      - v0.1.0-1-g5f41df1
+    path: .
+  path: plugins/skill-authoring/skills/skill-diet
 kind: LockConfig

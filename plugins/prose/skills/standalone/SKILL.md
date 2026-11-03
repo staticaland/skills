@@ -35,9 +35,15 @@ and deprecation notices.
 
 Match each failed reference to one of three shapes:
 
+<!-- vale ai-tells.SelfReference = NO -->
+<!-- The example quotes the cross-reference the skill teaches you to delete. -->
+
 - **Decoration:** the sentence survives without the reference. "As we
   discussed, use the retry wrapper." → "Use the retry wrapper." Delete the
   clause.
+
+<!-- vale ai-tells.SelfReference = YES -->
+
 - **Essential:** the sentence conveys information only through the reference.
   "This replaces the old handler." Rewrite the sentence to state what the thing
   does.
