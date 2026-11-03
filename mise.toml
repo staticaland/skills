@@ -1,3 +1,7 @@
+# mise 2026.10.19 added `checksum_source` to mise.lock; an older mise drops it
+# whenever it rewrites the lockfile.
+min_version = "2026.10.19"
+
 [settings]
 # Record exact versions and checksums in mise.lock.
 lockfile = true
