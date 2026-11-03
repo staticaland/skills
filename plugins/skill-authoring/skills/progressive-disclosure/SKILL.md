@@ -24,8 +24,8 @@ Read the target `SKILL.md` and every file it links. Find inbound links to those
 files across the plugin.
 
 Inventory each distinct topic, where it lives, and what makes it relevant. State
-each topic's relevance as a **marker** - something observable in the project: a
-filename, a config key, a command, a tool name, or a mode the user picks. Create
+each topic's relevance as a **marker** - something observable in the project, such as
+a filename, a config key, a command, a tool name, or a mode the user picks. Create
 a separate file only when the topic has its own marker, so a long file with one
 marker stays whole and a short file with three markers splits.
 

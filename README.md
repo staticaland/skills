@@ -299,8 +299,8 @@ Mikado Method, tracked in `UPGRADE-PATH.md`.
 
 #### [skill-authoring](./plugins/skill-authoring/README.md)
 
-Write documents for agents, analyze a skill, prune the prose that changes no
-behavior, split broad references into focused files, and keep skills lean as
+Write documents for agents, analyze a skill, prune the prose that does not
+change behavior, split broad references into focused files, and keep skills lean as
 they change.
 
 - **[writing-for-agents](./plugins/skill-authoring/skills/writing-for-agents/SKILL.md)**
