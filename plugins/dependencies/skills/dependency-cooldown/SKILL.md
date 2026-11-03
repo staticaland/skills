@@ -31,9 +31,12 @@ List the candidate files:
 git ls-files | grep -Ei '(^|/)(package\.json|package-lock\.json|pnpm-workspace\.yaml|pnpm-lock\.yaml|\.npmrc|\.yarnrc\.yml|yarn\.lock|bunfig\.toml|bun\.lockb?|deno\.jsonc?|deno\.lock|pyproject\.toml|uv\.lock|uv\.toml|requirements.*\.txt|Pipfile|poetry\.lock|pdm\.lock|pixi\.toml|pixi\.lock|environment\.ya?ml|Gemfile|mix\.exs|Cargo\.toml|pom\.xml|build\.(sbt|gradle|gradle\.kts|mill)|go\.mod|composer\.json|pubspec\.yaml|Package\.swift|.*\.csproj|mise\.toml|\.tool-versions|renovate\.json5?|dependabot\.yml|\.scala-steward\.conf|\.pinact\.ya?ml|Dockerfile[^/]*|Containerfile)$|\.github/workflows/|\.github/pinact\.ya?ml|\.vscode/'
 ```
 
-Then find the resolvers among the hits: update bot configs, CI workflows and
-Dockerfiles that install without a committed lockfile or run an update command,
-and tool-version managers.
+Then find the resolvers among the hits:
+
+- update bot configs
+- CI workflows and Dockerfiles that install without a committed lockfile or run
+  an update command
+- tool-version managers
 
 Add `git grep -ln '/// script'` for
 [PEP 723](https://peps.python.org/pep-0723/) Python scripts.
