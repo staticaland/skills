@@ -5,38 +5,29 @@ description: Give each Vale alert an editor's verdict - rewrite the sentence or 
 
 # Vale alerts
 
-An alert marks a sentence that breaks a style rule. The goal is a sentence
-that serves the reader. A clean report is only a sign of that. When a change
-silences an alert but makes the sentence worse, it is a regression, even though
-the report goes green. This trap is Goodhart's law: once a measure becomes
-the target, it stops measuring what you care about.
-
-Work through the report like an editor. Give every alert a verdict: rewrite or
-suppress.
+Goodhart's law applies: a change that silences an alert but makes the sentence
+worse is a regression, even though the report goes green. Give every alert an
+editor's verdict: rewrite or suppress.
 
 ## Verdicts
 
-**Rewrite.** Each rule detects a smell: vagueness, hedging, filler, padding.
-The flagged span is where the smell surfaced, which is seldom where the
+**Rewrite.** The flagged span is where a smell surfaced, seldom where the
 problem lives. Reread the whole sentence and ask what it is trying to say.
 Restructure over substitute: when `a number of` is flagged, name the things.
 When a hedge is flagged, make the call and state it plainly. Keep the meaning
 true: replace `several` with `5` when you counted five. When nobody counted,
-keep only the precision you possess. A sentence that
-satisfies the rule but reads worse than before means the verdict was wrong;
-suppress instead.
+keep only the precision you possess. A sentence that satisfies the rule but
+reads worse than before means the verdict was wrong, so suppress instead.
 
 **Suppress.** A false positive keeps its prose: quoted material, terms of art,
-deliberate emphasis, honest vagueness. Mute the rule as
-[Suppressing one passage](#suppressing-one-passage) shows. Suppression with a
-stated reason is an editor's outcome, a deliberate judgment that the prose
-wins. A rule you find yourself suppressing at every occurrence is worth
-raising with a maintainer; changing the rules themselves is a separate
-decision, outside the scope of fixing prose.
+deliberate emphasis, honest vagueness. A rule you find yourself suppressing at
+every occurrence is worth raising with a maintainer. Changing the rules
+themselves is a separate decision, outside the scope of fixing prose.
 
 **Spelling and term alerts** (`Vale.Spelling`, `Vale.Terms`) usually ask a
 use-mention question: is the string a word, or a literal that belongs in code
-font? Read [`VOCABULARY.md`](VOCABULARY.md) before you add an entry to a vocabulary.
+font? Read [`VOCABULARY.md`](VOCABULARY.md) before you add an entry to a
+vocabulary.
 
 ## Suppressing one passage
 
@@ -46,6 +37,8 @@ font? Read [`VOCABULARY.md`](VOCABULARY.md) before you add an entry to a vocabul
 Keep a suppression's blast radius to one rule over one passage, with Vale's
 [comment markers](https://vale.sh/docs/keys/commentdelimiters). Prose about a
 valley trips a `Vale` casing term that expects the product name:
+
+<!-- vale ai-tells.FigurativeIdioms = YES -->
 
 ```markdown
 <!-- vale Vale.Terms = NO -->
@@ -57,12 +50,8 @@ The vale lay under morning fog.
 ```
 
 Name the rule exactly as the report prints it, and turn it back on right after
-the passage. A bare `<!-- vale off -->` mutes every rule, the widest blast
-radius a marker has. Pair each marker with a comment that states why the rule
-is off there, so the next editor can tell a deliberate exception from a
-leftover.
-
-<!-- vale ai-tells.FigurativeIdioms = YES -->
+the passage. Pair each marker with a comment that states why the rule is off
+there, so the next editor can tell a deliberate exception from a leftover.
 
 ## Done
 
