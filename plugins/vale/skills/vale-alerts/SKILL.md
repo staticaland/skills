@@ -5,10 +5,14 @@ description: Give each Vale alert an editor's verdict - rewrite the sentence or 
 
 # Vale alerts
 
-An alert is advice from a style guide. The goal is prose that serves the
-reader; a change that silences an alert while weakening the sentence is a
-regression, even though the report goes green. Work through a report like an
-editor: give every alert a verdict, rewrite or suppress.
+An alert marks a sentence that breaks a style rule. The goal is a sentence
+that serves the reader. A clean report is only a sign of that. When a change
+silences an alert but makes the sentence worse, it is a regression, even though
+the report goes green. This trap is Goodhart's law: once a measure becomes
+the target, it stops measuring what you care about.
+
+Work through the report like an editor. Give every alert a verdict: rewrite or
+suppress.
 
 ## Verdicts
 
