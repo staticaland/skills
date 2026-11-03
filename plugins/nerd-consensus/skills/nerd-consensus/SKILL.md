@@ -57,8 +57,8 @@ Find others by searching for the domain with "forum", "subreddit", "wiki", or
 "buying guide", and follow the links communities give to each other. Prefer
 communities with a wiki, FAQ, or pinned buying guide: those are the consensus
 already written down. Done when every community you picked shows the marks of
-an enthusiast community above, or when you have searched and found fewer, which
-the report says.
+an enthusiast community above. Searching may turn up fewer, and then the report
+says so.
 
 ### 3. Gather the evidence
 
@@ -85,8 +85,8 @@ Sort each claim into one of these:
 - **Contested** - split camps. Name each camp and what divides them; it is
   usually a use case or a value, such as carbon against stainless steel.
 - **Hype** - praised, but too new for long-term reports.
-- **Drift** - the community's view has changed: a revision, a factory move,
-  an acquisition, or a quality decline ("they went downhill"). The newer view
+- **Drift** - the community's view has changed after a revision, a factory
+  move, an acquisition, or a quality decline ("they went downhill"). The newer view
   wins, and the report says when it turned.
 
 Separate the **newcomer pick** (what the community tells a beginner or a
