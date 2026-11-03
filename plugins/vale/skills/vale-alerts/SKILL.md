@@ -18,7 +18,7 @@ problem lives. Reread the whole sentence and ask what it is trying to say.
 Restructure over substitute: when `a number of` is flagged, name the things.
 When a hedge is flagged, make the call and state it plainly. Keep the meaning
 true: replace `several` with `5` when you counted five. When nobody counted,
-keep only the precision you possess. Then reread the result. A sentence that
+keep only the precision you possess. A sentence that
 satisfies the rule but reads worse than before means the verdict was wrong;
 suppress instead.
 
@@ -53,9 +53,6 @@ Name the rule exactly as the report prints it, and turn it back on right after
 the passage. A bare `<!-- vale off -->` mutes every rule and is almost always
 too broad. Pair each marker with a comment that states why the rule is off
 there, so the next editor can tell a deliberate exception from a leftover.
-
-Widening the vocabulary is not a suppression: an accepted term mutes every
-rule on that string across the whole project, as `VOCABULARY.md` explains.
 
 ## Done
 

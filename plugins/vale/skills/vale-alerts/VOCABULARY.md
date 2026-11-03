@@ -2,9 +2,8 @@
 
 A Vale vocabulary's `accept.txt` is a spelling allowlist. `.vale.ini` names
 the vocabulary with its `Vocab` key, and the file is
-`<StylesPath>/config/vocabularies/<Vocab>/accept.txt`. It answers one
-question, whether a string is a typo. It does not decide how a term looks in
-prose.
+`<StylesPath>/config/vocabularies/<Vocab>/accept.txt`. The file does not
+decide how a term looks in prose.
 
 How to typeset a term is a separate editorial decision, governed by the
 use-mention distinction: does the text use a word for its meaning, or mention
@@ -18,7 +17,7 @@ the literal string itself? English marks mention with typography:
 | plain, capitalized | brand name     | Products, services, and organizations such as Renovate, Homebrew, Docker                               |
 
 Rule of thumb: if a reader would copy-paste or type it, use code font. If it
-is a name they would say out loud, leave it plain. Quotes almost never.
+is a name they would say out loud, leave it plain.
 
 A tool can carry two names. The prose name takes the project's official
 orthography (Git, Prettier, Vale), and the command form takes backticks
@@ -34,7 +33,7 @@ covers the inline `code` scope, and
 blocks, so anything in backticks never reaches the spell-checker or any other
 rule. Italics and quotes are still linted.
 
-A code-voice term rarely needs a vocabulary entry at all. A spelling alert on
+A spelling alert on
 a command, flag, or filename means it appears bare somewhere Vale still reads:
 link text such as `[prek](https://prek.j178.dev/)`, or bare prose that wants
 backticks. Fix the prose instead of adding an entry that enshrines the bare
