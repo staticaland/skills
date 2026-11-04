@@ -295,6 +295,15 @@ Mikado Method, tracked in `UPGRADE-PATH.md`.
   breakage as a blocker in a Mikado graph before reverting, or executes, fixing
   one leaf blocker and committing it on a green build.
 
+#### [merge-risk](./plugins/merge-risk/README.md)
+
+Rate the risk of merging a pull request as low, medium, or high from its
+alignment, impact, verification, rollback cost, and error detection.
+
+- **[merge-risk](./plugins/merge-risk/skills/merge-risk/SKILL.md)** (skill) -
+  Grades a pull request on five categories, weights them into one low, medium,
+  or high merge risk, and lists the gaps behind each verdict.
+
 ### `ai`
 
 #### [skill-authoring](./plugins/skill-authoring/README.md)
