@@ -24,6 +24,9 @@ The copy keeps the upstream interface, so it works as a **drop-in**. Calling
 code stays as it is, and only the import changes to point at the adopted
 module.
 
+A run adopts **one** package. The other candidates wait for later runs, so each
+adoption gets its own review.
+
 ## Procedure
 
 ### 1. Inventory what the repo uses
@@ -71,12 +74,16 @@ Show the table to the user:
 | `<pkg-b>` | Formatting helpers               | keep      | Pulls in much of the library |
 | `<pkg-c>` | Sanitises HTML                   | keep      | Security-sensitive           |
 
-Done when every row has a verdict and a reason, every adopt has a licence that
-permits the copy, and the user has seen the table before step 3 changes code.
+Pick the one package this run adopts: the one the user named, or else the
+adopt row with the smallest copy and the most transitive packages it removes.
 
-### 3. Adopt one package per commit
+Done when every row has a verdict and a reason, the picked package has a
+licence that permits the copy, and the user has seen the table and the pick
+before step 3 changes code.
 
-For each adopt verdict, in its own commit:
+### 3. Adopt the picked package
+
+Make the change as one commit:
 
 1. **Copy the code.** Take the functions the repo calls, plus the private
    helpers they need, from the tag or commit matching the version in the lock
@@ -127,5 +134,5 @@ anything beyond the removal.
 Done when the lock file diff holds only the removed package and the transitive
 packages that left with it.
 
-Report the table from step 2, the commit for each adoption, and the transitive
-packages that left the lock file.
+Report the table from step 2, the commit, the transitive packages that left
+the lock file, and the adopt rows left for later runs.
