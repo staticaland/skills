@@ -172,8 +172,8 @@ writes or edits a workflow file.
 
 #### [dependencies](./plugins/dependencies/README.md)
 
-Hold new dependency releases for a cooldown, configure Renovate, freeze
-install commands to their lock files, and deny install-time script execution.
+Harden how dependencies arrive with cooldowns, Renovate, frozen installs, and
+denied install scripts, and adopt barely used ones into the repo.
 
 - **[dependency-cooldown](./plugins/dependencies/skills/dependency-cooldown/SKILL.md)**
   (skill) - Sets up a minimum release age across a project's package
@@ -194,6 +194,10 @@ install commands to their lock files, and deny install-time script execution.
   (`ignore-scripts`, `uv sync --no-build`), then allowlists by
   name the packages that build something, and proves a fresh install runs
   nothing else.
+- **[adopt-small-dependencies](./plugins/dependencies/skills/adopt-small-dependencies/SKILL.md)**
+  (skill) - Finds dependencies the repo uses for a function or two, then
+  copies that code in with its source and licence, keeping the same interface
+  so calling code stays the same, and drops the dependency.
 
 #### [toolchain](./plugins/toolchain/README.md)
 
