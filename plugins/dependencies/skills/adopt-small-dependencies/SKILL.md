@@ -9,21 +9,9 @@ version: 0.1.0
 
 # Adopt Small Dependencies
 
-A dependency costs more than its install size: every update, advisory, and
-compromised release reaches the project through it, along with its own
-dependencies. When the repo calls one small function from it, that cost buys
-little.
-
 **Adopting** copies only the code the repo uses into the repo, where the repo
 owns it from then on. It differs from a vendored package: the rest of the
 package stays out, and nobody syncs the copy with upstream.
-
-The copy keeps the upstream interface, so it works as a **drop-in**. Calling
-code stays as it is, and only the import changes to point at the adopted
-module.
-
-A run adopts **one** package. The other candidates wait for later runs, so each
-adoption gets its own review.
 
 ## Procedure
 
@@ -91,14 +79,12 @@ Make the change as one commit:
 3. **Test it.** Add tests for the adopted code, or name the existing tests that
    cover every call site. Port upstream's tests for the copied functions when
    they exist.
-4. **Change the imports** to the adopted module. The import line is the only
-   change at each call site.
+4. **Change the imports** to the adopted module.
 5. **Remove the dependency** with the package manager's own command, so the
    manifest and lock file change together. Note which transitive packages left
    the lock file.
 6. **Remove the leftovers**: update-bot rules and comments or docs that name
    the package.
-7. **Run** the project's tests and lint.
 
 The header says what the code is for, then where it came from, then the notice
 the licence requires:
@@ -114,8 +100,7 @@ Adopted from <package> <version>, <licence>:
 <the full licence notice, verbatim>
 ```
 
-Write it as a comment in the language of the file. Link each source file at the
-pinned tag or commit, never at a branch. Copy the copyright line and licence
+Copy the copyright line and licence
 text from the package's own `LICENSE` at that version.
 
 Done when `git grep` finds the package name only in the header of its adopted
@@ -124,8 +109,7 @@ lists the package, and tests and lint pass.
 
 ### 4. Check the lock file diff
 
-A package manager's remove command can change more than the removed package.
-It may rewrite project metadata in the lock file, such as a name taken from the
+The remove command may rewrite project metadata in the lock file, such as a name taken from the
 current folder when run in a worktree. Read the lock file diff and restore
 anything beyond the removal.
 
