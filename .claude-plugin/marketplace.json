@@ -61,7 +61,7 @@
       "name": "dependencies",
       "source": "./plugins/dependencies",
       "description": "Harden how dependencies arrive with cooldowns, Renovate, frozen installs, and denied install scripts, and adopt barely used ones into the repo",
-      "version": "0.8.0",
+      "version": "0.9.0",
       "category": "dev"
     },
     {
@@ -124,7 +124,7 @@
       "name": "skill-authoring",
       "source": "./plugins/skill-authoring",
       "description": "Write documents for agents, analyze a skill, prune the prose that does not change behavior, split broad references into focused files, and keep skills lean as they change",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "category": "ai"
     },
     {
