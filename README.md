@@ -196,8 +196,8 @@ denied install scripts, and adopt barely used ones into the repo.
   nothing else.
 - **[adopt-small-dependencies](./plugins/dependencies/skills/adopt-small-dependencies/SKILL.md)**
   (skill) - Finds dependencies the repo uses for a function or two, then
-  copies that code in with its source and licence, or rewrites it with the
-  standard library, and drops the dependency.
+  copies that code in with its source and licence, keeping the same interface
+  so calling code stays the same, and drops the dependency.
 
 #### [toolchain](./plugins/toolchain/README.md)
 
