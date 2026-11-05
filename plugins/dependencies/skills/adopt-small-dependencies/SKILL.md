@@ -1,11 +1,9 @@
 ---
 name: adopt-small-dependencies
 description:
-  Find dependencies a project barely uses - one function, a small helper - and
-  adopt that code into the repo, copied with a comment naming its source and
-  keeping the same interface, then drop the dependency. Use when the user wants
-  fewer dependencies, or wants to inline or vendor a package used for one
-  function.
+  Adopt one barely used dependency into the repo as a drop-in copy with its
+  source and licence, then drop the dependency.
+disable-model-invocation: true
 version: 0.1.0
 ---
 
