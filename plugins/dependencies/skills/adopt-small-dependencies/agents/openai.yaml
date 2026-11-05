@@ -1,0 +1,5 @@
+interface:
+  display_name: "Adopt Small Dependencies"
+  short_description: "Replace barely used dependencies with repo-owned code"
+policy:
+  allow_implicit_invocation: true

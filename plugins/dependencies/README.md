@@ -1,7 +1,7 @@
 # dependencies
 
-Hold new dependency releases for a cooldown, configure Renovate, freeze
-install commands to their lock files, and deny install-time script execution.
+Harden how dependencies arrive with cooldowns, Renovate, frozen installs, and
+denied install scripts, and adopt barely used ones into the repo.
 
 ## Install
 
@@ -29,6 +29,10 @@ install commands to their lock files, and deny install-time script execution.
   Denies dependency install scripts by default (`ignore-scripts`,
   `uv sync --no-build`), then allowlists by name the packages that
   build something, and proves a fresh install runs nothing else.
+- **[adopt-small-dependencies](./skills/adopt-small-dependencies/SKILL.md)**
+  (skill) - Finds dependencies the repo uses for a function or two, then
+  copies that code in with its source and licence, or rewrites it with the
+  standard library, and drops the dependency.
 
 ## License
 
