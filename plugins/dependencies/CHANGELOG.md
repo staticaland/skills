@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/staticaland/skills/compare/dependencies-v0.8.0...dependencies-v0.9.0) (2026-11-05)
+
+
+### Features
+
+* **dependencies:** add adopt-small-dependencies skill ([#244](https://github.com/staticaland/skills/issues/244)) ([f3eb7ad](https://github.com/staticaland/skills/commit/f3eb7ad457a91c1b03107adb60f58483f6069f7e))
+
 ## [0.8.0](https://github.com/staticaland/skills/compare/dependencies-v0.7.0...dependencies-v0.8.0) (2026-09-17)
 
 
