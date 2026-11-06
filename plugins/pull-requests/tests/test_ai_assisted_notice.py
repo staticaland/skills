@@ -96,6 +96,43 @@ class UnreadableBodyFile(HookTest):
         self.assertIn("does not exist or cannot be read", reason)
 
 
+class HeredocWritesBodyFile(HookTest):
+    def test_judges_heredoc_redirected_before_the_tag(self):
+        command = (
+            f"cat > \"$BODY_DIR/body.md\" <<'EOF'\nText\n\n{NOTICE}\nEOF\n"
+            'gh issue create -t t --body-file "$BODY_DIR/body.md"'
+        )
+        self.assertIsNone(self.run_hook(command, env={"BODY_DIR": str(self.cwd)}))
+
+    def test_judges_heredoc_redirected_after_the_tag(self):
+        command = (
+            f"cat <<'EOF' > body.md\nText\n\n{NOTICE}\nEOF\n"
+            "gh pr create -t t -F body.md"
+        )
+        self.assertIsNone(self.run_hook(command))
+
+    def test_denies_heredoc_without_notice(self):
+        command = "cat > body.md <<EOF\nText\nEOF\ngh pr create -t t -F body.md"
+        reason = self.run_hook(command)
+        self.assertIn("in the heredoc that writes body.md", reason)
+        self.assertIn(NOTICE, reason)
+
+    def test_heredoc_wins_over_stale_file(self):
+        self.write("body.md", f"Old\n\n{NOTICE}\n")
+        command = (
+            "mkdir -p x && cat > ./body.md <<'EOF'\nNew\nEOF\n"
+            "gh issue edit 1 -F body.md"
+        )
+        self.assertIn("needs the AI-assistance notice", self.run_hook(command))
+
+    def test_ignores_heredoc_written_elsewhere(self):
+        command = (
+            f"cat > other.md <<'EOF'\nText\n\n{NOTICE}\nEOF\n"
+            "gh issue create -t t -F body.md"
+        )
+        self.assertIn("does not exist or cannot be read", self.run_hook(command))
+
+
 class StdinBody(HookTest):
     def test_judges_heredoc_on_stdin(self):
         command = f"gh pr edit 1 --body-file - <<'EOF'\nText\n\n{NOTICE}\nEOF"
