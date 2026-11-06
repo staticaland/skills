@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.2](https://github.com/staticaland/skills/compare/pull-requests-v0.6.1...pull-requests-v0.6.2) (2026-11-06)
+
+
+### Bug Fixes
+
+* **pull-requests:** judge the notice hook's body file correctly ([#248](https://github.com/staticaland/skills/issues/248)) ([f864ab9](https://github.com/staticaland/skills/commit/f864ab9d8f1ba3472516201b26c63fb8d32afafc))
+
 ## [0.6.1](https://github.com/staticaland/skills/compare/pull-requests-v0.6.0...pull-requests-v0.6.1) (2026-10-19)
 
 
