@@ -33,3 +33,7 @@ been in the session.
 The submit command strips the comments, adds the AI-assistance notice below
 the body, and creates the PR through `gh`; the guard hook blocks a
 bare `gh pr create`.
+
+For any other PR or issue body, such as `gh issue create` or `gh pr edit`,
+write the body file with the Write tool first, then run `gh` as a separate
+command.
