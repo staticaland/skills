@@ -76,6 +76,26 @@ class BodyFile(HookTest):
         self.assertIsNone(self.run_hook(command, env={"HOME": str(self.cwd)}))
 
 
+class UnreadableBodyFile(HookTest):
+    def test_denies_missing_file_without_asking_for_the_notice(self):
+        reason = self.run_hook("gh issue create -t t --body-file missing.md")
+        self.assertIn("missing.md does not exist or cannot be read", reason)
+        self.assertIn("nothing in it ran", reason)
+        self.assertIn("separate step", reason)
+        self.assertNotIn(NOTICE, reason)
+        self.assertNotIn("Add this line", reason)
+
+    def test_denies_file_another_step_writes(self):
+        command = "printf 'Text' > body.md && gh pr create -t t -F body.md"
+        reason = self.run_hook(command)
+        self.assertIn("does not exist or cannot be read", reason)
+
+    def test_denies_directory(self):
+        (self.cwd / "dir").mkdir()
+        reason = self.run_hook("gh issue edit 1 --body-file dir")
+        self.assertIn("does not exist or cannot be read", reason)
+
+
 class StdinBody(HookTest):
     def test_judges_heredoc_on_stdin(self):
         command = f"gh pr edit 1 --body-file - <<'EOF'\nText\n\n{NOTICE}\nEOF"

@@ -156,7 +156,16 @@ def main():
         try:
             ok = ends_with_notice(body_path(value, hook_input.get("cwd")).read_text())
         except OSError:
-            ok = False  # missing or unreadable; gh will say so once the body is fixed
+            # Not "add the notice": appending to a file that does not exist yet
+            # leaves a body that holds nothing but the notice.
+            deny(
+                f"The {what} body file {value} does not exist or cannot be read. "
+                "This hook runs before the command, so it blocked the whole "
+                "command and nothing in it ran - not even an earlier step that "
+                "writes the file. Write the body file in a separate step first, "
+                f"then run gh {what} on its own."
+            )
+            return
 
     if not ok:
         deny(
