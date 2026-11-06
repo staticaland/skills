@@ -13,6 +13,7 @@ skill and the hook agree on one notice.
 """
 
 import json
+import os
 import re
 import shlex
 import sys
@@ -88,6 +89,12 @@ def body_argument(argv):
     return None
 
 
+def body_path(value, cwd):
+    """The file a --body-file value names, with $VARS and ~ expanded as a shell would."""
+    expanded = os.path.expanduser(os.path.expandvars(value))
+    return Path(cwd or ".") / expanded
+
+
 def stdin_ends_with_notice(command):
     """Judge the heredoc a `--body-file -` reads; fall back to presence."""
     match = HEREDOC.search(command)
@@ -147,9 +154,7 @@ def main():
     else:
         where = f" in {value}"
         try:
-            ok = ends_with_notice(
-                (Path(hook_input.get("cwd") or ".") / value).read_text()
-            )
+            ok = ends_with_notice(body_path(value, hook_input.get("cwd")).read_text())
         except OSError:
             ok = False  # missing or unreadable; gh will say so once the body is fixed
 

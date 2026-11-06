@@ -65,6 +65,16 @@ class BodyFile(HookTest):
         reason = self.run_hook("gh issue create -t t -F body.md")
         self.assertIn("needs the AI-assistance notice", reason)
 
+    def test_expands_variables_in_path(self):
+        self.write("body.md", f"Text\n\n{NOTICE}\n")
+        command = 'gh issue create -t t --body-file "$BODY_DIR/body.md"'
+        self.assertIsNone(self.run_hook(command, env={"BODY_DIR": str(self.cwd)}))
+
+    def test_expands_home_in_path(self):
+        self.write("body.md", f"Text\n\n{NOTICE}\n")
+        command = "gh issue create -t t --body-file ~/body.md"
+        self.assertIsNone(self.run_hook(command, env={"HOME": str(self.cwd)}))
+
 
 class StdinBody(HookTest):
     def test_judges_heredoc_on_stdin(self):
