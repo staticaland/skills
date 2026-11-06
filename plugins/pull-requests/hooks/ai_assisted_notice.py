@@ -48,6 +48,12 @@ def ends_with_notice(text):
 
 
 def tokens(command):
+    # A heredoc body is text, not shell: an apostrophe in it would make
+    # shlex.split fail on the whole command, so keep only its first line.
+    command = HEREDOC.sub(
+        lambda match: match.string[match.start() : match.end("after")] + "\n",
+        command,
+    )
     try:
         return shlex.split(command)
     except ValueError:

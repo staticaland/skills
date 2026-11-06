@@ -111,6 +111,13 @@ class HeredocWritesBodyFile(HookTest):
         )
         self.assertIsNone(self.run_hook(command))
 
+    def test_reads_flags_past_an_apostrophe_in_the_heredoc(self):
+        command = (
+            f"cat > \"$BODY_DIR/body.md\" <<'EOF'\nIt doesn't work.\n\n{NOTICE}\nEOF\n"
+            'gh issue create --title "x" --body-file "$BODY_DIR/body.md" -l bug'
+        )
+        self.assertIsNone(self.run_hook(command, env={"BODY_DIR": str(self.cwd)}))
+
     def test_denies_heredoc_without_notice(self):
         command = "cat > body.md <<EOF\nText\nEOF\ngh pr create -t t -F body.md"
         reason = self.run_hook(command)
