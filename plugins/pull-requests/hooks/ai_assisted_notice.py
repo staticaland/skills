@@ -8,6 +8,11 @@ stdin. The call passes when that body ends with NOTICE; a body without it is
 denied with the line to add. A heredoc the hook cannot delimit falls back to
 a presence check on the command text.
 
+A `--body-file` path is expanded like a shell would. When a heredoc in the
+same command writes that path, the hook judges the heredoc, since the file is
+not written until after the hook runs. A body file that cannot be read is
+denied with its own message, never with a request to append the notice.
+
 `pr.py submit` in the create-pr skill imports `wrap` from this module, so the
 skill and the hook agree on one notice.
 """
