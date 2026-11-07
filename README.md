@@ -245,6 +245,32 @@ its constraints.
   works, proposes the simplest design that could serve the same purpose, and
   keeps the proposals that survive the constraints that shaped the current one.
 
+#### [power-prompts](./plugins/power-prompts/README.md)
+
+One-sentence prompts that change how the agent attacks a problem, each a skill
+you invoke by name.
+
+<!-- vale ai-tells.FillerIntensifier = NO -->
+<!-- The prompts are quoted verbatim. -->
+
+- **[abstract-thinking](./plugins/power-prompts/skills/abstract-thinking/SKILL.md)**
+  (skill) - "Exercise abstract thinking when considering this task."
+- **[irreducible-constraints](./plugins/power-prompts/skills/irreducible-constraints/SKILL.md)**
+  (skill) - "Reduce this problem to its irreducible constraints and rebuild it
+  from zero."
+- **[principal-architect](./plugins/power-prompts/skills/principal-architect/SKILL.md)**
+  (skill) - "What would a principal architect immediately rewrite before even
+  starting this?"
+- **[day-one-test](./plugins/power-prompts/skills/day-one-test/SKILL.md)**
+  (skill) - "Design the single test that breaks this design on day one."
+- **[make-it-disappear](./plugins/power-prompts/skills/make-it-disappear/SKILL.md)**
+  (skill) - "What higher-level abstraction would make this entire problem
+  disappear?"
+- **[implicit-state-machines](./plugins/power-prompts/skills/implicit-state-machines/SKILL.md)**
+  (skill) - "Find all of the implicit state machines in this app."
+
+<!-- vale ai-tells.FillerIntensifier = YES -->
+
 #### [browser](./plugins/browser/README.md)
 
 Drive Chrome, web apps, and Electron apps from the command line with the
