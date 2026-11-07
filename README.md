@@ -266,6 +266,16 @@ focused HTML.
   component tree, a file tree, a Mermaid diagram, a diff, or one focused HTML
   file - and places it next to short prose.
 
+#### [design-crit](./plugins/design-crit/README.md)
+
+Run a design crit on a rendered UI and fix its alignment, spacing, hierarchy,
+and collision defects, each named in designer terms.
+
+- **[design-crit](./plugins/design-crit/skills/design-crit/SKILL.md)**
+  (skill) - Renders the UI, names each defect with the designer's term for it -
+  ragged edge, off-scale gap, competing focal points, clipping - measures it,
+  fixes it at the source, and re-renders to confirm.
+
 #### [defuddle](./plugins/defuddle/README.md)
 
 Extract clean Markdown from web pages with the Defuddle CLI, without the
