@@ -20,9 +20,10 @@ card titles sit 3px off the grid's left edge, a ragged left edge" is.
 ### 1. Render it
 
 Look at pixels, not only code. Render the UI at the viewport it ships at, and
-at one narrow width (375px) when it is responsive. With Playwright, take a
-full-page screenshot and keep the page open to measure boxes with
-`getBoundingClientRect()` and `getComputedStyle()`. When the user gave only a
+at one narrow width (375px) when it is responsive. Drive the browser with the
+agent-browser skill from the `browser` plugin when it is available, else with
+Playwright. Take a full-page screenshot and keep the page open to measure
+boxes with `getBoundingClientRect()` and `getComputedStyle()`. When the user gave only a
 screenshot, crit the screenshot and estimate measurements from it. Done when
 you have a screenshot of every state you will judge - default, hover, empty,
 long content, error - that the change touches.
