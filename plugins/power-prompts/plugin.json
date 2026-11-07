@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "power-prompts",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "One-sentence prompts that change how the agent attacks a problem, each a skill you invoke by name"
+}
