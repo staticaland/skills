@@ -268,6 +268,9 @@ you invoke by name.
   disappear?"
 - **[implicit-state-machines](./plugins/power-prompts/skills/implicit-state-machines/SKILL.md)**
   (skill) - "Find all of the implicit state machines in this app."
+- **[unenforced-invariants](./plugins/power-prompts/skills/unenforced-invariants/SKILL.md)**
+  (skill) - "Find every invariant this app relies on but doesn't explicitly
+  enforce."
 - **[deep-modules](./plugins/power-prompts/skills/deep-modules/SKILL.md)**
   (skill) - Hides behavior behind small interfaces. It merges away modules
   that add nothing and moves each concept into the module that owns it. Then
