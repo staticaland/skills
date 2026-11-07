@@ -32,13 +32,19 @@ task after it: `/power-prompts:day-one-test the new cache layer`.
   higher-level abstraction would make this entire problem disappear?"
 - **[implicit-state-machines](./skills/implicit-state-machines/SKILL.md)**
   (skill) - "Find all of the implicit state machines in this app."
+- **[deep-modules](./skills/deep-modules/SKILL.md)**
+  (skill) - Hides behavior behind small interfaces. It merges away modules
+  that add nothing and moves each concept into the module that owns it. Then
+  it cuts every interface down to one obvious way to call it.
 
 <!-- vale ai-tells.FillerIntensifier = YES -->
 
 ## Sources
 
 Steve Ruiz posted the implicit state machines prompt on X. Wyrmfalls posted the
-other five in reply to a call for a collection of prompts like it.
+next five in reply to a call for a collection of prompts like it. The
+deep-modules prompt builds on the deep modules idea from John Ousterhout's
+_A Philosophy of Software Design_.
 
 ## License
 

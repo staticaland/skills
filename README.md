@@ -268,6 +268,10 @@ you invoke by name.
   disappear?"
 - **[implicit-state-machines](./plugins/power-prompts/skills/implicit-state-machines/SKILL.md)**
   (skill) - "Find all of the implicit state machines in this app."
+- **[deep-modules](./plugins/power-prompts/skills/deep-modules/SKILL.md)**
+  (skill) - Hides behavior behind small interfaces. It merges away modules
+  that add nothing and moves each concept into the module that owns it. Then
+  it cuts every interface down to one obvious way to call it.
 
 <!-- vale ai-tells.FillerIntensifier = YES -->
 
