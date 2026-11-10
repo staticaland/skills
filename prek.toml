@@ -84,7 +84,7 @@ mise install --locked
     entry = "python3 -m unittest discover -s plugins/pull-requests/tests",
     language = "system",
     pass_filenames = false,
-    files = '^plugins/pull-requests/(hooks|tests)/'
+    files = '^plugins/pull-requests/(hooks|tests|skills/create-pr/scripts)/'
   },
   {
     id = "shellcheck",
