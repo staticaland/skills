@@ -144,6 +144,9 @@ issues and pull requests.
   `**<sub>AI assisted 🤖</sub>**`. Denies the call and
   quotes the line until the body has it. The create-pr skill adds it for
   you.
+- **session model** (hook) - Records the model a Claude Code session runs on,
+  from `SessionStart` and `PostModelSwitch` hook input. The create-pr skill
+  reads the record to name the model in the notice.
 
 #### [github-actions](./plugins/github-actions/README.md)
 

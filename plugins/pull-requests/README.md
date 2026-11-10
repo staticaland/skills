@@ -34,6 +34,9 @@ issues and pull requests.
   `gh issue edit` to end with the line
   `**<sub>AI assisted 🤖</sub>**`. Denies the call and quotes the
   line until the body has it. The create-pr skill adds it for you.
+- **session model** (`hooks/session_model.py`) - Records the model a
+  Claude Code session runs on, from `SessionStart` and `PostModelSwitch` hook
+  input. The create-pr skill reads the record to name the model in the notice.
 
 ## License
 
