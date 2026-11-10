@@ -22,6 +22,9 @@ Avoid these patterns:
 - Backward references
 -->
 
+<details>
+<summary>[One sentence that tells what the change does.]</summary>
+
 ## What is this change?
 
 <!-- State what changed. Keep the reason for the next section. -->
@@ -53,3 +56,5 @@ What can break: name what fails if the change is wrong, and who notices. Think a
 ## Which issue(s) does this PR fix?
 
 <!-- Link the issues this PR closes, or state that there are none. -->
+
+</details>
