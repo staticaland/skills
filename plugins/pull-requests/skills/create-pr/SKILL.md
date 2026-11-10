@@ -18,8 +18,7 @@ been in the session.
    and prints the `BODY FILE:` path it created for this run.
 2. Fill every template section from the whole session, not the diff alone.
    Cover the original request and the decisions made with their tradeoffs, and
-   say what was tested and how. Put long output, logs, and other supporting
-   detail in `<details>` blocks so the description stays short. Follow the writing instructions in the template's comments,
+   say what was tested and how. Follow the writing instructions in the template's comments,
    and leave the comments in place - the submit step removes them.
 3. Read the `BODY FILE:` path `prepare` printed with the Read tool - the file
    is an empty placeholder, and the Write tool refuses a file it has not read.

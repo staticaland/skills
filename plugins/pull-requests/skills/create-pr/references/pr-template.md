@@ -9,19 +9,6 @@ Make direct statements.
 Remove hedging and information that reviewers do not need.
 Say each fact one time. Each section gives information that the other sections do not give. Do not repeat the title, and do not name the kind of change when the title prefix, such as `feat:` or `chore:`, already names it.
 
-Put long supporting material in a collapsed block, so that a reviewer can read the description without scrolling past it. This includes command output, logs, test results, step-by-step traces, alternatives you rejected, and long lists of changed files. Write a `<summary>` that tells what the block holds, and put a blank line after `</summary>` so that GitHub renders the markdown inside:
-
-<details>
-<summary>Test output for the new parser</summary>
-
-```text
-...
-```
-
-</details>
-
-Keep the main text complete without the collapsed blocks. Do not hide information that the reviewer must read to judge the change, such as the merge danger.
-
 Follow Zinsser's four principles of quality writing:
 1. Simplicity
 2. Brevity
@@ -34,6 +21,9 @@ Avoid these patterns:
 - Isocolon metaphor-pairs
 - Backward references
 -->
+
+<details>
+<summary>[One sentence that tells what the change does.]</summary>
 
 ## What is this change?
 
@@ -66,3 +56,5 @@ What can break: name what fails if the change is wrong, and who notices. Think a
 ## Which issue(s) does this PR fix?
 
 <!-- Link the issues this PR closes, or state that there are none. -->
+
+</details>
