@@ -3,9 +3,8 @@
 
 Usage:
   pr.py prepare
-    Pushes the branch, then prints the template to fill: the repo's
-    .github/PULL_REQUEST_TEMPLATE.md if it exists, otherwise this
-    skill's references/pr-template.md. Comments stay in - they carry
+    Pushes the branch, then prints the template to fill: this skill's
+    references/pr-template.md. Comments stay in - they carry
     the writing instructions. Also creates an empty, uniquely named
     body file in /tmp and prints its path, so no leftover file from an
     earlier session can be submitted by mistake.
@@ -34,17 +33,6 @@ def prepare() -> None:
 
     skill_dir = Path(__file__).resolve().parent.parent
     template = skill_dir / "references" / "pr-template.md"
-    repo_root = Path(
-        subprocess.run(
-            ["git", "rev-parse", "--show-toplevel"],
-            check=True,
-            capture_output=True,
-            text=True,
-        ).stdout.strip()
-    )
-    repo_template = repo_root / ".github" / "PULL_REQUEST_TEMPLATE.md"
-    if repo_template.is_file():
-        template = repo_template
 
     fd, body_file = tempfile.mkstemp(prefix="pr-body-", suffix=".md", dir="/tmp")
     os.close(fd)

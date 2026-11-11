@@ -39,9 +39,8 @@ bare `gh pr create`.
 
 ## Layout
 
-The layout follows the headings, so it fits any template. Every heading in a
-PR body gets it, whichever template the body comes from, and so does a body
-rewritten with `gh pr edit`.
+The layout follows the headings. Every heading in a PR body gets it, and so
+does a body rewritten with `gh pr edit`.
 
 The visible part is at most two sentences, and each sentence is its own
 paragraph. The longer explanation, lists, and code go in a collapsed block

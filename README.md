@@ -126,8 +126,8 @@ branches and pull requests with gh-stack, and attach images and videos to
 issues and pull requests.
 
 - **[create-pr](./plugins/pull-requests/skills/create-pr/SKILL.md)**
-  (skill) - Opens a GitHub pull request with `gh`, filling the repo's PR
-  template or the skill's bundled one.
+  (skill) - Opens a GitHub pull request with `gh`, filling the skill's PR
+  template.
 - **[gh-attach](./plugins/pull-requests/skills/gh-attach/SKILL.md)**
   (skill) - Uploads an image or video to a GitHub issue, pull request, or
   comment with the `gh --attach` flag, and controls where it renders in the
