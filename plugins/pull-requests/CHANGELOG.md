@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/staticaland/skills/compare/pull-requests-v0.8.0...pull-requests-v0.9.0) (2026-11-11)
+
+
+### Features
+
+* **pull-requests:** rename the PR template's merge danger heading to Risk ([#256](https://github.com/staticaland/skills/issues/256)) ([da94d7b](https://github.com/staticaland/skills/commit/da94d7bfba7751966f7dc08ea63b38e26c103194))
+
 ## [0.8.0](https://github.com/staticaland/skills/compare/pull-requests-v0.7.0...pull-requests-v0.8.0) (2026-11-11)
 
 
