@@ -7,6 +7,7 @@ Use short sentences.
 Use a controlled and consistent vocabulary.
 Make direct statements.
 Remove hedging and information that reviewers do not need.
+Use bold sparingly to highlight key information so busy readers can scan and grasp the message quickly.
 Say each fact one time. Each section gives information that the other sections do not give. Do not repeat the title, and do not name the kind of change when the title prefix, such as `feat:` or `chore:`, already names it.
 
 Follow Zinsser's four principles of quality writing:
