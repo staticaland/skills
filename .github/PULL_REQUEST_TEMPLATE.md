@@ -55,12 +55,12 @@ Avoid these patterns:
 <!--
 Reversible: say if a revert undoes the change. These things stay after a revert: deleted data, a published release, a changed public API or URL, a migration, or a message sent to an external service. If the answer is no, name what stays.
 
-What can break: name what fails if the change is wrong, and who notices. Think about consumers of the code, installed users, CI, and other systems that read the output.
+What can break: think about consumers of the code, installed users, CI, and other systems that read the output.
 -->
 
 **Reversible:** [Yes or no. If no, name what stays after a revert.]
 
-**What can break:** [Name the scope in one word, such as none, local, repo, or consumers. Then name what fails.]
+**What can break:** [Name what fails if the change is wrong, and who notices. Write "Nothing" if nothing can fail.]
 
 <details>
 <summary>Details</summary>
