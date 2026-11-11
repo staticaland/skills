@@ -30,6 +30,7 @@ Avoid these patterns:
 
 <details>
 <summary>Details</summary>
+<br>
 
 [Add the parts of the change and how they work.]
 
@@ -43,6 +44,7 @@ Avoid these patterns:
 
 <details>
 <summary>Details</summary>
+<br>
 
 [Add the background, the decisions, and their tradeoffs.]
 
@@ -54,6 +56,7 @@ Avoid these patterns:
 
 <details>
 <summary>Details</summary>
+<br>
 
 [Add how the change affects them.]
 
@@ -73,6 +76,7 @@ What can break: name what fails if the change is wrong, and who notices. Think a
 
 <details>
 <summary>Details</summary>
+<br>
 
 [Add the reasons for the two answers, and how to revert or recover.]
 
