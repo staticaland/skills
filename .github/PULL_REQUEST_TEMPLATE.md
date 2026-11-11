@@ -53,12 +53,12 @@ Avoid these patterns:
 ## Merge danger
 
 <!--
-Door: say if the change is a one-way door or a two-way door. A revert undoes a two-way door. A one-way door stays after a revert: deleted data, a published release, a changed public API or URL, a migration, or a message sent to an external service. Name what makes the door one-way.
+Reversible: say if a revert undoes the change. These things stay after a revert: deleted data, a published release, a changed public API or URL, a migration, or a message sent to an external service. If the answer is no, name what stays.
 
 What can break: name what fails if the change is wrong, and who notices. Think about consumers of the code, installed users, CI, and other systems that read the output.
 -->
 
-**Door:** [One-way or two-way. Add one sentence if the answer is not obvious.]
+**Reversible:** [Yes or no. If no, name what stays after a revert.]
 
 **What can break:** [Name the scope in one word, such as none, local, repo, or consumers. Then name what fails.]
 
