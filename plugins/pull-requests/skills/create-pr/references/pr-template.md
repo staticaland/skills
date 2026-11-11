@@ -22,7 +22,7 @@ Avoid these patterns:
 - Backward references
 -->
 
-## What is this change?
+## What
 
 <!-- State what changed. Keep the reason for the next section. -->
 
@@ -36,7 +36,7 @@ Avoid these patterns:
 
 </details>
 
-## Why do we need this change?
+## Why
 
 <!-- State the problem and why it matters. Do not describe the change again. -->
 
@@ -62,7 +62,7 @@ Avoid these patterns:
 
 </details>
 
-## What is the merge danger?
+## Merge danger
 
 <!--
 Door: say if the change is a one-way door or a two-way door. A revert undoes a two-way door. A one-way door stays after a revert: deleted data, a published release, a changed public API or URL, a migration, or a message sent to an external service. Name what makes the door one-way.
@@ -82,6 +82,6 @@ What can break: name what fails if the change is wrong, and who notices. Think a
 
 </details>
 
-## Which issue(s) does this PR fix?
+## Issues
 
 <!-- Link the issues this PR closes, or state that there are none. -->
