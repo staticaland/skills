@@ -55,7 +55,7 @@ Avoid these patterns:
 
 </details>
 
-## Merge danger
+## Risk
 
 <!--
 Reversible: say if a revert undoes the change. These things stay after a revert: deleted data, a published release, a changed public API or URL, a migration, or a message sent to an external service. If the answer is no, name what stays.
