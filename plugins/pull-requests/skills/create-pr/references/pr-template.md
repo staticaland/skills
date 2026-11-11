@@ -22,24 +22,42 @@ Avoid these patterns:
 - Backward references
 -->
 
-<details>
-<summary>[One sentence that tells what the change does.]</summary>
-
 ## What is this change?
 
 <!-- State what changed. Keep the reason for the next section. -->
 
-[Add a brief description of what the change does.]
+[Tell what the change does in one or two sentences.]
+
+<details>
+<summary>Details</summary>
+
+[Add the parts of the change and how they work.]
+
+</details>
 
 ## Why do we need this change?
 
 <!-- State the problem and why it matters. Do not describe the change again. -->
 
-[Add a description of the problem the change solves.]
+[Name the problem the change solves in one or two sentences.]
+
+<details>
+<summary>Details</summary>
+
+[Add the background, the decisions, and their tradeoffs.]
+
+</details>
 
 ## Who is this change for?
 
-[Add information about the users that the change is for.]
+[Name the users that the change is for in one sentence.]
+
+<details>
+<summary>Details</summary>
+
+[Add how the change affects them.]
+
+</details>
 
 ## What is the merge danger?
 
@@ -53,8 +71,13 @@ What can break: name what fails if the change is wrong, and who notices. Think a
 
 **What can break:** [Name the scope in one word, such as none, local, repo, or consumers. Then name what fails.]
 
+<details>
+<summary>Details</summary>
+
+[Add the reasons for the two answers, and how to revert or recover.]
+
+</details>
+
 ## Which issue(s) does this PR fix?
 
 <!-- Link the issues this PR closes, or state that there are none. -->
-
-</details>
