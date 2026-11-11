@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.8.0](https://github.com/staticaland/skills/compare/pull-requests-v0.7.0...pull-requests-v0.8.0) (2026-11-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pull-requests:** create-pr ignores a repo's own PR template.
+
+### Features
+
+* **pull-requests:** add space below an opened details summary ([86137e8](https://github.com/staticaland/skills/commit/86137e8ae3276c0906399a0b7e5463fd059eff65))
+* **pull-requests:** always fill the skill's own PR template ([80f24f6](https://github.com/staticaland/skills/commit/80f24f6cbec2ea39fc31c8bf9592b294b465573a))
+* **pull-requests:** apply the collapsed-details layout to every PR body ([8c90eaf](https://github.com/staticaland/skills/commit/8c90eaf7cf42e3c9aedeef76ca114543e34df60e))
+* **pull-requests:** ask for sparing use of bold in PR bodies ([3193cf3](https://github.com/staticaland/skills/commit/3193cf369c6481449777f0f3999fab4c1279b04a))
+* **pull-requests:** ask if a PR is reversible in plain words ([f53d93c](https://github.com/staticaland/skills/commit/f53d93c5bd500af3e53e9804ab138952b393536c))
+* **pull-requests:** collapse the details under each PR template heading ([cf1d8b0](https://github.com/staticaland/skills/commit/cf1d8b073dca78191228630277060d26bbe6f057))
+* **pull-requests:** drop the audience section from the PR template ([ff98569](https://github.com/staticaland/skills/commit/ff9856963eb252449b05cb5a5ef2f3689d1e2da8))
+* **pull-requests:** drop the one-word scope from what can break ([c46f597](https://github.com/staticaland/skills/commit/c46f5975d2df2df7a7b24b19c702661fa8d1be06))
+* **pull-requests:** limit the visible part of a PR section to two sentences ([4307bb0](https://github.com/staticaland/skills/commit/4307bb07a76107d1c5221f2a188d51e001d17b5c))
+* **pull-requests:** shorten the PR template headings ([055061f](https://github.com/staticaland/skills/commit/055061fea32e9b31740c169de4d928206c888599))
+* **pull-requests:** show the change as a visual in the PR body ([61e447c](https://github.com/staticaland/skills/commit/61e447c7fcdd21f4a685fd61cfd36392629d0eef))
+* **pull-requests:** tie the collapsed-details layout to headings ([4995aed](https://github.com/staticaland/skills/commit/4995aed836fbc78a227bff515916fa62df18943c))
+
 ## [0.7.0](https://github.com/staticaland/skills/compare/pull-requests-v0.6.1...pull-requests-v0.7.0) (2026-11-10)
 
 
