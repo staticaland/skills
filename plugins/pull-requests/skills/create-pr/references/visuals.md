@@ -4,11 +4,6 @@ Pick the smallest view that makes the key point clear. One view is the usual
 count. Keep only the calls, files, props, states, and boundaries that the
 reviewer needs, and place each view next to the short text it supports.
 
-Adapted from the `pr` skill in
-[mattpocock/skills](https://github.com/mattpocock/skills) and the `show-me`
-skill in [humanlayer/skills](https://github.com/humanlayer/skills), both
-published under the MIT license.
-
 ## Diff sketch
 
 Use a `diff` block to show a change inside a shape that already exists. Match
