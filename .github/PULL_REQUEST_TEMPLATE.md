@@ -22,23 +22,35 @@ Avoid these patterns:
 - Backward references
 -->
 
-## What is this change?
+## What
 
 <!-- State what changed. Keep the reason for the next section. -->
 
-[Add a brief description of what the change does.]
+[Tell what the change does in one or two sentences.]
 
-## Why do we need this change?
+<details>
+<summary>Details</summary>
+<br>
+
+[Show the change as a diagram, a diff sketch, or a tree. Then add the parts of the change and how they work.]
+
+</details>
+
+## Why
 
 <!-- State the problem and why it matters. Do not describe the change again. -->
 
-[Add a description of the problem the change solves.]
+[Name the problem the change solves in one or two sentences.]
 
-## Who is this change for?
+<details>
+<summary>Details</summary>
+<br>
 
-[Add information about the users that the change is for.]
+[Add the background, the decisions, and their tradeoffs.]
 
-## What is the merge danger?
+</details>
+
+## Merge danger
 
 <!--
 Door: say if the change is a one-way door or a two-way door. A revert undoes a two-way door. A one-way door stays after a revert: deleted data, a published release, a changed public API or URL, a migration, or a message sent to an external service. Name what makes the door one-way.
@@ -50,6 +62,14 @@ What can break: name what fails if the change is wrong, and who notices. Think a
 
 **What can break:** [Name the scope in one word, such as none, local, repo, or consumers. Then name what fails.]
 
-## Which issue(s) does this PR fix?
+<details>
+<summary>Details</summary>
+<br>
+
+[Add the reasons for the two answers, and how to revert or recover.]
+
+</details>
+
+## Issues
 
 <!-- Link the issues this PR closes, or state that there are none. -->
