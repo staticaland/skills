@@ -20,6 +20,7 @@ been in the session.
    Cover the original request and the decisions made with their tradeoffs, and
    say what was tested and how. Follow the writing instructions in the template's comments,
    and leave the comments in place - the submit step removes them.
+   Give each section the layout below.
 3. Read the `BODY FILE:` path `prepare` printed with the Read tool - the file
    is an empty placeholder, and the Write tool refuses a file it has not read.
    Then write the filled template to that exact path - never a path of your
@@ -33,6 +34,30 @@ been in the session.
 The submit command strips the comments, adds the AI-assistance notice below
 the body, and creates the PR through `gh`; the guard hook blocks a
 bare `gh pr create`.
+
+## Layout
+
+Every heading gets the same layout, in a repo template too: one or two
+sentences that stay visible, then the longer explanation, lists, and code in a
+collapsed block that adds to those sentences. GitHub renders the markdown
+inside only with the two blank lines shown:
+
+```markdown
+## Heading
+
+One or two sentences.
+
+<details>
+<summary>Details</summary>
+
+Longer explanation.
+
+</details>
+```
+
+Leave the block out of a section whose visible sentences say everything.
+
+## Other bodies
 
 For any other PR or issue body, such as `gh issue create` or `gh pr edit`,
 write the body file with the Write tool first, then run `gh` as a separate
