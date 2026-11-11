@@ -32,7 +32,7 @@ Avoid these patterns:
 <summary>Details</summary>
 <br>
 
-[Add the parts of the change and how they work.]
+[Show the change as a diagram, a diff sketch, or a tree. Then add the parts of the change and how they work.]
 
 </details>
 

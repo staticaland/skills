@@ -20,7 +20,9 @@ been in the session.
    Cover the original request and the decisions made with their tradeoffs, and
    say what was tested and how. Follow the writing instructions in the template's comments,
    and leave the comments in place - the submit step removes them.
-   Give each section the layout below.
+   Give each section the layout below. In the block of the section that tells
+   what changed, show the change as a diagram, a diff sketch, or a tree:
+   [`references/visuals.md`](references/visuals.md) has the forms.
 3. Read the `BODY FILE:` path `prepare` printed with the Read tool - the file
    is an empty placeholder, and the Write tool refuses a file it has not read.
    Then write the filled template to that exact path - never a path of your
