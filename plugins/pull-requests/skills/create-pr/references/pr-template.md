@@ -50,18 +50,6 @@ Avoid these patterns:
 
 </details>
 
-## Who is this change for?
-
-[Name the users that the change is for in one sentence.]
-
-<details>
-<summary>Details</summary>
-<br>
-
-[Add how the change affects them.]
-
-</details>
-
 ## Merge danger
 
 <!--
