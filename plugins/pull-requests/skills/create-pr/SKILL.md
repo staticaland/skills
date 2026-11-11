@@ -41,15 +41,20 @@ bare `gh pr create`.
 
 The layout follows the headings, so it fits any template. Every heading in a
 PR body gets it, whichever template the body comes from, and so does a body
-rewritten with `gh pr edit`: one or two sentences that stay visible, then the
-longer explanation, lists, and code in a collapsed block that adds to those
-sentences. The `<br>` gives the opened block space below its summary. GitHub
-renders the markdown inside only with the two blank lines shown:
+rewritten with `gh pr edit`.
+
+The visible part is at most two sentences, and each sentence is its own
+paragraph. The longer explanation, lists, and code go in a collapsed block
+that adds to those sentences. The `<br>` gives the opened block space below
+its summary. GitHub renders the markdown inside only with the two blank lines
+around the block's content:
 
 ```markdown
 ## Heading
 
-One or two sentences.
+First sentence.
+
+Second sentence, when the first is not enough.
 
 <details>
 <summary>Details</summary>

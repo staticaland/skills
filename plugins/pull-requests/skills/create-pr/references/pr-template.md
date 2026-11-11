@@ -26,7 +26,9 @@ Avoid these patterns:
 
 <!-- State what changed. Keep the reason for the next section. -->
 
-[Tell what the change does in one or two sentences.]
+[Tell what the change does in one sentence.]
+
+[Add a second sentence as its own paragraph only if the first is not enough.]
 
 <details>
 <summary>Details</summary>
@@ -40,7 +42,9 @@ Avoid these patterns:
 
 <!-- State the problem and why it matters. Do not describe the change again. -->
 
-[Name the problem the change solves in one or two sentences.]
+[Name the problem the change solves in one sentence.]
+
+[Add a second sentence as its own paragraph only if the first is not enough.]
 
 <details>
 <summary>Details</summary>
@@ -58,9 +62,9 @@ Reversible: say if a revert undoes the change. These things stay after a revert:
 What can break: think about consumers of the code, installed users, CI, and other systems that read the output.
 -->
 
-**Reversible:** [Yes or no. If no, name what stays after a revert.]
+**Reversible:** [Say in one sentence if a revert undoes the change, and what stays if it does not.]
 
-**What can break:** [Name what fails if the change is wrong, and who notices. Write "Nothing" if nothing can fail.]
+**What can break:** [Say in one sentence what fails if the change is wrong, and who notices. Write "Nothing" if nothing can fail.]
 
 <details>
 <summary>Details</summary>
