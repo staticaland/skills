@@ -20,8 +20,8 @@ been in the session.
    Cover the original request and the decisions made with their tradeoffs, and
    say what was tested and how. Follow the writing instructions in the template's comments,
    and leave the comments in place - the submit step removes them.
-   Give each section the layout below. In the block of the section that tells
-   what changed, show the change as a diagram, a diff sketch, or a tree:
+   Give each section the layout below. In the section that tells what
+   changed, show the change as a diagram, a diff sketch, or a tree:
    [`references/visuals.md`](references/visuals.md) has the forms.
 3. Read the `BODY FILE:` path `prepare` printed with the Read tool - the file
    is an empty placeholder, and the Write tool refuses a file it has not read.
@@ -39,8 +39,8 @@ bare `gh pr create`.
 
 ## Layout
 
-The layout follows the headings. Every heading in a PR body gets it, and so
-does a body rewritten with `gh pr edit`.
+The layout follows the headings. Every heading in a PR body gets it, apart
+from the exception below, and so does a body rewritten with `gh pr edit`.
 
 The visible part is at most two sentences, and each sentence is its own
 paragraph. The longer explanation, lists, and code go in a collapsed block
@@ -65,6 +65,24 @@ Longer explanation.
 ```
 
 Leave the block out of a section whose visible sentences say everything.
+
+The section that tells what changed is the exception. The reviewer reads its
+diagram, diff sketch, or tree first, so that content goes directly below the
+opening sentences with no `<details>` block around it:
+
+````markdown
+## What
+
+First sentence.
+
+```diff
+ submitForm
++  expandSkillMention
+   launchAgent
+```
+
+The parts of the change and how they work.
+````
 
 ## Other bodies
 
