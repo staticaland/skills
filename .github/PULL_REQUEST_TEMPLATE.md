@@ -31,13 +31,7 @@ Avoid these patterns:
 
 [Add a second sentence as its own paragraph only if the first is not enough.]
 
-<details>
-<summary>Details</summary>
-<br>
-
-[Show the change as a diagram, a diff sketch, or a tree. Then add the parts of the change and how they work.]
-
-</details>
+[Show the change as a diagram, a diff sketch, or a tree. Then add the parts of the change and how they work. Do not put this content in a collapsed block.]
 
 ## Why
 
