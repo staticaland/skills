@@ -100,6 +100,13 @@
       "category": "dev"
     },
     {
+      "name": "design-crit",
+      "source": "./plugins/design-crit",
+      "description": "Run a design crit on a rendered UI and fix its alignment, spacing, hierarchy, and collision defects, each named in designer terms",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "defuddle",
       "source": "./plugins/defuddle",
       "description": "Extract clean Markdown from web pages with the Defuddle CLI, without the navigation, ads, and clutter",
