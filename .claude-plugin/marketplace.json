@@ -86,6 +86,13 @@
       "category": "dev"
     },
     {
+      "name": "power-prompts",
+      "source": "./plugins/power-prompts",
+      "description": "One-sentence prompts that change how the agent attacks a problem, each a skill you invoke by name",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "browser",
       "source": "./plugins/browser",
       "description": "Drive Chrome, web apps, and Electron apps from the command line with the agent-browser CLI",
