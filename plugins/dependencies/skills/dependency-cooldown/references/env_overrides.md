@@ -3,9 +3,9 @@
 Several managers rank an environment variable above the project file. On a
 machine that exports the variable - the user-wide
 [`cooldowns.sh`](cooldowns_sh.md) helper does exactly that - the tool obeys the
-variable and the committed setting does nothing, with no error. CI without the variable obeys
-the file, so the same command resolves differently on the two machines, and a
-verification run on the wrong machine passes for the wrong reason.
+variable and the committed setting does nothing, with no error. CI without the
+variable obeys the file, so the same command resolves differently on the two
+machines.
 
 | Variable                        | Tool                       | Against the committed setting                                          |
 | ------------------------------- | -------------------------- | ---------------------------------------------------------------------- |
