@@ -8,8 +8,14 @@ import tempfile
 import unittest
 from pathlib import Path
 
-HOOK = Path(__file__).resolve().parents[1] / "hooks" / "ai_assisted_notice.py"
+HOOKS = Path(__file__).resolve().parents[1] / "hooks"
+HOOK = HOOKS / "ai_assisted_notice.py"
 NOTICE = "**<sub>AI assisted 🤖</sub>**"
+NAMED = "**<sub>AI assisted 🤖 · Opus 5.5</sub>**"
+
+sys.path.insert(0, str(HOOKS))
+
+from ai_assisted_notice import wrap  # noqa: E402
 
 
 class HookTest(unittest.TestCase):
@@ -47,6 +53,24 @@ class InlineBody(HookTest):
         command = f"gh pr create --title t --body 'Text\n\n{NOTICE}'"
         self.assertIsNone(self.run_hook(command))
 
+    def test_allows_notice_that_names_a_model(self):
+        command = f"gh pr create --title t --body 'Text\n\n{NAMED}'"
+        self.assertIsNone(self.run_hook(command))
+
+    def test_allows_notice_that_names_a_raw_model_id(self):
+        named = NOTICE.replace("</sub>", " · gpt-5.2-codex</sub>")
+        command = f"gh pr edit 1 --body 'Text\n\n{named}'"
+        self.assertIsNone(self.run_hook(command))
+
+    def test_denies_notice_that_is_not_last(self):
+        command = f"gh pr create --title t --body '{NAMED}\n\nText'"
+        self.assertIn("needs the AI-assistance notice", self.run_hook(command))
+
+    def test_denies_altered_notice(self):
+        altered = NOTICE.replace("</sub>", " by Opus</sub>")
+        command = f"gh pr create --title t --body 'Text\n\n{altered}'"
+        self.assertIn("needs the AI-assistance notice", self.run_hook(command))
+
     def test_denies_body_without_notice(self):
         reason = self.run_hook("gh issue create --title t --body 'Text'")
         self.assertIn("needs the AI-assistance notice", reason)
@@ -59,6 +83,10 @@ class BodyFile(HookTest):
     def test_allows_file_ending_with_notice(self):
         self.write("body.md", f"Text\n\n{NOTICE}\n")
         self.assertIsNone(self.run_hook("gh issue create -t t --body-file body.md"))
+
+    def test_allows_file_ending_with_notice_that_names_a_model(self):
+        self.write("body.md", f"Text\n\n{NAMED}\n")
+        self.assertIsNone(self.run_hook("gh pr edit 1 --body-file body.md"))
 
     def test_denies_file_without_notice(self):
         self.write("body.md", "Text\n")
@@ -145,9 +173,27 @@ class StdinBody(HookTest):
         command = f"gh pr edit 1 --body-file - <<'EOF'\nText\n\n{NOTICE}\nEOF"
         self.assertIsNone(self.run_hook(command))
 
+    def test_judges_heredoc_on_stdin_that_names_a_model(self):
+        command = f"gh pr edit 1 --body-file - <<'EOF'\nText\n\n{NAMED}\nEOF"
+        self.assertIsNone(self.run_hook(command))
+
     def test_denies_heredoc_on_stdin_without_notice(self):
         command = "gh pr edit 1 --body-file - <<'EOF'\nText\nEOF"
         self.assertIn("needs the AI-assistance notice", self.run_hook(command))
+
+
+class Wrap(unittest.TestCase):
+    def test_adds_plain_notice_without_a_model(self):
+        self.assertEqual(wrap("Text\n"), f"Text\n\n{NOTICE}\n")
+
+    def test_names_the_model(self):
+        self.assertEqual(wrap("Text\n", "Opus 5.5"), f"Text\n\n{NAMED}\n")
+
+    def test_adds_the_model_to_a_plain_notice(self):
+        self.assertEqual(wrap(f"Text\n\n{NOTICE}\n", "Opus 5.5"), f"Text\n\n{NAMED}\n")
+
+    def test_keeps_a_named_notice_without_a_model(self):
+        self.assertEqual(wrap(f"Text\n\n{NAMED}\n"), f"Text\n\n{NAMED}\n")
 
 
 if __name__ == "__main__":
