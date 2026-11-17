@@ -44,6 +44,13 @@
       "category": "dev"
     },
     {
+      "name": "issue-artifacts",
+      "source": "./plugins/issue-artifacts",
+      "description": "Attach plans, notes, HTML documents, and links to a GitHub issue as issue artifacts with gh, and read, edit, version, download, and delete them",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "github-actions",
       "source": "./plugins/github-actions",
       "description": "Run GitHub Actions workflow steps in parallel, replace repeated workflow configuration with YAML anchors, and name every workflow, job, and step",

@@ -145,6 +145,16 @@ issues and pull requests.
   quotes the line until the body has it. The create-pr skill adds it for
   you.
 
+#### [issue-artifacts](./plugins/issue-artifacts/README.md)
+
+Attach plans, notes, HTML documents, and links to a GitHub issue as issue
+artifacts with `gh`, and read, edit, version, download, and delete them.
+
+- **[gh-issue-artifact](./plugins/issue-artifacts/skills/gh-issue-artifact/SKILL.md)**
+  (skill) - Manages the Markdown documents, HTML documents, and links attached
+  to a GitHub issue with `gh issue artifact`: create, list, view, edit, restore
+  a version, download, and delete.
+
 #### [github-actions](./plugins/github-actions/README.md)
 
 Run GitHub Actions workflow steps in parallel, replace repeated workflow

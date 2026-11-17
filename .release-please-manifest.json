@@ -20,5 +20,6 @@
   "plugins/defuddle": "0.1.0",
   "plugins/herdr": "0.1.0",
   "plugins/upgrade-path": "0.1.0",
-  "plugins/vale": "0.1.0"
+  "plugins/vale": "0.1.0",
+  "plugins/issue-artifacts": "0.1.0"
 }
