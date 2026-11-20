@@ -245,6 +245,16 @@ its constraints.
   works, proposes the simplest design that could serve the same purpose, and
   keeps the proposals that survive the constraints that shaped the current one.
 
+#### [polish-ui](./plugins/polish-ui/README.md)
+
+Review a UI for visual polish and fix the alignment, spacing, grouping,
+typography, emphasis, and colour issues it finds.
+
+- **[polish-ui](./plugins/polish-ui/skills/polish-ui/SKILL.md)** (skill) -
+  Checks a page, component, or screenshot against a list of visual-polish
+  criteria, from alignment and overflow to visual weight and the squint test,
+  then names and fixes each issue.
+
 #### [browser](./plugins/browser/README.md)
 
 Drive Chrome, web apps, and Electron apps from the command line with the
