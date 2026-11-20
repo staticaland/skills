@@ -86,6 +86,13 @@
       "category": "dev"
     },
     {
+      "name": "polish-ui",
+      "source": "./plugins/polish-ui",
+      "description": "Review a UI for visual polish and fix the alignment, spacing, grouping, typography, emphasis, and colour issues it finds",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "browser",
       "source": "./plugins/browser",
       "description": "Drive Chrome, web apps, and Electron apps from the command line with the agent-browser CLI",
