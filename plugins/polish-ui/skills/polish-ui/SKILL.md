@@ -14,7 +14,7 @@ Check:
 - **Overflow:** text stays inside its container. Long content wraps, scrolls, or truncates cleanly.
 - **Spacing:** padding and gaps use a consistent spacing scale (such as 4/8/12/16/24/32). Related items sit closer than unrelated ones.
 - **Grouping:** related items are grouped by proximity first, then by common region (subtle background, border, or card) where needed. Avoid nesting boxes inside boxes.
-- **Vertical alignment:** icons and text next to each other are optically centred, not only mathematically.
+- **Row alignment:** everything in a row aligns to one shared line from end to end, however far apart the items are. Text of different sizes shares a baseline. Icons and logos are optically centred on that text, not only mathematically.
 - **Typographic hierarchy:** headings, body, and labels follow a clear type scale with a limited set of sizes and weights.
 - **Visual weight:** the heaviest elements (fills, borders, size) are the most important ones. Nothing outweighs what it belongs to.
 - **Emphasis:** bold, colour, and size are used sparingly and consistently. If everything is emphasised, nothing is.
