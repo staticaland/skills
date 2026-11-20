@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/staticaland/skills/compare/pull-requests-v0.9.0...pull-requests-v0.10.0) (2026-11-20)
+
+
+### Features
+
+* **pull-requests:** show the What details without a collapsible ([9b4ff4f](https://github.com/staticaland/skills/commit/9b4ff4f1a967923a9a756b5f5e30738b76cd6494))
+
 ## [0.9.0](https://github.com/staticaland/skills/compare/pull-requests-v0.8.0...pull-requests-v0.9.0) (2026-11-11)
 
 
