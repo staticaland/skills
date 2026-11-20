@@ -15,7 +15,7 @@ Check:
 - **Spacing:** padding and gaps use a consistent spacing scale (such as 4/8/12/16/24/32). Related items sit closer than unrelated ones.
 - **Grouping:** related items are grouped by proximity first, then by common region (subtle background, border, or card) where needed. Avoid nesting boxes inside boxes.
 - **Vertical alignment:** icons and text next to each other are optically centred, not only mathematically.
-- **Lockups:** a logo beside a product or page name reads as one unit. The two share a baseline, the name matches or steps down from the logo's weight and size, and a fixed gap or divider shows how they relate. Use the design system's header pattern where it has one.
+- **Pairings:** two pieces of text side by side, such as a logo and a product name or a label and its value, read as one unit. They share a baseline, the secondary one matches or steps down in size and weight, and a fixed gap or divider shows how they relate.
 - **Typographic hierarchy:** headings, body, and labels follow a clear type scale with a limited set of sizes and weights.
 - **Visual weight:** the heaviest elements (fills, borders, size) are the most important ones. Nothing outweighs what it belongs to.
 - **Emphasis:** bold, colour, and size are used sparingly and consistently. If everything is emphasised, nothing is.
