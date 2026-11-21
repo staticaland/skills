@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "design-crit",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Run a design crit on a rendered UI and fix its alignment, spacing, hierarchy, and collision defects, each named in designer terms"
+}
