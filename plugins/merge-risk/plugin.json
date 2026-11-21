@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "merge-risk",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Rate the risk of merging a pull request as low, medium, or high from its alignment, impact, verification, rollback cost, and error detection"
+}

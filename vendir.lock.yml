@@ -122,4 +122,10 @@ directories:
       - v0.1.0-1-g5f41df1
     path: .
   path: plugins/skill-authoring/skills/skill-diet
+- contents:
+  - git:
+      commitTitle: Credit PR skill and keep merge-risk calculations internal (#107)...
+      sha: 8792394ff1b655e0af451b8fabb68ef0cfcbd208
+    path: .
+  path: plugins/merge-risk/skills/merge-risk
 kind: LockConfig
