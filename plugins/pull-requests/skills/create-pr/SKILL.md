@@ -30,12 +30,18 @@ been in the session.
    Then run:
 
    ```bash
-   <skill-dir>/scripts/pr.py submit "<title>" <body-file>
+   <skill-dir>/scripts/pr.py submit --model "<model-id>" "<title>" <body-file>
    ```
+
+   `<model-id>` is your exact model ID as your system prompt states it,
+   such as `claude-opus-5-5`. Leave `--model` out when you do not know it
+   for certain.
 
 The submit command strips the comments, adds the AI-assistance notice below
 the body, and creates the PR through `gh`; the guard hook blocks a
-bare `gh pr create`.
+bare `gh pr create`. The notice names the model, as in
+`AI assisted 🤖 · Opus 5.5`. The script prefers the model the harness
+reported for the session and falls back to `--model`.
 
 ## Layout
 

@@ -4,9 +4,13 @@
 Matches `gh pr create`, `gh pr edit`, `gh issue create`, and `gh issue edit`,
 with inherited flags such as `-R owner/repo` allowed between the words. The
 body may arrive as `--body`, `-b`, `--body-file`, `-F`, or a heredoc on
-stdin. The call passes when that body ends with NOTICE; a body without it is
-denied with the line to add. A heredoc the hook cannot delimit falls back to
-a presence check on the command text.
+stdin. The call passes when that body ends with the notice; a body without
+it is denied with the line to add. A heredoc the hook cannot delimit falls
+back to a presence check on the command text.
+
+The notice may name the model that wrote the body, as in
+`**<sub>AI assisted 🤖 · Opus 5.5</sub>**`. The hook accepts the notice with
+any model name and without one.
 
 A `--body-file` path is expanded like a shell would. When a heredoc in the
 same command writes that path, the hook judges the heredoc, since the file is
@@ -26,6 +30,10 @@ from pathlib import Path
 
 NOTICE = "**<sub>AI assisted 🤖</sub>**"
 
+# NOTICE, with or without " · <model name>" before the closing tag.
+NOTICE_PATTERN = r"\*\*<sub>AI assisted 🤖(?: · [^<>\n]{1,80})?</sub>\*\*"
+NOTICE_AT_END = re.compile(NOTICE_PATTERN + r"\s*\Z")
+
 # Inherited gh flags that take a value, so the token after them is not a word.
 VALUE_FLAGS = ("-R", "--repo")
 
@@ -40,16 +48,25 @@ SEPARATORS = (";", "&&", "||", "|", "&")
 REDIRECTS = (">", ">>", ">|")
 
 
-def wrap(body):
-    """Return body with NOTICE as its last line."""
+def notice(model=None):
+    """NOTICE, naming model when there is one."""
+    if not model:
+        return NOTICE
+    return NOTICE.replace("</sub>", f" · {model}</sub>")
+
+
+def wrap(body, model=None):
+    """Return body with the notice as its last line, naming model if given."""
     body = body.strip("\n")
-    if body.endswith(NOTICE):
-        return body + "\n"
-    return f"{body}\n\n{NOTICE}\n"
+    if ends_with_notice(body):
+        if not model:
+            return body + "\n"
+        body = NOTICE_AT_END.sub("", body).rstrip("\n")
+    return f"{body}\n\n{notice(model)}\n"
 
 
 def ends_with_notice(text):
-    return text.rstrip().endswith(NOTICE)
+    return NOTICE_AT_END.search(text) is not None
 
 
 def tokens(command):
@@ -154,7 +171,7 @@ def stdin_ends_with_notice(command):
     match = HEREDOC.search(command)
     if match:
         return ends_with_notice(match.group("body"))
-    return NOTICE in command
+    return re.search(NOTICE_PATTERN, command) is not None
 
 
 def deny(reason):
