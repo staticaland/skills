@@ -123,8 +123,8 @@ Write Slack messages in Slack's own markup: single-asterisk bold, hyphen lists,
 and no headings or tables.
 
 - **[slack-messages](./plugins/slack/skills/slack-messages/SKILL.md)** (skill) -
-  Formats a Slack message, reply, or bot payload in Slack's markup instead of
-  standard Markdown.
+  Writes a message to paste into Slack, in Slack's markup instead of standard
+  Markdown, inside one code block to copy.
 
 ### `dev`
 
