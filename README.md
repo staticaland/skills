@@ -117,6 +117,15 @@ rule, and keep the vocabulary to real spelling needs.
 
 <!-- vale Vale.Terms = YES -->
 
+#### [slack](./plugins/slack/README.md)
+
+Write Slack messages in Slack's own markup: single-asterisk bold, hyphen lists,
+and no headings or tables.
+
+- **[slack-messages](./plugins/slack/skills/slack-messages/SKILL.md)** (skill) -
+  Formats a Slack message, reply, or bot payload in Slack's markup instead of
+  standard Markdown.
+
 ### `dev`
 
 #### [pull-requests](./plugins/pull-requests/README.md)
