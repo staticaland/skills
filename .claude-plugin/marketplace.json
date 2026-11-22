@@ -37,6 +37,13 @@
       "category": "writing"
     },
     {
+      "name": "slack",
+      "source": "./plugins/slack",
+      "description": "Write Slack messages in Slack's own markup: single-asterisk bold, hyphen lists, and no headings or tables",
+      "version": "0.1.0",
+      "category": "writing"
+    },
+    {
       "name": "pull-requests",
       "source": "./plugins/pull-requests",
       "description": "Open a GitHub pull request from the repository's own template, manage stacked branches and pull requests with gh-stack, and attach images and videos to issues and pull requests",
