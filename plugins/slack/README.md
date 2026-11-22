@@ -12,9 +12,9 @@ and no headings or tables.
 
 ## Skills
 
-- **[slack-messages](./skills/slack-messages/SKILL.md)** (skill) - Formats a
-  Slack message, reply, or bot payload in Slack's markup instead of standard
-  Markdown.
+- **[slack-messages](./skills/slack-messages/SKILL.md)** (skill) - Writes a
+  message to paste into Slack, in Slack's markup instead of standard Markdown,
+  inside one code block to copy.
 
 ## License
 

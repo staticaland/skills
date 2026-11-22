@@ -1,11 +1,21 @@
 ---
 name: slack-messages
-description: Format text in Slack markup (`mrkdwn`) instead of standard Markdown. Use when writing a Slack message, thread reply, DM, or channel post, or text a Slack bot, webhook, or API call sends.
+description: Write a message for the user to paste into Slack, in Slack markup (`mrkdwn`) instead of standard Markdown. Use when the user asks for a Slack message, or to turn something from the thread into one.
 ---
 
 # Slack messages
 
-Slack renders its own markup, not standard Markdown. Write every message in it.
+The user copies the message from this chat and pastes it into Slack. Slack
+renders its own markup, not standard Markdown, so write the message in it.
+
+## Output
+
+Put the whole message in one fenced code block, so the user copies the raw
+markup and not your chat's rendering of it. When the message contains a
+code block, fence the outer block with four backticks.
+
+When the user asks for the message on the clipboard, pipe it to `pbcopy` on
+macOS, `wl-copy` on Wayland, or `xclip -selection clipboard` on X11.
 
 ## Markup
 
@@ -30,16 +40,8 @@ Slack renders its own markup, not standard Markdown. Write every message in it.
 - For a heading, write a bold line of its own. `#` renders as a literal hash.
 - For a table, put aligned plain text in a code block.
 - Separate paragraphs with one blank line. One newline is a line break.
-
-## Links and mentions
-
-In text the user pastes into Slack, write bare URLs. Slack links them on its
-own.
-
-In text a bot, webhook, or API call sends:
-
-- Link with `<https://example.com|link text>`. `[text](url)` renders as
-  literal brackets.
-- Mention a user with `<@U012AB3CD>`, a channel with `<#C012AB3CD>`, and
-  everyone present with `<!here>`. Plain `@name` stays plain text.
-- Escape `&`, `<`, and `>` as `&amp;`, `&lt;`, and `&gt;`.
+- Write links as bare URLs. Slack links them on its own, and `[text](url)`
+  renders as literal brackets.
+- Write a mention as `@name`. A pasted mention is plain text until the user
+  picks the person from Slack's autocomplete, so tell the user which mentions
+  to redo.
