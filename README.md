@@ -136,6 +136,10 @@ issues and pull requests.
   (skill) - Manages stacked branches and pull requests with the
   [gh-stack](https://github.com/github/gh-stack) GitHub CLI extension: create,
   view, push, submit, sync, rebase, merge, and check out a stack.
+- **[merge-pull-requests](./plugins/pull-requests/skills/merge-pull-requests/SKILL.md)**
+  (skill) - Walks through a repository's open pull requests one at a time,
+  with a TL;DR and a merge recommendation for each, and merges only the ones
+  you say yes to.
 - **pr-create guard** (hook) - Blocks a direct
   `gh pr create` and tells Claude to invoke the create-pr skill
   instead. Other `git` and `gh` commands are untouched.

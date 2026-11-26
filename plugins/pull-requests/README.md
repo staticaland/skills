@@ -22,6 +22,9 @@ issues and pull requests.
   branches and pull requests with the
   [gh-stack](https://github.com/github/gh-stack) GitHub CLI extension: create,
   view, push, submit, sync, rebase, merge, and check out a stack.
+- **[merge-pull-requests](./skills/merge-pull-requests/SKILL.md)** (skill) - Walks through a
+  repository's open pull requests one at a time, with a TL;DR and a merge
+  recommendation for each, and merges only the ones you say yes to.
 
 ## Hooks
 
