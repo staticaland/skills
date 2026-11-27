@@ -9,10 +9,9 @@ description: >-
 
 # conventional-comments
 
-A posted comment notifies the author and speaks for the user in public. Post
-only the comments the user asked for. A review you ran on your own ends as a
-list of findings in the chat; it becomes comments when the user picks which
-ones to post.
+Post only the comments the user asked for. A review you ran on your own ends
+as a list of findings in the chat; it becomes comments when the user picks
+which ones to post.
 
 ## Write each comment
 
@@ -39,8 +38,7 @@ would merge too.
   block. The block replaces those lines, so a list item four spaces in keeps
   its four spaces.
 - Run the target repository's own linter on the replacement text when it has
-  one, such as Vale for prose or the formatter for code. A suggestion that fails
-  the repository's CI costs the author a second round.
+  one, such as Vale for prose or the formatter for code.
 
 ## Done
 
