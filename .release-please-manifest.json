@@ -21,5 +21,7 @@
   "plugins/herdr": "0.1.0",
   "plugins/upgrade-path": "0.1.0",
   "plugins/vale": "0.1.0",
-  "plugins/polish-ui": "0.1.0"
+  "plugins/polish-ui": "0.1.0",
+  "plugins/conventional-comments": "0.1.0",
+  "plugins/slack": "0.1.0"
 }
