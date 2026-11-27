@@ -44,6 +44,13 @@
       "category": "dev"
     },
     {
+      "name": "conventional-comments",
+      "source": "./plugins/conventional-comments",
+      "description": "Post inline review comments on a GitHub pull request in the Conventional Comments format, with suggestion blocks for concrete replacements",
+      "version": "0.1.0",
+      "category": "dev"
+    },
+    {
       "name": "github-actions",
       "source": "./plugins/github-actions",
       "description": "Run GitHub Actions workflow steps in parallel, replace repeated workflow configuration with YAML anchors, and name every workflow, job, and step",

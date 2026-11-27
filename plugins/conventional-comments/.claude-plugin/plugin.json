@@ -1,0 +1,8 @@
+{
+  "name": "conventional-comments",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Post inline review comments on a GitHub pull request in the Conventional Comments format, with suggestion blocks for concrete replacements"
+}
