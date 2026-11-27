@@ -71,49 +71,7 @@ must be the finished lines:
 - Write suggested prose for the reader of that file. Lead with the action the
   reader takes, and drop jargon that reader does not need.
 
-## Post the comments as one review
+## Done
 
-`gh pr comment` and `gh pr review` take no file or line, so inline comments need
-the REST API. One review sends the author one notification for all of
-them:
-
-```bash
-HEAD=$(gh pr view <n> --repo <owner>/<repo> --json headRefOid --jq .headRefOid)
-jq -n --arg c "$HEAD" --arg p "$PATH_IN_REPO" --arg b1 "$BODY1" --arg b2 "$BODY2" \
-  '{commit_id:$c, event:"COMMENT", comments:[
-     {path:$p, line:41, side:"RIGHT", body:$b1},
-     {path:$p, start_line:55, start_side:"RIGHT", line:56, side:"RIGHT", body:$b2}]}' \
-  > review.json
-gh api repos/<owner>/<repo>/pulls/<n>/reviews --input review.json --jq .html_url
-```
-
-- `commit_id` is the SHA that `headRefOid` returns, and `line` is a line number in
-  the head version of a file the diff touches, inside one of its hunks.
-  `side: "RIGHT"` targets that new version.
-- A range adds `start_line` and `start_side`. Then `line` is its last line.
-- Build bodies with `jq --arg`. Shell interpolation mangles backticks and
-  newlines.
-- Leaving out `event` creates a pending review that the author does not see
-  until it is submitted.
-
-## Verify and edit
-
-Read every posted comment back, keyed by `id`:
-
-```bash
-gh api repos/<owner>/<repo>/pulls/<n>/reviews/<review-id>/comments \
-  --jq '.[] | "\(.id) \(.html_url)\n\(.body)"'
-```
-
-This endpoint returns `line: null` for each comment, so match a body to a
-comment by `id`, never by `line`. Edit one comment by its `id`, then read it
-back:
-
-```bash
-jq -n --arg b "$BODY" '{body:$b}' |
-  gh api -X PATCH repos/<owner>/<repo>/pulls/comments/<id> --input - --jq .html_url
-gh api repos/<owner>/<repo>/pulls/comments/<id> --jq '.line, .body'
-```
-
-Done when each comment the user asked for shows on the pull request with the
-intended body on the intended line, and you have given the user its link.
+Each comment the user asked for shows on the pull request with the intended
+body on the intended line, and the user has its link.
