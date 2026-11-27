@@ -14,8 +14,8 @@ agent-browser CLI.
 
 - **[agent-browser](./skills/agent-browser/SKILL.md)** (skill) - Drives
   Chrome, web apps, and Electron apps from the command line with
-  [agent-browser](https://github.com/vercel-labs/agent-browser) -
-  navigating, filling forms, clicking, taking screenshots, and extracting data.
+  [agent-browser](https://github.com/vercel-labs/agent-browser) to open pages,
+  fill forms, click, take screenshots, and extract data.
 
 ## License
 

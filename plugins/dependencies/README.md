@@ -12,13 +12,12 @@ denied install scripts, and adopt barely used ones into the repo.
 
 ## Skills
 
-- **[dependency-cooldown](./skills/dependency-cooldown/SKILL.md)**
-  (skill) - Sets up a minimum release age across a project's package
-  managers and update bots, so a compromised release is caught before it
-  resolves. Per-ecosystem references from
-  [cooldowns.dev](https://cooldowns.dev/).
-- **[Renovate setup](./skills/renovate-setup/SKILL.md)** (skill) -
-  Configures Renovate with a seven-day minimum release age and immutable updates
+- **[dependency-cooldown](./skills/dependency-cooldown/SKILL.md)** (skill) -
+  Sets up a minimum release age across the package managers and update bots a
+  project uses, so a compromised release is caught before it resolves.
+  Per-ecosystem references from [cooldowns.dev](https://cooldowns.dev/).
+- **[Renovate setup](./skills/renovate-setup/SKILL.md)** (skill) - Configures
+  Renovate with a minimum release age of seven days and immutable updates
   through lock files, integrity hashes, action SHAs, and image digests.
 - **[frozen-install](./skills/frozen-install/SKILL.md)** (skill) -
   Rewrites resolving install commands as frozen ones (`npm ci`,
