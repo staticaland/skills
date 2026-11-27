@@ -8,40 +8,19 @@ description: Write a message for the user to paste into Slack, in Slack markup (
 The user copies the message from this chat and pastes it into Slack. Slack
 renders its own markup, not standard Markdown, so write the message in it.
 
-## Output
-
 Put the whole message in one fenced code block, so the user copies the raw
-markup and not your chat's rendering of it. When the message contains a
-code block, fence the outer block with four backticks.
+markup and not your chat's rendering of it.
 
-When the user asks for the message on the clipboard, pipe it to `pbcopy` on
-macOS, `wl-copy` on Wayland, or `xclip -selection clipboard` on X11.
+The user has turned on markup formatting in Slack's preferences. Inside the
+message:
 
-## Markup
-
-| Effect        | Write                              |
-| ------------- | ---------------------------------- |
-| Bold          | `*bold*`                           |
-| Italic        | `_italic_`                         |
-| Strikethrough | `~struck~`                         |
-| Inline code   | `` `code` ``                       |
-| Code block    | ` ``` ` on its own lines           |
-| Quote         | `>` and a space at the line start  |
-| List item     | `-` and a space at the line start  |
-| Numbered item | `1.` and a space at the line start |
-
-- Bold takes one asterisk on each side. Double asterisks show up as literal
-  asterisks.
-- A marker touches the word it wraps and has a space or punctuation outside
-  it: `*done*,` renders, `* done *` and `un*done*` do not.
-- Start list items with a hyphen and keep lists flat.
-- Open a code block with three bare backticks. A language name after them
-  shows up as text in the first line.
+- Write bold with one asterisk on each side: `*bold*`. Double asterisks show up
+  as literal asterisks.
 - For a heading, write a bold line of its own. `#` renders as a literal hash.
+- Open a code block with three bare backticks. A language name after them shows
+  up as text in the first line.
 - For a table, put aligned plain text in a code block.
-- Separate paragraphs with one blank line. One newline is a line break.
-- Write a link as `[text](url)`. The user has turned on markup formatting in
-  Slack's preferences, so the composer turns it into a link.
+- Write a link as `[text](url)`. The composer turns it into a link.
 - Write a mention as `@name`. A pasted mention is plain text until the user
   picks the person from Slack's autocomplete, so tell the user which mentions
   to redo.
