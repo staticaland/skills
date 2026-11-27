@@ -14,8 +14,8 @@ its panes, tabs, workspaces, and the agents running in them.
 
 - **[herdr](./skills/herdr/SKILL.md)** (skill) - Drives the
   [Herdr](https://github.com/herdrdev/herdr) session the agent runs in through
-  the `herdr` CLI: reads neighboring panes, starts commands and agents, and
-  waits for their state to change. It acts only when the user names Herdr.
+  the `herdr` CLI. It reads neighboring panes and waits on the commands and
+  agents it starts. It acts only when the user names Herdr.
 
 ## License
 

@@ -15,9 +15,9 @@ issues and pull requests.
 
 - **[create-pr](./skills/create-pr/SKILL.md)** (skill) - Opens a GitHub
   pull request with `gh`, filling the skill's PR template.
-- **[gh-attach](./skills/gh-attach/SKILL.md)** (skill) - Uploads an image
-  or video to a GitHub issue, pull request, or comment with the `gh --attach`
-  flag, and controls where it renders in the body.
+- **[gh-attach](./skills/gh-attach/SKILL.md)** (skill) - Uploads an image or
+  video with the `gh --attach` flag and places it where it should render in
+  the body of an issue or pull request, or in one of their comments.
 - **[gh-stack](./skills/gh-stack/SKILL.md)** (skill) - Manages stacked
   branches and pull requests with the
   [gh-stack](https://github.com/github/gh-stack) GitHub CLI extension: create,
