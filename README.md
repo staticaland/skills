@@ -274,6 +274,45 @@ typography, emphasis, and colour issues it finds.
   criteria, from alignment and overflow to visual weight and the squint test,
   then names and fixes each issue.
 
+#### [power-prompts](./plugins/power-prompts/README.md)
+
+One-sentence prompts that change how the agent attacks a problem, each a skill
+you invoke by name.
+
+<!-- vale ai-tells.FillerIntensifier = NO -->
+<!-- The prompts are quoted verbatim. -->
+
+- **[abstract-thinking](./plugins/power-prompts/skills/abstract-thinking/SKILL.md)**
+  (skill) - "Exercise abstract thinking when considering this task."
+- **[irreducible-constraints](./plugins/power-prompts/skills/irreducible-constraints/SKILL.md)**
+  (skill) - "Reduce this problem to its irreducible constraints and rebuild it
+  from zero."
+- **[principal-architect](./plugins/power-prompts/skills/principal-architect/SKILL.md)**
+  (skill) - "What would a principal architect immediately rewrite before even
+  starting this?"
+- **[day-one-test](./plugins/power-prompts/skills/day-one-test/SKILL.md)**
+  (skill) - "Design the single test that breaks this design on day one."
+- **[make-it-disappear](./plugins/power-prompts/skills/make-it-disappear/SKILL.md)**
+  (skill) - "What higher-level abstraction would make this entire problem
+  disappear?"
+- **[implicit-state-machines](./plugins/power-prompts/skills/implicit-state-machines/SKILL.md)**
+  (skill) - "Find all of the implicit state machines in this app."
+- **[unenforced-invariants](./plugins/power-prompts/skills/unenforced-invariants/SKILL.md)**
+  (skill) - "Find every invariant this app relies on but doesn't explicitly
+  enforce."
+- **[deep-modules](./plugins/power-prompts/skills/deep-modules/SKILL.md)**
+  (skill) - Hides behavior behind small interfaces. It merges away modules
+  that add nothing and moves each concept into the module that owns it. Then
+  it cuts every interface down to one obvious way to call it.
+- **[deeper-not-bigger](./plugins/power-prompts/skills/deeper-not-bigger/SKILL.md)**
+  (skill) - Rewrites a prompt to ask for a deeper version of the task, not a
+  bigger one.
+  It first names what a top professional would add, the raw material they would
+  start from, their methods and tools, and what outside check would show the
+  result is right.
+
+<!-- vale ai-tells.FillerIntensifier = YES -->
+
 #### [browser](./plugins/browser/README.md)
 
 Drive Chrome, web apps, and Electron apps from the command line with the

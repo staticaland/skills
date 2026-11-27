@@ -12,6 +12,8 @@ anki-flashcards
 Cloze
 Goodhart
 Matuschak
+Ousterhout
+Wyrmfalls
 Staticaland
 frontmatter
 formatters
