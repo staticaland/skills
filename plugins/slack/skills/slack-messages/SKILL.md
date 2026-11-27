@@ -40,8 +40,8 @@ macOS, `wl-copy` on Wayland, or `xclip -selection clipboard` on X11.
 - For a heading, write a bold line of its own. `#` renders as a literal hash.
 - For a table, put aligned plain text in a code block.
 - Separate paragraphs with one blank line. One newline is a line break.
-- Write links as bare URLs. Slack links them on its own, and `[text](url)`
-  renders as literal brackets.
+- Write a link as `[text](url)`. The user has turned on markup formatting in
+  Slack's preferences, so the composer turns it into a link.
 - Write a mention as `@name`. A pasted mention is plain text until the user
   picks the person from Slack's autocomplete, so tell the user which mentions
   to redo.
