@@ -275,6 +275,12 @@ you invoke by name.
   (skill) - Hides behavior behind small interfaces. It merges away modules
   that add nothing and moves each concept into the module that owns it. Then
   it cuts every interface down to one obvious way to call it.
+- **[deeper-not-bigger](./plugins/power-prompts/skills/deeper-not-bigger/SKILL.md)**
+  (skill) - Rewrites a prompt to ask for a deeper version of the task, not a
+  bigger one.
+  It first names what a top professional would add, the raw material they would
+  start from, their methods and tools, and what outside check would show the
+  result is right.
 
 <!-- vale ai-tells.FillerIntensifier = YES -->
 

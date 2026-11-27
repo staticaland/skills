@@ -39,6 +39,11 @@ task after it: `/power-prompts:day-one-test the new cache layer`.
   (skill) - Hides behavior behind small interfaces. It merges away modules
   that add nothing and moves each concept into the module that owns it. Then
   it cuts every interface down to one obvious way to call it.
+- **[deeper-not-bigger](./skills/deeper-not-bigger/SKILL.md)** (skill) -
+  Rewrites a prompt to ask for a deeper version of the task, not a bigger one.
+  It first names what a top professional would add, the raw material they would
+  start from, their methods and tools, and what outside check would show the
+  result is right.
 
 <!-- vale ai-tells.FillerIntensifier = YES -->
 
@@ -48,7 +53,8 @@ Steve Ruiz posted the implicit state machines prompt on X. Wyrmfalls posted the
 next five in reply to a call for a collection of prompts like it, and Josh
 Puckett posted the unenforced invariants prompt in reply to Steve Ruiz. The
 deep-modules prompt builds on the deep modules idea from John Ousterhout's
-_A Philosophy of Software Design_.
+_A Philosophy of Software Design_. Andrew Michael posted the
+deeper-not-bigger prompt on X, from a screenshot credited to Felix Rieseberg.
 
 ## License
 
