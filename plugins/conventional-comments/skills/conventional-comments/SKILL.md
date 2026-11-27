@@ -16,7 +16,7 @@ ones to post.
 
 ## Write each comment
 
-Follow the [Conventional Comments](https://conventionalcomments.org) shape:
+Follow the [Conventional Comments](https://conventionalcomments.org) format:
 
 ````markdown
 **suggestion (non-blocking):** Say that automerge covers Renovate pull requests only.
@@ -31,45 +31,16 @@ would merge too.
 ```
 ````
 
-- **Label** - what the comment asks of the author, from the table below.
-- **Decoration** - how firmly the user holds the point. Use `(blocking)` only
-  when the user called it a must, and `(non-blocking)` otherwise. `(if-minor)`
-  asks for the change only if it stays small. `note`, `nitpick`, and `thought`
-  are non-blocking by nature and take no decoration.
-- **Subject** - one line, bold with the label, that says what to do.
-- **Discussion** - the reason, how the claim was established ("read from the
-  template, not tested"), and a link to the source.
-- **Suggestion block** - the replacement text, when there is one.
-
-| Label        | Use for                                                  |
-| ------------ | -------------------------------------------------------- |
-| `suggestion` | an improvement, with what to change and why it is better |
-| `issue`      | a specific problem; pair it with a suggestion            |
-| `question`   | a concern you are unsure of; ask the author to check     |
-| `todo`       | a small change that must happen before merge             |
-| `nitpick`    | a trivial preference                                     |
-| `praise`     | something done well, said only when it is true           |
-| `thought`    | an idea the change sparked, for later                    |
-| `note`       | something the reader should know, with nothing to change |
-| `chore`      | a process step needed before merge; link the process     |
-
-The site also lists `typo`, `polish`, and `quibble`.
-
-## Check the suggestion block
-
-A `suggestion` block replaces every line the comment covers, so its contents
-must be the finished lines:
-
-- Copy the lines' exact leading whitespace. A list item inside a tab block four
-  spaces in keeps those four spaces.
-- One comment covers one line or one contiguous range. When the same text
-  appears in two places, post two comments; the second can say "Same wording as
-  in ..." and repeat the block.
+- Use `(blocking)` only when the user called the point a must, and
+  `(non-blocking)` otherwise.
+- In the discussion, say how the claim was established ("read from the
+  template, not tested") and link the source.
+- Copy the commented lines' exact leading whitespace into the `suggestion`
+  block. The block replaces those lines, so a list item four spaces in keeps
+  its four spaces.
 - Run the target repository's own linter on the replacement text when it has
   one, such as Vale for prose or the formatter for code. A suggestion that fails
   the repository's CI costs the author a second round.
-- Write suggested prose for the reader of that file. Lead with the action the
-  reader takes, and drop jargon that reader does not need.
 
 ## Done
 
