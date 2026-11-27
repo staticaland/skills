@@ -21,6 +21,3 @@ message:
   up as text in the first line.
 - For a table, put aligned plain text in a code block.
 - Write a link as `[text](url)`. The composer turns it into a link.
-- Write a mention as `@name`. A pasted mention is plain text until the user
-  picks the person from Slack's autocomplete, so tell the user which mentions
-  to redo.
