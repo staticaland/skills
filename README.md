@@ -145,6 +145,17 @@ issues and pull requests.
   quotes the line until the body has it. The create-pr skill adds it for
   you.
 
+#### [conventional-comments](./plugins/conventional-comments/README.md)
+
+Post inline review comments on a GitHub pull request in the
+[Conventional Comments](https://conventionalcomments.org) format, with
+`suggestion` blocks for concrete replacements.
+
+- **[conventional-comments](./plugins/conventional-comments/skills/conventional-comments/SKILL.md)**
+  (skill) - Writes each comment as a label, a decoration, a subject, and a
+  sourced discussion with a `suggestion` block, posts them as one review
+  through `gh api`, and reads each one back by its id.
+
 #### [github-actions](./plugins/github-actions/README.md)
 
 Run GitHub Actions workflow steps in parallel, replace repeated workflow
