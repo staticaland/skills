@@ -20,6 +20,9 @@ been in the session.
    Cover the original request and the decisions made with their tradeoffs, and
    say what was tested and how. Follow the writing instructions in the template's comments,
    and leave the comments in place - the submit step removes them.
+   Give each section the layout below. In the section that tells what
+   changed, show the change as a diagram, a diff sketch, or a tree:
+   [`references/visuals.md`](references/visuals.md) has the forms.
 3. Read the `BODY FILE:` path `prepare` printed with the Read tool - the file
    is an empty placeholder, and the Write tool refuses a file it has not read.
    Then write the filled template to that exact path - never a path of your
@@ -33,6 +36,55 @@ been in the session.
 The submit command strips the comments, adds the AI-assistance notice below
 the body, and creates the PR through `gh`; the guard hook blocks a
 bare `gh pr create`.
+
+## Layout
+
+The layout follows the headings. Every heading in a PR body gets it, apart
+from the exception below, and so does a body rewritten with `gh pr edit`.
+
+The visible part is at most two sentences, and each sentence is its own
+paragraph. The longer explanation, lists, and code go in a collapsed block
+that adds to those sentences. The `<br>` gives the opened block space below
+its summary. GitHub renders the markdown inside only with the two blank lines
+around the block's content:
+
+```markdown
+## Heading
+
+First sentence.
+
+Second sentence, when the first is not enough.
+
+<details>
+<summary>Details</summary>
+<br>
+
+Longer explanation.
+
+</details>
+```
+
+Leave the block out of a section whose visible sentences say everything.
+
+The section that tells what changed is the exception. The reviewer reads its
+diagram, diff sketch, or tree first, so that content goes directly below the
+opening sentences with no `<details>` block around it:
+
+````markdown
+## What
+
+First sentence.
+
+```diff
+ submitForm
++  expandSkillMention
+   launchAgent
+```
+
+The parts of the change and how they work.
+````
+
+## Other bodies
 
 For any other PR or issue body, such as `gh issue create` or `gh pr edit`,
 write the body file with the Write tool first, then run `gh` as a separate

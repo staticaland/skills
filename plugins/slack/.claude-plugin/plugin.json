@@ -1,0 +1,8 @@
+{
+  "name": "slack",
+  "version": "0.1.0",
+  "author": {
+    "name": "staticaland"
+  },
+  "description": "Write Slack messages in Slack's own markup: single-asterisk bold, no headings, and lists for structured data"
+}

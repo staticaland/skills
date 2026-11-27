@@ -117,6 +117,15 @@ rule, and keep the vocabulary to real spelling needs.
 
 <!-- vale Vale.Terms = YES -->
 
+#### [slack](./plugins/slack/README.md)
+
+Write Slack messages in Slack's own markup: single-asterisk bold, hyphen lists,
+and no headings or tables.
+
+- **[slack-messages](./plugins/slack/skills/slack-messages/SKILL.md)** (skill) -
+  Writes a message to paste into Slack, in Slack's markup instead of standard
+  Markdown, inside one code block to copy.
+
 ### `dev`
 
 #### [pull-requests](./plugins/pull-requests/README.md)
@@ -126,12 +135,12 @@ branches and pull requests with gh-stack, and attach images and videos to
 issues and pull requests.
 
 - **[create-pr](./plugins/pull-requests/skills/create-pr/SKILL.md)**
-  (skill) - Opens a GitHub pull request with `gh`, filling the repo's PR
-  template or the skill's bundled one.
-- **[gh-attach](./plugins/pull-requests/skills/gh-attach/SKILL.md)**
-  (skill) - Uploads an image or video to a GitHub issue, pull request, or
-  comment with the `gh --attach` flag, and controls where it renders in the
-  body.
+  (skill) - Opens a GitHub pull request with `gh`, filling the skill's PR
+  template.
+- **[gh-attach](./plugins/pull-requests/skills/gh-attach/SKILL.md)** (skill) -
+  Uploads an image or video with the `gh --attach` flag and places it where it
+  should render in the body of an issue or pull request, or in one of their
+  comments.
 - **[gh-stack](./plugins/pull-requests/skills/gh-stack/SKILL.md)**
   (skill) - Manages stacked branches and pull requests with the
   [gh-stack](https://github.com/github/gh-stack) GitHub CLI extension: create,
@@ -144,6 +153,16 @@ issues and pull requests.
   `**<sub>AI assisted 🤖</sub>**`. Denies the call and
   quotes the line until the body has it. The create-pr skill adds it for
   you.
+
+#### [conventional-comments](./plugins/conventional-comments/README.md)
+
+Post inline review comments on a GitHub pull request in the
+[Conventional Comments](https://conventionalcomments.org) format, with
+`suggestion` blocks for concrete replacements.
+
+- **[conventional-comments](./plugins/conventional-comments/skills/conventional-comments/SKILL.md)**
+  (skill) - Writes each comment as a label, a decoration, a subject, and a
+  sourced discussion with a `suggestion` block.
 
 #### [github-actions](./plugins/github-actions/README.md)
 
@@ -176,14 +195,14 @@ Harden how dependencies arrive with cooldowns, Renovate, frozen installs, and
 denied install scripts, and adopt barely used ones into the repo.
 
 - **[dependency-cooldown](./plugins/dependencies/skills/dependency-cooldown/SKILL.md)**
-  (skill) - Sets up a minimum release age across a project's package
-  managers and update bots, so a compromised release is caught before it
+  (skill) - Sets up a minimum release age across the package managers and
+  update bots a project uses, so a compromised release is caught before it
   resolves. Per-ecosystem references from
   [cooldowns.dev](https://cooldowns.dev/).
 - **[Renovate setup](./plugins/dependencies/skills/renovate-setup/SKILL.md)**
-  (skill) - Configures Renovate with a seven-day minimum release age and
-  immutable updates through lock files, integrity hashes, action SHAs, and image
-  digests.
+  (skill) - Configures Renovate with a minimum release age of seven days and
+  immutable updates through lock files, integrity hashes, action SHAs, and
+  image digests.
 - **[frozen-install](./plugins/dependencies/skills/frozen-install/SKILL.md)**
   (skill) - Rewrites resolving install commands as frozen ones
   (`npm ci`, `uv sync --locked`) at every site meant to
@@ -245,6 +264,16 @@ its constraints.
   works, proposes the simplest design that could serve the same purpose, and
   keeps the proposals that survive the constraints that shaped the current one.
 
+#### [polish-ui](./plugins/polish-ui/README.md)
+
+Review a UI for visual polish and fix the alignment, spacing, grouping,
+typography, emphasis, and colour issues it finds.
+
+- **[polish-ui](./plugins/polish-ui/skills/polish-ui/SKILL.md)** (skill) -
+  Checks a page, component, or screenshot against a list of visual-polish
+  criteria, from alignment and overflow to visual weight and the squint test,
+  then names and fixes each issue.
+
 #### [power-prompts](./plugins/power-prompts/README.md)
 
 One-sentence prompts that change how the agent attacks a problem, each a skill
@@ -290,10 +319,9 @@ Drive Chrome, web apps, and Electron apps from the command line with the
 agent-browser CLI.
 
 - **[agent-browser](./plugins/browser/skills/agent-browser/SKILL.md)**
-  (skill) - Drives Chrome, web apps, and Electron apps from the command
-  line with
-  [agent-browser](https://github.com/vercel-labs/agent-browser) -
-  navigating, filling forms, clicking, taking screenshots, and extracting data.
+  (skill) - Drives Chrome, web apps, and Electron apps from the command line
+  with [agent-browser](https://github.com/vercel-labs/agent-browser) to open
+  pages, fill forms, click, take screenshots, and extract data.
 
 #### [show-me](./plugins/show-me/README.md)
 
@@ -395,8 +423,8 @@ its panes, tabs, workspaces, and the agents running in them.
 
 - **[herdr](./plugins/herdr/skills/herdr/SKILL.md)** (skill) - Drives the
   [Herdr](https://github.com/herdrdev/herdr) session the agent runs in through
-  the `herdr` CLI: reads neighboring panes, starts commands and agents, and
-  waits for their state to change. It acts only when the user names Herdr.
+  the `herdr` CLI. It reads neighboring panes and waits on the commands and
+  agents it starts. It acts only when the user names Herdr.
 
 ### `other`
 
