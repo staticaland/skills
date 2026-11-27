@@ -19,5 +19,5 @@ message:
 - For a heading, write a bold line of its own. `#` renders as a literal hash.
 - Open a code block with three bare backticks. A language name after them shows
   up as text in the first line.
-- For a table, put aligned plain text in a code block.
+- Slack renders no tables. Write a table as a Markdown list, one item per row.
 - Write a link as `[text](url)`. The composer turns it into a link.
