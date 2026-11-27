@@ -39,7 +39,7 @@
     {
       "name": "slack",
       "source": "./plugins/slack",
-      "description": "Write Slack messages in Slack's own markup: single-asterisk bold, hyphen lists, and no headings or tables",
+      "description": "Write Slack messages in Slack's own markup: single-asterisk bold, and no headings or tables",
       "version": "0.1.0",
       "category": "writing"
     },
