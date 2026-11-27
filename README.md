@@ -162,8 +162,7 @@ Post inline review comments on a GitHub pull request in the
 
 - **[conventional-comments](./plugins/conventional-comments/skills/conventional-comments/SKILL.md)**
   (skill) - Writes each comment as a label, a decoration, a subject, and a
-  sourced discussion with a `suggestion` block, posts them as one review
-  through `gh api`, and reads each one back by its id.
+  sourced discussion with a `suggestion` block.
 
 #### [github-actions](./plugins/github-actions/README.md)
 
